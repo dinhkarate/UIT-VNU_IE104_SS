@@ -1,0 +1,389 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1, h3 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#search-section {
+    text-align: center;
+    background-color: #fafafa;
+    padding: 40px 20px;
+}
+
+#search-section h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#search-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.search-bar select, 
+.search-bar input, 
+.search-bar button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.search-bar button {
+    background-color: #5a67d8;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #4c51bf;
+}
+
+#benefits-section {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.benefit-item {
+    width: 30%;
+}
+
+.benefit-item img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.benefit-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.benefit-item p {
+    font-size: 16px;
+}
+
+#promotion-section {
+    text-align: center;
+}
+
+.promotion-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.promotion-item {
+    width: 200px;
+    height: 150px;
+    background-color: #eee;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.promotion-slider .prev-btn,
+.promotion-slider .next-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.promotion-slider .prev-btn:hover,
+.promotion-slider .next-btn:hover {
+    background-color: #5a67d8;
+}
+
+#suggestion-section {
+    text-align: center;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.filter button:hover {
+    background-color: #f0f0f0;
+}
+
+.suggestion-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggestion-item {
+    width: 200px;
+    height: 150px;
+    background-color: #eee;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.suggestion-slider .prev-btn,
+.suggestion-slider .next-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.suggestion-slider .prev-btn:hover,
+.suggestion-slider .next-btn:hover {
+    background-color: #5a67d8;
+}
+
+@media (max-width: 768px) {
+    #benefits-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .benefit-item {
+        width: 100%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar select, 
+    .search-bar input, 
+    .search-bar button {
+        width: 100%;
+    }
+}
+
+
+header {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+
+.header-container {
+    background-color: #1c1c1c; 
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #333;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+
+.logo span {
+    font-family: 'Merriweather', serif; 
+    font-size: 52.67px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: #00bfff;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.search-bar button img {
+    width: 20px;
+}
+
+.language button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.language img {
+    width: 25px;
+    height: auto;
+}
+
+/* Nav */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00bfff;
+}
+
+/* Footer */
+footer {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-left .logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.footer-left p {
+    margin-top: 10px;
+}
+
+.social-icons a img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.footer-middle h4, .footer-right h4 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.footer-middle ul {
+    list-style: none;
+}
+
+.footer-middle ul li {
+    margin-bottom: 10px;
+}
+
+.footer-middle ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-middle ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-right p {
+    margin-bottom: 10px;
+}
+
+.footer-right form {
+    display: flex;
+    margin-top: 10px;
+}
+
+.footer-right form input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    flex: 1;
+}
+
+.footer-right form button {
+    padding: 10px 20px;
+    background-color: #00bfff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    color: white;
+}
+
+.footer-right form button:hover {
+    background-color: #008fbf;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    color: #bbb;
+    font-size: 0.9em;
+}
