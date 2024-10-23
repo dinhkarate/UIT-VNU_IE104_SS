@@ -1,3 +1,7 @@
+* {
+    font-family: 'Merriweather', serif;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -76,14 +80,12 @@ p {
 .search-container h1 {
     margin: 0 0 0 20px;
     font-size: 37px;
-    font-family: 'Lato', sans-serif; 
     font-weight: 700;
 }
 
 .search-container p {
     margin: 5px 0 20px 20px;
     font-size: 30px;
-    font-family: 'Lato', sans-serif; 
 }
 
 
@@ -340,21 +342,30 @@ header {
 .logo {
     display: flex;
     align-items: center;
+    width: 439px;
+    height: 87px;
+    object-fit: contain; /* Đảm bảo giữ nguyên tỷ lệ hình ảnh */
 }
 
 .logo img {
-    width: 80px;
+    width: 97px;
     height: auto;
 }
 
 
-.logo span {
-    font-family: 'Merriweather', serif; 
+.sport, .spot {
+    font-family: 'Merriweather', serif;
     font-size: 52.67px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    position: relative;
-    margin-right: 270px;
+    color: #2DD2EC; /* Màu xanh cho cả hai chữ */
+    text-shadow: 
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,  
+        -1px 1px 0 #000,  
+        1px 1px 0 #000; /* Viền đen xung quanh chữ */
+}
+
+.spot {
+    color: #ffffff;
 }
 
 .search-bar {
@@ -442,7 +453,6 @@ nav ul li.register {
 }
 
 nav ul li a {
-    font-family: 'Lato', sans-serif; 
     font-weight: 700; 
     font-size: 25px; 
     color: white;
@@ -502,7 +512,6 @@ footer {
 
 .footer-middle h4, .footer-right h4 {
     font-size: 31px;
-    font-family: 'Lato', sans-serif; 
     font-weight: 700; 
     margin: 0px;
     padding-top: 20px;
