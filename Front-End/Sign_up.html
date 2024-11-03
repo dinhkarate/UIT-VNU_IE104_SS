@@ -4,17 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SportSpot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link href="styles.css" type="text/css" rel="stylesheet" />
   </head>
@@ -58,22 +52,16 @@
         </div>
 
         <div class="policy-approval">
-          <label
-            ><input type="checkbox" required /> Tôi đã đọc và đồng ý với điều
-            khoản sử dụng và chính sách bảo mật thông tin của SportSpot.</label
+          <input type="checkbox" id="terms" required />
+          <label for="t"
+            >Tôi đã đọc và đồng ý với điều khoản sử dụng và chính sách bảo mật
+            thông tin của SportSpot.</label
           >
         </div>
 
-        <div
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-          "
-        >
-          <button type="button" class="back-button">Trở về</button>
-          <button type="submit" class="register-button">Đăng ký</button>
+        <div class="button-container">
+          <button class="custom-button back-button">Trở về</button>
+          <button class="custom-button register-button">Đăng ký</button>
         </div>
       </form>
     </div>
