@@ -6,40 +6,44 @@
     <title>SportSpot</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="images/logo.png" alt="SportSpot Logo">
-                <span>SportSpot</span>
+        <div class="header-wrapper">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="SportSpot Logo">
+                    <span class="sport">Sport</span><span class="spot">Spot</span>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search thông tin cần tìm">
+                    <button type="submit">
+                        <img src="images/iconSearch.png" alt="Search">
+                    </button>
+                </div>
+                <div class="language">
+                    <button>
+                        <img src="images/VietNamFlag.png" alt="Vietnamese">
+                    </button>
+                </div>
             </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search thông tin cần tìm">
-                <button type="submit">
-                    <img src="images/iconSearch.png" alt="Search">
-                </button>
-            </div>
-            <div class="language">
-                <button>
-                    <img src="images/VietNamFlag.png" alt="Vietnamese">
-                </button>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li><a href="#">Danh sách sân</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Chính sách</a></li>
+                    <li><a href="#">Dành cho chủ sân</a></li>
+                    <li><a href="#">Giải đấu</a></li>
+                    <li class="login"><a href="#">Đăng nhập</a></li>
+                    <li class="register"><a href="#">Đăng ký</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
-                <li><a href="#">Danh sách sân</a></li>
-                <li><a href="#">Tin tức</a></li>
-                <li><a href="#">Chính sách</a></li>
-                <li><a href="#">Dành cho chủ sân</a></li>
-                <li><a href="#">Liên hệ</a></li>
-                <li class="login"><a href="#">Đăng nhập</a></li>
-                <li class="register"><a href="#">Đăng ký</a></li>
-            </ul>
-        </nav>
     </header>
 
 
@@ -48,9 +52,17 @@
     <section id="search-section">
         <div class="image-container">
             <img src="images/soccer-field.png" alt="Soccer Field">
-            <button class="nav-btn left-btn">&#10094;</button> <!-- Nút trái -->
-            <button class="nav-btn right-btn">&#10095;</button> <!-- Nút phải -->
+            <div class="description-container">
+                <div class="logo-container">
+                    <span class="sport">Sport</span>
+                    <span class="spot">Spot</span>
+                </div>
+
+                <div class="mota">Hệ thống tìm kiếm, quản lý<br>Đặt sân trực tuyến nhanh chóng, tiện lợi</div>
+
+            </div>
         </div>
+
         <div class="search-container">
             <h1>Đặt sân ngay!</h1>
             <p>Công cụ hỗ trợ tìm kiếm sân nhanh chóng</p>
@@ -74,37 +86,59 @@
     </section>
 
     <section id="benefits-section">
-        <div class="benefit-item">
+        <div class="benefit-item-1">
             <img src="images/iconStadium.png" alt="Tìm kiếm vị trí sân">
             <h3>Tìm kiếm vị trí sân</h3>
             <p>Thông tin sân đầy đủ, phong phú, liên tục cập nhật, giúp bạn dễ dàng tìm kiếm theo khu vực</p>
         </div>
-        <div class="benefit-item">
+        <div class="benefit-item-2">
             <img src="images/iconCalendar.png" alt="Đặt lịch dễ dàng">
             <h3>Đặt lịch dễ dàng</h3>
             <p>Không cần trực tiếp, không cần gọi điện hẹn trước, bạn có thể đặt sân chỉ với vài thao tác đơn giản</p>
         </div>
-        <div class="benefit-item">
+        <div class="benefit-item-3">
             <img src="images/iconCarrier.png" alt="Tổ chức giải đấu">
             <h3>Tổ chức giải đấu</h3>
             <p>Tìm đối thủ, kết nối, giao lưu các đội và thể dục thể thao thông qua những giải đấu hoàn tráng</p>
         </div>
     </section>
 
-    <section id="promotion-section">
-        <div class="promotion-header">
-            <h2>Ưu đãi</h2>
-            <p>Khám phá các khuyến mãi đặc biệt dành riêng cho bạn!</p>
+    <section id="tournament-section">
+        <div class="tournament-header">
+            <h2 class="tournament-header-h2">Các giải đấu đang diễn ra</h2>
+            <p class="tournament-header-p">Tham gia tranh tài trong các giải đấu hấp dẫn</p>
         </div>
-        <div class="promotion-slider">
-            <button class="nav-btn left-btn">&#10094;</button> <!-- Nút trái -->
-            <div class="promotion-content">
-                <!-- Nội dung ưu đãi -->
+        <div class="tournament-slider">
+            <button class="nav-btn left-btn">&#10094;</button> <!-- Left navigation button -->
+            
+            <div class="tournament-content">
+                <!-- Left side: Image -->
+                <div class="tournament-image">
+                    <img src="https://placehold.co/1050x450" alt="Tournament Image">
+                </div>
+
+                <!-- Right side: Tournament information -->
+                <div class="tournament-info">
+                    <div class="tournament-header-info">
+                        <h2>Giải đấu cup tứ hùng</h2>
+                        <p class="status">Đang diễn ra</p>
+                        <p>Giải đấu do trường đại học UIT tổ chức nhằm tạo sân chơi cho các bạn sinh viên có niềm đam mê với bộ môn bóng đá</p>
+                    </div>
+                    <div class="info-detail">
+                        <p><span class="icon">👥</span> 12 team</p>
+                        <p><span class="icon">📍</span> Sân bóng đá A</p>
+                        <p><span class="icon">📅</span> 06/12/2024 ~ 20/12/2024</p>
+                        <p><span class="icon">💰</span> 80k / người</p>
+                    </div>
+                    <button class="register-btn">Đăng ký ngay</button>
+                </div>
             </div>
-            <button class="nav-btn right-btn">&#10095;</button> <!-- Nút phải -->
+
+            <button class="nav-btn right-btn">&#10095;</button> <!-- Right navigation button -->
         </div>
     </section>
 
+<!--
     <section id="suggestions-section">
         <div class="suggestions-container">
             <div class="suggestions-header">
@@ -123,7 +157,7 @@
         </div>
 
         <div class="suggestions-slider">
-            <button class="nav-btn left-btn">&#10094;</button> <!-- Nút trái -->
+            <button class="nav-btn left-btn">&#10094;</button>
             <div class="suggestions-content">
                 <div class="suggestion-item"></div>
                 <div class="suggestion-item"></div>
@@ -132,7 +166,7 @@
                 <div class="suggestion-item"></div>
                 <div class="suggestion-item"></div>
             </div>
-            <button class="nav-btn right-btn">&#10095;</button> <!-- Nút phải -->
+            <button class="nav-btn right-btn">&#10095;</button>
         </div>
     </section>
 
