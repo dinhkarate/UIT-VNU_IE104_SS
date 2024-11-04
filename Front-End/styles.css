@@ -37,7 +37,7 @@ p {
 .header-container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
@@ -67,7 +67,7 @@ p {
 
 .logo .spot, .footer-left .logo_footer .logo_footer_container .spot {
     color: #ffffff;
-    margin-right: 209px;
+    margin-right: 250px;
 }
 
 .search-bar {
@@ -131,6 +131,7 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    gap: 23px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,7 +149,6 @@ nav ul li.login {
 }
 
 nav ul li.register {
-    border-left: 1px solid white;
     padding-left: 20px;
 }
 
