@@ -850,12 +850,12 @@ nav ul li a:hover {
     background-color: #111;
     color: #fff;
     padding: 40px 50px;
+    padding-bottom: 10px;
     font-family: 'Roboto', sans-serif;
 }
 
 /* General styling for paragraphs and list items in the footer */
-#footer-section p,
-#footer-section ul li {
+#footer-section p {
     font-family: 'Roboto-Regular', sans-serif;
     font-weight: 400; /* Regular weight */
     font-size: 19.9px; /* Set to 19.9px as specified */
@@ -863,18 +863,34 @@ nav ul li a:hover {
     margin: 10px 0; /* Add vertical spacing */
 }
 
+#footer-section .footer-links ul li {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important; /* Regular weight */
+    font-size: 19.9px !important; /* Set to 19.9px as specified */
+    color: #d3d3d3 !important; /* Light gray color */
+    margin: 10px 0 !important; /* Add vertical spacing */
+}
+
+
 
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
+    gap: 70px;
     max-width: 1920px;
     margin: 0 auto;
 }
 
 .footer-about {
-    
+    max-width: 37%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
 }
 
 .footer-about img {
@@ -904,6 +920,10 @@ nav ul li a:hover {
     color: #2dd2ec; /* Sport in highlighted color */
 }
 
+.footer-description {
+    padding: 10px;
+}
+
 .footer-about p {
     font-size: 14px;
     color: #d3d3d3;
@@ -922,8 +942,12 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-.footer-links, .footer-subscribe {
-    width: 33%; /* Set desired width */
+.footer-links {
+    width: 20%; /* Set desired width */
+}
+
+.footer-subscribe {
+    width: 32%; /* Set desired width */
 }
 
 
