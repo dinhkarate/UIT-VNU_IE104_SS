@@ -1,0 +1,138 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Carousel Section */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.carousel-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.carousel-nav {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    color: white;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+/* Category Filters */
+.filters {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.filter {
+    padding: 8px 15px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.filter.active {
+    background-color: #333;
+    color: white;
+}
+
+/* Highlight and Knowledge Sections */
+.highlight, .sports-knowledge {
+    padding: 20px;
+}
+
+.highlight h2, .sports-knowledge h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.highlight-grid, .knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.article-card {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.article-card:hover {
+    transform: scale(1.02);
+}
+
+.article-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.article-info {
+    padding: 15px;
+}
+
+.category, .sub-category {
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+}
