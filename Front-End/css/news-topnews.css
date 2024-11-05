@@ -1,0 +1,92 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.article-container {
+    max-width: 1310px;
+    background-color: #ffffff;
+
+}
+
+/* Main Image and Caption */
+.article-header {
+    position: relative;
+    margin-bottom: 20px; /* Khoảng cách với dòng thông tin */
+}
+
+.article-header img {
+    width: 100%;
+    max-width: 1310px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Positioning h1 on the bottom-left corner of the image */
+.article-header h1 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 32px;
+    color: #fff; /* Màu trắng để nổi bật trên hình ảnh */
+    background-color: rgba(0, 0, 0, 0.5); /* Nền mờ giúp đọc dễ hơn */
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 0; /* Xóa margin mặc định */
+}
+
+/* Article Info - Category and Date */
+.article-info {
+    margin-bottom: 20px; /* Khoảng cách với nội dung bài viết */
+}
+
+/* Sub Images */
+.sub-images {
+    display: flex;
+    gap: 50px; /* Khoảng cách giữa hai ảnh */
+}
+
+.sub-images img {
+    width: 525px;
+    height: 760px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.category {
+    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
+    font-weight: 500; /* Medium */
+    font-size: 35.7px; /* Kích thước chữ 35.7px */
+    color: #FF5050; /* Màu chữ FF5050 */
+    padding-left: 100px;
+}
+
+
+.article-info p {
+    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
+    font-weight: 500; /* Medium */
+    font-size: 35.7px; /* Kích thước chữ 35.7px */
+    color: #666;
+}
+
+
+/* Article Content */
+.article-content {
+    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+    font-weight: 400; /* Regular */
+    font-size: 35px; /* Kích thước chữ 35px */
+    color: #333;
+    line-height: 1.6;
+    padding-left: 100px;
+    padding-right: 70px;
+}
+
+
+.article-content p {
+    margin: 20px 0;
+}
