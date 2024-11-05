@@ -7,47 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
-    <header>
-        <div class="header-wrapper">
-            <div class="header-container">
-                <div class="logo">
-                    <img src="images/logo.png" alt="SportSpot Logo">
-                    <span class="sport">Sport</span><span class="spot">Spot</span>
-                </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search thông tin cần tìm">
-                    <button type="submit">
-                        <img src="images/iconSearch.png" alt="Search">
-                    </button>
-                </div>
-                <div class="language">
-                    <button>
-                        <img src="images/VietNamFlag.png" alt="Vietnamese">
-                    </button>
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
-                    <li><a href="#">Danh sách sân</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Chính sách</a></li>
-                    <li><a href="#">Dành cho chủ sân</a></li>
-                    <li><a href="#">Giải đấu</a></li>
-                    <li class="login"><a href="#">Đăng nhập</a></li>
-                    <li class="register"><a href="#">Đăng ký</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-
-
+    <div id="header-placeholder2"></div>
 
     <section id="search-section">
         <div class="image-container">
@@ -300,51 +264,33 @@
 
 
 
-    <footer id="footer-section">
-        <div class="footer-container">
-            <!-- Logo and Description -->
-            <div class="footer-about">
-                <div class="footer-logo">
-                    <img src="images/logo.png" alt="SportSpot Logo">
-                    <span class="sport">Sport</span><span class="spot">Spot</span>
-                </div>
+    <div id="footer-placeholder"></div>
 
-                <div class="footer-description">
-                    <p>Chúng tôi cung cấp cho bạn các tiện ích thông minh giúp lên lịch và quản lý sân bãi một cách hiệu quả.</p>
-                    <div class="footer-social-icons">
-                        <a href="#"><i class="fab fa-facebook-square"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                    <p>Bạn có thể liên hệ với chúng tôi qua các nền tảng</p>
-                </div>
-            </div>
 
-            <!-- Links Section -->
-            <div class="footer-links">
-                <h3>Thông tin</h3>
-                <ul>
-                    <li><a href="#">Về chúng tôi</a></li>
-                    <li><a href="#">Các chính sách</a></li>
-                    <li><a href="#">Điều khoản bảo mật</a></li>
-                </ul>
-            </div>
 
-            <!-- Subscription Section -->
-            <div class="footer-subscribe">
-                <h3>Đặt sân hiệu quả, tiết kiệm</h3>
-                <p>Hãy đăng ký thư điện tử và chúng tôi sẽ cập nhật những ưu đãi tốt nhất dành cho bạn</p>
-                <div class="subscribe-form">
-                    <input type="email" placeholder="Địa chỉ email của bạn">
-                    <button>Đăng ký</button>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Copyright © 2024 SportSpot. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <!-- JavaScript to Load Header and Footer -->
+    <script>
+        // Function to load external HTML files into placeholders
+        function loadHTML(id, url) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
 
+        // Load the header and footer
+        loadHTML('header-placeholder2', 'header.html');
+        loadHTML('footer-placeholder', 'footer.html');
+    </script>
 
 </body>
 </html>
