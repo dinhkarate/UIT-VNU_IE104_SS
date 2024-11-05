@@ -1,0 +1,82 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0px;
+    background-color: #fff;
+}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+    padding: 40px 40px 0px 40px;
+    font-size: 16px;
+    color: #555;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #555;
+}
+
+.breadcrumb span {
+    color: #000;
+}
+
+/* Main Section Styling */
+.policy-section {
+    margin: 0 auto;
+    padding-left: 140px;
+    padding-right: 140px;
+}
+
+.policy-section h1, .section-heading  {
+    font-family: 'Playfair Display', serif; /* Sets the font to Playfair Display */
+    font-size: 70px; /* Sets font size to 70px */
+    font-weight: bold; /* Sets font weight to bold */
+    line-height: 78.6px; /* Sets line height */
+    letter-spacing: -0.31px; /* Sets letter spacing */
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Secondary Heading */
+ {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 40px 0 20px;
+    text-transform: uppercase;
+}
+
+/* Numbered List Styling */
+.policy-section ol {
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif; /* Sets the font to Roboto */
+    font-size: 29.48px; /* Sets font size to 29.48px */
+    font-weight: 400; /* Sets font weight to regular */
+    line-height: 39.3px; /* Sets line height */
+    letter-spacing: 0; /* Sets letter spacing to 0% */
+    margin-bottom: 10px;
+}
+
+.policy-section ol li {
+    margin-bottom: 20px;
+}
+
+.policy-section ol li h2 {
+    font-family: 'Roboto', sans-serif; /* Sets the font to Roboto */
+    font-size: 29.48px; /* Sets font size to 29.48px */
+    font-weight: 400; /* Sets font weight to regular */
+    line-height: 39.3px; /* Sets line height */
+    letter-spacing: 0; /* Sets letter spacing to 0% */
+    margin-bottom: 10px;
+}
+
+.policy-section ol li p {
+    font-family: 'Roboto', sans-serif; /* Sets the font to Roboto */
+    font-size: 20px; /* Sets font size to 20px */
+    font-weight: 400; /* Sets font weight to regular */
+    line-height: 29.5px; /* Sets line height */
+    letter-spacing: 0.61px; /* Sets letter spacing */
+    color: #555; /* Sets text color */
+}

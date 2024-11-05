@@ -1,0 +1,1025 @@
+body {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+h1, h3 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+/*Header*/
+
+.header-wrapper {
+    width: 1836px;
+    height: 222px;
+    margin: 0 auto;
+    padding: 34px 42px 7px 81px;
+    box-sizing: border-box;
+    opacity: 0.92;
+    border-radius: 95px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: #000;
+    position: fixed; /* Fixes the header in place */
+    top: 35px;
+    left: 50%; /* Centers it horizontally */
+    transform: translateX(-50%); /* Adjusts position to center on the screen */
+    z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+
+
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 97px;
+    height: auto;
+}
+
+
+.logo span {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 69.1px;
+    color: #2dd2ec;
+    text-shadow: 
+        -1.4px -1.4px 0 #000000,  
+         1.4px -1.4px 0 #000000,  
+        -1.4px  1.4px 0 #000000,  
+         1.4px  1.4px 0 #000000;
+    position: relative;
+}
+
+.logo .spot, .footer-left .logo_footer .logo_footer_container .spot {
+    color: #ffffff;
+    margin-right: 250px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 838px;
+    height: 43px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    margin-right: 60px;
+    box-sizing: border-box; /* Ensures width and height include the border */
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 670px;
+    font-family: 'Merriweather', serif; 
+    font-size: 21px;
+    color: #000000;
+    background-color: #D9D9D9;
+    margin-left: 39px;
+}
+
+.search-bar button {
+    background-color: #1877F2;
+    border: 17.6px solid #1877F2; /* Ensures the border matches the button color */
+    width: 89px;
+    height: 43px;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Keeps the button's size within specified dimensions */
+}
+
+
+.search-bar button img {
+    width: 25px;
+    height: auto;
+}
+
+.search-bar button:hover {
+    background-color: #008fbf;
+}
+
+.language button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.language img {
+    width: 53px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    display: inline-block;
+    padding-right: 35px;
+    padding-top: 29px;
+    padding-bottom: 25px;
+}
+
+nav ul li.login {
+    margin-left: 230px;
+}
+
+nav ul li.register {
+    padding-left: 20px;
+}
+
+nav ul li a {
+    font-family: 'Roboto', sans-serif; /* Updated to Roboto */
+    font-weight: bold; /* Sets to Bold */
+    font-size: 25px; /* Sets to 25px */
+    color: white;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,  
+        -1px  1px 0 #000,  
+         1px  1px 0 #000;
+    text-decoration: none;
+    border-radius: 5px; /* Rounds the hover effect border */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+nav ul li a:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #000000; /* Black text on hover */
+    text-shadow: none; /* Removes text shadow on hover for clarity */
+}
+
+/*Header*/
+
+
+/*Search Section*/
+
+#search-section {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: 1220px; /* Set to match image height */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#search-section .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px; /* Sets maximum width */
+    max-height: 1000px; /* Sets maximum height */
+    overflow: hidden;
+    margin: 0 auto; /* Centers the container */
+}
+
+#search-section .image-container img {
+    width: 100%;
+    height: 1000px; /* Fixes the image height to 1000px */
+    object-fit: cover; /* Ensures the image covers the entire area without distortion */
+}
+
+#search-section .image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.54); /* Black with 54% opacity */
+    filter: blur(6px); /* Gaussian blur */
+    pointer-events: none; /* Allows interaction with elements below */
+}
+
+
+
+#search-section .description-container {
+    z-index: 1;
+}
+
+/* Center the entire logo container within search-section */
+#search-section .logo-container {
+    position: absolute;
+    top: 344.49px; /* Set to the specified y-coordinate */
+    left: 123px; /* Set to the specified x-coordinate */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transform: none; /* Remove the previous centering transform */
+}
+
+
+/* Style for Sport */
+#search-section .sport {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 174.5px; /* Sets font size to 174.5px */
+    color: #2dd2ec; /* Primary color for the text */
+    text-shadow: 
+        -3.5px -3.5px 0 #000000,  
+         3.5px -3.5px 0 #000000,  
+        -3.5px  3.5px 0 #000000,  
+         3.5px  3.5px 0 #000000; /* Creates a 3.5px black border effect */
+}
+
+
+/* Style for Spot */
+#search-section .spot {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 174.5px; /* Sets font size to 174.5px */
+    color: #ffffff;
+    text-shadow: 
+        -3.5px -3.5px 0 #000000,  
+         3.5px -3.5px 0 #000000,  
+        -3.5px  3.5px 0 #000000,  
+         3.5px  3.5px 0 #000000; /* Creates a 3.5px black border effect */
+}
+
+#search-section .mota {
+    position: absolute;
+    top: 597px; /* Adjust this as needed */
+    left: 154px; /* Adjust this as needed */
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: #ffffff;
+    text-shadow: 
+        -1px -1px 0 #000000,  
+         1px -1px 0 #000000,  
+        -1px  1px 0 #000000,  
+         1px  1px 0 #000000; /* Creates a 1px black border effect */
+}
+
+
+
+
+#search-section .search-container {
+    position: absolute;
+    top: 944px;
+    left: 210px;
+    width: 1500px;
+    height: 275px;
+    background-color: #ffffff;
+    padding: 42px;
+    border-radius: 95.2px;
+    box-shadow: 
+        inset 0 0 0 1.4px #000000,
+        0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+
+#search-section .search-container h1 {
+    margin: 0 0 0 20px;
+    font-size: 40.8px; /* Updated font size */
+    font-family: 'Lato', sans-serif; /* Lato font family */
+    font-weight: bold; /* Bold weight */
+    color: #000000; /* Black color */
+}
+
+#search-section .search-container p {
+    margin: 5px 0 20px 20px;
+    font-size: 34px; /* Updated font size */
+    font-family: 'Lato', sans-serif; /* Lato font family */
+    font-weight: 400; /* Regular weight */
+    color: #000000; /* Black color */
+}
+
+
+#search-section .search-bar-2 {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#search-section .search-bar-2 select, 
+#search-section .search-bar-2 button {
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 30.1px;
+    text-align: center;
+    color: #000000;
+    width: 323px; /* Set max width to 323px */
+    height: 74px; /* Set max height to 74px */
+    box-sizing: border-box; /* Ensures padding is included within these dimensions */
+}
+
+
+#search-section .search-bar-2 select {
+    background-color: #e0e0e0;
+    flex: 1;
+}
+
+#search-section .search-bar-2 button {
+    background-color: #15096E;
+    color: white;
+    cursor: pointer;
+}
+
+#search-section .search-bar-2 button:hover {
+    background-color: #0056b3;
+}
+
+/*Search Section*/
+
+
+
+
+/*Benefit Section*/
+#benefits-section {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 50px;
+    gap: 45px;
+}
+
+.benefit-item {
+    width: 30%;
+}
+
+.benefit-item-1 img {
+    height: 100px;
+}
+
+.benefit-item-2 img {
+    height: 100px;
+}
+
+.benefit-item-3 img {
+    height: 100px;
+}
+
+.benefit-item-1 h3, .benefit-item-2 h3, .benefit-item-3 h3  {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 45.7px; /* Set to 45.7px as specified */
+    color: #000000; /* Black color */
+    padding: 40px 0px 0px 0px;
+    margin: 0px;
+}
+
+#benefits-section .benefit-item-1 .p, #benefits-section .benefit-item-2 .p, #benefits-section .benefit-item-3 .p  {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Regular weight */
+    font-size: 20px; /* Set to 20px as specified */
+    color: #000000; /* Black color */
+    text-align: center; /* Centers the text */
+    margin: 0px;
+}
+
+/*Benefit Section*/
+
+
+/*Promotion Section*/
+#promotion-section {
+    padding: 20px 50px;
+    text-align: left;
+}
+
+
+.promotion-header h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold; /* Roboto-Bold */
+    font-size: 35px; /* Set to 35px as specified */
+    color: #000000; /* Black color */
+    margin-bottom: 5px;
+}
+
+.promotion-header p {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-weight: 400; /* Roboto-Regular */
+    font-size: 22px; /* Set to 22px as specified */
+    color: #000000; /* Black color */
+    margin-top: 5px;
+}
+
+
+/* Cards Layout */
+.promotion-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.promotion-card {
+    position: relative;
+    width: 580px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.promotion-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.promotion-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px; /* Keep content aligned with padding */
+    color: white;
+    text-align: left;
+}
+/*
+.promotion-info h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 0 5px 0;
+}
+
+.promotion-info p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0 0 10px 0;
+}
+*/
+
+.book-now-btn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold; /* Roboto-Bold */
+    font-size: 30.1px; /* Set to 30.1px as specified */
+    width: 247px; /* Set width as specified */
+    height: 62px; /* Set height as specified */
+    color: #000000; /* Black color as specified */
+    background-color: #b8b7b7; /* Set background color as specified */
+    border: none;
+    border-radius: 20px; /* Set border-radius as specified */
+    opacity: 0.92; /* Set opacity as specified */
+    cursor: pointer;
+    position: absolute;
+    bottom: 17px; /* Position from bottom of .promotion-info */
+    right: 17px; /* Position from right side */
+    transition: background-color 0.3s;
+}
+
+.book-now-btn:hover {
+    background-color: #a4a4a4;
+}
+/*Promotion Section*/
+
+
+
+
+
+
+
+/*Tournament Section*/
+/* General Section Styling */
+#tournament-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.tournament-header h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold; /* Roboto-Bold */
+    font-size: 35px; /* Set to 35px as specified */
+    color: #000000; /* Black color */
+    margin-bottom: 5px;
+}
+
+/* Styling for p in .tournament-header */
+.tournament-header p {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-weight: 400; /* Roboto-Regular */
+    font-size: 22px; /* Set to 22px as specified */
+    color: #000000; /* Black color */
+    margin: 0; /* Reset margin if necessary */
+}
+
+.tournament-header .status {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Styling for .tournament-header */
+.tournament-header {
+    padding-left: 30px;
+    padding-bottom: 40px;
+    text-align: left;
+}
+
+/* Tournament Slider Layout */
+.tournament-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for contrast */
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    border-radius: 50%; /* Circular buttons */
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.left-btn {
+    left: 10px; /* Position the left arrow on the left side */
+}
+
+.right-btn {
+    right: 10px; /* Position the right arrow on the right side */
+}
+
+/* Content Area Styling */
+.tournament-content {
+    display: flex;
+    width: 100%; /* Adjust width as needed */
+    max-width: 1920px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Left Side: Image */
+.tournament-image {
+    width: 55%px; /* Left side takes up 50% */
+}
+
+.tournament-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Right Side: Tournament Information */
+.tournament-info {
+    display: flex;
+    flex-direction: column;
+    width: 45%; /* Right side takes up 50% */
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.tournament-header-info h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 35px; /* Set to 35px as specified */
+    color: #000000; /* Black color */
+    text-align: center; /* Center-align text */
+    margin-bottom: 5px;
+}
+
+.tournament-header-info p {
+    font-family: 'Roboto-Medium', sans-serif;
+    font-weight: 500; /* SemiBold weight */
+    font-size: 22px; /* Set to 20px as specified */
+    color: #000000; /* Red color as specified */
+    text-align: center;
+}
+
+.tournament-header-info .status {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600; /* SemiBold weight */
+    font-size: 20px; /* Set to 20px as specified */
+    color: #e33629; /* Red color as specified */
+    text-align: center; /* Center-align text */
+    margin: 5px 0;
+}
+
+
+
+.info-detail p {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600; /* SemiBold weight */
+    font-size: 21.5px; /* Set to 21.5px as specified */
+    color: #333333; /* Dark color as specified */
+    margin: 8px 0;
+}
+
+/* Styling for .icon inside .info-detail */
+.info-detail .icon {
+    margin-right: 8px;
+    font-size: 21.5px; /* Match the text size */
+}
+
+/* Register Button Styling */
+.register-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #c4c4c4;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #a4a4a4;
+}
+
+
+
+
+
+
+#suggestions-section {
+    padding: 20px 50px;
+    background-color: white;
+}
+
+.suggestions-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#suggestions-section .suggestions-header p {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-weight: 400; /* Roboto-Regular */
+    font-size: 22px; /* Set to 22px as specified */
+    color: #000000; /* Black color */
+    margin: 0; /* Reset margin if necessary */
+}
+
+#suggestions-section .suggestions-header h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold; /* Roboto-Bold */
+    font-size: 35px; /* Set to 35px as specified */
+    color: #000000; /* Black color */
+    margin-bottom: 5px;
+}
+/* Sports Filter Styling */
+.sports-filter {
+    display: flex;
+    gap: 10px;
+}
+
+.sports-filter button {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+.sports-filter button i {
+    margin-right: 5px;
+}
+
+.sports-filter button:hover {
+    background-color: #d3d3d3;
+}
+
+/* Suggestions Slider */
+.suggestions-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* Suggestions Content */
+.suggestions-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display 3 items per row */
+    gap: 50px;
+    padding: 50px;
+}
+
+.suggestion-item {
+    display: grid;
+    grid-template-columns: 50% 50%; /* Two equal columns */
+    width: 510px; /* Set width to 510px */
+    height: 200px; /* Set height to 200px */
+    background-color: white;
+    border-radius: 30px 0 0 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.suggestion-item img {
+    width: 100%; /* Takes full width of the first grid column */
+    height: 100%; /* Takes full height */
+    object-fit: cover;
+}
+
+.suggestion-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.suggestion-info h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+}
+
+.suggestion-info p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.rating {
+    font-size: 14px;
+    color: #fbc02d;
+    display: flex;
+    align-items: center;
+}
+
+.rating span {
+    margin-left: 5px;
+    color: #000;
+    font-size: 12px;
+}
+
+.amenities {
+    display: flex;
+    gap: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+.hours {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #666;
+}
+
+
+
+
+/* Footer Section */
+#footer-section {
+    background-color: #111;
+    color: #fff;
+    padding: 40px 50px;
+    padding-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* General styling for paragraphs and list items in the footer */
+#footer-section p {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-weight: 400; /* Regular weight */
+    font-size: 19.9px; /* Set to 19.9px as specified */
+    color: #d3d3d3; /* Light gray color */
+    margin: 10px 0; /* Add vertical spacing */
+}
+
+#footer-section .footer-links ul li {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400 !important; /* Regular weight */
+    font-size: 19.9px !important; /* Set to 19.9px as specified */
+    color: #d3d3d3 !important; /* Light gray color */
+    margin: 10px 0 !important; /* Add vertical spacing */
+}
+
+
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 70px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.footer-about {
+    max-width: 37%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-about img {
+    width: 97px;
+    height: auto;
+}
+
+.footer-about span {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 69.1px;
+    color: #2dd2ec;
+    text-shadow: 
+        -1.4px -1.4px 0 #000000,  
+         1.4px -1.4px 0 #000000,  
+        -1.4px  1.4px 0 #000000,  
+         1.4px  1.4px 0 #000000;
+    position: relative;
+}
+
+.footer-about .spot {
+    color: #ffffff;
+    margin-right: 209px;
+}
+
+.footer-about .logo-highlight {
+    color: #2dd2ec; /* Sport in highlighted color */
+}
+
+.footer-description {
+    padding: 10px;
+}
+
+.footer-about p {
+    font-size: 14px;
+    color: #d3d3d3;
+    margin: 10px 0;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.footer-social-icons a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.footer-links {
+    width: 20%; /* Set desired width */
+}
+
+.footer-subscribe {
+    width: 32%; /* Set desired width */
+}
+
+
+.footer-links h3,
+.footer-subscribe h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold; /* Roboto-Bold */
+    font-size: 35px; /* Set to 35px as specified */
+    color: #fff; /* White color for visibility on dark background */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: #d3d3d3;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-subscribe p {
+    font-size: 14px;
+    color: #d3d3d3;
+    margin: 10px 0;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    width: 70%;
+    background-color: #b8b7b7;
+    color: black;
+    font-size: 14px;
+    outline: none;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #b8b7b7;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscribe-form button:hover {
+    background-color: #a4a4a4;
+}
+
+.footer-bottom {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+}
