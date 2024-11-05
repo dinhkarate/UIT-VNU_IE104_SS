@@ -1,0 +1,95 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.article-container {
+    max-width: 1200px;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* Article Title */
+.article-title {
+    font-family: 'Playfair Display', serif; /* Sets the font to Playfair Display */
+    font-size: 70px; /* Sets font size to 70px */
+    font-weight: bold; /* Sets font weight to bold */
+    line-height: 78.6px; /* Sets line height */
+    letter-spacing: -0.31px; /* Sets letter spacing */
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.article-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Khoảng cách bên dưới ảnh */
+}
+
+.article-header img {
+    max-width: 1050px;
+    width: 100%; /* Đảm bảo hình ảnh co lại theo kích thước màn hình */
+    height: auto;
+    border-radius: 8px;
+}
+/* Article Info - Category and Date */
+.article-info {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.article-info p {
+    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
+    font-weight: 500; /* Medium */
+    font-size: 35.7px; /* Kích thước chữ 35.7px */
+    color: #666;
+}
+
+.category {
+    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
+    font-weight: 500; /* Medium */
+    font-size: 35.7px; /* Kích thước chữ 35.7px */
+    color: #FF5050; /* Màu chữ FF5050 */
+    padding-left: 20px;
+}
+
+
+/* Article Content */
+.article-content {
+    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+    font-weight: 400; /* Regular */
+    font-size: 35px; /* Kích thước chữ 35px */
+    color: #333;
+    line-height: 1.6;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.article-content p {
+    margin: 20px 0;
+}
+
+.article-content p strong {
+    font-weight: bold;
+}
+
+/* Sub Image */
+.sub-image {
+    margin: 20px 0;
+}
+
+.sub-image img {
+    width: 100%;
+    max-width: 1050px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
