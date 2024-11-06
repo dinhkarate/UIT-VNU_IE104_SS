@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div id="header-placeholder2"></div>
+    <div id="header-placeholder"></div>
 
     <section id="search-section">
         <div class="image-container">
@@ -266,31 +266,6 @@
 
     <div id="footer-placeholder"></div>
 
-
-
-    <!-- JavaScript to Load Header and Footer -->
-    <script>
-        // Function to load external HTML files into placeholders
-        function loadHTML(id, url) {
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById(id).innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-
-        // Load the header and footer
-        loadHTML('header-placeholder2', 'header.html');
-        loadHTML('footer-placeholder', 'footer.html');
-    </script>
-
+    <script src="js/header.js"></script>
 </body>
 </html>
