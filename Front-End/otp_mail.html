@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SportSpot</title>
+    <title>Quên mật khẩu?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,26 +19,23 @@
 
   <body>
     <div class="forget-password-box">
-      <h2>Quên mật khẩu?</h2>
-
-      <div class="method-text">
-        <p>Chọn phương thức nhận mã</p>
+    <form action="">
+      <h2>Nhập mã OTP</h2>
+    <p class="otp-text">Vui lòng nhập mã OTP được gửi đến</p> 
+      <div class="otp-box">
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
+        <input type="text" maxlength="1"/>
       </div>
-
-      <div class="button-container">
-        <button
-          class="custom-button"
-          onclick="location.href='forget_password_mail.html'"
-        >
-          <span class="fa-solid fa-user"></span>Email
-        </button>
-        <button
-          class="custom-button"
-          onclick="location.href='forget_password_sdt.html'"
-        >
-          <span class="fa-solid fa-phone"></span>Số điện thoại
-        </button>
-      </div>
+    <p class="resend-text">Bạn chưa nhận được mã?<a href="#">Gửi lại</a></p>
+        <div class="confirm-button-container">
+            <button class="confirm-button" onclick="location.href='new_password.html'">Xác nhận</button>
+        </div>
     </div>
-  </body>
+    </form>
+</body>
+
 </html>
