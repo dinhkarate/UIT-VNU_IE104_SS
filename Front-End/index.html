@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportSpot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="SportSpot Logo">
+                <span>SportSpot</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search thông tin cần tìm">
+                <button type="submit">
+                    <img src="images/iconSearch.png" alt="Search">
+                </button>
+            </div>
+            <div class="language">
+                <button>
+                    <img src="images/VietNamFlag.png" alt="Vietnamese">
+                </button>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+                <li><a href="#">Danh sách sân</a></li>
+                <li><a href="#">Tin tức</a></li>
+                <li><a href="#">Chính sách</a></li>
+                <li><a href="#">Dành cho chủ sân</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li class="login"><a href="#">Đăng nhập</a></li>
+                <li class="register"><a href="#">Đăng ký</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <section id="search-section">
+        <div class="image-container">
+            <img src="images/soccer-field.png" alt="Soccer Field">
+            <button class="nav-btn left-btn">&#10094;</button> <!-- Nút trái -->
+            <button class="nav-btn right-btn">&#10095;</button> <!-- Nút phải -->
+        </div>
+        <div class="search-container">
+            <h1>Đặt sân ngay!</h1>
+            <p>Công cụ hỗ trợ tìm kiếm sân nhanh chóng</p>
+            <div class="search-bar-2">
+                <select name="loai-san">
+                    <option value="">Chọn loại sân</option>
+                    <option value="bong-da">Bóng đá</option>
+                    <option value="bong-ro">Bóng rổ</option>
+                </select>
+                <select name="tinh-thanh">
+                    <option value="">Chọn tỉnh/thành</option>
+                    <option value="hcm">Hồ Chí Minh</option>
+                    <option value="hn">Hà Nội</option>
+                </select>
+                <select name="khu-vuc">
+                    <option value="">Chọn khu vực</option>
+                </select>
+                <button type="submit">Tìm kiếm</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits-section">
+        <div class="benefit-item">
+            <img src="images/iconStadium.png" alt="Tìm kiếm vị trí sân">
+            <h3>Tìm kiếm vị trí sân</h3>
+            <p>Thông tin sân đầy đủ, phong phú, liên tục cập nhật, giúp bạn dễ dàng tìm kiếm theo khu vực</p>
+        </div>
+        <div class="benefit-item">
+            <img src="images/iconCalendar.png" alt="Đặt lịch dễ dàng">
+            <h3>Đặt lịch dễ dàng</h3>
+            <p>Không cần trực tiếp, không cần gọi điện hẹn trước, bạn có thể đặt sân chỉ với vài thao tác đơn giản</p>
+        </div>
+        <div class="benefit-item">
+            <img src="images/iconCarrier.png" alt="Tổ chức giải đấu">
+            <h3>Tổ chức giải đấu</h3>
+            <p>Tìm đối thủ, kết nối, giao lưu các đội và thể dục thể thao thông qua những giải đấu hoàn tráng</p>
+        </div>
+    </section>
+
+    <section id="promotion-section">
+        <div class="promotion-header">
+            <h2>Ưu đãi</h2>
+            <p>Khám phá các khuyến mãi đặc biệt dành riêng cho bạn!</p>
+        </div>
+        <div class="promotion-slider">
+            <button class="nav-btn left-btn">&#10094;</button> <!-- Nút trái -->
+            <div class="promotion-content">
+                <!-- Nội dung ưu đãi -->
+            </div>
+            <button class="nav-btn right-btn">&#10095;</button> <!-- Nút phải -->
+        </div>
+    </section>
+
+    <section id="suggestions-section">
+        <div class="suggestions-container">
+            <div class="suggestions-header">
+                <h2>Đề xuất cho bạn</h2>
+                <p>Các sân được đánh giá cao nhất gần đây</p>
+            </div>
+
+            <div class="sports-filter">
+                <button><i class="fas fa-futbol"></i> Bóng đá</button>
+                <button><i class="fas fa-basketball-ball"></i> Bóng rổ</button>
+                <button><i class="fas fa-table-tennis"></i> Cầu lông</button>
+                <button><i class="fas fa-table-tennis"></i> Bóng bàn</button>
+                <button><i class="fas fa-table-tennis"></i> Tennis</button>
+                <button><i class="fas fa-bullseye"></i> Pickleball</button>
+            </div>
+        </div>
+
+        <div class="suggestions-slider">
+            <button class="nav-btn left-btn">&#10094;</button> <!-- Nút trái -->
+            <div class="suggestions-content">
+                <div class="suggestion-item"></div>
+                <div class="suggestion-item"></div>
+                <div class="suggestion-item"></div>
+                <div class="suggestion-item"></div>
+                <div class="suggestion-item"></div>
+                <div class="suggestion-item"></div>
+            </div>
+            <button class="nav-btn right-btn">&#10095;</button> <!-- Nút phải -->
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="logo_footer">
+                    <div class="logo_footer_container">
+                        <img src="images/logo.png" alt="SportSpot Logo">
+                        <span>SportSpot</span>
+                        <p>Chúng tôi cung cấp cho bạn các tiện ích thông minh giúp lên lịch và quản lý sân một cách hiệu quả.</p>
+                        <p>Bạn có thể liên hệ với chúng tôi qua các nền tảng:</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                        <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                        <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+                        <a href="#"><img src="images/youtube-icon.png" alt="YouTube"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-middle">
+                <h4>Thông tin</h4>
+                <ul>
+                    <li><a href="#">Về chúng tôi</a></li>
+                    <li><a href="#">Các chính sách</a></li>
+                    <li><a href="#">Điều khoản bảo mật</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <h4>Đặt sân hiệu quả, tiết kiệm</h4>
+                <p>Hãy đăng ký thư điện tử và chúng tôi sẽ cập nhật những ưu đãi tốt nhất dành cho bạn</p>
+                <form action="#">
+                    <input type="email" placeholder="Địa chỉ email của bạn">
+                    <button type="submit">Đăng ký</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2024 SportSpot. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
