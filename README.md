@@ -1,28 +1,17 @@
-## :memo: Giới thiệu
+# UIT-VNU_IE104_SPORTSPOT
 
+## Giới Thiệu Tổng Quan
 
-## :clap: Thành viên
+**UIT-VNU_IE104_SPORTSPOT** là đồ án cuối kỳ môn IE104 - Internet và công nghệ Web của nhóm sinh viên của trường Đại học Công nghệ Thông tin - ĐHQG. Đồ án này được thực hiện bởi nhóm X, lớp IE104.OX dưới sự hướng dẫn của Th.S Võ Tấn Khoa.
 
-<a href="[https://github.com/dinhkarate/web-dat-san/graphs/contributors]">
-  <img src="https://contrib.rocks/image?repo=dinhkarate/web-dat-san" />
-</a>
+## Thành Viên Nhóm
 
-## :anchor: Bắt đầu làm việc
+Các thành viên trong nhóm bao gồm:
 
-1. Clone repository
-
-```console
-git clone https://github.com/dinhkarate/web-dat-san.git
-```
-
-2. Tạo branch mới
-
-```console
-git branch <branch-name>
-```
-
-3. Chuyển sang branch vừa tạo và làm việc trên branch đấy
-
-```console
-git checkout <branch-name>
-```
+| STT | Tên                    | Mã Số Sinh Viên | Vai Trò         |
+|-----|------------------------|------------------|----------------|
+| 1   | Lâm Thị Hồng Cẩm       | 22520099         | Trưởng nhóm    |
+| 2   | Phạm Quang Dinh        | 22520252         | Thành Viên     |
+| 3   | Lê Đức Anh Duy         | 2252XXXX         | Thành Viên     |
+| 4   | Phan Anh Kiệt          | 2252XXXX         | Thành Viên     |
+| 5   | Lý Nguyễn Anh Duy      | 2252XXXX         | Thành Viên     |
