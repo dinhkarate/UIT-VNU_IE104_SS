@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách bảo mật dữ liệu</title>
+    <link rel="stylesheet" href="css/policy.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <nav class="breadcrumb">
+        <a href="#">Trang chủ</a> &gt; <span>Chính sách</span>
+    </nav>
+
+    <section class="policy-section">
+        <h1>CHÍNH SÁCH BẢO MẬT DỮ LIỆU</h1>
+
+        <ol>
+            <li>
+                <h2>Dữ liệu thu thập</h2>
+                <p>Chúng tôi có thể thu thập thông tin cá nhân từ người dùng như tên, địa chỉ email, số điện thoại, và thông tin thanh toán khi họ tạo tài khoản hoặc đặt sân. Chúng tôi cũng thu thập dữ liệu hành vi của người dùng thông qua cookies và các công nghệ theo dõi khác để cải thiện trải nghiệm của họ. Những dữ liệu này giúp chúng tôi hiểu rõ hơn về sở thích, thói quen và nhu cầu của người dùng, từ đó cải thiện và cá nhân hóa dịch vụ.</p>
+            </li>
+            <li>
+                <h2>Mục đích sử dụng dữ liệu</h2>
+                <p>Dữ liệu thu thập sẽ được sử dụng để cung cấp dịch vụ đặt sân, bao gồm xác nhận đặt sân, gửi thông tin liên quan đến các hoạt động đặt sân, hỗ trợ người dùng khi cần và xử lý các yêu cầu từ người dùng. Chúng tôi cũng sử dụng dữ liệu này để nghiên cứu, phát triển và cải tiến dịch vụ, đảm bảo rằng sản phẩm của chúng tôi phù hợp với nhu cầu của người dùng.</p>
+            </li>
+            <li>
+                <h2>Bảo mật dữ liệu</h2>
+                <p>Chúng tôi cam kết bảo vệ thông tin cá nhân của người dùng bằng cách sử dụng các biện pháp bảo mật kỹ thuật và tổ chức thích hợp. Dữ liệu cá nhân được mã hóa khi truyền tải và lưu trữ để đảm bảo không bị truy cập trái phép.</p>
+            </li>
+            <li>
+                <h2>Quyền của người dùng</h2>
+                <p>Người dùng có quyền truy cập, sửa đổi, cập nhật hoặc xóa thông tin cá nhân của mình bất cứ lúc nào bằng cách đăng nhập vào tài khoản của mình hoặc liên hệ với bộ phận hỗ trợ của chúng tôi.</p>
+            </li>
+        </ol>
+
+        <h2 class="section-heading">ĐIỀU KHOẢN SỬ DỤNG</h2>
+
+        <ol>
+            <li>
+                <h2>Quyền và nghĩa vụ của người dùng</h2>
+                <p>Người dùng cần cung cấp thông tin chính xác và đầy đủ khi đăng ký tài khoản và bảo mật thông tin đăng nhập của mình. Người dùng chịu trách nhiệm cho mọi hoạt động xảy ra trong tài khoản của mình và cảnh thông báo ngay cho chúng tôi nếu phát hiện bất kỳ hoạt động trái phép nào.</p>
+            </li>
+            <li>
+                <h2>Quy định bảo mật</h2>
+                <p>Chúng tôi sẽ bảo vệ quyền riêng tư và thông tin cá nhân của người dùng theo đúng quy định về bảo mật.</p>
+            </li>
+            <li>
+                <h2>Giới hạn trách nhiệm</h2>
+                <p>Chúng tôi luôn cố gắng cung cấp dịch vụ tốt nhất, nhưng không thể chịu trách nhiệm đối với những sự cố không thể lường trước hoặc thiệt hại trực tiếp, gián tiếp hoặc ngẫu nhiên phát sinh từ việc sử dụng dịch vụ của chúng tôi.</p>
+            </li>
+        </ol>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function loadHTML(id, url) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+        loadHTML('header-placeholder', 'header.html');
+        loadHTML('footer-placeholder', 'footer.html');
+    </script>
+
+</body>
+</html>

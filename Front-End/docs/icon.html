@@ -1,0 +1,71 @@
+<!--
+    Cách sử dụng SVG và các loại Image khác làm icon.
+    Hai trường hợp ví dụ.
+    VD1: Dùng cho SVG cần linh hoạt về CSS => Tốt cho hover effect
+    VD2: Dùng cho SVG và các loại image  => Kém cho hover effect
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Icons in Text Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .example {
+            margin-bottom: 20px;
+        }
+
+        /* VD1: Inline SVG */
+        .inline-svg p svg {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            fill: #2d89e5; 
+        }
+
+        /* VD2: SVG with <img> tag */
+        .img-svg img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SVG Icons in Text</h1>
+
+    <!-- VD1: Inline SVG within text -->
+    <div class="example inline-svg">
+        <p>This is an inline SVG icon 
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor"/>
+            </svg> 
+            within the text.
+        </p>
+    </div>
+
+    <!-- VD2: SVG as <img> -->
+    <div class="example img-svg">
+        <p>This is an SVG icon 
+            <img src="https://www.svgrepo.com/show/532036/cloud-rain-alt.svg" alt="icon" width="20" height="20">
+            added as an image.
+        </p>
+    </div>
+
+</body>
+</html>

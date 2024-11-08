@@ -1,0 +1,40 @@
+{
+  "vi": {
+    "home": "Trang chủ",
+    "fieldList": "Danh sách sân",
+    "fields": {
+      "football": "Bóng đá",
+      "basketball": "Bóng rổ",
+      "badminton": "Cầu lông",
+      "volleyball": "Bóng chuyền",
+      "tennis": "Tennis",
+      "pickleball": "Pickleball"
+    },
+    "news": "Tin tức",
+    "policy": "Chính sách",
+    "forOwner": "Dành cho chủ sân",
+    "tournament": "Giải đấu",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "searchPlaceholder": "Search thông tin cần tìm"
+  },
+  "en": {
+    "home": "Home",
+    "fieldList": "Field List",
+    "fields": {
+      "football": "Football",
+      "basketball": "Basketball",
+      "badminton": "Badminton",
+      "volleyball": "Volleyball",
+      "tennis": "Tennis",
+      "pickleball": "Pickleball"
+    },
+    "news": "News",
+    "policy": "Policy",
+    "forOwner": "For Owner",
+    "tournament": "Tournament",
+    "login": "Login",
+    "register": "Register",
+    "searchPlaceholder": "Search information"
+  }
+} 
