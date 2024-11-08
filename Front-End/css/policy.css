@@ -5,7 +5,6 @@ body {
     background-color: #fff;
 }
 
-/* Breadcrumb Styling */
 .breadcrumb {
     padding: 40px 40px 0px 40px;
     font-size: 16px;
@@ -21,7 +20,6 @@ body {
     color: #000;
 }
 
-/* Main Section Styling */
 .policy-section {
     margin: 0 auto;
     padding-left: 140px;
@@ -29,18 +27,17 @@ body {
 }
 
 .policy-section h1, .section-heading  {
-    font-family: 'Playfair Display', serif; /* Sets the font to Playfair Display */
-    font-size: 70px; /* Sets font size to 70px */
-    font-weight: bold; /* Sets font weight to bold */
-    line-height: 78.6px; /* Sets line height */
-    letter-spacing: -0.31px; /* Sets letter spacing */
+    font-family: 'Playfair Display', serif;
+    font-size: 70px;
+    font-weight: bold;
+    line-height: 78.6px;
+    letter-spacing: -0.31px;
     text-align: center;
     margin-bottom: 30px;
     text-transform: uppercase;
 }
 
-/* Secondary Heading */
- {
+{
     font-size: 30px;
     font-weight: bold;
     text-align: center;
@@ -48,14 +45,13 @@ body {
     text-transform: uppercase;
 }
 
-/* Numbered List Styling */
 .policy-section ol {
     margin-left: 20px;
-    font-family: 'Roboto', sans-serif; /* Sets the font to Roboto */
-    font-size: 29.48px; /* Sets font size to 29.48px */
-    font-weight: 400; /* Sets font weight to regular */
-    line-height: 39.3px; /* Sets line height */
-    letter-spacing: 0; /* Sets letter spacing to 0% */
+    font-family: 'Roboto', sans-serif;
+    font-size: 29.48px;
+    font-weight: 400;
+    line-height: 39.3px;
+    letter-spacing: 0;
     margin-bottom: 10px;
 }
 
@@ -64,19 +60,19 @@ body {
 }
 
 .policy-section ol li h2 {
-    font-family: 'Roboto', sans-serif; /* Sets the font to Roboto */
-    font-size: 29.48px; /* Sets font size to 29.48px */
-    font-weight: 400; /* Sets font weight to regular */
-    line-height: 39.3px; /* Sets line height */
-    letter-spacing: 0; /* Sets letter spacing to 0% */
+    font-family: 'Roboto', sans-serif;
+    font-size: 29.48px;
+    font-weight: 400;
+    line-height: 39.3px;
+    letter-spacing: 0;
     margin-bottom: 10px;
 }
 
 .policy-section ol li p {
-    font-family: 'Roboto', sans-serif; /* Sets the font to Roboto */
-    font-size: 20px; /* Sets font size to 20px */
-    font-weight: 400; /* Sets font weight to regular */
-    line-height: 29.5px; /* Sets line height */
-    letter-spacing: 0.61px; /* Sets letter spacing */
-    color: #555; /* Sets text color */
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 29.5px;
+    letter-spacing: 0.61px;
+    color: #555;
 }

@@ -4,41 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách sân</title>
-    <link rel="stylesheet" href="css/list_court.css"> <!-- Link to your CSS file -->
-    <!-- Thêm font CrimsonPro -->
+    <link rel="stylesheet" href="css/list_court.css">
     <link href="https://fonts.googleapis.com/css2?family=CrimsonPro:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-    <!-- Header placeholder -->
     <div id="header-placeholder"></div>
-    
-    <!-- Div có chiều cao bằng header -->
     <div style="height: 257px;"></div>
-
-    <!-- Breadcrumb -->
     <div class="breadcrumb">
         <a href="#">Trang chủ</a>  >  <span>Danh sách sân</span>
     </div>
-
-    <!-- Tiêu đề -->
     <div id="h2-sigma">
         <h2>Danh sách sân</h2>
     </div>
-
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Left Filter Section -->
         <aside class="filter-section">
             <h3>Chọn lọc theo:</h3>
-
-            <!-- Filter Group 1 -->
             <div class="filter-group">
                 <label>Đối tác SportSpot<input type="checkbox" name="partner"></label>
             </div>
-
-            <!-- Filter Group 2 -->
             <div class="filter-group">
                 <h4>Môn thể thao:</h4>
                 <label>Tất cả<input type="checkbox" name="sport"></label>
@@ -49,8 +34,6 @@
                 <label>Tennis<input type="checkbox" name="sport"></label>
                 <label>Pickleball<input type="checkbox" name="sport"></label>
             </div>
-
-            <!-- Filter Group 3 -->
             <div class="filter-group">
                 <h4>Khoảng cách:</h4>
                 <label>Gần đây nhất<input type="checkbox" name="distance"></label>
@@ -58,8 +41,6 @@
                 <label>Dưới 5km<input type="checkbox" name="distance"></label>
                 <label>Dưới 10km<input type="checkbox" name="distance"></label>
             </div>
-
-            <!-- Filter Group 4 -->
             <div class="filter-group">
                 <h4>Loại sân:</h4>
                 <label>Sân 5<input type="checkbox" name="field-type"></label>
@@ -91,11 +72,8 @@
         </aside>
 
 
-        <!-- Right Fields Grid Section -->
         <section class="fields-grid">
-
             <div class="grid-container">
-                <!-- Each field item -->
                 <div class="item-container">
                     <div class="item-image">
                         <img src="https://placehold.co/480x345" alt="Field Image">
@@ -143,7 +121,6 @@
                     </div>
                 </div>
 
-                <!-- 8 item container mới -->
                 <div class="item-container">
                     <div class="item-image">
                         <img src="https://placehold.co/480x345" alt="Field Image">
@@ -538,22 +515,16 @@
         <a href="#" class="page-nav">Trang sau</a>
     </div>
 
-    <!-- Footer placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- Import header.js -->
     <script src="js/header.js"></script>
     
-    <!-- Script import header và footer -->
     <script>
-        // Import Header
         fetch('header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
             });
-
-        // Import Footer
         fetch('footer.html')
             .then(response => response.text())
             .then(data => {

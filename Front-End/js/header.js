@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Khởi tạo header
     loadHTML('header-placeholder', 'header.html', initializeScrollScript);
     loadHTML('footer-placeholder', 'footer.html');
 
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Khởi tạo language manager sau khi header được load
     setTimeout(() => {
         new LanguageManager();
     }, 500);
@@ -92,7 +90,6 @@ class LanguageManager {
             }
         });
 
-        // Update dropdown items
         if (this.translations[lang]?.fields) {
             document.querySelectorAll('.dropdown-content a').forEach((link, index) => {
                 const fieldKey = Object.keys(this.translations[lang].fields)[index];
@@ -102,7 +99,6 @@ class LanguageManager {
             });
         }
 
-        // Update search placeholder
         const searchInput = document.querySelector('.search-bar input');
         if (searchInput && this.translations[lang]) {
             searchInput.placeholder = this.translations[lang].searchPlaceholder;

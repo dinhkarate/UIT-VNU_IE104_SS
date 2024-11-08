@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,10 +12,9 @@ body {
 
 }
 
-/* Main Image and Caption */
 .article-header {
     position: relative;
-    margin-bottom: 20px; /* Khoảng cách với dòng thông tin */
+    margin-bottom: 20px;
 }
 
 .article-header img {
@@ -27,28 +25,25 @@ body {
     border-radius: 8px;
 }
 
-/* Positioning h1 on the bottom-left corner of the image */
 .article-header h1 {
     position: absolute;
     bottom: 20px;
     left: 20px;
     font-size: 32px;
-    color: #fff; /* Màu trắng để nổi bật trên hình ảnh */
-    background-color: rgba(0, 0, 0, 0.5); /* Nền mờ giúp đọc dễ hơn */
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 15px;
     border-radius: 5px;
-    margin: 0; /* Xóa margin mặc định */
+    margin: 0;
 }
 
-/* Article Info - Category and Date */
 .article-info {
-    margin-bottom: 20px; /* Khoảng cách với nội dung bài viết */
+    margin-bottom: 20px;
 }
 
-/* Sub Images */
 .sub-images {
     display: flex;
-    gap: 50px; /* Khoảng cách giữa hai ảnh */
+    gap: 50px;
 }
 
 .sub-images img {
@@ -59,33 +54,30 @@ body {
 }
 
 .category {
-    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
-    font-weight: 500; /* Medium */
-    font-size: 35.7px; /* Kích thước chữ 35.7px */
-    color: #FF5050; /* Màu chữ FF5050 */
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 35.7px;
+    color: #FF5050;
     padding-left: 100px;
 }
 
 
 .article-info p {
-    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
-    font-weight: 500; /* Medium */
-    font-size: 35.7px; /* Kích thước chữ 35.7px */
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 35.7px;
     color: #666;
 }
 
-
-/* Article Content */
 .article-content {
-    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
-    font-weight: 400; /* Regular */
-    font-size: 35px; /* Kích thước chữ 35px */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 35px;
     color: #333;
     line-height: 1.6;
     padding-left: 100px;
     padding-right: 70px;
 }
-
 
 .article-content p {
     margin: 20px 0;

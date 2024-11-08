@@ -11,33 +11,47 @@ body {
     font-size: 14px;
     color: #666;
 }
-
-/* Page Title */
-.page-title {
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 20px;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
 }
 
-/* Carousel Section */
-.carousel {
+.page-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 64px;
+    margin-top: 20px;
+    color: #000;
+}
+
+/* Carousel Container */
+.carousel-container {
     position: relative;
     width: 100%;
-    height: 300px;
+    max-width: 1536px;
     overflow: hidden;
+    margin: 20px 0;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
+    min-width: 100%;
     position: relative;
-    width: 100%;
-    height: 100%;
 }
 
-.carousel img {
+.carousel-item img {
     width: 100%;
-    height: 100%;
+    height: 600px;
     object-fit: cover;
 }
 
@@ -46,93 +60,282 @@ body {
     bottom: 20px;
     left: 20px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
 }
 
-.carousel-nav {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 24px;
-    color: white;
-    padding: 0 20px;
-    cursor: pointer;
+.carousel-caption h2 {
+    font-size: 36px;
+    margin: 0;
 }
 
-/* Category Filters */
-.filters {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
+.carousel-caption p {
+    font-size: 18px;
+    margin: 5px 0;
 }
 
-.filter {
-    padding: 8px 15px;
-    margin: 0 5px;
-    border: none;
-    cursor: pointer;
+.category {
+    color: red;
 }
 
-.filter.active {
+.tag {
     background-color: #333;
     color: white;
-}
-
-/* Highlight and Knowledge Sections */
-.highlight, .sports-knowledge {
-    padding: 20px;
-}
-
-.highlight h2, .sports-knowledge h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.highlight-grid, .knowledge-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-}
-
-.article-card {
-    background-color: #f9f9f9;
+    padding: 3px 6px;
     border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    font-size: 14px;
 }
 
-.article-card:hover {
-    transform: scale(1.02);
+/* Navigation Arrows */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
 }
 
-.article-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+.left-nav {
+    left: 10px;
 }
 
-.article-info {
-    padding: 15px;
+.right-nav {
+    right: 10px;
 }
 
-.category, .sub-category {
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
+/* Indicator Dots */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: blue;
+}
+
+
+/* Highlight Section */
+#highlight-section {
+    padding: 0px;
+    background-color: white;
+}
+
+.highlight-container {
+    max-width: 1500px; /* Giới hạn chiều rộng của container */
+    margin: 0 auto;
+}
+
+.highlight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.highlight-header h2 {
+        font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+        font-weight: 700; /* Bold */
+        font-size: 40px; /* Kích thước chữ 40px */
+        color: #000;
+        margin-left: 50px;
+    }
+    
+
+.sports-filter {
+    display: flex;
+    gap: 10px;
+}
+
+.sports-filter button {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+.sports-filter button i {
     margin-right: 5px;
 }
 
-h3 {
-    font-size: 18px;
-    color: #333;
-    margin: 10px 0;
+.sports-filter button:hover {
+    background-color: #d3d3d3;
 }
 
-p {
-    font-size: 14px;
-    color: #666;
+/* Highlight Grid */
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mỗi hàng hiển thị 2 mục */
+    gap: 38px; /* Khoảng cách giữa các mục */
+}
+
+/* Highlight Item */
+.highlight-item {
+    display: flex;
+    width: 724px; /* Chiều rộng cố định */
+    height: 270px; /* Chiều cao cố định */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    align-items: center;
+}
+
+.highlight-item:hover {
+    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+.highlight-item img {
+    width: 380px; /* Đặt kích thước cố định cho ảnh */
+    height: 230px;
+    object-fit: cover;
+}
+
+/* Highlight Info */
+.highlight-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1; /* Chiếm không gian còn lại bên cạnh ảnh */
+}
+
+.highlight-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.highlight-tags .tag {
+    font-size: 24px;
+    color: #999;
+    background-color: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+.highlight-info h3 {
+    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+    font-weight: 700; /* Bold */
+    font-size: 40px; /* Kích thước chữ 40px */
+    color: #000;
+    margin: 0px;
+}
+
+.highlight-info p {
+    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
+    font-weight: 400; /* Regular */
+    font-size: 24.22px; /* Kích thước chữ 24.22px */
+    color: #000;
+    margin: 0px;
+}
+
+
+/* Sports Knowledge Section */
+#sports-knowledge-section {
+    padding: 0px;
+    background-color: white;
+}
+
+.knowledge-container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.knowledge-header {
+    margin-bottom: 20px;
+}
+
+.knowledge-header h2 {
+    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+    font-weight: 700; /* Bold */
+    font-size: 40px; /* Kích thước chữ 40px */
+    color: #000;
+    margin-left: 50px;
+}
+
+
+/* Knowledge Grid */
+.knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mỗi hàng 2 mục */
+    gap: 38px; /* Khoảng cách giữa các mục */
+}
+
+/* Knowledge Item */
+.knowledge-item {
+    display: flex;
+    width: 724px; /* Chiều rộng cố định */
+    height: 270px; /* Chiều cao cố định */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.knowledge-item:hover {
+    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+.knowledge-item img {
+    width: 390px; /* Kích thước cố định cho ảnh */
+    height: 230px;
+    object-fit: cover;
+}
+
+/* Knowledge Info */
+.knowledge-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1; /* Chiếm không gian còn lại bên cạnh ảnh */
+}
+
+.knowledge-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.knowledge-tags .tag {
+    font-size: 24px;
+    color: #999;
+    background-color: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+.knowledge-info h3 {
+    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+    font-weight: 700; /* Bold */
+    font-size: 40px; /* Kích thước chữ 40px */
+    color: #000;
+    margin: 0px;
+}
+
+.knowledge-info p {
+    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
+    font-weight: 400; /* Regular */
+    font-size: 24.22px; /* Kích thước chữ 24.22px */
+    color: #000;
+    margin: 0px;
 }

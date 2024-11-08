@@ -1,7 +1,7 @@
 #header-wrapper {
-    width: 95.625%; /* Ensure width is specified */
+    width: 95.625%;
     height: 222px;
-    margin: 0 auto; /* Center horizontally */
+    margin: 0 auto;
     padding: 34px 42px 7px 81px;
     box-sizing: border-box;
     border-radius: 95px;
@@ -27,7 +27,6 @@
 
 
 #header-wrapper.header-hidden {
-    /* Only apply vertical transform in header-hidden */
     transform: translateY(-150%);
     opacity: 0;
     pointer-events: none;
@@ -36,7 +35,7 @@
 
 
 #header-wrapper .header-container {
-    max-width: 95.625%; /* 1836/1920 */
+    max-width: 95.625%;
     margin: 0px;
     display: flex;
     justify-content: left;
@@ -45,13 +44,13 @@
 
 @media screen and (max-width: 1536px) {
     #header-wrapper {
-        width: 91.145%; /* 1400/1536 */
+        width: 91.145%;
         height: 150px;
         padding: 20px 25px 5px 50px;
     }
 
     #header-wrapper .header-container {
-        max-width: 91.145%; /* 1400/1536 */
+        max-width: 91.145%;
     }
 }
 
@@ -241,7 +240,7 @@
 
 @media screen and (max-width: 1536px) {
     #header-wrapper nav ul li.login {
-        margin-left: 129px; /* Default cho tiếng Việt */
+        margin-left: 129px;
     }
     
     #header-wrapper[data-lang="en"] nav ul li.login {
@@ -315,9 +314,9 @@
     text-decoration: none;
     display: block;
     font-size: 20px;
-    font-weight: 400; /* Giảm độ đậm của font */
+    font-weight: 400;
     transition: all 0.3s ease;
-    text-shadow: none; /* Loại bỏ text-shadow từ nav ul li a */
+    text-shadow: none;
 }
 
 @media screen and (max-width: 1536px) {
@@ -327,8 +326,8 @@
 }
 
 #header-wrapper .dropdown-content a:hover {
-    background-color: black; /* Change background to black on hover */
-    color: white; /* Change text color to white on hover */
+    background-color: black;
+    color: white;
 }
 
 #header-wrapper .dropdown:hover .dropdown-content {
@@ -382,13 +381,13 @@
 }
 
 #header-wrapper nav ul li a i.fas.fa-home {
-    margin-right: 8px; /* Khoảng cách giữa icon và text */
-    font-size: 25px; /* Kích thước icon */
+    margin-right: 8px;
+    font-size: 25px;
 }
 
 @media screen and (max-width: 1536px) {
     #header-wrapper nav ul li a i.fas.fa-home {
-        font-size: 18px; /* Kích thước icon nhỏ hơn cho màn hình nhỏ */
+        font-size: 18px;
     }
 }
 
@@ -401,7 +400,7 @@
 #header-wrapper .home-icon {
     width: 25px;
     height: 25px;
-    filter: brightness(0) invert(1); /* Làm cho icon thành màu trắng */
+    filter: brightness(0) invert(1);
 }
 
 @media screen and (max-width: 1536px) {
@@ -411,7 +410,6 @@
     }
 }
 
-/* Khi hover */
 #header-wrapper #home-link:hover .home-icon {
-    filter: brightness(0); /* Chuyển sang màu đen khi hover */
+    filter: brightness(0);
 }

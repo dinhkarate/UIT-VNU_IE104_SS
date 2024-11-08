@@ -8,19 +8,15 @@
 </head>
 <body>
 
-    <div id="header-placeholder"></div> <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
 
-    <!-- Breadcrumb Navigation, moved below the header -->
     <nav class="breadcrumb">
         <a href="#">Trang chủ</a> &gt; <span>Chính sách</span>
     </nav>
 
-    <!-- Main Section -->
     <section class="policy-section">
-        <!-- Main Heading -->
         <h1>CHÍNH SÁCH BẢO MẬT DỮ LIỆU</h1>
 
-        <!-- Content with Numbered List -->
         <ol>
             <li>
                 <h2>Dữ liệu thu thập</h2>
@@ -40,10 +36,8 @@
             </li>
         </ol>
 
-        <!-- Secondary Heading -->
         <h2 class="section-heading">ĐIỀU KHOẢN SỬ DỤNG</h2>
 
-        <!-- Content with Numbered List -->
         <ol>
             <li>
                 <h2>Quyền và nghĩa vụ của người dùng</h2>
@@ -60,11 +54,9 @@
         </ol>
     </section>
 
-    <div id="footer-placeholder"></div> <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-    <!-- JavaScript to Load Header and Footer -->
     <script>
-        // Function to load external HTML files into placeholders
         function loadHTML(id, url) {
             fetch(url)
                 .then(response => {
@@ -81,7 +73,6 @@
                 });
         }
 
-        // Load the header and footer
         loadHTML('header-placeholder', 'header.html');
         loadHTML('footer-placeholder', 'footer.html');
     </script>
