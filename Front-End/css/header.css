@@ -19,6 +19,16 @@
     will-change: transform, opacity;
 }
 
+#header-placeholder-height {
+    height: 257px;
+}
+
+@media screen and (max-width: 1536px) {
+    #header-placeholder-height {
+        height: 175px;
+    }
+}
+
 #header-wrapper.header-hidden {
     transform: translateY(-150%);
     opacity: 0;

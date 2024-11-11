@@ -44,6 +44,29 @@ body {
     margin-bottom: 20px;
 }
 
+.breadcrumb {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 24px 0;
+    margin-left: 132px;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover,
+.breadcrumb span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 .sub-images {
     display: flex;
     gap: 50px;
