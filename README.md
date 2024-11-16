@@ -1,17 +1,53 @@
-# UIT-VNU_IE104_SPORTSPOT
-
+# UIT-VNU-IE104
 ## Giới Thiệu Tổng Quan
-
-**UIT-VNU_IE104_SPORTSPOT** là đồ án cuối kỳ môn IE104 - Internet và công nghệ Web của nhóm sinh viên của trường Đại học Công nghệ Thông tin - ĐHQG. Đồ án này được thực hiện bởi nhóm X, lớp IE104.OX dưới sự hướng dẫn của Th.S Võ Tấn Khoa.
-
+**UIT-VNU-IE104 là** là đồ án cuối kỳ môn IE104- Internet và công nghệ Web của nhóm sinh viên của trường Đại học Công nghệ Thông tin - ĐHQG. Đồ án này được thực hiện bởi nhóm 2, lớp IE.P11
 ## Thành Viên Nhóm
-
 Các thành viên trong nhóm bao gồm:
+| STT | Tên | MSSV | Vai trò |
+|:--- |:---:|:----:|:-------:|
+|1|Đặng Văn Quốc Bảo|22520099|Trưởng nhóm|
+|2|Phạm Quang Dinh|22520252|Thành viên|
+|3|Lê Đức Anh Duy|22520315|Thành viên|
+|4|Phan Anh Kiệt|22520723|Thành viên|
+|5|Lý Nguyễn Anh Duy|22520319|Thành viên|
+## Công nghệ sử dụng
+**Nhóm sử dụng**: 
+## Cài đặt
+- Cài đặt [NodeJS]()
+- Cài đặt [Xampp]()
+### Yêu cầu hệ thống
+...
+## Hướng dẫn cài đặt
+1. **Bước 1**:abc
 
-| STT | Tên                    | Mã Số Sinh Viên | Vai Trò         |
-|-----|------------------------|------------------|----------------|
-| 1   | Lâm Thị Hồng Cẩm       | 22520099         | Trưởng nhóm    |
-| 2   | Phạm Quang Dinh        | 22520252         | Thành Viên     |
-| 3   | Lê Đức Anh Duy         | 2252XXXX         | Thành Viên     |
-| 4   | Phan Anh Kiệt          | 2252XXXX         | Thành Viên     |
-| 5   | Lý Nguyễn Anh Duy      | 2252XXXX         | Thành Viên     |
+    pla pla
+2. **Bước 2**: tạo code bằng Tab
+
+    pla pla
+3. **Bước 3**:aaa
+
+    pla pla
+## Cấu trúc thư mục
+
+
+
+
+
+
+
+
+---
+***
+***************
+***
+***
+***
+***
+***
+
+### HEADING 3
+## FONT 
+
+**đậm**
+
+*nghiêng*
