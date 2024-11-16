@@ -10,6 +10,11 @@ Các thành viên trong nhóm bao gồm:
 |3|Lê Đức Anh Duy|22520315|Thành viên|
 |4|Phan Anh Kiệt|22520723|Thành viên|
 |5|Lý Nguyễn Anh Duy|22520319|Thành viên|
+
+<a href="[https://github.com/dinhkarate/web-dat-san/graphs/contributors]">
+  <img src="https://contrib.rocks/image?repo=dinhkarate/web-dat-san" />
+</a>
+
 ## Công nghệ sử dụng
 **Nhóm sử dụng**: 
 ## Cài đặt
