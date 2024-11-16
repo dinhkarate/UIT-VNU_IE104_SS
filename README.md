@@ -14,7 +14,6 @@ Các thành viên trong nhóm bao gồm:
 **Nhóm sử dụng**: 
 ## Cài đặt
 - Cài đặt [NodeJS]()
-- Cài đặt [Xampp]()
 ### Yêu cầu hệ thống
 ...
 ## Hướng dẫn cài đặt
