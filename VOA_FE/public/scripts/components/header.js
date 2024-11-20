@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    loadHTML('header-placeholder', 'header.html', initializeScrollScript);
-    loadHTML('footer-placeholder', 'footer.html');
+    loadHTML('header-placeholder', '../../views/components/header.html', initializeScrollScript);
+    loadHTML('footer-placeholder', '../../views/components/footer.html');
 
     function loadHTML(id, url, callback) {
         fetch(url)
