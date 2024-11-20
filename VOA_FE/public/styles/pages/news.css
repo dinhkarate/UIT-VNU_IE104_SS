@@ -5,20 +5,37 @@ body {
     padding: 0;
 }
 
-/* Breadcrumb */
 .breadcrumb {
-    padding: 10px 20px;
-    font-size: 14px;
-    color: #666;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 24px 0;
+    margin-left: 132px;
 }
+
+.breadcrumb a,
+.breadcrumb span {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover,
+.breadcrumb span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* General Styles */
-body {
+.carousel-container {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: #f9f9f9;
 }
 
@@ -36,7 +53,7 @@ body {
     width: 100%;
     max-width: 1536px;
     overflow: hidden;
-    margin: 20px 0;
+    margin: 20px auto;
 }
 
 .carousel-slide {
