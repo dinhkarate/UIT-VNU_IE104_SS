@@ -1,0 +1,341 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #666;
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.page-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 64px;
+    margin-top: 20px;
+    color: #000;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1536px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+.carousel-caption h2 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.carousel-caption p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.category {
+    color: red;
+}
+
+.tag {
+    background-color: #333;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Navigation Arrows */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.left-nav {
+    left: 10px;
+}
+
+.right-nav {
+    right: 10px;
+}
+
+/* Indicator Dots */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: blue;
+}
+
+
+/* Highlight Section */
+#highlight-section {
+    padding: 0px;
+    background-color: white;
+}
+
+.highlight-container {
+    max-width: 1500px; /* Giới hạn chiều rộng của container */
+    margin: 0 auto;
+}
+
+.highlight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.highlight-header h2 {
+        font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+        font-weight: 700; /* Bold */
+        font-size: 40px; /* Kích thước chữ 40px */
+        color: #000;
+        margin-left: 50px;
+    }
+    
+
+.sports-filter {
+    display: flex;
+    gap: 10px;
+}
+
+.sports-filter button {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+.sports-filter button i {
+    margin-right: 5px;
+}
+
+.sports-filter button:hover {
+    background-color: #d3d3d3;
+}
+
+/* Highlight Grid */
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mỗi hàng hiển thị 2 mục */
+    gap: 38px; /* Khoảng cách giữa các mục */
+}
+
+/* Highlight Item */
+.highlight-item {
+    display: flex;
+    width: 724px; /* Chiều rộng cố định */
+    height: 270px; /* Chiều cao cố định */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    align-items: center;
+}
+
+.highlight-item:hover {
+    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+.highlight-item img {
+    width: 380px; /* Đặt kích thước cố định cho ảnh */
+    height: 230px;
+    object-fit: cover;
+}
+
+/* Highlight Info */
+.highlight-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1; /* Chiếm không gian còn lại bên cạnh ảnh */
+}
+
+.highlight-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.highlight-tags .tag {
+    font-size: 24px;
+    color: #999;
+    background-color: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+.highlight-info h3 {
+    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+    font-weight: 700; /* Bold */
+    font-size: 40px; /* Kích thước chữ 40px */
+    color: #000;
+    margin: 0px;
+}
+
+.highlight-info p {
+    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
+    font-weight: 400; /* Regular */
+    font-size: 24.22px; /* Kích thước chữ 24.22px */
+    color: #000;
+    margin: 0px;
+}
+
+
+/* Sports Knowledge Section */
+#sports-knowledge-section {
+    padding: 0px;
+    background-color: white;
+}
+
+.knowledge-container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.knowledge-header {
+    margin-bottom: 20px;
+}
+
+.knowledge-header h2 {
+    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+    font-weight: 700; /* Bold */
+    font-size: 40px; /* Kích thước chữ 40px */
+    color: #000;
+    margin-left: 50px;
+}
+
+
+/* Knowledge Grid */
+.knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mỗi hàng 2 mục */
+    gap: 38px; /* Khoảng cách giữa các mục */
+}
+
+/* Knowledge Item */
+.knowledge-item {
+    display: flex;
+    width: 724px; /* Chiều rộng cố định */
+    height: 270px; /* Chiều cao cố định */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.knowledge-item:hover {
+    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+.knowledge-item img {
+    width: 390px; /* Kích thước cố định cho ảnh */
+    height: 230px;
+    object-fit: cover;
+}
+
+/* Knowledge Info */
+.knowledge-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1; /* Chiếm không gian còn lại bên cạnh ảnh */
+}
+
+.knowledge-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.knowledge-tags .tag {
+    font-size: 24px;
+    color: #999;
+    background-color: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+.knowledge-info h3 {
+    font-family: 'Roboto', sans-serif; /* Thiết lập font là Roboto */
+    font-weight: 700; /* Bold */
+    font-size: 40px; /* Kích thước chữ 40px */
+    color: #000;
+    margin: 0px;
+}
+
+.knowledge-info p {
+    font-family: 'Manrope', sans-serif; /* Thiết lập font là Manrope */
+    font-weight: 400; /* Regular */
+    font-size: 24.22px; /* Kích thước chữ 24.22px */
+    color: #000;
+    margin: 0px;
+}
