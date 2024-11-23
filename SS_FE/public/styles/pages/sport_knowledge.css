@@ -1,0 +1,117 @@
+body {
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 24px 0;
+    margin-left: 132px;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover,
+.breadcrumb span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.info-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.article-container {
+    max-width: 1200px;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 70px;
+    font-weight: bold;
+    line-height: 78.6px;
+    letter-spacing: -0.31px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.article-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.article-header img {
+    max-width: 1050px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.article-info {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.article-info p {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 35.7px;
+    color: #666;
+}
+
+.category {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 35.7px;
+    color: #FF5050;
+    padding-left: 20px;
+}
+
+.article-content {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 35px;
+    color: #333;
+    line-height: 1.6;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.article-content p {
+    margin: 20px 0;
+}
+
+.article-content p strong {
+    font-weight: bold;
+}
+
+.sub-image {
+    margin: 20px 0;
+}
+
+.sub-image img {
+    width: 100%;
+    max-width: 1050px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
