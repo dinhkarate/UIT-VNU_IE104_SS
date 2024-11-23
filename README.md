@@ -33,22 +33,21 @@ Các thành viên trong nhóm bao gồm:
     pla pla
 ## Cấu trúc thư mục
 ```bash
-├───VOA_BE                             # Thư mục chứa source code backend
+├───SS_BE                             # Thư mục chứa source code backend
 │   ├───config                           # Thư mục chứa các file cấu hình (dữ liệu mẫu, cấu hình database, ...)
 │   ├───controllers                      # Thư mục chứa các file controller
 │   ├───middlewares                      # Thư mục chứa các file middleware
 │   ├───models                           # Thư mục chứa các file model
 │   ├───routers                          # Thư mục chứa các file router
 │   └───app.js                           # File chạy ứng dụng
-└───VOA_FE                             # Thư mục chứa source code frontend
+└───SS_FE                             # Thư mục chứa source code frontend
     ├───public                           # Thư mục chứa các file tĩnh
     │   ├───images                       # Thư mục chứa các hình ảnh
     │   ├───scripts                      # Thư mục chứa các file js
     │   └───styles                       # Thư mục chứa các file css
     └───views                            # Thư mục chứa các file html
-        ├───components
         ├───pages
-        └───partials
+        └───components
 ```
 
 ### HEADING 3
