@@ -13,7 +13,8 @@ create table fields (
 	centre_id varchar(5),
 	field_type varchar,
 	open_time time,
-	close_time time
+	close_time time,
+	link_img text
 );
 
 alter table fields

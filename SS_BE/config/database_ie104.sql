@@ -14,6 +14,7 @@ create table fields (
 	field_type varchar,
 	open_time time,
 	close_time time
+	link_img text
 );
 
 alter table fields
