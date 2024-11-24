@@ -23,8 +23,8 @@ Các thành viên trong nhóm bao gồm:
 - Cài đặt [**PostgreSQL**](https://www.postgresql.org) phiên bản 17.0 trở lên.
 
 ### Lưu ý khi cài đặt PostgreSQL
-
 Đặt mật khẩu là 1 
+
 ![Picture1](https://github.com/user-attachments/assets/5af0b191-6bb8-40dc-9ab2-515a3dfd19bd)
 
 
