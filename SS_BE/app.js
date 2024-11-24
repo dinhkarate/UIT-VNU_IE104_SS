@@ -23,6 +23,14 @@ app.get('/news', (req, res) => {
   res.sendFile(path.join(__dirname, '../SS_FE/views/pages/news.html'));
 });
 
+app.get('/news/top', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/news-topnews.html'));
+});
+
+app.get('/news/knowledge', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/sport_knowledge.html'));
+});
+
 app.get('/policy', (req, res) => {
   res.sendFile(path.join(__dirname, '../SS_FE/views/pages/policy.html'));
 });
@@ -36,11 +44,43 @@ app.get('/tournament', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/login.html'));
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/login.html'));
 });
 
 app.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/register.html'));
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/sign_up.html'));
+});
+
+app.get('/list_court', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/list_court.html'));
+});
+
+app.get('/list_court/court_detail', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/list_court_court.html'));
+});
+
+app.get('/forget_password', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/forget_password.html'));
+});
+
+app.get('/forget_password_phone', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/forget_password_sdt.html'));
+});
+
+app.get('/forget_password_email', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/forget_password_mail.html'));
+});
+
+app.get('/new_password', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/new_password.html'));
+});
+
+app.get('/otp_phone', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/otp_sdt.html'));
+});
+
+app.get('/otp_mail', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/otp_mail.html'));
 });
 
 
