@@ -48,11 +48,35 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, '../SS_FE/views/login/register.html'));
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/sign_up.html'));
 });
 
 app.get('/list_court', (req, res) => {
   res.sendFile(path.join(__dirname, '../SS_FE/views/pages/list_court.html'));
+});
+
+app.get('/forget_password', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/forget_password.html'));
+});
+
+app.get('/forget_password_phone', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/forget_password_sdt.html'));
+});
+
+app.get('/forget_password_email', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/forget_password_mail.html'));
+});
+
+app.get('/new_password', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/new_password.html'));
+});
+
+app.get('/otp_phone', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/otp_sdt.html'));
+});
+
+app.get('/otp_mail', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/login/otp_mail.html'));
 });
 
 
