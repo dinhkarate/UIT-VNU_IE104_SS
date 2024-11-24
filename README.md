@@ -18,19 +18,62 @@ Các thành viên trong nhóm bao gồm:
 ## Công nghệ sử dụng
 **Nhóm sử dụng**: 
 ## Cài đặt
-- Cài đặt [NodeJS]()
-### Yêu cầu hệ thống
-...
-## Hướng dẫn cài đặt
-1. **Bước 1**:abc
+- Cài đặt [**NodeJS**](https://nodejs.org/en) phiên bản 20.18.0 trở lên.
 
-    pla pla
-2. **Bước 2**: tạo code bằng Tab
+- Cài đặt [**PostgreSQL**](https://www.postgresql.org) phiên bản 17.0 trở lên.
 
-    pla pla
-3. **Bước 3**:aaa
+### Lưu ý khi cài đặt PostgreSQL
 
-    pla pla
+Đặt mật khẩu là 1 
+![Picture1](https://github.com/user-attachments/assets/5af0b191-6bb8-40dc-9ab2-515a3dfd19bd)
+
+
+### Hướng dẫn cài đặt
+1. **Bước 1**: Clone repo về máy tính của bạn bằng cách sử dụng git command line hoặc download zip file.
+
+        git clone https://github.com/dinhkarate/UIT-VNU_IE104_SS.git
+2. **Bước 2**: Di chuyển vào thư mục dự án.
+
+        cd UIT-VNU_IE104_SS
+
+3. **Bước 3**: Cài đặt các dependencies.
+
+    Di chuyển vào thư mục SS_BE, chạy lệnh:
+
+        npm install
+    
+
+4. **Bước 4**: Import database *(Nếu đã thực hiện bước này rồi thì qua bước 5)*
+
+- 	Chạy pgAdmin 4.
+
+-	Nhấp chuột phải vào Databases trong cây thư mục bên trái, chọn 
+    Create > Database và đặt tên là `SportSpot`.
+   
+     ![Picture2](https://github.com/user-attachments/assets/f751636f-d86a-4172-85f1-9dbd6b60f177)
+
+
+-	Nhấp chuột phải vào SportSpot, chọn Query tool
+
+    ![Picture3](https://github.com/user-attachments/assets/a545931c-8c3d-4178-81f8-ecf94a33a63f)
+
+-   Mở file `database_ie104.sql` trong thư mục `SS_BE/config` vào `PostgreSQL`.
+
+-   Nếu bạn có thay đổi tên database thành khác, thì phải sửa file `.env` tại thư mục gốc với các thông số:
+
+        DB_USER=postgres
+        DB_PASSWORD=1
+        DB_HOST=localhost
+        DB_PORT=5432
+        DB_NAME=SportSpot
+
+    
+
+5. **Bước 5:**  Khởi chạy server.
+- Chuyển sang thư mục SS_BE và chạy lệnh:
+
+        node app.js
+
 ## Cấu trúc thư mục
 ```bash
 ├───SS_BE                             # Thư mục chứa source code backend
