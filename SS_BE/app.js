@@ -55,6 +55,10 @@ app.get('/list_court', (req, res) => {
   res.sendFile(path.join(__dirname, '../SS_FE/views/pages/list_court.html'));
 });
 
+app.get('/list_court/court_detail', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/list_court_court.html'));
+});
+
 app.get('/forget_password', (req, res) => {
   res.sendFile(path.join(__dirname, '../SS_FE/views/login/forget_password.html'));
 });

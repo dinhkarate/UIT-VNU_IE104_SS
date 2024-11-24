@@ -719,3 +719,14 @@ body {
         font-size: 16px;
     }
 }
+
+/* Thêm style cho thẻ a trong h3 */
+.item-content h3 a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.item-content h3 a:hover {
+    color: #15096f;
+}
