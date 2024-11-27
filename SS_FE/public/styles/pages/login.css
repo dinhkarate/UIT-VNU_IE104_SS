@@ -4,27 +4,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Crimson Pro';
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    color: #fff;
+}
+
+.login-container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: #000;
-    color:#fff
+    padding: 50px 0;
 }
 
 .login-box {
+
+    min-height: calc(100vh - 200px);
     position: relative;
     width: 650px;
     background: #1e1e1e;
     border-radius: 45px;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
     color: #fff;
     text-align: left;
     padding: 65px; 
@@ -180,7 +184,7 @@ input[type="checkbox"]:checked::after {
     position: relative;
 }
 
-.logo {
+.logo-social {
     position: absolute;
     left: 20px; 
     width: 24px;
