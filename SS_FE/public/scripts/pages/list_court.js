@@ -35,7 +35,9 @@ function fetchCourts(filters = {}) {
         const courtHtml = `
           <div class="item-container">
             <div class="item-image">
-              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="field-image">
+                <img src="https://placehold.co/480x345" alt="Field Image" />
+              </div>
               <div class="banner">
                 <img src="https://placehold.co/75x100" alt="Banner" />
               </div>

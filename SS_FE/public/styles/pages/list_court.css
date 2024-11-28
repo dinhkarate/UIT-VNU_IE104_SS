@@ -1,21 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+
 }
 
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-}
-
-.header-wrapper {
-    width: 100%;
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
 }
 
 .breadcrumb {
@@ -48,7 +40,7 @@ body {
     border-radius: 0;
     color: #000000;
     text-align: center;
-    margin-left: 20px;
+    justify-content: center;
 }    
 
 .main-content {
@@ -59,6 +51,7 @@ body {
     padding: 20px;
     gap: 20px;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .filter-section {
@@ -140,12 +133,6 @@ body {
     cursor: pointer;
 }
 
-@font-face {
-    font-family: 'CrimsonPro';
-    src: url('../fonts/CrimsonPro-Bold.ttf') format('truetype');
-    font-weight: 700;
-}
-
 .apply-button {
     width: 150px;
     height: 50px;
@@ -163,14 +150,6 @@ body {
     opacity: 0.9;
 }
 
-@media screen and (max-width: 1536px) {
-    .apply-button {
-        width: 120px;
-        height: 40px;
-        font-size: 20px;
-        border-radius: 16px;
-    }
-}
 
 .filter-section .filter-group input[type="checkbox"] {
     appearance: none;
@@ -234,7 +213,7 @@ body {
     position: relative;
 }
 
-.item-image img {
+.item-image .field-image img {
     width: 480px;
     height: 345px;
     object-fit: cover;
@@ -446,155 +425,9 @@ body {
     color: #4a90e2;
 }
 
-@media screen and (max-width: 1536px) {
-    .main-content {
-        max-width: 1536px;
-    }
-
-    .filter-section {
-        width: 260px;
-        padding: 16px;
-    }
-
-    .filter-buttons {
-        margin-top: 16px;
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 25px;
-        row-gap: 100px;
-    }
-
-    .item-container {
-        max-width: 384px;
-        height: 576px;
-    }
-
-    .item-image {
-        height: 276px;
-    }
-
-    .item-image img {
-        width: 384px;
-        height: 276px;
-    }
-
-    .banner {
-        position: absolute;
-        top: 12px;
-        left: 24px;
-        width: 60px;
-        height: 80px;
-        z-index: 1;
-    }
-
-    .item-content {
-        padding: 15px;
-        padding-bottom: 30px;
-    }
-
-    .location-icon {
-        width: 21px;
-        height: 22px;
-        margin-left: 0px;
-    }
-
-    .item-content h3 {
-        font-size: 32px;
-        margin-top: 12px;
-    }
-
-    .location-rating {
-        margin: 0 24px;
-    }
-
-    .distance {
-        font-size: 17px;
-    }
-
-    .rating {
-        font-size: 32px;
-        margin-right: 12px;
-    }
-
-    .tags {
-        margin: 0 12px;
-        gap: 12px;
-    }
-
-    .tag {
-        padding: 4px 8px;
-        font-size: 12px;
-    }
-
-    .tag-icon {
-        width: 14px;
-        height: 14px;
-    }
-
-    .amenities {
-        gap: 12px;
-        margin: 8px 0;
-    }
-
-    .amenity-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    .price-label {
-        font-size: 24px;
-    }
-
-    .price-value {
-        font-size: 20px;
-    }
-
-    .hours {
-        font-size: 16px;
-        margin: 0 24px;
-    }
-
-    .pagination {
-        margin: 25px 0;
-        gap: 15px;
-    }
-
-    .page-nav {
-        font-size: 13px;
-    }
-
-    .page-number {
-        width: 28px;
-        height: 28px;
-        font-size: 13px;
-    }
-
-    .reload-icon {
-        width: 20px;
-        height: 20px;
-    }
-}
-
 .reload-icon {
     width: 24px;
     height: 24px;
-}
-
-@media screen and (max-width: 1536px) {
-    .tag {
-        padding: 3px 16px;
-    }
-
-    .tag span {
-        font-size: 15px;
-    }
-
-    .tag-icon {
-        width: 19px;
-        height: 19px;
-    }
 }
 
 .item-content h4 {
@@ -603,39 +436,6 @@ body {
     font-size: 30px;
     color: #000000;
     margin: 15px 30px;
-}
-
-@media screen and (max-width: 1536px) {
-    .item-content h4 {
-        font-size: 24px;
-        margin: 15px 24px;
-    }
-}
-
-@media screen and (max-width: 1536px) {
-    .amenities {
-        gap: 23px;
-        margin: 8px 12px;
-    }
-
-    .amenity-icon {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-@media screen and (max-width: 1536px) {
-    .price {
-        margin: 10px 24px;
-    }
-
-    .price-label {
-        font-size: 24px;
-    }
-
-    .price-value {
-        font-size: 20px;
-    }
 }
 
 .courts-section {
@@ -660,39 +460,6 @@ body {
     margin-right: 400px;
 }
 
-@media screen and (max-width: 1536px) {
-    #h2-sigma {
-        margin-left: 284px;
-        margin-bottom: 24px;
-    }
-
-    #h2-sigma h2 {
-        font-size: 51px;
-    }
-}
-
-@media screen and (max-width: 1536px) {
-    .breadcrumb {
-        font-size: 20px;
-        margin: 19px 0;
-        margin-left: 106px;
-    }
-}
-
-@media screen and (max-width: 1536px) {
-    .filter-section h3 {
-        font-size: 24px;
-        margin-bottom: 12px;
-    }
-}
-
-@media screen and (max-width: 1536px) {
-    .filter-group h4 {
-        font-size: 21px;
-        margin-bottom: 12px;
-    }
-}
-
 .filter-option label {
     font-family: 'Roboto';
     font-weight: 500;
@@ -714,13 +481,6 @@ body {
     margin-left: 10px;
 }
 
-@media screen and (max-width: 1536px) {
-    .filter-option label {
-        font-size: 16px;
-    }
-}
-
-/* Thêm style cho thẻ a trong h3 */
 .item-content h3 a {
     text-decoration: none;
     color: inherit;
@@ -729,4 +489,222 @@ body {
 
 .item-content h3 a:hover {
     color: #15096f;
+}
+
+@media screen and (max-width: 1536px) {
+    /* Header & Breadcrumb */
+    .header-wrapper {
+        padding: 16px;
+    }
+
+    .breadcrumb {
+        font-size: 20px;
+        margin: 19px 0;
+        margin-left: 106px;
+    }
+
+    #h2-sigma h2 {
+        font-size: 51px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Main Layout */
+    .main-content {
+        max-width: 1536px;
+        padding: 16px;
+        gap: 0px;
+    }
+
+    /* Filter Section */
+    .filter-section {
+        width: 260px;
+        padding: 16px;
+    }
+
+    .filter-section h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .filter-group {
+        padding-top: 12px;
+        margin-top: 12px;
+    }
+
+    .filter-group h4 {
+        font-size: 21px;
+        margin-bottom: 12px;
+    }
+
+    .filter-group label {
+        font-size: 16px;
+        padding: 4px 0;
+    }
+
+    .filter-buttons {
+        margin-top: 16px;
+    }
+
+    .reset-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .apply-button {
+        width: 120px;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 16px;
+    }
+
+    /* Grid Layout */
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 15px;
+        row-gap: 100px;
+        padding: 10px;
+    }
+
+    /* Item Container */
+    .item-container {
+        max-width: 384px;
+        height: 576px;
+    }
+
+    /* Item Content */
+    .item-content h3 {
+        font-size: 32px;
+        margin-top: 12px;
+    }
+
+    .item-content h4 {
+        font-size: 24px;
+        margin: 8px 24px;
+    }
+
+    /* Location & Rating */
+    .location-icon {
+        width: 21px;
+        height: 22px;
+    }
+
+    .location-rating {
+        margin: 0 24px;
+    }
+
+    .distance {
+        font-size: 17px;
+    }
+
+    .rating {
+        font-size: 32px;
+        margin-right: 12px;
+    }
+
+    /* Tags */
+    .tags {
+        margin: 0 12px;
+        gap: 4px;
+    }
+
+    .tag {
+        padding: 3px 16px;
+    }
+
+    .tag span {
+        font-size: 13px;
+    }
+
+    .tag-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Amenities */
+    .amenities {
+        gap: 23px;
+        margin: 8px 24px;
+    }
+
+    .amenity-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Price */
+    .price {
+        margin: 8px 24px;
+    }
+
+    .price-label {
+        font-size: 24px;
+    }
+
+    .price-value {
+        font-size: 20px;
+    }
+
+    /* Hours */
+    .hours {
+        font-size: 16px;
+        bottom: 8px;
+        right: 8px;
+    }
+
+    /* Pagination */
+    .pagination {
+        gap: 16px;
+        margin: 24px 0;
+    }
+
+    .page-nav {
+        font-size: 12px;
+    }
+
+    .page-number {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* Courts Section */
+    .courts-section {
+        margin-left: 284px;
+    }
+
+    #h2-sigma {
+        margin-bottom: 24px;
+    }
+
+    /* Filter Options */
+    .filter-option label {
+        font-size: 16px;
+    }
+
+    .filter-option {
+        margin-bottom: 8px;
+    }
+
+    /* Banner */
+    .banner img {
+        top: 12px;          
+        left: 24px;       
+        width: 60px;    
+        height: 80px;     
+    }
+
+    /* Item Image */
+    .item-container {
+        max-width: 384px;  
+        height: 576px;     
+    }
+
+    .item-image {
+        height: 276px;     
+    }
+
+    .item-image .field-image img {
+        width: 384px;     
+        height: 276px;      
+    }
 }
