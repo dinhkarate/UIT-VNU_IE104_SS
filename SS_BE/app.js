@@ -1,10 +1,9 @@
 const express = require('express');
 const config = require("./config/index.js");
 const cors = require('cors')
-//const route = require('./route/index');
+const route = require('./routes/index');
 const bodyParser = require("body-parser");
 const path = require('path');
-
 
 
 const app = express();
@@ -12,6 +11,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+route(app); 
 
 app.use(express.static(path.join(__dirname, '../SS_FE/public')));
 

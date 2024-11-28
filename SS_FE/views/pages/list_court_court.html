@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Danh sách sân</title>
     <link rel="stylesheet" href="/styles/pages/list_court_court.css">
     <link href="https://fonts.googleapis.com/css2?family=CrimsonPro:wght@700&display=swap" rel="stylesheet">
@@ -16,42 +16,36 @@
 <body>
     <div id="header-placeholder"></div>
     <div class="breadcrumb">
-        <a href="#">Trang chủ</a>  >  <span>Danh sách sân</span> > <span>Sân bóng đá Bình Minh</span>
+      <a href="#">Trang chủ</a> > <span>Danh sách sân</span> >
+      <span>Sân bóng đá Bình Minh</span>
     </div>
 
-    
     <div class="main-container">
         <!-- Phần header chứa tên sân và banner -->
         <div class="court-header">
             <div class="court-title">
                 <h1>Sân bóng đá Bình Minh</h1>
                 <p class="address">
-                    <img src="public/images/question-mark.svg" alt="Location" class="icon">
+                    <img src="/public/images/question-mark.svg" alt="Location" class="icon">
                     1 Đường số 2 Phường 20 Q.Bình Thạnh TP.HCM
                 </p>
             </div>
             <div class="court-banner">
                 <img src="https://placehold.co/75x100" alt="Banner">
             </div>
+          </div>
         </div>
 
-        <!-- Phần content chính -->
-        <div class="court-content">
-            <div class="court-left">
-                <!-- Phần ảnh -->
-                <div class="court-images">
-                    <div class="images">
-                        <div class="images-left">
-                            <img class="img-1" src="https://placehold.co/465x240" alt="Ảnh sân chính">
-                            <img class="img-3" src="https://placehold.co/215x190" alt="Ảnh sân 3">
-                            <img class="img-4" src="https://placehold.co/215x190" alt="Ảnh sân 4">
-                        </div>
-                        <div class="images-right">
-                            <img class="img-2" src="https://placehold.co/340x215" alt="Ảnh sân 2">
-                            <img class="img-5" src="https://placehold.co/340x215" alt="Ảnh sân 5">
-                        </div>
-                    </div>
-                </div>
+        <div class="court-right">
+          <!-- Phần actions -->
+          <div class="court-actions">
+            <div class="rating">
+              <span>Đánh giá: 5/5</span>
+              <img
+                src="../../public/images/question-mark.svg"
+                alt="Rating"
+                class="icon"
+              />
             </div>
 
             <div class="court-right">
@@ -106,955 +100,1035 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+          </div>
 
+          <!-- Phần thông tin -->
+          <div class="court-info">
+            <div class="court-details">
+              <div class="details">
+                <h2>Thông tin sân</h2>
+                <p>Giờ mở cửa: <span>6:00 ~ 22:00</span></p>
+                <p>Số sân: <span>5 sân</span></p>
+                <p>Giá thuê sân: <span>120.000đ/giờ</span></p>
+              </div>
+              <div class="services">
+                <h2>Dịch vụ tiện ích</h2>
+                <div class="service-list">
+                  <div class="service-item">
+                    <img
+                      src="../../public/images/wifi-icon.svg"
+                      alt="Wifi"
+                      class="amenity-icon"
+                    />
+                    <span>Wifi</span>
+                  </div>
+                  <div class="service-item">
+                    <img
+                      src="../../public/images/cafe-icon.svg"
+                      alt="Cafe"
+                      class="amenity-icon"
+                    />
+                    <span>Cafe</span>
+                  </div>
+                  <div class="service-item">
+                    <img
+                      src="../../public/images/shower-icon.svg"
+                      alt="Shower"
+                      class="amenity-icon"
+                    />
+                    <span>Phòng tắm</span>
+                  </div>
+                  <div class="service-item">
+                    <img
+                      src="../../public/images/car-icon.svg"
+                      alt="Parking"
+                      class="amenity-icon"
+                    />
+                    <span>Bãi đỗ ô tô</span>
+                  </div>
+                  <div class="service-item">
+                    <img
+                      src="../../public/images/whistle-icon.svg"
+                      alt="Referee"
+                      class="amenity-icon"
+                    />
+                    <span>Thuê trọng tài</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="schedule-container">
-        <div class="schedule-header">
-            <!-- Dropdown chọn sân -->
-            <div class="court-selector">
-                <button class="court-select-btn">
-                    Sân 1
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </button>
-                <div class="court-dropdown">
-                    <div class="court-option">Sân 1</div>
-                    <div class="court-option">Sân 2</div>
-                    <div class="court-option">Sân 3</div>
-                </div>
-            </div>
-
-            <!-- Chú thích trạng thái -->
-            <div class="status-legend">
-                <div class="legend-item">
-                    <div class="color-box available"></div>
-                    <span>Trống</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box booked"></div>
-                    <span>Đã đặt</span>
-                </div>
-            </div>
-
-            <!-- Date navigation -->
-            <div class="date-navigation">
-                <button class="date-nav prev">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </button>
-                <div class="date-range">
-                    <span>11/11 ~ 17/11</span>
-                </div>
-                <button class="date-nav next">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        
-        <div class="schedule-grid">
-
-            <!-- Cột thứ bên trái -->
-            <div class="weekday-column">
-                <div class="day-label">
-                    <span class="weekday">T2</span>
-                    <span class="date">11/11</span>
-                </div>
-                <div class="day-label">
-                    <span class="weekday">T3</span>
-                    <span class="date">12/11</span>
-                </div>
-                <div class="day-label">
-                    <span class="weekday">T4</span>
-                    <span class="date">13/11</span>
-                </div>
-                <div class="day-label">
-                    <span class="weekday">T5</span>
-                    <span class="date">14/11</span>
-                </div>
-                <div class="day-label">
-                    <span class="weekday">T6</span>
-                    <span class="date">15/11</span>
-                </div>
-                <div class="day-label">
-                    <span class="weekday">T7</span>
-                    <span class="date">16/11</span>
-                </div>
-                <div class="day-label">
-                    <span class="weekday">CN</span>
-                    <span class="date">17/11</span>
-                </div>
-            </div>
-
-            <!-- Thêm nút previous -->
-            <div class="prev-slots-button">
-                <button id="prevTimeSlots">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-            
-            <!-- Khung giờ bên phải -->
-            <div class="time-slots-container">
-                <!-- Thứ 2 -->
-                <div class="time-slots-row">
-                    <div class="time-slot available">
-                        <span class="time">6:00 - 6:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">6:30 - 7:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">7:00 - 7:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">7:30 - 8:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:00 - 8:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:30 - 9:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">9:00 - 9:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">9:30 - 10:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">10:00 - 10:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">10:30 - 11:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:00 - 11:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:30 - 12:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">12:00 - 12:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">12:30 - 13:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">13:00 - 13:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">13:30 - 14:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:00 - 14:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:30 - 15:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">15:00 - 15:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">15:30 - 16:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:00 - 16:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:30 - 17:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">17:00 - 17:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">17:30 - 18:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">18:00 - 18:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">18:30 - 19:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:00 - 19:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:30 - 20:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">20:00 - 20:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">20:30 - 21:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:00 - 21:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:30 - 22:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">22:00 - 22:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">22:30 - 23:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">23:00 - 23:30</span>
-                    </div>
-                </div>
-
-                <!-- Thứ 3 đến Chủ nhật - Copy cấu trúc tương tự như Thứ 2 -->
-                <!-- Thứ 3 -->
-                <div class="time-slots-row">
-                                        <div class="time-slot available">
-                        <span class="time">6:00 - 6:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">6:30 - 7:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">7:00 - 7:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">7:30 - 8:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:00 - 8:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:30 - 9:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">9:00 - 9:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">9:30 - 10:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">10:00 - 10:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">10:30 - 11:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:00 - 11:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:30 - 12:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">12:00 - 12:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">12:30 - 13:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">13:00 - 13:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">13:30 - 14:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:00 - 14:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:30 - 15:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">15:00 - 15:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">15:30 - 16:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:00 - 16:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:30 - 17:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">17:00 - 17:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">17:30 - 18:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">18:00 - 18:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">18:30 - 19:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:00 - 19:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:30 - 20:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">20:00 - 20:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">20:30 - 21:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:00 - 21:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:30 - 22:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">22:00 - 22:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">22:30 - 23:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">23:00 - 23:30</span>
-                    </div>
-                </div>
-
-                <!-- Thứ 4 -->
-                <div class="time-slots-row">
-                                        <div class="time-slot available">
-                        <span class="time">6:00 - 6:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">6:30 - 7:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">7:00 - 7:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">7:30 - 8:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:00 - 8:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:30 - 9:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">9:00 - 9:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">9:30 - 10:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">10:00 - 10:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">10:30 - 11:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:00 - 11:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:30 - 12:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">12:00 - 12:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">12:30 - 13:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">13:00 - 13:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">13:30 - 14:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:00 - 14:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:30 - 15:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">15:00 - 15:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">15:30 - 16:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:00 - 16:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:30 - 17:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">17:00 - 17:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">17:30 - 18:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">18:00 - 18:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">18:30 - 19:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:00 - 19:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:30 - 20:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">20:00 - 20:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">20:30 - 21:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:00 - 21:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:30 - 22:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">22:00 - 22:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">22:30 - 23:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">23:00 - 23:30</span>
-                    </div>
-                </div>
-
-                <!-- Thứ 5 -->
-                <div class="time-slots-row">
-                                        <div class="time-slot available">
-                        <span class="time">6:00 - 6:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">6:30 - 7:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">7:00 - 7:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">7:30 - 8:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:00 - 8:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:30 - 9:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">9:00 - 9:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">9:30 - 10:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">10:00 - 10:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">10:30 - 11:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:00 - 11:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:30 - 12:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">12:00 - 12:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">12:30 - 13:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">13:00 - 13:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">13:30 - 14:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:00 - 14:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:30 - 15:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">15:00 - 15:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">15:30 - 16:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:00 - 16:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:30 - 17:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">17:00 - 17:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">17:30 - 18:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">18:00 - 18:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">18:30 - 19:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:00 - 19:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:30 - 20:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">20:00 - 20:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">20:30 - 21:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:00 - 21:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:30 - 22:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">22:00 - 22:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">22:30 - 23:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">23:00 - 23:30</span>
-                    </div>
-                </div>
-
-                <!-- Thứ 6 -->
-                <div class="time-slots-row">
-                                        <div class="time-slot available">
-                        <span class="time">6:00 - 6:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">6:30 - 7:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">7:00 - 7:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">7:30 - 8:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:00 - 8:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:30 - 9:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">9:00 - 9:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">9:30 - 10:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">10:00 - 10:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">10:30 - 11:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:00 - 11:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:30 - 12:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">12:00 - 12:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">12:30 - 13:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">13:00 - 13:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">13:30 - 14:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:00 - 14:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:30 - 15:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">15:00 - 15:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">15:30 - 16:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:00 - 16:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:30 - 17:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">17:00 - 17:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">17:30 - 18:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">18:00 - 18:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">18:30 - 19:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:00 - 19:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:30 - 20:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">20:00 - 20:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">20:30 - 21:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:00 - 21:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:30 - 22:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">22:00 - 22:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">22:30 - 23:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">23:00 - 23:30</span>
-                    </div>
-                </div>
-
-                <!-- Thứ 7 -->
-                <div class="time-slots-row">
-                                        <div class="time-slot available">
-                        <span class="time">6:00 - 6:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">6:30 - 7:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">7:00 - 7:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">7:30 - 8:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:00 - 8:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:30 - 9:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">9:00 - 9:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">9:30 - 10:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">10:00 - 10:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">10:30 - 11:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:00 - 11:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:30 - 12:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">12:00 - 12:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">12:30 - 13:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">13:00 - 13:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">13:30 - 14:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:00 - 14:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:30 - 15:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">15:00 - 15:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">15:30 - 16:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:00 - 16:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:30 - 17:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">17:00 - 17:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">17:30 - 18:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">18:00 - 18:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">18:30 - 19:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:00 - 19:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:30 - 20:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">20:00 - 20:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">20:30 - 21:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:00 - 21:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:30 - 22:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">22:00 - 22:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">22:30 - 23:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">23:00 - 23:30</span>
-                    </div>
-                </div>
-
-                <!-- Chủ nhật -->
-                <div class="time-slots-row">
-                                        <div class="time-slot available">
-                        <span class="time">6:00 - 6:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">6:30 - 7:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">7:00 - 7:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">7:30 - 8:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:00 - 8:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">8:30 - 9:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">9:00 - 9:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">9:30 - 10:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">10:00 - 10:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">10:30 - 11:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:00 - 11:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">11:30 - 12:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">12:00 - 12:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">12:30 - 13:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">13:00 - 13:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">13:30 - 14:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:00 - 14:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">14:30 - 15:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">15:00 - 15:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">15:30 - 16:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:00 - 16:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">16:30 - 17:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">17:00 - 17:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">17:30 - 18:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">18:00 - 18:30</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">18:30 - 19:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:00 - 19:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">19:30 - 20:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">20:00 - 20:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">20:30 - 21:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:00 - 21:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">21:30 - 22:00</span>
-                    </div>
-                    <div class="time-slot booked">
-                        <span class="time">22:00 - 22:30</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">22:30 - 23:00</span>
-                    </div>
-                    <div class="time-slot available">
-                        <span class="time">23:00 - 23:30</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Nút mũi tên -->
-            <div class="next-slots-button">
-                <button id="nextTimeSlots">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
+      <div class="schedule-header">
+        <!-- Dropdown chọn sân -->
+        <div class="court-selector">
+          <button class="court-select-btn">
+            Sân 1
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M6 9L12 15L18 9"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+          <div class="court-dropdown">
+            <div class="court-option">Sân 1</div>
+            <div class="court-option">Sân 2</div>
+            <div class="court-option">Sân 3</div>
+          </div>
         </div>
 
-
-        <div class="booking-button-container">
-            <button class="booking-button">
-                Tiến hành đặt sân
-            </button>
+        <!-- Chú thích trạng thái -->
+        <div class="status-legend">
+          <div class="legend-item">
+            <div class="color-box available"></div>
+            <span>Trống</span>
+          </div>
+          <div class="legend-item">
+            <div class="color-box booked"></div>
+            <span>Đã đặt</span>
+          </div>
         </div>
+
+        <!-- Date navigation -->
+        <div class="date-navigation">
+          <button class="date-nav prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+          <div class="date-range">
+            <span>11/11 ~ 17/11</span>
+          </div>
+          <button class="date-nav next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="schedule-grid">
+        <!-- Cột thứ bên trái -->
+        <div class="weekday-column">
+          <div class="day-label">
+            <span class="weekday">T2</span>
+            <span class="date">11/11</span>
+          </div>
+          <div class="day-label">
+            <span class="weekday">T3</span>
+            <span class="date">12/11</span>
+          </div>
+          <div class="day-label">
+            <span class="weekday">T4</span>
+            <span class="date">13/11</span>
+          </div>
+          <div class="day-label">
+            <span class="weekday">T5</span>
+            <span class="date">14/11</span>
+          </div>
+          <div class="day-label">
+            <span class="weekday">T6</span>
+            <span class="date">15/11</span>
+          </div>
+          <div class="day-label">
+            <span class="weekday">T7</span>
+            <span class="date">16/11</span>
+          </div>
+          <div class="day-label">
+            <span class="weekday">CN</span>
+            <span class="date">17/11</span>
+          </div>
+        </div>
+
+        <!-- Thêm nút previous -->
+        <div class="prev-slots-button">
+          <button id="prevTimeSlots">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Khung giờ bên phải -->
+        <div class="time-slots-container">
+          <!-- Thứ 2 -->
+          <div class="time-slots-row">
+            <div class="time-slot available">
+              <span class="time">6:00 - 6:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">6:30 - 7:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">7:00 - 7:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">7:30 - 8:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:00 - 8:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:30 - 9:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">9:00 - 9:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">9:30 - 10:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">10:00 - 10:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">10:30 - 11:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:00 - 11:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:30 - 12:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">12:00 - 12:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">12:30 - 13:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">13:00 - 13:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">13:30 - 14:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:00 - 14:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:30 - 15:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">15:00 - 15:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">15:30 - 16:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:00 - 16:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:30 - 17:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">17:00 - 17:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">17:30 - 18:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">18:00 - 18:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">18:30 - 19:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:00 - 19:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:30 - 20:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">20:00 - 20:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">20:30 - 21:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:00 - 21:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:30 - 22:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">22:00 - 22:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">22:30 - 23:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">23:00 - 23:30</span>
+            </div>
+          </div>
+
+          <!-- Thứ 3 đến Chủ nhật - Copy cấu trúc tương tự như Thứ 2 -->
+          <!-- Thứ 3 -->
+          <div class="time-slots-row">
+            <div class="time-slot available">
+              <span class="time">6:00 - 6:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">6:30 - 7:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">7:00 - 7:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">7:30 - 8:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:00 - 8:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:30 - 9:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">9:00 - 9:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">9:30 - 10:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">10:00 - 10:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">10:30 - 11:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:00 - 11:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:30 - 12:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">12:00 - 12:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">12:30 - 13:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">13:00 - 13:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">13:30 - 14:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:00 - 14:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:30 - 15:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">15:00 - 15:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">15:30 - 16:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:00 - 16:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:30 - 17:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">17:00 - 17:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">17:30 - 18:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">18:00 - 18:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">18:30 - 19:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:00 - 19:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:30 - 20:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">20:00 - 20:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">20:30 - 21:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:00 - 21:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:30 - 22:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">22:00 - 22:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">22:30 - 23:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">23:00 - 23:30</span>
+            </div>
+          </div>
+
+          <!-- Thứ 4 -->
+          <div class="time-slots-row">
+            <div class="time-slot available">
+              <span class="time">6:00 - 6:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">6:30 - 7:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">7:00 - 7:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">7:30 - 8:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:00 - 8:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:30 - 9:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">9:00 - 9:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">9:30 - 10:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">10:00 - 10:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">10:30 - 11:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:00 - 11:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:30 - 12:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">12:00 - 12:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">12:30 - 13:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">13:00 - 13:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">13:30 - 14:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:00 - 14:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:30 - 15:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">15:00 - 15:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">15:30 - 16:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:00 - 16:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:30 - 17:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">17:00 - 17:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">17:30 - 18:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">18:00 - 18:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">18:30 - 19:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:00 - 19:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:30 - 20:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">20:00 - 20:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">20:30 - 21:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:00 - 21:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:30 - 22:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">22:00 - 22:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">22:30 - 23:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">23:00 - 23:30</span>
+            </div>
+          </div>
+
+          <!-- Thứ 5 -->
+          <div class="time-slots-row">
+            <div class="time-slot available">
+              <span class="time">6:00 - 6:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">6:30 - 7:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">7:00 - 7:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">7:30 - 8:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:00 - 8:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:30 - 9:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">9:00 - 9:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">9:30 - 10:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">10:00 - 10:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">10:30 - 11:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:00 - 11:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:30 - 12:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">12:00 - 12:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">12:30 - 13:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">13:00 - 13:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">13:30 - 14:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:00 - 14:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:30 - 15:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">15:00 - 15:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">15:30 - 16:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:00 - 16:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:30 - 17:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">17:00 - 17:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">17:30 - 18:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">18:00 - 18:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">18:30 - 19:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:00 - 19:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:30 - 20:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">20:00 - 20:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">20:30 - 21:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:00 - 21:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:30 - 22:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">22:00 - 22:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">22:30 - 23:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">23:00 - 23:30</span>
+            </div>
+          </div>
+
+          <!-- Thứ 6 -->
+          <div class="time-slots-row">
+            <div class="time-slot available">
+              <span class="time">6:00 - 6:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">6:30 - 7:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">7:00 - 7:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">7:30 - 8:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:00 - 8:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:30 - 9:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">9:00 - 9:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">9:30 - 10:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">10:00 - 10:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">10:30 - 11:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:00 - 11:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:30 - 12:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">12:00 - 12:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">12:30 - 13:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">13:00 - 13:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">13:30 - 14:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:00 - 14:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:30 - 15:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">15:00 - 15:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">15:30 - 16:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:00 - 16:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:30 - 17:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">17:00 - 17:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">17:30 - 18:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">18:00 - 18:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">18:30 - 19:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:00 - 19:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:30 - 20:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">20:00 - 20:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">20:30 - 21:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:00 - 21:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:30 - 22:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">22:00 - 22:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">22:30 - 23:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">23:00 - 23:30</span>
+            </div>
+          </div>
+
+          <!-- Thứ 7 -->
+          <div class="time-slots-row">
+            <div class="time-slot available">
+              <span class="time">6:00 - 6:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">6:30 - 7:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">7:00 - 7:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">7:30 - 8:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:00 - 8:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:30 - 9:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">9:00 - 9:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">9:30 - 10:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">10:00 - 10:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">10:30 - 11:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:00 - 11:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:30 - 12:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">12:00 - 12:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">12:30 - 13:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">13:00 - 13:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">13:30 - 14:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:00 - 14:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:30 - 15:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">15:00 - 15:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">15:30 - 16:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:00 - 16:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:30 - 17:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">17:00 - 17:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">17:30 - 18:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">18:00 - 18:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">18:30 - 19:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:00 - 19:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:30 - 20:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">20:00 - 20:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">20:30 - 21:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:00 - 21:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:30 - 22:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">22:00 - 22:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">22:30 - 23:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">23:00 - 23:30</span>
+            </div>
+          </div>
+
+          <!-- Chủ nhật -->
+          <div class="time-slots-row">
+            <div class="time-slot available">
+              <span class="time">6:00 - 6:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">6:30 - 7:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">7:00 - 7:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">7:30 - 8:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:00 - 8:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">8:30 - 9:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">9:00 - 9:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">9:30 - 10:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">10:00 - 10:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">10:30 - 11:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:00 - 11:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">11:30 - 12:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">12:00 - 12:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">12:30 - 13:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">13:00 - 13:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">13:30 - 14:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:00 - 14:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">14:30 - 15:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">15:00 - 15:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">15:30 - 16:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:00 - 16:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">16:30 - 17:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">17:00 - 17:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">17:30 - 18:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">18:00 - 18:30</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">18:30 - 19:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:00 - 19:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">19:30 - 20:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">20:00 - 20:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">20:30 - 21:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:00 - 21:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">21:30 - 22:00</span>
+            </div>
+            <div class="time-slot booked">
+              <span class="time">22:00 - 22:30</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">22:30 - 23:00</span>
+            </div>
+            <div class="time-slot available">
+              <span class="time">23:00 - 23:30</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nút mũi tên -->
+        <div class="next-slots-button">
+          <button id="nextTimeSlots">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="booking-button-container">
+        <button class="booking-button">Tiến hành đặt sân</button>
+      </div>
     </div>
 
-        <div class="rating-section">
-        <!-- Thêm phần mô tả sân vào đầu rating-section -->
-        <div class="court-description">
-            <p>Đây là chỗ viết mô tả cho chủ sân</p>
-        </div>
+    <div class="rating-section">
+      <!-- Thêm phần mô tả sân vào đầu rating-section -->
+      <div class="court-description">
+        <p>Đây là chỗ viết mô tả cho chủ sân</p>
+      </div>
 
-        <!-- Rating Summary -->
-        <div class="rating-summary">
-            <h2>Đánh giá sân</h2>
-            <div class="rating-container">
-                <div class="rating-score">
-                    <span class="score">4.5</span>
-                    <div class="stars">★★★★★</div>
-                    <p>123 lượt đánh giá</p>
-                </div>
-                <div class="rating-breakdown">
-                    <div class="rating-bar">
-                        <span>5</span>
-                        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
-                    </div>
-                    <div class="rating-bar">
-                        <span>4</span>
-                        <div class="bar"><div class="fill" style="width: 40%;"></div></div>
-                    </div>
-                    <div class="rating-bar">
-                        <span>3</span>
-                        <div class="bar"><div class="fill" style="width: 20%;"></div></div>
-                    </div>
-                    <div class="rating-bar">
-                        <span>2</span>
-                        <div class="bar"><div class="fill" style="width: 10%;"></div></div>
-                    </div>
-                    <div class="rating-bar">
-                        <span>1</span>
-                        <div class="bar"><div class="fill" style="width: 5%;"></div></div>
-                    </div>
-                </div>
+      <!-- Rating Summary -->
+      <div class="rating-summary">
+        <h2>Đánh giá sân</h2>
+        <div class="rating-container">
+          <div class="rating-score">
+            <span class="score">4.5</span>
+            <div class="stars">★★★★★</div>
+            <p>123 lượt đánh giá</p>
+          </div>
+          <div class="rating-breakdown">
+            <div class="rating-bar">
+              <span>5</span>
+              <div class="bar"><div class="fill" style="width: 80%"></div></div>
             </div>
+            <div class="rating-bar">
+              <span>4</span>
+              <div class="bar"><div class="fill" style="width: 40%"></div></div>
+            </div>
+            <div class="rating-bar">
+              <span>3</span>
+              <div class="bar"><div class="fill" style="width: 20%"></div></div>
+            </div>
+            <div class="rating-bar">
+              <span>2</span>
+              <div class="bar"><div class="fill" style="width: 10%"></div></div>
+            </div>
+            <div class="rating-bar">
+              <span>1</span>
+              <div class="bar"><div class="fill" style="width: 5%"></div></div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Comments Section -->
-        <div class="comments-section">
-            <h2>Bình luận</h2>
-            <div class="comment">
-                <div class="comment-header">
-                    <div class="comment-author">
-                        <img src="https://placehold.co/40x40" alt="User">
-                        <span>Jane Doe</span>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                </div>
-                <p>Sân đẹp, chủ sân dễ tính, giá mềm, phù hp với chất lượng.</p>
-                <span class="time">5 phút trước</span>
+      <!-- Comments Section -->
+      <div class="comments-section">
+        <h2>Bình luận</h2>
+        <div class="comment">
+          <div class="comment-header">
+            <div class="comment-author">
+              <img src="https://placehold.co/40x40" alt="User" />
+              <span>Jane Doe</span>
             </div>
-            <div class="load-more">
-                <button>Tải thêm</button>
-            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <p>Sân đẹp, chủ sân dễ tính, giá mềm, phù hp với chất lượng.</p>
+          <span class="time">5 phút trước</span>
         </div>
+        <div class="load-more">
+          <button>Tải thêm</button>
+        </div>
+      </div>
 
-        <!-- Write a Comment Section -->
-        <div class="write-comment">
-            <h2>Đánh giá của bạn</h2>
-            <div class="your-stars">★★★★★</div>
-            <p class="write-label">Viết bình luận</p>
-            <p class="user-label">Vui lòng <a href="/login">đăng nhập</a> để đăng bình luận</p>
-            <textarea placeholder="Nhập bình luận tại đây"></textarea>
-            <div class="button-container">
-                <button class="submit-button">Gửi bình luận</button>
-            </div>
+      <!-- Write a Comment Section -->
+      <div class="write-comment">
+        <h2>Đánh giá của bạn</h2>
+        <div class="your-stars">★★★★★</div>
+        <p class="write-label">Viết bình luận</p>
+        <p class="user-label">
+          Vui lòng <a href="/login">đăng nhập</a> để đăng bình luận
+        </p>
+        <textarea placeholder="Nhập bình luận tại đây"></textarea>
+        <div class="button-container">
+          <button class="submit-button">Gửi bình luận</button>
         </div>
+      </div>
     </div>
     <div id="footer-placeholder"></div>
 
