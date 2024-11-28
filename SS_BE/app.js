@@ -83,6 +83,57 @@ app.get('/otp_mail', (req, res) => {
   res.sendFile(path.join(__dirname, '../SS_FE/views/login/otp_mail.html'));
 });
 
+app.get('/login/*', (req, res) => {
+  res.redirect('/login');
+});
+
+app.get('/news/*', (req, res) => {
+  res.redirect('/news');
+});
+
+app.get('/policy/*', (req, res) => {
+  res.redirect('/policy');
+});
+
+app.get('/owner/*', (req, res) => {
+  res.redirect('/owner');
+});
+
+app.get('/tournament/*', (req, res) => {
+  res.redirect('/tournament');
+});
+
+app.get('/register/*', (req, res) => {
+  res.redirect('/register');
+});
+
+app.get('/list_court/*', (req, res) => {
+  res.redirect('/list_court');
+});
+
+app.get('/forget_password/*', (req, res) => {
+  res.redirect('/forget_password');
+});
+
+app.get('/forget_password_phone/*', (req, res) => {
+  res.redirect('/forget_password_phone');
+});
+
+app.get('/forget_password_email/*', (req, res) => {
+  res.redirect('/forget_password_email');
+});
+
+app.get('/new_password/*', (req, res) => {
+  res.redirect('/new_password');
+});
+
+app.get('/otp_phone/*', (req, res) => {
+  res.redirect('/otp_phone');
+});
+
+app.get('/otp_mail/*', (req, res) => {
+  res.redirect('/otp_mail');
+});
 
 app.listen(config.PORT, () => {
     console.log(`Server is running on http://localhost:${config.PORT}`);
