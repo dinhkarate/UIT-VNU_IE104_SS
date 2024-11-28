@@ -1,14 +1,17 @@
-const courtModel = require('../models/courtModel');
+const models = require('../models');
 
 function courtsController () {};
 courtsController.getCourts = (req, res) => {
   const filters = {
-    field_type: req.query.field_type ? req.query.field_type.split(',') : [],
-    sport_name: req.query.sport_name ? req.query.sport_name.split(',') : [],
-    service_name: req.query.service_name ? req.query.service_name.split(',') : []
+    fieldType: req.query.fieldType ? req.query.fieldType.split(',') : [],
+    sport: req.query.sport ? req.query.sport.split(',') : [],
+    amenities: req.query.amenities ? req.query.amenities.split(',') : []
   };
 
-  courtModel.getFilteredCourts({ filters }, (err, results) => {
+    // Log the filters for debugging
+    console.log('Received filters:', filters);
+
+  models.court.getFilteredCourts({ filters }, (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: 'Internal Server Error' });

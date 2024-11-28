@@ -1,6 +1,8 @@
 const db = require("../config/db");
 
-function courtModel () {};
+
+function courtModel () {}
+
 
 courtModel.getFilteredCourts = ({ filters }, callback) => {
   let sql = `
@@ -8,11 +10,19 @@ courtModel.getFilteredCourts = ({ filters }, callback) => {
       f.field_id,  
       f.field_name, 
       f.price_per_hour, 
-      f.sport_type,
       f.open_time, 
       f.close_time, 
       c.coop, 
-      STRING_AGG(sl.service_name, ', ') AS services 
+      (select STRING_AGG(sub.service_name, ', ' ORDER BY sub.service_id) AS services
+	 	  FROM  (
+      SELECT DISTINCT ON (sl.service_id) 
+        sl.service_name, 
+        sl.service_id
+        FROM  centres ce
+	      JOIN centre_service cs ON ce.centre_id = cs.centre_id
+	      JOIN service_list sl ON cs.service_id = sl.service_id
+	      ORDER BY sl.service_id) sub) AS services,
+      COALESCE(AVG(fe.star), 0) AS average_rating 
     FROM 
       fields f
     JOIN 
@@ -21,24 +31,35 @@ courtModel.getFilteredCourts = ({ filters }, callback) => {
       centre_service cs ON c.centre_id = cs.centre_id
     JOIN 
       service_list sl ON cs.service_id = sl.service_id
+    LEFT JOIN 
+      feedbacks fe ON fe.field_id = f.field_id 
     WHERE 1=1
-  `;
+  `
+  ;
 
   const params = [];
 
   // Filter by `field_type`
-  if (filters.field_type && filters.field_type.length > 0) {
-    sql += ` AND f.field_type IN ('${filters.field_type.join("','")}')`;
+  if (filters.fieldType && filters.fieldType.length > 0) {
+    sql += ` AND f.field_type IN ('${filters.fieldType.join("','")}')`;
   }
 
   // Filter by `sport_type`
-  if (filters.sport_type && filters.sport_type.length > 0) {
-    sql += ` AND f.sport_type IN ('${filters.sport_type.join("','")}')`;
+  if (filters.sport && filters.sport.length > 0) {
+    sql += ` AND f.sport_type IN ('${filters.sport.join("','")}')`;
   }
 
-  // Filter by `service_name`
-  if (filters.service_name && filters.service_name.length > 0) {
-    sql += ` AND sl.service_name IN ('${filters.service_name.join("','")}')`;
+// Filter by `service_name`
+  if (filters.amenities && filters.amenities.length > 0) {
+    sql += ` 
+        AND f.field_id IN (
+        SELECT f.field_id
+        FROM fields f
+        JOIN centre_service cs ON f.centre_id = cs.centre_id
+        JOIN service_list sl ON cs.service_id = sl.service_id
+        WHERE sl.service_name IN ('${filters.amenities.join("','")}')
+        GROUP BY f.field_id)
+    `;
   }
 
   sql += ` GROUP BY 
@@ -55,7 +76,7 @@ courtModel.getFilteredCourts = ({ filters }, callback) => {
 });
 };
 
-/*Test model court filters
+//Test model court filters
 courtModel.getFilteredCourts({ 
   filters: { 
       field_type: ['Sân 7'], 
@@ -68,10 +89,10 @@ courtModel.getFilteredCourts({
       console.log('Results:', results);
   }
 });
-*/ 
 
+/*
 // Lấy chi tiết sân
-courtModel.getCourtDetails = (id, callback) => {
+courtModel.getCourtDetails = ({id}, callback) => {
   const sql = `
       SELECT 
           f.field_id,
@@ -81,10 +102,7 @@ courtModel.getCourtDetails = (id, callback) => {
           f.close_time,
           c.coop,
           f.field_type,
-          GROUP_CONCAT(DISTINCT sl.service_name) AS services,
-          (SELECT COUNT(*) 
-           FROM fields 
-           WHERE field_type = f.field_type) AS same_type_count
+      	  STRING_AGG(sl.service_name, ', ') AS services
       FROM 
           fields f
       JOIN 
@@ -96,15 +114,35 @@ courtModel.getCourtDetails = (id, callback) => {
       WHERE 
           f.field_id = ?
       GROUP BY 
-          f.field_id;
+          f.field_id,
+          f.field_name,
+          f.price_per_hour,
+          f.open_time,
+          f.close_time,
+          c.coop,
+          f.field_type;
   `;
-  db.query(sql, id, (err, results) => {
+  console.log('Executing SQL:', sql);
+  const params = [id];
+  console.log('Executing Params:', params);
+  db.query(sql, params, (err, results) => {
+    console.log('Query results:', results[0]);
       callback(err, results[0]); // Trả về chi tiết sân
   });
 };
 
+courtModel.getCourtDetails({ id: 'BD002' }, (err, details) => {
+  if (err) {
+    console.error('Error fetching court details:', err);
+  } else {
+    console.log('Court Details:', details);
+  }
+});
+
+
+
 // Lấy danh sách feedback
-courtModel.getCourtFeedbacks = (id, callback) => {
+courtModel.getCourtFeedbacks = ({id}, callback) => {
   const sql = `
       SELECT 
           fb.feedback_id,
@@ -122,10 +160,35 @@ courtModel.getCourtFeedbacks = (id, callback) => {
       ORDER BY 
           fb.created_at DESC;
   `;
-  db.query(sql, id, (err, results) => {
+  console.log('Executing SQL:', sql);
+  const params = [id]
+  console.log('Executing Params:', params);
+  db.query(sql, params, (err, results) => {
+    console.log('Query results 2:', results);
       callback(err, results);
   });
-};
+};*/
+
+
+/* Test model court details and feedbacks 
+const testFieldId = 'BD002'; // Replace with a valid field_id
+
+courtModel.getCourtDetails({testFieldId}, (err, details) => {
+  if (err) {
+    console.error('Error fetching court details:', err);
+  } else {
+    console.log('Court Details:', details);
+
+    courtModel.getCourtFeedbacks(testFieldId, (err, feedbacks) => {
+      if (err) {
+        console.error('Error fetching court feedbacks:', err);
+      } else {
+        console.log('Court Feedbacks:', feedbacks);
+      }
+    });
+  }
+});*/
+
 
 module.exports = courtModel
 

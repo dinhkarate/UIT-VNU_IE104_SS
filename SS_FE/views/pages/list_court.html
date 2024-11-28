@@ -1,519 +1,930 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Danh sách sân</title>
-    <link rel="stylesheet" href="/styles/pages/list_court.css">
-    <link href="https://fonts.googleapis.com/css2?family=CrimsonPro:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="/styles/pages/list_court.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=CrimsonPro:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="/scripts/components/header.js"></script>
+    <script defer src="/scripts/pages/list_court.js"></script>
+  </head>
+  <body>
     <div id="header-placeholder"></div>
     <div class="breadcrumb">
-        <a href="/">Trang chủ</a>  >  <span>Danh sách sân</span>
+      <a href="/">Trang chủ</a> > <span>Danh sách sân</span>
     </div>
     <div id="h2-sigma">
-        <h2>Danh sách sân</h2>
+      <h2>Danh sách sân</h2>
     </div>
     <main class="main-content">
-        <aside class="filter-section">
-            <h3>Chọn lọc theo:</h3>
-            <div class="filter-group">
-                <label>Đối tác SportSpot<input type="checkbox" name="partner"></label>
+      <aside class="filter-section">
+        <h3>Chọn lọc theo:</h3>
+        <div class="filter-group">
+          <label
+            >Đối tác SportSpot<input type="checkbox" name="partner"
+          /></label>
+        </div>
+        <div class="filter-group">
+          <h4>Môn thể thao:</h4>
+          <label
+            >Bóng đá<input type="checkbox" name="sport" value="Bóng đá"
+          /></label>
+          <label
+            >Bóng rổ<input type="checkbox" name="sport" value="Bóng rổ"
+          /></label>
+          <label
+            >Cầu lông<input type="checkbox" name="sport" value="Cầu lông"
+          /></label>
+          <label
+            >Bóng chuyền<input type="checkbox" name="sport" value="Bóng chuyền"
+          /></label>
+          <label
+            >Tennis<input type="checkbox" name="sport" value="Tennis"
+          /></label>
+          <label
+            >Pickleball<input type="checkbox" name="sport" value="Pickleball"
+          /></label>
+        </div>
+        <div class="filter-group">
+          <h4>Khoảng cách:</h4>
+          <label>Gần đây nhất<input type="checkbox" name="distance" /></label>
+          <label>Dưới 2km<input type="checkbox" name="distance" /></label>
+          <label>Dưới 5km<input type="checkbox" name="distance" /></label>
+          <label>Dưới 10km<input type="checkbox" name="distance" /></label>
+        </div>
+        <div class="filter-group">
+          <h4>Loại sân:</h4>
+          <label
+            >Sân 5<input type="checkbox" name="field-type" value="Sân 5"
+          /></label>
+          <label
+            >Sân 7<input type="checkbox" name="field-type" value="Sân 7"
+          /></label>
+          <label
+            >Sân 11<input type="checkbox" name="field-type" value="Sân 11"
+          /></label>
+          <label
+            >Trong nhà<input
+              type="checkbox"
+              name="field-type"
+              value="Trong nhà"
+          /></label>
+          <label
+            >Ngoài trời (Có mái che)<input
+              type="checkbox"
+              name="field-type"
+              value="Ngoài trời"
+          /></label>
+        </div>
+        <div class="filter-group">
+          <h4>Các tiện ích</h4>
+          <label
+            >Wifi miễn phí<input
+              type="checkbox"
+              name="amenities"
+              value="Wifi"
+          /></label>
+          <label
+            >Cafe<input
+              type="checkbox"
+              name="amenities"
+              value="Cafe"
+          /></label>
+          <label
+            >Trọng tài<input
+              type="checkbox"
+              name="amenities"
+              value="Thuê trọng tài"
+          /></label>
+          <label
+            >Đỗ xe ô tô<input
+              type="checkbox"
+              name="amenities"
+              value="Bãi đỗ ô tô"
+          /></label>
+          <label
+            >Phòng tắm<input
+              type="checkbox"
+              name="amenities"
+              value="Phòng tắm"
+          /></label>
+          <label
+            >Bãi giữ xe miễn phí<input
+              type="checkbox"
+              name="amenities"
+              value="Bãi giữ xe miễn phí"
+          /></label>
+          <label
+            >Thuê vợt<input
+              type="checkbox"
+              name="amenities"
+              value="Thuê vợt"
+          /></label>
+          <label
+            >Thuê giày<input
+              type="checkbox"
+              name="amenities"
+              value="Thuê giày"
+          /></label>
+          <label
+            >Thuê áo tập<input
+              type="checkbox"
+              name="amenities"
+              value="Thuê áo tập"
+          /></label>
+          <label
+            >Thuê thầy dạy<input
+              type="checkbox"
+              name="amenities"
+              value="Thuê thầy dạy"
+          /></label>
+          <label
+            >Đặt áo đấu<input
+              type="checkbox"
+              name="amenities"
+              value="Đặt áo đấu"
+          /></label>
+          <label
+            >Phòng thay đồ<input
+              type="checkbox"
+              name="amenities"
+              value="Phòng thay đồ"
+          /></label>
+          <label
+            >Hệ thống chiếu sáng<input
+              type="checkbox"
+              name="amenities"
+              value="Hệ thống chiếu sáng"
+          /></label>
+        </div>
+        <div class="filter-buttons">
+          <button class="reset-button">
+            <img
+              src="/images/reload-icon.svg"
+              alt="Reload"
+              class="reload-icon"
+            />
+          </button>
+          <button class="apply-button">Áp dụng</button>
+        </div>
+      </aside>
+
+      <section class="fields-grid">
+        <div class="grid-container">
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
             </div>
-            <div class="filter-group">
-                <h4>Môn thể thao:</h4>
-                <label>Tất cả<input type="checkbox" name="sport"></label>
-                <label>Bóng đá<input type="checkbox" name="sport"></label>
-                <label>Bóng rổ<input type="checkbox" name="sport"></label>
-                <label>Cầu lông<input type="checkbox" name="sport"></label>
-                <label>Bóng chuyền<input type="checkbox" name="sport"></label>
-                <label>Tennis<input type="checkbox" name="sport"></label>
-                <label>Pickleball<input type="checkbox" name="sport"></label>
+            <div class="item-content">
+              <h3>
+                <a href="/list_court/court_detail">Sân bóng đá Bình Minh</a>
+              </h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 2km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
+
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
+
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">100.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
             </div>
-            <div class="filter-group">
-                <h4>Khoảng cách:</h4>
-                <label>Gần đây nhất<input type="checkbox" name="distance"></label>
-                <label>Dưới 2km<input type="checkbox" name="distance"></label>
-                <label>Dưới 5km<input type="checkbox" name="distance"></label>
-                <label>Dưới 10km<input type="checkbox" name="distance"></label>
+          </div>
+
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
             </div>
-            <div class="filter-group">
-                <h4>Loại sân:</h4>
-                <label>Sân 5<input type="checkbox" name="field-type"></label>
-                <label>Sân 7<input type="checkbox" name="field-type"></label>
-                <label>Sân 11<input type="checkbox" name="field-type"></label>
-                <label>Trong nhà<input type="checkbox" name="field-type"></label>
-                <label>Ngoài trời (Có mái che)<input type="checkbox" name="field-type"></label>
-                <label>Trung tâm thể thao<input type="checkbox" name="field-type"></label>
+            <div class="item-content">
+              <h3>
+                <a href="/list_court/court_detail">Sân Tennis Thăng Long</a>
+              </h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 1.5km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
+
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
+
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">200.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
             </div>
-                <div class="filter-group">
-                <h4>Các tiện ích</h4>
-                <label>Bãi giữ xe miễn phí<input type="checkbox" name="amenities"></label>
-                <label>Cho thuê vợt<input type="checkbox" name="amenities"></label>
-                <label>Cho thuê giày<input type="checkbox" name="amenities"></label>
-                <label>Đặt áo đấu<input type="checkbox" name="amenities"></label>
-                <label>Cho thuê áo tập<input type="checkbox" name="amenities"></label>
-                <label>Thuê thầy dạy<input type="checkbox" name="amenities"></label>
-                <label>Phòng thay đồ<input type="checkbox" name="amenities"></label>
-                <label>Tổ chức giải đấu<input type="checkbox" name="amenities"></label>
-                <label>Đỗ xe ô tô<input type="checkbox" name="amenities"></label>
-                <label>Hệ thống chiếu sáng<input type="checkbox" name="amenities"></label>
+          </div>
+
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
             </div>
-            <div class="filter-buttons">
-                <button class="reset-button">
-                    <img src="/images/reload-icon.svg" alt="Reload" class="reload-icon">
-                </button>
-                <button class="apply-button">Áp dụng</button>
+            <div class="item-content">
+              <h3>
+                <a href="/list_court/court_detail">Sân Cầu Lông Hà Đông</a>
+              </h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 3.2km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
+
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
+
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">80.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
             </div>
-        </aside>
+          </div>
 
-
-        <section class="fields-grid">
-            <div class="grid-container">
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="https://placehold.co/480x345" alt="Field Image">
-                        <div class="banner">
-                            <img src="https://placehold.co/75x100" alt="Banner">
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <h3><a href="/list_court/court_detail">Sân bóng đá Bình Minh</a></h3>
-                        <div class="location-rating">
-                            <p class="distance">
-                                <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                                Cách đây 2km
-                            </p>
-                            <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tags">
-                            <span class="tag partner">
-                                <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                                <span>Đối tác SportSpot</span>
-                            </span>
-                            <span class="tag quality">
-                                <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                                <span>Kiểm định chất lượng</span>
-                            </span>
-                        </div>
-                        
-                        <h4>Các tiện ích</h4>
-                        <div class="amenities">
-                            <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                            <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                            <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                            <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                            <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                        </div>
-                        
-                        <div class="price">
-                            <span class="price-label">Giá sân: </span>
-                            <span class="price-value">100.000đ/giờ</span>
-                        </div>
-                        <p class="hours">Mở cửa 6.00 - 22.00</p>
-                    </div>
-                </div>
-
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="https://placehold.co/480x345" alt="Field Image">
-                        <div class="banner">
-                            <img src="https://placehold.co/75x100" alt="Banner">
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <h3><a href="/list_court/court_detail">Sân Tennis Thăng Long</a></h3>
-                        <div class="location-rating">
-                            <p class="distance">
-                                <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                                Cách đây 1.5km
-                            </p>
-                            <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tags">
-                            <span class="tag partner">
-                                <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                                <span>Đối tác SportSpot</span>
-                            </span>
-                            <span class="tag quality">
-                                <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                                <span>Kiểm định chất lượng</span>
-                            </span>
-                        </div>
-                        
-                        <h4>Các tiện ích</h4>
-                        <div class="amenities">
-                            <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                            <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                            <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                            <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                            <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                        </div>
-                        
-                        <div class="price">
-                            <span class="price-label">Giá sân: </span>
-                            <span class="price-value">200.000đ/giờ</span>
-                        </div>
-                        <p class="hours">Mở cửa 6.00 - 22.00</p>
-                    </div>
-                </div>
-
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="https://placehold.co/480x345" alt="Field Image">
-                        <div class="banner">
-                            <img src="https://placehold.co/75x100" alt="Banner">
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <h3><a href="/list_court/court_detail">Sân Cầu Lông Hà Đông</a></h3>
-                        <div class="location-rating">
-                            <p class="distance">
-                                <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                                Cách đây 3.2km
-                            </p>
-                            <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tags">
-                            <span class="tag partner">
-                                <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                                <span>Đối tác SportSpot</span>
-                            </span>
-                            <span class="tag quality">
-                                <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                                <span>Kiểm định chất lượng</span>
-                            </span>
-                        </div>
-                        
-                        <h4>Các tiện ích</h4>
-                        <div class="amenities">
-                            <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                            <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                            <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                            <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                            <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                        </div>
-                        
-                        <div class="price">
-                            <span class="price-label">Giá sân: </span>
-                            <span class="price-value">80.000đ/giờ</span>
-                        </div>
-                        <p class="hours">Mở cửa 6.00 - 22.00</p>
-                    </div>
-                </div>
-
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="https://placehold.co/480x345" alt="Field Image">
-                        <div class="banner">
-                            <img src="https://placehold.co/75x100" alt="Banner">
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <h3><a href="/list_court/court_detail">Sân Bóng Rổ Victory</a></h3>
-                        <div class="location-rating">
-                            <p class="distance">
-                                <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                                Cách đây 4km
-                            </p>
-                            <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tags">
-                            <span class="tag partner">
-                                <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                                <span>Đối tác SportSpot</span>
-                            </span>
-                            <span class="tag quality">
-                                <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                                <span>Kiểm định chất lượng</span>
-                            </span>
-                        </div>
-                        
-                        <h4>Các tiện ích</h4>
-                        <div class="amenities">
-                            <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                            <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                            <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                            <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                            <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                        </div>
-                        
-                        <div class="price">
-                            <span class="price-label">Giá sân: </span>
-                            <span class="price-value">150.000đ/giờ</span>
-                        </div>
-                        <p class="hours">Mở cửa 6.00 - 22.00</p>
-                    </div>
-                </div>
-
-            <div class="item-container">
-                <div class="item-image">
-                    <img src="https://placehold.co/480x345" alt="Field Image">
-                    <div class="banner">
-                        <img src="https://placehold.co/75x100" alt="Banner">
-                    </div>
-                </div>
-                <div class="item-content">
-                    <h3><a href="/list_court/court_detail">Sân cầu lông Ao An</a></h3>
-                    <div class="location-rating">
-                        <p class="distance">
-                            <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                            Cách đây 2km
-                        </p>
-                        <div class="rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
-                    </div>
-                    
-                    <div class="tags">
-                        <span class="tag partner">
-                            <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                            <span>Đối tác SportSpot</span>
-                        </span>
-                        <span class="tag quality">
-                            <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                            <span>Kiểm định chất lượng</span>
-                        </span>
-                    </div>
-                    
-                    <h4>Các tiện ích</h4>
-                    <div class="amenities">
-                        <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                        <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                        <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                        <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                        <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                    </div>
-                    
-                    <div class="price">
-                        <span class="price-label">Giá sân: </span>
-                        <span class="price-value">100.000đ/giờ</span>
-                    </div>
-                    <p class="hours">Mở cửa 6.00 - 22.00</p>
-                </div>
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
             </div>
-
-
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="https://placehold.co/480x345" alt="Field Image">
-                        <div class="banner">
-                            <img src="https://placehold.co/75x100" alt="Banner">
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <h3><a href="/list_court/court_detail">Sân Pickleball Sunshine</a></h3>
-                        <div class="location-rating">
-                            <p class="distance">
-                                <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                                Cách đây 5km
-                            </p>
-                            <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tags">
-                            <span class="tag partner">
-                                <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                                <span>Đối tác SportSpot</span>
-                            </span>
-                            <span class="tag quality">
-                                <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                                <span>Kiểm định chất lượng</span>
-                            </span>
-                        </div>
-                        
-                        <h4>Các tiện ích</h4>
-                        <div class="amenities">
-                            <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                            <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                            <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                            <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                            <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                        </div>
-                        
-                        <div class="price">
-                            <span class="price-label">Giá sân: </span>
-                            <span class="price-value">90.000đ/giờ</span>
-                        </div>
-                        <p class="hours">Mở cửa 6.00 - 22.00</p>
-                    </div>
+            <div class="item-content">
+              <h3>
+                <a href="/list_court/court_detail">Sân Bóng Rổ Victory</a>
+              </h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 4km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
                 </div>
+              </div>
 
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="https://placehold.co/480x345" alt="Field Image">
-                        <div class="banner">
-                            <img src="https://placehold.co/75x100" alt="Banner">
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <h3><a href="/list_court/court_detail">Sân Bóng Chuyền</a></h3>
-                        <div class="location-rating">
-                            <p class="distance">
-                                <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                                Cách đây 3.5km
-                            </p>
-                            <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tags">
-                            <span class="tag partner">
-                                <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                                <span>Đối tác SportSpot</span>
-                            </span>
-                            <span class="tag quality">
-                                <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                                <span>Kiểm định chất lượng</span>
-                            </span>
-                        </div>
-                        
-                        <h4>Các tiện ích</h4>
-                        <div class="amenities">
-                            <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                            <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                            <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                            <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                            <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                        </div>
-                        
-                        <div class="price">
-                            <span class="price-label">Giá sân: </span>
-                            <span class="price-value">110.000đ/giờ</span>
-                        </div>
-                        <p class="hours">Mở cửa 6.00 - 22.00</p>
-                    </div>
-                </div>
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
 
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="https://placehold.co/480x345" alt="Field Image">
-                        <div class="banner">
-                            <img src="https://placehold.co/75x100" alt="Banner">
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <h3><a href="/list_court/court_detail">Sân Tennis Long Biên</a></h3>
-                        <div class="location-rating">
-                            <p class="distance">
-                                <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                                Cách đây 6km
-                            </p>
-                            <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tags">
-                            <span class="tag partner">
-                                <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                                <span>Đối tác SportSpot</span>
-                            </span>
-                            <span class="tag quality">
-                                <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                                <span>Kiểm định chất lượng</span>
-                            </span>
-                        </div>
-                        
-                        <h4>Các tiện ích</h4>
-                        <div class="amenities">
-                            <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                            <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                            <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                            <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                            <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                        </div>
-                        
-                        <div class="price">
-                            <span class="price-label">Giá sân: </span>
-                            <span class="price-value">180.000đ/giờ</span>
-                        </div>
-                        <p class="hours">Mở cửa 6.00 - 22.00</p>
-                    </div>
-                </div>
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
 
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="https://placehold.co/480x345" alt="Field Image">
-                        <div class="banner">
-                            <img src="https://placehold.co/75x100" alt="Banner">
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <h3><a href="/list_court/court_detail">Sân Bóng Đá</a></h3>
-                        <div class="location-rating">
-                            <p class="distance">
-                                <img src="/images/location-icon.svg" alt="Location" class="location-icon">
-                                Cách đây 4.2km
-                            </p>
-                            <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tags">
-                            <span class="tag partner">
-                                <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
-                                <span>Đối tác SportSpot</span>
-                            </span>
-                            <span class="tag quality">
-                                <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
-                                <span>Kiểm định chất lượng</span>
-                            </span>
-                        </div>
-                        
-                        <h4>Các tiện ích</h4>
-                        <div class="amenities">
-                            <img src="/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
-                            <img src="/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
-                            <img src="/images/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
-                            <img src="/images/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
-                            <img src="/images/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
-                        </div>
-                        
-                        <div class="price">
-                            <span class="price-label">Giá sân: </span>
-                            <span class="price-value">130.000đ/giờ</span>
-                        </div>
-                        <p class="hours">Mở cửa 6.00 - 22.00</p>
-                    </div>
-                </div>
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">150.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
             </div>
-        </section>
+          </div>
+
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
+            </div>
+            <div class="item-content">
+              <h3><a href="/list_court/court_detail">Sân cầu lông Ao An</a></h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 2km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
+
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
+
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">100.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
+            </div>
+          </div>
+
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
+            </div>
+            <div class="item-content">
+              <h3>
+                <a href="/list_court/court_detail">Sân Pickleball Sunshine</a>
+              </h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 5km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
+
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
+
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">90.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
+            </div>
+          </div>
+
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
+            </div>
+            <div class="item-content">
+              <h3><a href="/list_court/court_detail">Sân Bóng Chuyền</a></h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 3.5km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
+
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
+
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">110.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
+            </div>
+          </div>
+
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
+            </div>
+            <div class="item-content">
+              <h3>
+                <a href="/list_court/court_detail">Sân Tennis Long Biên</a>
+              </h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 6km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
+
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
+
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">180.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
+            </div>
+          </div>
+
+          <div class="item-container">
+            <div class="item-image">
+              <img src="https://placehold.co/480x345" alt="Field Image" />
+              <div class="banner">
+                <img src="https://placehold.co/75x100" alt="Banner" />
+              </div>
+            </div>
+            <div class="item-content">
+              <h3><a href="/list_court/court_detail">Sân Bóng Đá</a></h3>
+              <div class="location-rating">
+                <p class="distance">
+                  <img
+                    src="/images/location-icon.svg"
+                    alt="Location"
+                    class="location-icon"
+                  />
+                  Cách đây 4.2km
+                </p>
+                <div class="rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span
+                  ><span>★</span>
+                </div>
+              </div>
+
+              <div class="tags">
+                <span class="tag partner">
+                  <img
+                    src="/images/trophy-icon.svg"
+                    alt="Trophy"
+                    class="tag-icon"
+                  />
+                  <span>Đối tác SportSpot</span>
+                </span>
+                <span class="tag quality">
+                  <img
+                    src="/images/check-icon.svg"
+                    alt="Check"
+                    class="tag-icon"
+                  />
+                  <span>Kiểm định chất lượng</span>
+                </span>
+              </div>
+
+              <h4>Các tiện ích</h4>
+              <div class="amenities">
+                <img
+                  src="/images/wifi-icon.svg"
+                  alt="Wifi"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/cafe-icon.svg"
+                  alt="Cafe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/whistle-icon.svg"
+                  alt="Trọng tài"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/car-icon.svg"
+                  alt="Bãi đỗ xe"
+                  class="amenity-icon"
+                />
+                <img
+                  src="/images/shower-icon.svg"
+                  alt="Phòng tắm"
+                  class="amenity-icon"
+                />
+              </div>
+
+              <div class="price">
+                <span class="price-label">Giá sân: </span>
+                <span class="price-value">130.000đ/giờ</span>
+              </div>
+              <p class="hours">Mở cửa 6.00 - 22.00</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <div class="pagination">
-        <a href="#" class="page-nav">Trang trước</a>
-        
-        <div class="page-numbers">
-            <a href="#" class="page-number active">1</a>
-            <a href="#" class="page-number">2</a>
-            <a href="#" class="page-number">3</a>
-            <span class="dots">...</span>
-            <a href="#" class="page-number">8</a>
-        </div>
+      <a href="#" class="page-nav">Trang trước</a>
 
-        <a href="#" class="page-nav">Trang sau</a>
+      <div class="page-numbers">
+        <a href="#" class="page-number active">1</a>
+        <a href="#" class="page-number">2</a>
+        <a href="#" class="page-number">3</a>
+        <span class="dots">...</span>
+        <a href="#" class="page-number">8</a>
+      </div>
+
+      <a href="#" class="page-nav">Trang sau</a>
     </div>
 
     <div id="footer-placeholder"></div>
 
-    <script src="/scripts/components/header.js"></script>
-</body>
+  </body>
 </html>
