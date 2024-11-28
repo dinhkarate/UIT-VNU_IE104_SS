@@ -9,6 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=CrimsonPro:wght@700&display=swap"
       rel="stylesheet"
     />
+    <script defer src="/scripts/components/header.js"></script>
+    <script defer src="/scripts/pages/list_court.js"></script>
   </head>
   <body>
     <div id="header-placeholder"></div>
@@ -28,7 +30,6 @@
         </div>
         <div class="filter-group">
           <h4>Môn thể thao:</h4>
-          <label>Tất cả<input type="checkbox" name="sport" /></label>
           <label
             >Bóng đá<input type="checkbox" name="sport" value="Bóng đá"
           /></label>
@@ -82,22 +83,64 @@
         <div class="filter-group">
           <h4>Các tiện ích</h4>
           <label
+            >Wifi miễn phí<input
+              type="checkbox"
+              name="amenities"
+              value="Wifi"
+          /></label>
+          <label
+            >Cafe<input
+              type="checkbox"
+              name="amenities"
+              value="Cafe"
+          /></label>
+          <label
+            >Trọng tài<input
+              type="checkbox"
+              name="amenities"
+              value="Thuê trọng tài"
+          /></label>
+          <label
+            >Đỗ xe ô tô<input
+              type="checkbox"
+              name="amenities"
+              value="Bãi đỗ ô tô"
+          /></label>
+          <label
+            >Phòng tắm<input
+              type="checkbox"
+              name="amenities"
+              value="Phòng tắm"
+          /></label>
+          <label
             >Bãi giữ xe miễn phí<input
               type="checkbox"
               name="amenities"
               value="Bãi giữ xe miễn phí"
           /></label>
           <label
-            >Cho thuê vợt<input
+            >Thuê vợt<input
               type="checkbox"
               name="amenities"
-              value="Cho thuê vợt"
+              value="Thuê vợt"
           /></label>
           <label
-            >Cho thuê giày<input
+            >Thuê giày<input
               type="checkbox"
               name="amenities"
-              value="Cho thuê giày"
+              value="Thuê giày"
+          /></label>
+          <label
+            >Thuê áo tập<input
+              type="checkbox"
+              name="amenities"
+              value="Thuê áo tập"
+          /></label>
+          <label
+            >Thuê thầy dạy<input
+              type="checkbox"
+              name="amenities"
+              value="Thuê thầy dạy"
           /></label>
           <label
             >Đặt áo đấu<input
@@ -106,31 +149,10 @@
               value="Đặt áo đấu"
           /></label>
           <label
-            >Cho thuê áo tập<input
-              type="checkbox"
-              name="amenities"
-              value="Cho thuê áo tập"
-          /></label>
-          <label
-            >Thuê thầy dạy<input
-              type="checkbox"
-              name="amenities"
-              value="Cho thuê thầy dạy"
-          /></label>
-          <label
             >Phòng thay đồ<input
               type="checkbox"
               name="amenities"
               value="Phòng thay đồ"
-          /></label>
-          <label
-            >Tổ chức giải đấu<input type="checkbox" name="amenities"
-          /></label>
-          <label
-            >Đỗ xe ô tô<input
-              type="checkbox"
-              name="amenities"
-              value="Bãi đỗ ô tô"
           /></label>
           <label
             >Hệ thống chiếu sáng<input
@@ -904,7 +926,5 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="/scripts/components/header.js"></script>
-    <script src="/scripts/pages/list_court.js"></script>
   </body>
 </html>
