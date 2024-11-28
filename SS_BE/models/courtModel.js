@@ -1,18 +1,18 @@
 const db = require("../config/db");
 
-function courtModel () {};
+function courtModel () {}
 
 courtModel.getFilteredCourts = ({ filters }, callback) => {
   let sql = `
-    SELECT 
+      SELECT 
       f.field_id,  
       f.field_name, 
       f.price_per_hour, 
-      f.sport_type,
       f.open_time, 
       f.close_time, 
       c.coop, 
-      STRING_AGG(sl.service_name, ', ') AS services 
+      STRING_AGG(sl.service_name, ', ') AS services,
+      COALESCE(AVG(fe.star), 0) AS average_rating 
     FROM 
       fields f
     JOIN 
@@ -21,24 +21,27 @@ courtModel.getFilteredCourts = ({ filters }, callback) => {
       centre_service cs ON c.centre_id = cs.centre_id
     JOIN 
       service_list sl ON cs.service_id = sl.service_id
+    LEFT JOIN 
+      feedbacks fe ON fe.field_id = f.field_id 
     WHERE 1=1
-  `;
+  `
+  ;
 
   const params = [];
 
   // Filter by `field_type`
-  if (filters.field_type && filters.field_type.length > 0) {
-    sql += ` AND f.field_type IN ('${filters.field_type.join("','")}')`;
+  if (filters.fieldType && filters.fieldType.length > 0) {
+    sql += ` AND f.field_type IN ('${filters.fieldType.join("','")}')`;
   }
 
   // Filter by `sport_type`
-  if (filters.sport_type && filters.sport_type.length > 0) {
-    sql += ` AND f.sport_type IN ('${filters.sport_type.join("','")}')`;
+  if (filters.sport && filters.sport.length > 0) {
+    sql += ` AND f.sport_type IN ('${filters.sport.join("','")}')`;
   }
 
   // Filter by `service_name`
-  if (filters.service_name && filters.service_name.length > 0) {
-    sql += ` AND sl.service_name IN ('${filters.service_name.join("','")}')`;
+  if (filters.amenities && filters.amenities.length > 0) {
+    sql += ` AND sl.service_name IN ('${filters.amenities.join("','")}')`;
   }
 
   sql += ` GROUP BY 
@@ -55,11 +58,11 @@ courtModel.getFilteredCourts = ({ filters }, callback) => {
 });
 };
 
-/*Test model court filters
+//Test model court filters
 courtModel.getFilteredCourts({ 
   filters: { 
-      field_type: ['Sân 7'], 
-      sport_type: ['Bóng đá'], 
+      fieldType: ['Sân 7'], 
+      sport: ['Bóng đá'], 
   }
 }, (err, results) => {
   if (err) {
@@ -68,7 +71,7 @@ courtModel.getFilteredCourts({
       console.log('Results:', results);
   }
 });
-*/ 
+
 
 // Lấy chi tiết sân
 courtModel.getCourtDetails = (id, callback) => {

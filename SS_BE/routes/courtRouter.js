@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const courtsController = require('../controllers/courtsController');
 
-// Định nghĩa route để lấy danh sách sân chơi và dịch vụ
+// Define the route to fetch filtered courts
 router.get('/courtsList', courtsController.getCourts);
 
 module.exports = router;
