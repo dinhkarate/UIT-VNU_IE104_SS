@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách sân</title>
-    <link rel="stylesheet" href="styles/pages/list_court_court.css">
+    <link rel="stylesheet" href="/styles/pages/list_court_court.css">
     <link href="https://fonts.googleapis.com/css2?family=CrimsonPro:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script defer src="/scripts/pages/schedule.js"></script>
+    <script defer src="/scripts/components/header.js"></script>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -24,7 +26,7 @@
             <div class="court-title">
                 <h1>Sân bóng đá Bình Minh</h1>
                 <p class="address">
-                    <img src="../../public/images/question-mark.svg" alt="Location" class="icon">
+                    <img src="public/images/question-mark.svg" alt="Location" class="icon">
                     1 Đường số 2 Phường 20 Q.Bình Thạnh TP.HCM
                 </p>
             </div>
@@ -57,12 +59,12 @@
                 <div class="court-actions">
                     <div class="rating">
                         <span>Đánh giá: 5/5</span>
-                        <img src="../../public/images/question-mark.svg" alt="Rating" class="icon">
+                        <img src="/public/images/question-mark.svg" alt="Rating" class="icon">
                     </div>
                     <div class="favorite">
                         <button>
                             Thêm sân yêu thích
-                            <img src="../../public/images/question-mark.svg" alt="Favorite" class="icon">
+                            <img src="/public/images/question-mark.svg" alt="Favorite" class="icon">
                         </button>
                     </div>
                 </div>
@@ -80,23 +82,23 @@
                             <h2>Dịch vụ tiện ích</h2>
                             <div class="service-list">
                                 <div class="service-item">
-                                    <img src="../../public/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
+                                    <img src="public/images/wifi-icon.svg" alt="Wifi" class="amenity-icon">
                                     <span>Wifi</span>
                                 </div>
                                 <div class="service-item">
-                                    <img src="../../public/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
+                                    <img src="public/images/cafe-icon.svg" alt="Cafe" class="amenity-icon">
                                     <span>Cafe</span>
                                 </div>
                                 <div class="service-item">
-                                    <img src="../../public/images/shower-icon.svg" alt="Shower" class="amenity-icon">
+                                    <img src="public/images/shower-icon.svg" alt="Shower" class="amenity-icon">
                                     <span>Phòng tắm</span>
                                 </div>
                                 <div class="service-item">
-                                    <img src="../../public/images/car-icon.svg" alt="Parking" class="amenity-icon">
+                                    <img src="public/images/car-icon.svg" alt="Parking" class="amenity-icon">
                                     <span>Bãi đỗ ô tô</span>
                                 </div>
                                 <div class="service-item">
-                                    <img src="../../public/images/whistle-icon.svg" alt="Referee" class="amenity-icon">
+                                    <img src="public/images/whistle-icon.svg" alt="Referee" class="amenity-icon">
                                     <span>Thuê trọng tài</span>
                                 </div>
                             </div>
@@ -1054,11 +1056,8 @@
             </div>
         </div>
     </div>
-
     <div id="footer-placeholder"></div>
 
-    <script src="scripts/components/header.js"></script>
-    <script src="scripts/schedule.js"></script>
 
 </body>
 </html>
