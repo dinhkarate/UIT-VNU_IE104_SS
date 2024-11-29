@@ -1,4 +1,4 @@
 const court = require('./courtModel');
+const site = require('./siteModel');
 
-
-module.exports = {court}
+module.exports = {court, site}

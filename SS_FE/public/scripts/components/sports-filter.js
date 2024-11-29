@@ -1,73 +1,16 @@
-let suggestionsData = {
-    all: [
-        {
-            name: "Sân bóng đá A",
-            distance: "Cách đây 2km",
-            rating: "★★★★★",
-            amenities: ["wifi", "parking", "shower", "utensils"],
-            hours: "Mở cửa 6:00 - 22:00",
-            image: "https://placehold.co/255x200",
-        },
-        {
-            name: "Sân cầu lông A",
-            distance: "Cách đây 2km",
-            rating: "★★★★★",
-            amenities: ["wifi", "parking", "shower", "utensils"],
-            hours: "Mở cửa 6:00 - 22:00",
-            image: "https://placehold.co/255x200",
-        },
-    ],
-    football: [
-        {
-            name: "Sân bóng đá A",
-            distance: "Cách đây 2km",
-            rating: "★★★★★",
-            amenities: ["wifi", "parking", "shower", "utensils"],
-            hours: "Mở cửa 6:00 - 22:00",
-            image: "https://placehold.co/255x200",
-        },
-    ],
-    basketball: [
-        {
-            name: "Sân bóng rổ A",
-            distance: "Cách đây 2km",
-            rating: "★★★★★",
-            amenities: ["wifi", "parking", "shower", "utensils"],
-            hours: "Mở cửa 6:00 - 22:00",
-            image: "https://placehold.co/255x200",
-        },
-    ],
-    badminton: [
-        {
-            name: "Sân cầu lông A",
-            distance: "Cách đây 2km",
-            rating: "★★★★★",
-            amenities: ["wifi", "parking", "shower", "utensils"],
-            hours: "Mở cửa 6:00 - 22:00",
-            image: "https://placehold.co/255x200",
-        },
-    ],
-    tableTennis: [
-        {
-            name: "Sân bóng bàn A",
-            distance: "Cách đây 2km",
-            rating: "★★★★★",
-            amenities: ["wifi", "parking", "shower", "utensils"],
-            hours: "Mở cửa 6:00 - 22:00",
-            image: "https://placehold.co/255x200",
-        },
-    ],
-    pickleball: [
-        {
-            name: "Sân pickleball A",
-            distance: "Cách đây 2km",
-            rating: "★★★★★",
-            amenities: ["wifi", "parking", "shower", "utensils"],
-            hours: "Mở cửa 6:00 - 22:00",
-            image: "https://placehold.co/255x200",
-        },
-    ],
-};
+fetch("/api")
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log("Received data:", data);
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+    });
 
 
 document.querySelectorAll(".sports-filter button").forEach((button) => {
@@ -76,11 +19,11 @@ document.querySelectorAll(".sports-filter button").forEach((button) => {
         updateSuggestions(filterType);
     });
 });
-
+    
 function updateSuggestions(type) {
     const suggestionsContainer = document.querySelector(".suggestions-content");
     suggestionsContainer.innerHTML = "";
-
+    
     const data = suggestionsData[type] || suggestionsData.all;
     data.forEach((item) => {
         const suggestionHTML = `
