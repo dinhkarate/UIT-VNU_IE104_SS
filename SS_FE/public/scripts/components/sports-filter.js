@@ -97,63 +97,50 @@ document.querySelectorAll(".sports-filter button").forEach((button) => {
     
 function updateSuggestions(type) {
     const suggestionsContainer = document.querySelector(".suggestions-content");
-    suggestionsContainer.innerHTML = "";
-    
-    const data = suggestionsData[type] || suggestionsData.all;
-    data.forEach((item, index) => {
-        const suggestionHTML = `
-            <a href="${item.href}" class="suggestion-link">
-                <div class="suggestion-item">
-                    <img src="${item.image}" alt="Suggestion Image">
-                    <div class="suggestion-info">
-                        <h3>${item.name}</h3>
-                        <p>${item.distance}</p>
-                        <div class="rating">★★★★★<span>Xem đánh giá</span></div>
-                        <div class="amenities">
-                            <i class="fas fa-wifi"></i>
-                            <i class="fas fa-parking"></i>
-                            <i class="fas fa-shower"></i>
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <p class="hours">${item.hours}</p>
-                    </div>
-                </div>
-            </a>
-        `;
-        suggestionsContainer.innerHTML += suggestionHTML;
-    });
     const leftBtn = document.querySelector('.suggestions-slider .left-btn');
     const rightBtn = document.querySelector('.suggestions-slider .right-btn');
-    const totalItems = data.length;
-    let currentPage = 0;
+    
+    const data = suggestionsData[type] || suggestionsData.all;
+    let currentIndex = 0;
     const itemsPerPage = 6;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    function updateNavigation() {
-        const items = suggestionsContainer.querySelectorAll('.suggestion-item');
-        items.forEach((item, index) => {
-            if (index >= currentPage * itemsPerPage && index < (currentPage + 1) * itemsPerPage) {
-                item.style.display = 'grid';
-            } else {
-                item.style.display = 'none';
-            }
+    
+    function displayItems(startIndex) {
+        suggestionsContainer.innerHTML = "";
+        const endIndex = Math.min(startIndex + itemsPerPage, data.length);
+        const currentItems = data.slice(startIndex, endIndex);
+        
+        currentItems.forEach((item) => {
+            const suggestionHTML = `
+                    <div class="suggestion-item">
+                        <img src="${item.image}" alt="Suggestion Image">
+                        <div class="suggestion-info">
+                            <h3><a href="${item.href}">${item.name}</a></h3>
+                            <p>${item.distance}</p>
+                            <div class="rating">★★★★★<span>Xem đánh giá</span></div>
+                            <div class="amenities">
+                                <i class="fas fa-wifi"></i>
+                                <i class="fas fa-parking"></i>
+                                <i class="fas fa-shower"></i>
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <p class="hours">${item.hours}</p>
+                        </div>
+                    </div>
+            `;
+            suggestionsContainer.innerHTML += suggestionHTML;
         });
-        leftBtn.style.display = currentPage > 0 ? 'flex' : 'none';
-        rightBtn.style.display = currentPage < totalPages - 1 ? 'flex' : 'none';
+        leftBtn.style.display = startIndex > 0 ? 'flex' : 'none';
+        rightBtn.style.display = endIndex < data.length ? 'flex' : 'none';
     }
-
-    leftBtn.addEventListener('click', () => {
-        if (currentPage > 0) {
-            currentPage--;
-            updateNavigation();
-        }
-    });
-
-    rightBtn.addEventListener('click', () => {
-        if (currentPage < totalPages - 1) {
-            currentPage++;
-            updateNavigation();
-        }
-    });
-    updateNavigation();
+    
+    displayItems(currentIndex);
+    leftBtn.onclick = () => {
+        currentIndex = Math.max(0, currentIndex - itemsPerPage);
+        displayItems(currentIndex);
+    };
+    
+    rightBtn.onclick = () => {
+        currentIndex = Math.min(data.length - itemsPerPage, currentIndex + itemsPerPage);
+        displayItems(currentIndex);
+    };
 }
