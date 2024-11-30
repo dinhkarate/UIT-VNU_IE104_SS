@@ -9,21 +9,21 @@ courtsController.getCourts = (req, res) => {
   };
 
     // Log filters để debug 
-    console.log('Received filters:', filters);
+    // console.log('Received filters:', filters);
 
   models.court.getFilteredCourts({ filters }, (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: 'Internal Server Error' });
     }
-    console.log("Query Results:", results);
+    // console.log("Query Results:", results);
     res.status(200).json(results);
   });
 };
 
 
 courtsController.getCourtWithFeedback = (req, res) => {
-  console.log("Received query:", req.query.field_id.split(','));
+  // console.log("Received query:", req.query.field_id.split(','));
 
   const fieldId = req.query.field_id;
   // Gọi Model để lấy chi tiết sân

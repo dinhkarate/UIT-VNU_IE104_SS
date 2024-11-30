@@ -13,7 +13,7 @@ function fetchCourts(filters = {}) {
       return response.json();
     })
     .then((data) => {
-      console.log("Received data:", data);
+      // console.log("Received data:", data);
       
       const gridContainer = document.querySelector('.grid-container');
       if (!gridContainer) {
@@ -25,13 +25,13 @@ function fetchCourts(filters = {}) {
       const courts = data.rows;
       
       if (!Array.isArray(courts) || courts.length === 0) {
-        console.log("No courts found");
+        // console.log("No courts found");
         gridContainer.innerHTML = '<p>Không tìm thấy sân phù hợp</p>';
         return;
       }
 
       courts.forEach(court => {
-        console.log("Processing court:", court);
+        // console.log("Processing court:", court);
         const courtHtml = `
           <div class="item-container">
             <div class="item-image">
@@ -143,7 +143,7 @@ function generateAmenityIcons(services) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("Document loaded, fetching courts...");
+  // console.log("Document loaded, fetching courts...");
   fetchCourts();
 
   const applyButton = document.querySelector('.apply-button');
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         amenities: selectedAmenities,
       };
 
-      console.log("Applying filters:", filters);
+      // console.log("Applying filters:", filters);
       fetchCourts(filters);
     });
   }
