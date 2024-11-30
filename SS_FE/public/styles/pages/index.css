@@ -614,6 +614,16 @@ p {
     margin: 5px 0;
 }
 
+.suggestion-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.suggestion-link:hover {
+    text-decoration: none;
+}
+
 .rating {
     font-size: 14px;
     color: #fbc02d;
