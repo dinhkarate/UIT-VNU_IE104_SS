@@ -8,7 +8,7 @@ courtsController.getCourts = (req, res) => {
     amenities: req.query.amenities ? req.query.amenities.split(',') : []
   };
 
-    // Log the filters for debugging
+    // Log filters để debug 
     console.log('Received filters:', filters);
 
   models.court.getFilteredCourts({ filters }, (err, results) => {
@@ -21,27 +21,39 @@ courtsController.getCourts = (req, res) => {
   });
 };
 
-courtsController.getFieldWithFeedback = (req, res) => {
-  const fieldId = req.params.fieldId;
-  
+
+courtsController.getCourtWithFeedback = (req, res) => {
+  console.log("Received query:", req.query.field_id.split(','));
+
+  const fieldId = req.query.field_id;
   // Gọi Model để lấy chi tiết sân
-  fieldModel.getFieldDetails(fieldId, (err, fieldDetails) => {
-      if (err) {
-          return res.status(500).json({ message: 'Error fetching field details', error: err });
+  models.court.getCourtsDetails(fieldId, (err1, courtData) => {
+      if (err1) {
+          return res.status(500).json({ message: 'Error fetching field details', error: err1 });
       }
       
-      // Gọi Model để lấy danh sách feedback
-      fieldModel.getFieldFeedbacks(fieldId, (err, feedbacks) => {
-          if (err) {
-              return res.status(500).json({ message: 'Error fetching feedbacks', error: err });
-          }
+  // Gọi Model để lấy danh sách feedback
+  models.court.getFeedbacksById(fieldId, (err2, feedbacksData) => {
+      if (err2) {
+          return res.status(500).json({ message: 'Error fetching feedbacks', error: err2 });
+      }
+  
+  //Gọi Model lấy thông tin Centre
+  models.court.getCentreById(fieldId, (err3, centreData) => {
+      if (err3) {
+          return res.status(500).json({ message: 'Error fetching centres details', error: err3 });
+      }
 
-          // Trả về dữ liệu kết hợp
-          res.json({
-              fieldDetails,
-              feedbacks,
-          });
+      // Trả về dữ liệu kết hợp
+      const results = {
+        courtDetails: courtData,
+        feedbacks: feedbacksData,
+        centreDetails: centreData,
+        };
+
+      res.status(200).json(results);
       });
+    });
   });
 };
 
