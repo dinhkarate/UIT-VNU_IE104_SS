@@ -1,4 +1,3 @@
---Centres
 INSERT INTO centres (centre_id, address, description, coop) VALUES
 ('C01', '123 Nguyễn Văn Linh, Quận 7, TP. HCM', 'Trung tâm thể thao hiện đại với nhiều sân bóng đá', TRUE),
 ('C02', '456 Lê Văn Việt, Quận 9, TP. HCM', 'Trung tâm với các sân thể thao tiêu chuẩn quốc tế', TRUE),
@@ -114,71 +113,72 @@ insert into Centre_Service (centre_id, service_id) values ('C05', 'SVC01'),
 
 --admins
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD01', 'Nguyen', 'Van A', 'nguyenvana', '$2b$12$iNBPElgKw6HQrX4PTYDHM./Yc5MsdfBrRAX9A87velG1zTnG2ulym', '0901234567', 'vana@gmail.com', 'C01'); --password1
+('AD01', 'Nguyen', 'Van A', 'nguyenvana', 'password1', '0901234567', 'vana@gmail.com', 'C01'); --password1
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD02', 'Le', 'Thi B', 'lethib', '$2b$12$d/kip0v3wFbgjzISLfofbO9OPXSdjuvOHmcW56NRwkUCeSUf98kka', '0902234567', 'thib@gmail.com', 'C02'); --adminpass
+('AD02', 'Le', 'Thi B', 'lethib', 'adminpass', '0902234567', 'thib@gmail.com', 'C02'); --adminpass
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD03', 'Tran', 'Van C', 'tranvanc', '$2b$12$n4s437VltVHqboZjwbY9GOhxxlPz94myr4qVTh1FW70BQB1JqRIHW', '0903234567', 'vanc@gmail.com', 'C03'); --secure123
+('AD03', 'Tran', 'Van C', 'tranvanc', 'secure123', '0903234567', 'vanc@gmail.com', 'C03'); --secure123
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD04', 'Pham', 'Thi D', 'phamthid', '$2b$12$HxF8Af/cCxWp.1A.UD8GA.PejhCwQg8DPlRDnu1KjTximkORczade', '0904234567', 'thid@gmail.com', 'C04'); --mypassword
+('AD04', 'Pham', 'Thi D', 'phamthid', 'mypassword', '0904234567', 'thid@gmail.com', 'C04'); --mypassword
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD05', 'Hoang', 'Van E', 'hoangvane', '$2b$12$8RVdNTbsewKkGkCLcuEkXeosYoXe17sty0Oo0gVMH2R/dN1wGFCVW', '0905234567', 'vane@gmail.com', 'C05'); --admin2024
+('AD05', 'Hoang', 'Van E', 'hoangvane', 'admin2024', '0905234567', 'vane@gmail.com', 'C05'); --admin2024
 
 --customers
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS01', 'Hoang', 'Quyen', 'nguyena', '$2b$12$CmQ032epOSh9ExoC.d1tj./hvkvVD4Qp4yYeRtZMJWn4b3OIOYi8y', '0901234567', 'an@gmail.com', '2024-06-25'); -- password1
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS02', 'Le', 'Duc', 'leb', '$2b$12$xWFGIFsg6Je7tk5roL0A5.tqo.QKiatUWqwExdGb6SxLrvy47PCaO', '0912345678', 'binh@gmail.com', '2024-09-29'); -- adminpass
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS03', 'Tran', 'Phong', 'tranc', '$2b$12$badP.b9rK.1koySh4SViwuOLo.vZFG38pH0WbYR5sCEhab3AP/dxW', '0923456789', 'cuong@gmail.com', '2023-12-06'); -- secure123
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS04', 'Nguyen', 'Son', 'phamd', '$2b$12$WR0sYhKlRGoZrjblFahtJeWSS6JvOsZ21VawugKJ/QxAYELdYHC/.', '0934567890', 'duc@gmail.com', '2023-12-23'); -- mypassword
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS05', 'Hoang', 'Cuong', 'hoange', '$2b$12$tsuH3nTaos3Lrul/0pYJFeHgLsHPSbVwvJnefuPq6pp773hoJY1Ge', '0945678901', 'ha@gmail.com', '2024-03-12'); -- admin2024
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS06', 'Hoang', 'Cuong', 'linhf', '$2b$12$PQXB8TuLV6QED7Sq/r1s7up.mEF.7b2QEVHfG7F4Y1NFbiX.d7GdS', '0956789012', 'linh@gmail.com', '2024-04-07'); -- userpass
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS07', 'Pham', 'Tuyen', 'phongg', '$2b$12$13GIrIhxcP03I/pfxK2.ke9EAf97oJ6dBu9sOcXE1oiLzr91ksO16', '0967890123', 'phong@gmail.com', '2024-09-17'); -- testing12
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS08', 'Le', 'Ha', 'quyenh', '$2b$12$KFPRdU5Sfwximo5Fyb5fYOHSE5xkfan5r/2rEWVC.MPdg0OOkpwDm', '0978901234', 'quyen@gmail.com', '2023-12-29'); -- secure456
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS09', 'Hoang', 'Phong', 'soni', '$2b$12$T64DThUlV8GauCriddkEnu6Q64zktnnvYeAjmuiPBbo9bYlrP2Z5a', '0989012345', 'son@gmail.com', '2024-11-12'); -- demo789
-INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date) VALUES
-('CUS10', 'Nguyen', 'Binh', 'tuyenj', '$2b$12$CTnfLkNWwjp2mAax9x0Bb.9bFWvIoPlhoWSRgHSgsv4fj.EXh9f26', '0990123456', 'tuyen@gmail.com', '2024-04-12'); -- vietpass
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Hoang', 'Quyen', 'nguyena', 'password1', '0901234567', 'an@gmail.com', '2024-06-25'); -- password1
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Le', 'Duc', 'leb', 'adminpass', '0912345678', 'binh@gmail.com', '2024-09-29'); -- adminpass
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Tran', 'Phong', 'tranc', 'secure123', '0923456789', 'cuong@gmail.com', '2023-12-06'); -- secure123
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Nguyen', 'Son', 'phamd', 'mypassword', '0934567890', 'duc@gmail.com', '2023-12-23'); -- mypassword
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Hoang', 'Cuong', 'hoange', 'admin2024', '0945678901', 'ha@gmail.com', '2024-03-12'); -- admin2024
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Hoang', 'Cuong', 'linhf', 'userpass', '0956789012', 'linh@gmail.com', '2024-04-07'); -- userpass
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Pham', 'Tuyen', 'phongg', 'testing12', '0967890123', 'phong@gmail.com', '2024-09-17'); -- testing12
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Le', 'Ha', 'quyenh', 'secure456', '0978901234', 'quyen@gmail.com', '2023-12-29'); -- secure456
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Hoang', 'Phong', 'soni', 'demo789', '0989012345', 'son@gmail.com', '2024-11-12'); -- demo789
+INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
+('Nguyen', 'Binh', 'tuyenj', 'vietpass', '0990123456', 'tuyen@gmail.com', '2024-04-12'); -- vietpass
 
 --favourite_field
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS01', 'BD001');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS01', 'BD003');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS01', 'BD004');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS02', 'BC001');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS02', 'BC003');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS03', 'CL001');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS03', 'BR002');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS04', 'TN001');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS04', 'PK001');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS05', 'TN003');
-INSERT INTO favourite_field (cust_id, field_id) VALUES ('CUS05', 'CL002');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (1, 'BD001');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (1, 'BD003');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (1, 'BD004');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (2, 'BC001');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (2, 'BC003');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (3, 'CL001');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (3, 'BR002');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (4, 'TN001');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (4, 'PK001');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (5, 'TN003');
+INSERT INTO favourite_field (cust_id, field_id) VALUES (5, 'CL002');
+
 --feedbacks
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB01', 2, '2024-03-10 12:30:51', 'Thời gian thuê linh hoạt, sân đẹp.', 'TN004', 'CUS01');
+('FB01', 2, '2024-03-10 12:30:51', 'Thời gian thuê linh hoạt, sân đẹp.', 'TN004', 1);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB02', 2, '2024-10-31 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 'CUS08');
+('FB02', 2, '2024-10-31 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 8);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB03', 1, '2024-09-30 12:30:51', 'Trang thiết bị đầy đủ, không có gì để chê.', 'BD002', 'CUS08');
+('FB03', 1, '2024-09-30 12:30:51', 'Trang thiết bị đầy đủ, không có gì để chê.', 'BD002', 8);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB04', 4, '2024-03-14 12:30:51', 'Dịch vụ khá tốt, sẽ quay lại lần sau.', 'BR001', 'CUS04');
+('FB04', 4, '2024-03-14 12:30:51', 'Dịch vụ khá tốt, sẽ quay lại lần sau.', 'BR001', 4);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB05', 3, '2024-02-08 12:30:51', 'Mặt sân hơi trơn, cần cải thiện.', 'TN003', 'CUS05');
+('FB05', 3, '2024-02-08 12:30:51', 'Mặt sân hơi trơn, cần cải thiện.', 'TN003', 5);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB06', 4, '2024-01-12 12:30:51', 'Đội ngũ hỗ trợ nhanh chóng và thân thiện.', 'BR001', 'CUS04');
+('FB06', 4, '2024-01-12 12:30:51', 'Đội ngũ hỗ trợ nhanh chóng và thân thiện.', 'BR001', 4);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB07', 4, '2023-12-23 12:30:51', 'Ánh sáng tốt, phù hợp chơi buổi tối.', 'TN004', 'CUS01');
+('FB07', 4, '2023-12-23 12:30:51', 'Ánh sáng tốt, phù hợp chơi buổi tối.', 'TN004', 1);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB08', 5, '2024-01-15 12:30:51', 'Giá thuê phù hợp, sân trong tình trạng tốt.', 'BR001', 'CUS06');
+('FB08', 5, '2024-01-15 12:30:51', 'Giá thuê phù hợp, sân trong tình trạng tốt.', 'BR001', 6);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB09', 3, '2024-08-03 12:30:51', 'Có chỗ để xe rộng rãi, tiện lợi.', 'TN004', 'CUS06');
+('FB09', 3, '2024-08-03 12:30:51', 'Có chỗ để xe rộng rãi, tiện lợi.', 'TN004', 6);
 INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB10', 3, '2024-01-15 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 'CUS02');
+('FB10', 3, '2024-01-15 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 2);
 
 --Tournament
 INSERT INTO tournament (tournament_id, tournament_name, description, fee, link_img, centre_id, tourn_status, organizer, contact) VALUES 
@@ -204,76 +204,76 @@ INSERT INTO tournament (tournament_id, tournament_name, description, fee, link_i
 
 --tourn_comment
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT01', 'CUS07', 'TRN10', 'Không khí giải đấu rất sôi động và hấp dẫn.');
+('CMT01', 7, 'TRN10', 'Không khí giải đấu rất sôi động và hấp dẫn.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT02', 'CUS06', 'TRN04', 'Giải đấu quy tụ nhiều đội mạnh, rất kịch tính.');
+('CMT02', 6, 'TRN04', 'Giải đấu quy tụ nhiều đội mạnh, rất kịch tính.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT03', 'CUS10', 'TRN10', 'Cần thêm các hoạt động bên lề để tăng sự thu hút.');
+('CMT03', 10, 'TRN10', 'Cần thêm các hoạt động bên lề để tăng sự thu hút.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT04', 'CUS03', 'TRN06', 'Cần thêm các hoạt động bên lề để tăng sự thu hút.');
+('CMT04', 3, 'TRN06', 'Cần thêm các hoạt động bên lề để tăng sự thu hút.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT05', 'CUS04', 'TRN09', 'Tôi rất hài lòng với cách tổ chức.');
+('CMT05', 4, 'TRN09', 'Tôi rất hài lòng với cách tổ chức.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT06', 'CUS09', 'TRN04', 'Hy vọng giải đấu lần tới sẽ có quy mô lớn hơn.');
+('CMT06', 9, 'TRN04', 'Hy vọng giải đấu lần tới sẽ có quy mô lớn hơn.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT07', 'CUS01', 'TRN02', 'Không khí giải đấu rất sôi động và hấp dẫn.');
+('CMT07', 1, 'TRN02', 'Không khí giải đấu rất sôi động và hấp dẫn.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT08', 'CUS07', 'TRN01', 'Ban tổ chức làm việc tốt, mọi thứ diễn ra suôn sẻ.');
+('CMT08', 7, 'TRN01', 'Ban tổ chức làm việc tốt, mọi thứ diễn ra suôn sẻ.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT09', 'CUS02', 'TRN06', 'Ban tổ chức làm việc tốt, mọi thứ diễn ra suôn sẻ.');
+('CMT09', 2, 'TRN06', 'Ban tổ chức làm việc tốt, mọi thứ diễn ra suôn sẻ.');
 INSERT INTO tourn_comment (tourn_cmt_id, cust_id, tournament_id, comment) VALUES 
-('CMT10', 'CUS07', 'TRN02', 'Cần thêm các hoạt động bên lề để tăng sự thu hút.');
+('CMT10', 7, 'TRN02', 'Cần thêm các hoạt động bên lề để tăng sự thu hút.');
 
 --teams
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN03', 'CUS08', 'Bão Lửa');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN10', 'CUS06', 'Ánh Sáng');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN08', 'CUS09', 'Đội Mạnh Nhất');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN07', 'CUS07', 'Hổ Báo Thép');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN09', 'CUS04', 'Chiến Thần');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN09', 'CUS05', 'Hổ Báo Thép');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN10', 'CUS08', 'Ánh Sáng');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN04', 'CUS01', 'Sấm Sét Đỏ');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN02', 'CUS09', 'Kỵ Sĩ Bóng Tối');
-INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN05', 'CUS04', 'Ánh Sáng');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN03', 8, 'Bão Lửa');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN10', 6, 'Ánh Sáng');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN08', 9, 'Đội Mạnh Nhất');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN07', 7, 'Hổ Báo Thép');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN09', 4, 'Chiến Thần');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN09', 5, 'Hổ Báo Thép');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN10', 8, 'Ánh Sáng');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN04', 1, 'Sấm Sét Đỏ');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN02', 9, 'Kỵ Sĩ Bóng Tối');
+INSERT INTO teams (tournament_id, leader_id, team_name) VALUES ('TRN05', 4, 'Ánh Sáng');
 
 --members
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM01', 'Tran', 'Phong', 'CUS02');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM02', 'Hoang', 'Quyen', 'CUS04');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM03', 'Dang', 'Tuyen', 'CUS06');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM04', 'Nguyen', 'Duc', 'CUS09');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM05', 'Vu', 'Duc', 'CUS02');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM06', 'Dang', 'An', 'CUS10');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM07', 'Pham', 'Ha', 'CUS06');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM08', 'Hoang', 'Linh', 'CUS04');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM09', 'Vu', 'Binh', 'CUS01');
-INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM10', 'Do', 'Phong', 'CUS10');
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM01', 'Tran', 'Phong', 2);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM02', 'Hoang', 'Quyen', 4);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM03', 'Dang', 'Tuyen', 6);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM04', 'Nguyen', 'Duc', 9);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM05', 'Vu', 'Duc', 2);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM06', 'Dang', 'An', 10);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM07', 'Pham', 'Ha', 6);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM08', 'Hoang', 'Linh', 4);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM09', 'Vu', 'Binh', 1);
+INSERT INTO members (member_id, first_name, last_name, leader_id) VALUES ('MEM10', 'Do', 'Phong', 10);
 
 --reservation
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV01', '18:00:00', '20:00:00', '2024-10-29', 271000, '2024-09-28 13:08:00', 'BC002', 'CUS05', 'confirmed');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV02', '16:00:00', '18:00:00', '2024-11-15', 122000, '2024-11-10 13:08:00', 'CL003', 'CUS04', 'pending');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV03', '10:00:00', '12:00:00', '2024-10-28', 177000, '2024-10-17 13:08:00', 'BR001', 'CUS07', 'canceled');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV04', '08:00:00', '10:00:00', '2024-10-20', 259000, '2024-10-13 13:08:00', 'TN002', 'CUS10', 'canceled');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV05', '18:00:00', '20:00:00', '2024-11-10', 185000, '2024-10-18 13:08:00', 'BD001', 'CUS01', 'confirmed');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV06', '08:00:00', '10:00:00', '2024-10-20', 358000, '2024-10-12 13:08:00', 'TN004', 'CUS01', 'canceled');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV07', '14:00:00', '16:00:00', '2024-10-31', 344000, '2024-09-30 13:08:00', 'CL003', 'CUS03', 'canceled');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV08', '16:00:00', '18:00:00', '2024-11-08', 320000, '2024-10-31 13:08:00', 'PK002', 'CUS01', 'pending');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV09', '14:00:00', '16:00:00', '2024-11-04', 223000, '2024-10-15 13:08:00', 'BD005', 'CUS08', 'confirmed');
-INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
-('RSV10', '08:00:00', '10:00:00', '2024-10-31', 130000, '2024-10-24 13:08:00', 'BD002', 'CUS02', 'pending');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('18:00:00', '20:00:00', '2024-10-29', 271000, '2024-09-28 13:08:00', 'BC002', 5, 'confirmed');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('16:00:00', '18:00:00', '2024-11-15', 122000, '2024-11-10 13:08:00', 'CL003', 4, 'pending');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('10:00:00', '12:00:00', '2024-10-28', 177000, '2024-10-17 13:08:00', 'BR001', 7, 'canceled');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('08:00:00', '10:00:00', '2024-10-20', 259000, '2024-10-13 13:08:00', 'TN002', 10, 'canceled');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('18:00:00', '20:00:00', '2024-11-10', 185000, '2024-10-18 13:08:00', 'BD001', 1, 'confirmed');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('08:00:00', '10:00:00', '2024-10-20', 358000, '2024-10-12 13:08:00', 'TN004', 1, 'canceled');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('14:00:00', '16:00:00', '2024-10-31', 344000, '2024-09-30 13:08:00', 'CL003', 3, 'canceled');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES  
+('16:00:00', '18:00:00', '2024-11-08', 320000, '2024-10-31 13:08:00', 'PK002', 1, 'pending');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('14:00:00', '16:00:00', '2024-11-04', 223000, '2024-10-15 13:08:00', 'BD005', 8, 'confirmed');
+INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status) VALUES 
+('08:00:00', '10:00:00', '2024-10-31', 130000, '2024-10-24 13:08:00', 'BD002', 2, 'pending');
 
 --payment
-INSERT INTO payment (payment_id, payment_date, pay_method, total_price, resrv_id, admin_id) VALUES 
-('PAY03', '2024-11-01 13:27:32', 'Chuyển khoản', 107000, 'RSV03', 'AD04');
-INSERT INTO payment (payment_id, payment_date, pay_method, total_price, resrv_id, admin_id) VALUES 
-('PAY05', '2024-11-12 13:27:32', 'Tiền mặt', 248000, 'RSV05', 'AD01');
-INSERT INTO payment (payment_id, payment_date, pay_method, total_price, resrv_id, admin_id) VALUES 
-('PAY09', '2024-11-03 13:27:32', 'Chuyển khoản', 335000, 'RSV09', 'AD03');
+INSERT INTO payment (payment_date, pay_method, total_price, resrv_id, admin_id) VALUES 
+('2024-11-01 13:27:32', 'Chuyển khoản', 107000, 3, 'AD04');
+INSERT INTO payment (payment_date, pay_method, total_price, resrv_id, admin_id) VALUES 
+('2024-11-12 13:27:32', 'Tiền mặt', 248000, 5, 'AD01');
+INSERT INTO payment (payment_date, pay_method, total_price, resrv_id, admin_id) VALUES  
+('2024-11-03 13:27:32', 'Chuyển khoản', 335000, 9, 'AD03');
