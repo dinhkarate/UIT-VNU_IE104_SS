@@ -199,6 +199,47 @@ courtModel.getFeedbacksById({id:{field_id: ['BD002'],}}, (err, results) => {
   }
 });*/
 
+courtModel.insertReservation = (details, callback) => {
+  const sql = `
+    INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;
+  `;
+
+  const params = [
+    details.resrv_id,
+    details.time_begin,
+    details.time_end,
+    details.resrv_date,
+    details.renting_price,
+    details.created_date,
+    details.field_id,
+    details.cust_id,
+    details.resrv_status]
+
+  db.query(sql, params, (err, results) => {
+    console.log('Results', results);
+    callback(err, results);
+  });
+};
+
+// Testing functions
+courtModel.insertReservation(details = {
+  resrv_id: "RSV11", 
+  time_begin: "10:00", 
+  time_end: "12:00",
+  resrv_date: "2024-12-01", 
+  renting_price: 100.0,
+  created_date: "2024-11-30", 
+  field_id: "BD001", 
+  cust_id: "CUS01", 
+  resrv_status: "confirmed" 
+}, (err, results) => {
+  if (err) {
+      console.error('Error fetching courts:', err);
+  } else {
+      console.log('Insert thành công');
+  }
+});
 
 module.exports = courtModel;
 
