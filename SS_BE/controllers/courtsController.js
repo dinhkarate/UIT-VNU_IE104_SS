@@ -23,9 +23,7 @@ courtsController.getCourts = (req, res) => {
 
 
 courtsController.getCourtWithFeedback = (req, res) => {
-  console.log("Received query:", req.query.field_id.split(','));
-
-  const fieldId = req.query.field_id;
+  const fieldId = req.query.fieldId;
   // Gọi Model để lấy chi tiết sân
   models.court.getCourtsDetails(fieldId, (err1, courtData) => {
       if (err1) {
@@ -56,5 +54,28 @@ courtsController.getCourtWithFeedback = (req, res) => {
     });
   });
 };
+
+courtsController.insertResrv = (req, res) => {
+  const details = {
+    resrv_id: req.body.resrv_id,
+    time_begin: req.body.time_begin,
+    time_end: req.body.time_end,
+    resrv_date: req.body.resrv_date,
+    renting_price: req.body.renting_price,
+    created_date: req.body.created_date,
+    field_id: req.body.field_id,
+    cust_id: req.body.cust_id,
+    resrv_status: req.body.resrv_status
+  }
+
+  models.court.insertReservation(details, (err) => {
+    if (err) {
+      console.error('Error inserting reservation:', err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+    console.log('Insert thành công');
+    res.status(200).json({ message: 'Reservation inserted successfully' });
+  });
+}
 
 module.exports = courtsController;

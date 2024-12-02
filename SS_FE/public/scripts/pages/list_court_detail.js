@@ -1,6 +1,6 @@
 //fetch API request
 function fetchCourtDetails(fieldId) {
-    const apiUrl = `/api/court/courtDetails?${fieldId}`;
+    const apiUrl = `/api/court/courtDetails?fieldId=${fieldId}`;
 
     fetch(apiUrl)
       .then((response) => {
@@ -30,3 +30,40 @@ document.addEventListener('DOMContentLoaded', () => {
     //Example
     fetchCourtDetails("BD002");
 })
+
+// API đặt sân
+document.getElementById('submitButton').addEventListener('click', () => {
+  // Dữ liệu gửi về mẫu
+  const details = {
+    resrv_id: "RSV11", //về sau để tự động nhập không cần thêm trường này
+    time_begin: "10:00", 
+    time_end: "12:00",
+    resrv_date: "2024-12-01", 
+    renting_price: 100.0,
+    created_date: "2024-11-30", 
+    field_id: "BD001", 
+    cust_id: "CUS01", 
+    resrv_status: "confirmed" 
+  }
+
+  // Send the POST request using fetch
+  fetch('/api/court/addResrv', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(details), // Convert the data to JSON format
+  })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json(); // Parse the JSON response
+      })
+      .then(result => {
+          console.log('Success:', result); // Handle the response data
+      })
+      .catch(error => {
+          console.error('Error:', error); // Handle any errors
+      });
+});
