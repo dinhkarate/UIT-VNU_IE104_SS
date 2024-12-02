@@ -640,6 +640,16 @@ p {
     color: #666;
 }
 
+.suggestion-info h3 a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.suggestion-info h3 a:hover {
+    color: #2dd2ec;
+}
+
 @media screen and (max-width: 1536px) {
     /* Search Section */
     #search-section {

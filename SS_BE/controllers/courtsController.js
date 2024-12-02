@@ -9,14 +9,14 @@ courtsController.getCourts = (req, res) => {
   };
 
     // Log filters để debug 
-    console.log('Received filters:', filters);
+    // console.log('Received filters:', filters);
 
   models.court.getFilteredCourts({ filters }, (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: 'Internal Server Error' });
     }
-    console.log("Query Results:", results);
+    // console.log("Query Results:", results);
     res.status(200).json(results);
   });
 };

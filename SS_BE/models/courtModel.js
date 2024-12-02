@@ -71,7 +71,7 @@ courtModel.getFilteredCourts = ({ filters }, callback) => {
     c.coop`;
 
   db.query(sql, params, (err, results) => {
-    console.log('Query results:', results);
+    // console.log('Query results:', results);
     callback(err, results);
 });
 };
@@ -84,9 +84,9 @@ courtModel.getFilteredCourts({
   }
 }, (err, results) => {
   if (err) {
-      console.error('Error fetching courts:', err);
+      // console.error('Error fetching courts:', err);
   } else {
-      console.log('Results:', results);
+      // ('Results:', results);
   }
 });
 
@@ -132,11 +132,11 @@ courtModel.getCourtsDetails = (fieldId, callback) => {
 
   const params = [fieldId];
 
-  console.log(sql);
-  console.log(params);
+  // console.log(sql);
+  // console.log(params);
 
   db.query(sql, params, (err, results) => {
-    console.log(sql);
+    // console.log(sql);
     callback(err, results);
   });
 };
@@ -155,7 +155,7 @@ courtModel.getCentreById = (fieldId, callback) => {
 const params = [fieldId];
 
 db.query(sql, params, (err, results) =>{
-  console.log('Query results:', results);
+  //console.log('Query results:', results);
   callback(err, results);
 });
 };
@@ -178,13 +178,13 @@ courtModel.getFeedbacksById = (fieldId, callback) => {
       ORDER BY 
           fb.created_at DESC;
   `;
-  console.log('Executing SQL:', sql);
+  // console.log('Executing SQL:', sql);
 
   const params = [fieldId]
 
-  console.log('Executing Params:', params);
+  // console.log('Executing Params:', params);
   db.query(sql, params, (err, results) => {
-    console.log('Query results 2:', results);
+    // console.log('Query results 2:', results);
     callback(err, results);
   });
 };

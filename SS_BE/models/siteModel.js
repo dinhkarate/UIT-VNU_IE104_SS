@@ -46,10 +46,10 @@ siteModel.getCourts = (callback) => {
     f.open_time, 
     f.close_time, 
     c.coop`;
-console.log(sql);
-console.log(params);
+// console.log(sql);
+// console.log(params);
   db.query(sql, params, (err, results) => {
-    console.log('Query results:', results);
+    // console.log('Query results:', results);
     callback(err, results);
 });
 };
@@ -59,7 +59,7 @@ siteModel.getCourts((err, results) => {
     if (err) {
         console.error('Error fetching courts:', err);
     } else {
-        console.log('Results:', results);
+        // console.log('Results:', results);
     }
   });
 
