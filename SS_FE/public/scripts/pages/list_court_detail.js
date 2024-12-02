@@ -1,4 +1,7 @@
-//fetch API request
+const bookingButton = document.querySelector('.booking-button');
+
+
+//Hàm lấy thông tin sân
 function fetchCourtDetails(fieldId) {
     const apiUrl = `/api/court/courtDetails?fieldId=${fieldId}`;
 
@@ -32,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // API đặt sân
-document.getElementById('submitButton').addEventListener('click', () => {
+bookingButton.addEventListener('click', () => {
+  console.log("Chạy hàm");
   // Dữ liệu gửi về mẫu
   const details = {
     resrv_id: "RSV11", //về sau để tự động nhập không cần thêm trường này
@@ -45,14 +49,14 @@ document.getElementById('submitButton').addEventListener('click', () => {
     cust_id: "CUS01", 
     resrv_status: "confirmed" 
   }
-
+  console.log("Bat dau fetch api")
   // Send the POST request using fetch
   fetch('/api/court/addResrv', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
       },
-      body: JSON.stringify(details), // Convert the data to JSON format
+      body: JSON.stringify(details), 
   })
       .then(response => {
           if (!response.ok) {
