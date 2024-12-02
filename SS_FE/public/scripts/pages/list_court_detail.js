@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // API đặt sân
 bookingButton.addEventListener('click', () => {
-  console.log("Chạy hàm");
   // Dữ liệu gửi về mẫu
   const details = {
     resrv_id: "RSV11", //về sau để tự động nhập không cần thêm trường này
@@ -49,8 +48,7 @@ bookingButton.addEventListener('click', () => {
     cust_id: "CUS01", 
     resrv_status: "confirmed" 
   }
-  console.log("Bat dau fetch api")
-  // Send the POST request using fetch
+
   fetch('/api/court/addResrv', {
       method: 'POST',
       headers: {
@@ -62,12 +60,12 @@ bookingButton.addEventListener('click', () => {
           if (!response.ok) {
               throw new Error('Network response was not ok');
           }
-          return response.json(); // Parse the JSON response
+          return response.json(); 
       })
       .then(result => {
-          console.log('Success:', result); // Handle the response data
+          console.log('Success:', result); 
       })
       .catch(error => {
-          console.error('Error:', error); // Handle any errors
+          console.error('Error:', error); 
       });
 });
