@@ -1,5 +1,5 @@
 const bookingButton = document.querySelector('.booking-button');
-
+const favorButton = document.querySelector('.favorite');
 
 //Hàm lấy thông tin sân
 function fetchCourtDetails(fieldId) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // API đặt sân
 bookingButton.addEventListener('click', () => {
   // Dữ liệu gửi về mẫu
-  const details = {
+  const data = {
     resrv_id: "RSV11", //về sau để tự động nhập không cần thêm trường này
     time_begin: "10:00", 
     time_end: "12:00",
@@ -54,7 +54,7 @@ bookingButton.addEventListener('click', () => {
       headers: {
           'Content-Type': 'application/json',
       },
-      body: JSON.stringify(details), 
+      body: JSON.stringify(data), 
   })
       .then(response => {
           if (!response.ok) {
@@ -69,3 +69,61 @@ bookingButton.addEventListener('click', () => {
           console.error('Error:', error); 
       });
 });
+
+//fetch API cho sân yêu thích
+favorButton.addEventListener('click', () => {
+  // Dữ liệu gửi về mẫu
+  const data = {
+    cust_id: "CUS01",
+    field_id: "BD001"
+  }
+
+  fetch('/api/court/addFavor', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data), 
+  })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json(); 
+      })
+      .then(result => {
+          console.log('Success:', result); 
+      })
+      .catch(error => {
+          console.error('Error:', error); 
+      });
+});
+
+//Xóa sân yêu thích
+favorButton.addEventListener('click', () => {
+    // Dữ liệu gửi về mẫu
+    const data = {
+      cust_id: "CUS01",
+      field_id: "BD001"
+    }
+  
+    fetch('/api/court/delFavor', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data), 
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); 
+        })
+        .then(result => {
+            console.log('Success:', result); 
+        })
+        .catch(error => {
+            console.error('Error:', error); 
+        });
+  });

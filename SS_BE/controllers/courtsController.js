@@ -56,7 +56,7 @@ courtsController.getCourtWithFeedback = (req, res) => {
 };
 
 courtsController.insertResrv = (req, res) => {
-  const details = {
+  const data = {
     resrv_id: req.body.resrv_id,
     time_begin: req.body.time_begin,
     time_end: req.body.time_end,
@@ -68,13 +68,51 @@ courtsController.insertResrv = (req, res) => {
     resrv_status: req.body.resrv_status
   }
 
-  models.court.insertReservation(details, (err) => {
+  console.log(data);
+  
+  models.court.insertReservation(data, (err) => {
     if (err) {
       console.error('Error inserting reservation:', err);
       return res.status(500).json({ message: 'Internal Server Error' });
     }
     console.log('Insert thành công');
-    res.status(200).json({ message: 'Reservation inserted successfully' });
+    res.status(200).json({ message: 'Đặt sân thành công!' });
+  });
+}
+
+courtsController.addFavorCourt = (req, res) => {
+  const data = {
+    cust_id: req.body.cust_id,
+    field_id: req.body.field_id
+  }
+
+  console.log(data);
+
+  models.court.addFavorCourt(data, (err) => {
+    if (err) {
+      console.error('Error inserting reservation:', err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+    console.log('Insert thành công');
+    res.status(200).json({ message: 'Thêm sân yêu thích thành công!' });
+  });
+}
+
+courtsController.delFavorCourt = (req, res) => {
+  const data = {
+    cust_id: req.body.cust_id,
+    field_id: req.body.field_id
+  }
+
+  console.log(data);
+
+  models.court.delFavorCourt(data, (err) => {
+    if (err) {
+      console.error('Error inserting reservation:', err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+    console.log('Xóa sân yêu thích thành công');
+    res.status(200).json({ message: 'Xóa sân yêu thích thành công!' });
   });
 }
 

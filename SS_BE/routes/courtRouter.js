@@ -6,5 +6,7 @@ const courts = require('../controllers/courtsController');
 router.get('/courtsList', courts.getCourts);
 router.get('/courtDetails', courts.getCourtWithFeedback);
 router.post('/addResrv', courts.insertResrv);
+router.post('/addFavor', courts.addFavorCourt);
+router.post('/delFavor', courts.delFavorCourt);
 
 module.exports = router;
