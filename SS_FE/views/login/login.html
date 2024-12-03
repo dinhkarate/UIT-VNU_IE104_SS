@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <link href="https://fonts.googleapis.com/css2?family=CrimsonPro:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="styles/pages/login.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <form action="">
+                <h2>Đăng nhập</h2>
+                <div class="signup-link">
+                    <p>Chưa có tài khoản? <a href="/register">Tạo tài khoản SportSpot mới</a></p>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="username" placeholder=" " required />
+                    <label for="username">Tên đăng nhập</label>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="password" placeholder=" " required />
+                    <label for="password">Mật khẩu</label>
+                </div>
+                <a href="/forget_password" class="forgot-password">*Quên mật khẩu?</a>
+                <div>
+                    <button type="submit" class="login-button">Đăng nhập</button>
+                </div>
+                <div class="remember-me">
+                    <label><input type="checkbox" required /> Ghi nhớ đăng nhập</label>
+                </div>
+                <div class="social-login-container">
+                    <button type="button" class="social-login google-login">
+                        <img src="images/google-logo.png" alt="Google Logo" class="logo-social" />
+                        <span>Đăng nhập bằng Google</span>
+                    </button>
+                    <button type="button" class="social-login facebook-login">
+                        <img src="images/fb-logo.png" alt="Facebook Logo" class="logo-social" />
+                        <span>Đăng nhập bằng Facebook</span>
+                    </button>
+                </div>                           
+                </form>
+        </div>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="/scripts/components/header.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    loadHTML('header-placeholder', '../../views/components/header.html', initializeScrollScript);
-    loadHTML('footer-placeholder', '../../views/components/footer.html');
+    loadHTML('header-placeholder', '/components/header.html', initializeScrollScript);
+    loadHTML('footer-placeholder', '/components/footer.html');
 
     function loadHTML(id, url, callback) {
         fetch(url)
@@ -64,7 +64,7 @@ class LanguageManager {
         this.currentLang = this.currentLang === 'vi' ? 'en' : 'vi';
         
         const newFlag = this.currentLang === 'vi' ? 'VietNamFlag.png' : 'UKFlag.png';
-        this.elements.languageImg.src = `../../public/images/${newFlag}`;
+        this.elements.languageImg.src = `/images/${newFlag}`;
         this.elements.languageImg.alt = this.currentLang === 'vi' ? 'Vietnamese' : 'English';
         this.elements.headerWrapper.setAttribute('data-lang', this.currentLang);
         
@@ -107,7 +107,7 @@ class LanguageManager {
 
     async init() {
         try {
-            const response = await fetch('../../public/scripts/components/translations.json');
+            const response = await fetch('/scripts/components/translations.json');
             this.translations = await response.json();
             this.updateContent(this.currentLang);
         } catch (error) {
