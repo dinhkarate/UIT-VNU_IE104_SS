@@ -145,7 +145,7 @@ create type status as enum (
 );
 
 create table reservation (
-    resrv_id varchar(5) primary key,
+    resrv_id serial primary key,
     time_begin time,
     time_end time,
     resrv_date date,

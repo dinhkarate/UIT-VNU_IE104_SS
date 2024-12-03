@@ -145,7 +145,7 @@ create type status as enum (
 );
 
 create table reservation (
-    resrv_id varchar(5) primary key,
+    resrv_id serial primary key,
     time_begin time,
     time_end time,
     resrv_date date,
@@ -217,8 +217,8 @@ insert into Service_List values ('SVC06', 'Cho thuê vợt'),
 								('SVC09', 'Hệ thống chiếu sáng'),
 								('SVC10','Cho thuê áo tập');
 insert into Service_List values ('SVC11', 'Phòng thay đồ'),
-								('SVC12', 'Tổ chức giải đấu');
-
+								('SVC12', 'Tổ chức giải đấu'),
+								('SVC13', 'Bãi giữ xe miễn phí');
 --centre_service
 insert into Centre_Service (centre_id, service_id) values ('C01', 'SVC01'),
 														('C01', 'SVC02'),
@@ -231,7 +231,8 @@ insert into Centre_Service (centre_id, service_id) values ('C01', 'SVC01'),
 														('C01', 'SVC09'),
 														('C01', 'SVC10'),
 														('C01', 'SVC11'),
-														('C01', 'SVC12');
+														('C01', 'SVC12'),
+														('C01', 'SVC13');
 
 insert into Centre_Service (centre_id, service_id) values ('C02', 'SVC01'),
 														('C02', 'SVC02'),
@@ -244,7 +245,8 @@ insert into Centre_Service (centre_id, service_id) values ('C02', 'SVC01'),
 														('C02', 'SVC09'),
 														('C02', 'SVC10'),
 														('C02', 'SVC11'),
-														('C02', 'SVC12');
+														('C02', 'SVC12'),
+														('C02', 'SVC13');
 
 insert into Centre_Service (centre_id, service_id) values ('C03', 'SVC01'),
 														('C03', 'SVC02'),
@@ -257,7 +259,8 @@ insert into Centre_Service (centre_id, service_id) values ('C03', 'SVC01'),
 														('C03', 'SVC09'),
 														('C03', 'SVC10'),
 														('C03', 'SVC11'),
-														('C03', 'SVC12');
+														('C03', 'SVC12'),
+														('C03', 'SVC13');
 
 insert into Centre_Service (centre_id, service_id) values ('C04', 'SVC01'),
 														('C04', 'SVC02'),
@@ -270,7 +273,8 @@ insert into Centre_Service (centre_id, service_id) values ('C04', 'SVC01'),
 														('C04', 'SVC09'),
 														('C04', 'SVC10'),
 														('C04', 'SVC11'),
-														('C04', 'SVC12');
+														('C04', 'SVC12'),
+														('C04', 'SVC13');
 
 insert into Centre_Service (centre_id, service_id) values ('C05', 'SVC01'),
 														('C05', 'SVC02'),
@@ -283,7 +287,8 @@ insert into Centre_Service (centre_id, service_id) values ('C05', 'SVC01'),
 														('C05', 'SVC09'),
 														('C05', 'SVC10'),
 														('C05', 'SVC11'),
-														('C05', 'SVC12');
+														('C05', 'SVC12'),
+														('C05', 'SVC13');
 
 
 --admins
