@@ -199,28 +199,72 @@ courtModel.getFeedbacksById({id:{field_id: ['BD002'],}}, (err, results) => {
   }
 });*/
 
-courtModel.insertReservation = (data, callback) => {
+courtModel.checkReservationConflict = (data, callback) => {
   const sql = `
-    INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;
+    SELECT * FROM reservation
+    WHERE field_id = $1
+    AND resrv_date = $2
+    AND (
+      (time_begin < $3 AND time_end > $3) OR
+      (time_begin < $4 AND time_end > $4) OR
+      (time_begin >= $3 AND time_end <= $4)
+    );
   `;
-
+  
   const params = [
-    data.resrv_id,
-    data.time_begin,
-    data.time_end,
-    data.resrv_date,
-    data.renting_price,
-    data.created_date,
     data.field_id,
-    data.cust_id,
-    data.resrv_status]
+    data.resrv_date,
+    data.time_begin,
+    data.time_end
+  ];
 
-  db.query(sql, params, (err, results) => {
-    console.log('Results', results);
-    callback(err, results);
+  db.query(sql, params, (err, result) => {
+    if (err) {
+      console.error('Error checking reservation conflict:', err);
+      return callback(err);
+    }
+    // Nếu có kết quả trả về, có nghĩa là thời gian bị trùng
+    if (result.rows.length > 0) {
+      return callback(new Error('The time slot is already booked.'));
+    }
+    callback(null);
   });
 };
+
+courtModel.insertReservation = (data, callback) => {
+  // Kiểm tra trùng lặp thời gian
+  courtModel.checkReservationConflict(data, (err) => {
+    if (err) {
+      return callback(err);
+    }
+
+    const sql = `
+      INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;
+    `;
+    
+    const params = [
+      data.time_begin,
+      data.time_end,
+      data.resrv_date,
+      data.renting_price,
+      data.created_date,
+      data.field_id,
+      data.cust_id,
+      data.resrv_status
+    ];
+
+    db.query(sql, params, (err, result) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        return callback(err);
+      }
+      callback(null, result);
+    });
+  });
+};
+
+
 
  /*
 // Testing functions

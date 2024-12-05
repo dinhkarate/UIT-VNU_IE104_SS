@@ -56,29 +56,52 @@ courtsController.getCourtWithFeedback = (req, res) => {
 };
 
 courtsController.insertResrv = (req, res) => {
-  const data = {
-    resrv_id: req.body.resrv_id,
-    time_begin: req.body.time_begin,
-    time_end: req.body.time_end,
-    resrv_date: req.body.resrv_date,
-    renting_price: req.body.renting_price,
-    created_date: req.body.created_date,
-    field_id: req.body.field_id,
-    cust_id: req.body.cust_id,
-    resrv_status: req.body.resrv_status
+  // Nhận mảng các khoảng thời gian từ request body
+  const reservations = req.body.reservations;  // Một mảng các object
+
+  // Kiểm tra nếu reservations không phải là mảng hoặc rỗng
+  if (!Array.isArray(reservations) || reservations.length === 0) {
+    return res.status(400).json({ message: 'Invalid input. Reservations should be an array.' });
   }
 
-  console.log(data);
-  
-  models.court.insertReservation(data, (err) => {
-    if (err) {
-      console.error('Error inserting reservation:', err);
-      return res.status(500).json({ message: 'Internal Server Error' });
-    }
-    console.log('Insert thành công');
-    res.status(200).json({ message: 'Đặt sân thành công!' });
+  // Duyệt qua từng reservation và insert
+  let insertPromises = reservations.map(reservation => {
+    const data = {
+      time_begin: reservation.time_begin,
+      time_end: reservation.time_end,
+      resrv_date: reservation.resrv_date,
+      renting_price: reservation.renting_price,
+      created_date: reservation.created_date,
+      field_id: reservation.field_id,
+      cust_id: reservation.cust_id,
+      resrv_status: reservation.resrv_status
+    };
+
+    // Gọi model insert cho từng reservation
+    return new Promise((resolve, reject) => {
+      models.court.insertReservation(data, (err) => {
+        if (err) {
+          console.error('Error inserting reservation:', err);
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
   });
-}
+
+  // Chờ tất cả các promise được resolve
+  Promise.all(insertPromises)
+    .then(() => {
+      console.log('All reservations inserted successfully');
+      res.status(200).json({ message: 'Đặt sân thành công!' });
+    })
+    .catch(err => {
+      console.error('Error inserting reservations:', err);
+      res.status(500).json({ message: err.message || 'Internal Server Error' });
+    });
+};
+
 
 courtsController.addFavorCourt = (req, res) => {
   const data = {
