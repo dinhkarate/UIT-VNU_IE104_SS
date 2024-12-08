@@ -21,7 +21,7 @@ courtsController.getCourts = (req, res) => {
   });
 };
 
-
+/*
 courtsController.getCourtWithFeedback = (req, res) => {
   const fieldId = req.query.fieldId;
   // Gọi Model để lấy chi tiết sân
@@ -50,6 +50,49 @@ courtsController.getCourtWithFeedback = (req, res) => {
         };
 
       res.status(200).json(results);
+      });
+    });
+  });
+};*/
+
+//TEST
+courtsController.getCourtWithFeedback = (req, res) => {
+  const fieldId = req.query.fieldId;
+
+  // Gọi Model để lấy chi tiết sân
+  models.court.getCourtsDetails(fieldId, (err1, courtData) => {
+    if (err1) {
+      return res.status(500).json({ message: 'Error fetching field details', error: err1 });
+    }
+
+    // Gọi Model để lấy danh sách feedback
+    models.court.getFeedbacksById(fieldId, (err2, feedbacksData) => {
+      if (err2) {
+        return res.status(500).json({ message: 'Error fetching feedbacks', error: err2 });
+      }
+
+      // Gọi Model để lấy thông tin Centre
+      models.court.getCentreById(fieldId, (err3, centreData) => {
+        if (err3) {
+          return res.status(500).json({ message: 'Error fetching centre details', error: err3 });
+        }
+
+        // Gọi Model để lấy thông tin Schedule
+        models.court.getScheduleById(fieldId, (err4, scheduleData) => {
+          if (err4) {
+            return res.status(500).json({ message: 'Error fetching schedules', error: err4 });
+          }
+
+          // Trả về dữ liệu kết hợp
+          const results = {
+            courtDetails: courtData,
+            feedbacks: feedbacksData,
+            centreDetails: centreData,
+            schedules: scheduleData,
+          };
+
+          res.status(200).json(results);
+        });
       });
     });
   });

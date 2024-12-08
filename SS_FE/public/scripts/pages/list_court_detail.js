@@ -16,11 +16,12 @@ function fetchCourtDetails(fieldId) {
         console.log("Court Details:", data);
   
         // Handle the combined response
-        const { courtDetails, feedbacks, centreDetails } = data;
+        const { courtDetails, feedbacks, centreDetails, schedules } = data;
   
         console.log("Court Details:", courtDetails);
         console.log("Feedbacks:", feedbacks);
         console.log("Centre Details:", centreDetails);
+        console.log("Schedules:", schedules);
         }
     )   
     .catch((error) => {

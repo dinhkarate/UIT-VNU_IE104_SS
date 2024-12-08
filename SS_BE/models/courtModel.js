@@ -189,6 +189,25 @@ courtModel.getFeedbacksById = (fieldId, callback) => {
   });
 };
 
+courtModel.getScheduleById = (fieldId, callback) => {
+  const sql = `
+  SELECT 
+  r.resrv_id, 
+  r.time_begin, 
+  r.time_end, 
+  r.resrv_date
+  FROM reservation r
+  JOIN fields f ON r.field_id = f.field_id
+  WHERE f.field_id = $1
+  `
+
+  const params = [fieldId]
+
+  db.query(sql, params, (err, results) => {
+    callback(err, results);
+  });
+};
+
 /*Received id: { id: { field_id: [ 'BD002' ] } }
 // Testing functions
 courtModel.getFeedbacksById({id:{field_id: ['BD002'],}}, (err, results) => {
