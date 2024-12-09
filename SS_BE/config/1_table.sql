@@ -51,7 +51,7 @@ alter table admins
 add foreign key (centre_id) references centres(centre_id);
 
 create table customers (
-	cust_id varchar(5) primary key,
+	cust_id serial primary key,
 	first_name varchar(50),
 	last_name varchar(50),
 	username varchar(50),
@@ -62,7 +62,7 @@ create table customers (
 );
 
 create table favourite_field (
-	cust_id varchar(5),
+	cust_id integer,
 	field_id varchar(5),
 	primary key (cust_id, field_id)
 );
@@ -78,7 +78,7 @@ create table feedbacks (
 	created_at timestamp,
 	description text,
 	field_id varchar(5),
-	cust_id varchar (5)
+	cust_id integer
 );
 
 alter table feedbacks
@@ -106,7 +106,7 @@ create table tournament (
 
 create table tourn_comment (
 	tourn_cmt_id varchar primary key,
-	cust_id varchar,
+	cust_id integer,
 	tournament_id varchar,
 	comment text
 );
@@ -118,7 +118,7 @@ add foreign key (cust_id) references customers(cust_id);
 
 create table teams (
 	tournament_id varchar,
-	leader_id varchar,
+	leader_id integer,
 	team_name varchar,
 	primary key (tournament_id, leader_id)
 );
@@ -132,7 +132,7 @@ create table members (
 	member_id varchar(5) primary key,
 	first_name varchar(50),
 	last_name varchar(50),
-	leader_id varchar(5)
+	leader_id integer
 );
 
 alter table members
@@ -145,14 +145,14 @@ create type status as enum (
 );
 
 create table reservation (
-    resrv_id varchar(5) primary key,
+    resrv_id serial primary key,
     time_begin time,
     time_end time,
     resrv_date date,
     renting_price decimal(10,2),
     created_date timestamp, 
     field_id varchar(5),
-    cust_id varchar(5),
+    cust_id integer,
     resrv_status status
 );
 
@@ -162,11 +162,11 @@ alter table reservation
 add foreign key (cust_id) references customers(cust_id);
 
 create table payment (
-	payment_id varchar(5) primary key,
+	payment_id serial primary key,
 	payment_date timestamp,
 	pay_method varchar(50),
 	total_price decimal(10,2),
-	resrv_id varchar(5),
+	resrv_id integer,
 	admin_id varchar(5)
 );
 
