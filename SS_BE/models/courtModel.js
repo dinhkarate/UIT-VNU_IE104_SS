@@ -189,6 +189,25 @@ courtModel.getFeedbacksById = (fieldId, callback) => {
   });
 };
 
+courtModel.getScheduleById = (fieldId, callback) => {
+  const sql = `
+  SELECT 
+  r.resrv_id, 
+  r.time_begin, 
+  r.time_end, 
+  r.resrv_date
+  FROM reservation r
+  JOIN fields f ON r.field_id = f.field_id
+  WHERE f.field_id = $1
+  `
+
+  const params = [fieldId]
+
+  db.query(sql, params, (err, results) => {
+    callback(err, results);
+  });
+};
+
 /*Received id: { id: { field_id: [ 'BD002' ] } }
 // Testing functions
 courtModel.getFeedbacksById({id:{field_id: ['BD002'],}}, (err, results) => {
@@ -199,6 +218,82 @@ courtModel.getFeedbacksById({id:{field_id: ['BD002'],}}, (err, results) => {
   }
 });*/
 
+courtModel.insertReservation = (data, callback) => {
+  const sql = `
+    INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;
+  `;
+
+  const params = [
+    data.resrv_id,
+    data.time_begin,
+    data.time_end,
+    data.resrv_date,
+    data.renting_price,
+    data.created_date,
+    data.field_id,
+    data.cust_id,
+    data.resrv_status]
+
+  db.query(sql, params, (err, results) => {
+    console.log('Results', results);
+    callback(err, results);
+  });
+};
+
+ /*
+// Testing functions
+courtModel.insertReservation(details = {
+  resrv_id: "RSV11", 
+  time_begin: "10:00", 
+  time_end: "12:00",
+  resrv_date: "2024-12-01", 
+  renting_price: 100.0,
+  created_date: "2024-11-30", 
+  field_id: "BD001", 
+  cust_id: "CUS01", 
+  resrv_status: "confirmed" 
+}, (err, results) => {
+  if (err) {
+      console.error('Error fetching courts:', err);
+  } else {
+      console.log('Insert thành công');
+  }
+});*/
+
+courtModel.addFavorCourt = (data, callback) => {
+  const sql = `
+    INSERT INTO favourite_field (cust_id, field_id)
+    VALUES ($1, $2);
+  `;
+
+  const params = [
+    data.cust_id,
+    data.field_id
+  ]
+
+  db.query(sql, params, (err, results) => {
+    console.log('addFavorCourt Results:', results);
+    callback(err, results);
+  });
+};
+
+courtModel.delFavorCourt = (data, callback) => {
+  const sql = `
+    DELETE FROM favourite_field
+    WHERE cust_id = $1 AND field_id = $2;
+  `;
+
+  const params = [
+    data.cust_id,
+    data.field_id
+  ]
+
+  db.query(sql, params, (err, results) => {
+    console.log('delFavorCourt Results:', results);
+    callback(err, results);
+  });
+};
 
 module.exports = courtModel;
 

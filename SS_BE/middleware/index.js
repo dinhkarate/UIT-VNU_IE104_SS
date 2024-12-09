@@ -1,25 +1,28 @@
-const cookieParser = require('cookie-parser');
+//Using JWT token for authorization
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-const authenticate = (req, res, next) => {
-  const isAuthenticated = req.cookies.authenticated === 'true';
+dotenv.config();
 
-  res.locals.isAuthenticated = isAuthenticated;
+const verifyToken = (req, res, next) => {
+    let token = req.headers['x-access-token'];
 
-  next();
+    if (!token) {
+        return res.status(403).json({
+            message: 'No token provided!',
+        });
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).send({
+                message: 'Unauthorized!',
+            });
+        }
+
+        req.userId = decoded.id;
+        next();
+    });
 };
 
-
-const authorize = (req, res, next) => {
-  const isAuthenticated = req.cookies.authenticated === 'true';
-
-  if (isAuthenticated) {
-    next();
-  } else {
-    res.redirect('/');
-  }
-};
-
-module.exports = {
-  authenticate,
-  authorize,
-};
+export default verifyToken;
