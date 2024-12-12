@@ -341,12 +341,19 @@ body {
     justify-content: center;
 }
 
+.time-slot.selected {
+    background-color: #3c88fa !important;
+    color: white !important;
+    cursor: pointer;
+}
+
 .time-slot.available {
-    background-color: #CEE7FF;
+    background-color: #dbedff;
+    cursor: pointer;
 }
 
 .time-slot.available:hover {
-    background-color: #B8D4FF;
+    background-color: #a0bfee;
 }
 
 .time-slot.booked {
