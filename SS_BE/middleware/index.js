@@ -1,28 +1,20 @@
 //Using JWT token for authorization
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-dotenv.config();
 
-const verifyToken = (req, res, next) => {
-    let token = req.headers['x-access-token'];
-
-    if (!token) {
-        return res.status(403).json({
-            message: 'No token provided!',
-        });
+const authenticate = (req, res, next) => {
+    try{
+        const token = req.cookies.token;
+        const check = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        if (check) {
+            req.cust_id = check.cust_id;
+            next()
+        };
     }
-
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-        if (err) {
-            return res.status(401).send({
-                message: 'Unauthorized!',
-            });
-        }
-
-        req.userId = decoded.id;
-        next();
-    });
+    catch(err){
+        return res.redirect('/');
+    };
 };
 
-export default verifyToken;
+module.exports = authenticate;
