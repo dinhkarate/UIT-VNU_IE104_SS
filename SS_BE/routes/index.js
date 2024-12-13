@@ -9,6 +9,5 @@ const route = (app) => {
   app.use("/api/court", court);
 
   app.use("/api/auth", auth);
-}
 
 module.exports = route;
