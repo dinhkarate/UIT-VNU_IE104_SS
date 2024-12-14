@@ -18,7 +18,7 @@ function fetchCourts(filters = {}) {
       }
       gridContainer.innerHTML = '';
       
-      const courts = data.rows;
+      const courts = data.rows.slice(0, 9);
       
       if (!Array.isArray(courts) || courts.length === 0) {
         gridContainer.innerHTML = '<p>Không tìm thấy sân phù hợp</p>';
@@ -30,10 +30,10 @@ function fetchCourts(filters = {}) {
           <div class="item-container">
             <div class="item-image">
               <div class="field-image">
-                <img src="${court.image_url || 'https://placehold.co/480x345'}" alt="${court.field_name}">
+                <img src="${court.image_url || '/images/court/soccer.png'}" alt="${court.field_name}">
               </div>
               <div class="banner">
-                <img src="${court.banner_url || 'https://placehold.co/75x100'}" alt="Banner">
+                <img src="${court.banner_url || '/images/court/sportspot-banner.svg'}" alt="Banner">
               </div>
             </div>
             <div class="item-content">
