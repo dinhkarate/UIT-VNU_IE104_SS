@@ -42,7 +42,7 @@ function fetchCourts(filters = {}) {
               </h3>
               <div class="location-rating">
                 <p class="distance">
-                  <img src="/images/location-icon.svg" alt="Location" class="location-icon">
+                  <img src="/images/court/location-icon.svg" alt="Location" class="location-icon">
                   ${court.distance ? `Cách đây ${court.distance}km` : 'Đang cập nhật khoảng cách'}
                 </p>
                 <div class="rating">
@@ -53,12 +53,12 @@ function fetchCourts(filters = {}) {
               <div class="tags">
                 ${court.coop ? `
                   <span class="tag partner">
-                    <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon">
+                    <img src="/images/court/trophy-icon.svg" alt="Trophy" class="tag-icon">
                     <span>Đối tác SportSpot</span>
                   </span>
                 ` : ''}
                 <span class="tag quality">
-                  <img src="/images/check-icon.svg" alt="Check" class="tag-icon">
+                  <img src="/images/court/check-icon.svg" alt="Check" class="tag-icon">
                   <span>Kiểm định chất lượng</span>
                 </span>
               </div>
@@ -116,11 +116,11 @@ function formatTime(time) {
 function generateAmenityIcons(services) {
   const servicesList = services.split(', ');
   const iconMapping = {
-    'Wifi': 'wifi-icon.svg',
-    'Cafe': 'cafe-icon.svg',
-    'Thuê trọng tài': 'whistle-icon.svg',
-    'Bãi đỗ ô tô': 'car-icon.svg',
-    'Phòng tắm': 'shower-icon.svg'
+    'Wifi': 'court/wifi-icon.svg',
+    'Cafe': 'court/cafe-icon.svg',
+    'Thuê trọng tài': 'court/whistle-icon.svg',
+    'Bãi đỗ ô tô': 'court/car-icon.svg',
+    'Phòng tắm': 'court/shower-icon.svg'
   };
   
   let icons = '';
