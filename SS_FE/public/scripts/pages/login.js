@@ -43,7 +43,7 @@ function fetchLogin(data) {
         return response.json(); 
     })
     .then(data => {
-        localStorage.setItem('isAuthenticated', data.isAuthenticated);
+        localStorage.setItem('token', data.token);
     })
     .catch(error => {
         console.error('Login failed:', result.message);
