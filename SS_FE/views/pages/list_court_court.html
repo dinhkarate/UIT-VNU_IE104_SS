@@ -99,16 +99,28 @@
                 class="icon"
               />
             </div>
-            <div class="favorite">
-              <button>
-                Thêm sân yêu thích
-                <img
-                  src="../../public/images/question-mark.svg"
-                  alt="Favorite"
-                  class="icon"
-                />
-              </button>
-            </div>
+          </div>
+          <div class="favorite">
+            <button id="favoriteBtn">
+              Thêm sân yêu thích
+              <img
+                src="/public/images/heart.png"
+                alt="Favorite"
+                class="icon"
+              />
+            </button>
+            <script>
+              const button = document.getElementById('favoriteBtn');
+              const img = button.querySelector('img');        
+          
+              button.addEventListener('click', () => {
+                if (img.src.includes('heart-full.png')) {
+                  img.src = '/public/images/heart.png'; 
+                } else {
+                  img.src = '/public/images/heart-full.png'; 
+                }
+              });
+            </script> 
           </div>
 
           <!-- Phần thông tin -->
@@ -117,7 +129,6 @@
               <div class="details">
                 <h2>Thông tin sân</h2>
                 <p>Giờ mở cửa: <span>6:00 ~ 22:00</span></p>
-                <p>Số sân: <span>5 sân</span></p>
                 <p>Giá thuê sân: <span>120.000đ/giờ</span></p>
               </div>
               <div class="services">
@@ -174,23 +185,7 @@
     <div class="schedule-container">
       <div class="schedule-header">
         <!-- Dropdown chọn sân -->
-        <div class="court-selector">
-          <button class="court-select-btn">
-            Sân 1
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M6 9L12 15L18 9"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-            </svg>
-          </button>
-          <div class="court-dropdown">
-            <div class="court-option">Sân 1</div>
-            <div class="court-option">Sân 2</div>
-            <div class="court-option">Sân 3</div>
-          </div>
-        </div>
+
 
         <!-- Chú thích trạng thái -->
         <div class="status-legend">
