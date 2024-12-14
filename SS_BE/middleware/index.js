@@ -10,12 +10,17 @@ const authenticate = (req, res, next) => {
         const check = jwt.verify(token, process.env.JWT_SECRET_KEY);
         if (check) {
             req.body.cust_id = check.cust_id;
-            next()
+            next();
         };
     }
     catch(err){
-        return res.redirect('/');
+        return res.json('Bạn cần phải login');
     };
 };
 
-module.exports = authenticate;
+const DUMMY = (req, res, next) => {
+    console.log('DUMMY middleware');
+    next();
+};
+
+module.exports = {authenticate, DUMMY};

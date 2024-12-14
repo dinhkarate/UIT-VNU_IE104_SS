@@ -27,26 +27,27 @@ function getCookie(cname) {
 }
 
 
-const fetchLogin = (data) => {
-    try {
-        const response = fetch('/api/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data), 
-        });
+function fetchLogin(data) {
+    fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data), 
+    })
 
-        const result = response.json();
-
-        if (response.ok) {
-            // Redirect or handle successful registration here
-        } else {
-            console.error('Login failed:', result.message);
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    } catch (error) {
-        console.error('Error during Login:', error);
-    }
+        return response.json(); 
+    })
+    .then(data => {
+        localStorage.setItem('token', data.token);
+    })
+    .catch(error => {
+        console.error('Login failed:', result.message);
+    });
 };
 
 

@@ -46,7 +46,7 @@ bookingButton.addEventListener('click', () => {
     renting_price: 100.0,
     created_date: "2024-11-30", 
     field_id: "BD001", 
-    cust_id: "CUS01", 
+    cust_id: "DUMMY", 
     resrv_status: "confirmed" 
   }
 
@@ -71,11 +71,11 @@ bookingButton.addEventListener('click', () => {
       });
 });
 
-//fetch API cho sân yêu thích
+//fetch API cho thêm sân yêu thích
 favorButton.addEventListener('click', () => {
   // Dữ liệu gửi về mẫu
   const data = {
-    cust_id: "CUS01",
+    cust_id: "DUMMY",
     field_id: "BD001"
   }
 
@@ -104,7 +104,7 @@ favorButton.addEventListener('click', () => {
 favorButton.addEventListener('click', () => {
     // Dữ liệu gửi về mẫu
     const data = {
-      cust_id: "CUS01",
+      cust_id: "DUMMY",
       field_id: "BD001"
     }
   
