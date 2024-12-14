@@ -22,6 +22,19 @@
     <script defer src="/scripts/pages/schedule.js"></script>
     <script defer src="/scripts/components/header.js"></script>
     <script defer src="/scripts/pages/list_court_detail.js"></script>
+    <style>
+      .service-list .service-item img.amenity-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+
+      .service-list .service-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
@@ -37,7 +50,7 @@
           <h1>Sân bóng đá Bình Minh</h1>
           <p class="address">
             <img
-              src="../../public/images/question-mark.svg"
+              src="../../images/components/court/icons_location.png"
               alt="Location"
               class="icon"
             />
@@ -45,7 +58,7 @@
           </p>
         </div>
         <div class="court-banner">
-          <img src="https://placehold.co/75x100" alt="Banner" />
+          <img src="/images/components/court/sportspot-banner.svg" alt="Banner" />
         </div>
       </div>
 
@@ -94,7 +107,7 @@
             <div class="rating">
               <span>Đánh giá: 5/5</span>
               <img
-                src="../../public/images/question-mark.svg"
+                src="../../images/components/court/rating-star.png"
                 alt="Rating"
                 class="icon"
               />
@@ -104,7 +117,7 @@
             <button id="favoriteBtn">
               Thêm sân yêu thích
               <img
-                src="/public/images/heart.png"
+                src="/images/components/court/heart-full.png"
                 alt="Favorite"
                 class="icon"
               />
@@ -115,9 +128,9 @@
           
               button.addEventListener('click', () => {
                 if (img.src.includes('heart-full.png')) {
-                  img.src = '/public/images/heart.png'; 
+                  img.src = '/images/components/court/heart.png'; 
                 } else {
-                  img.src = '/public/images/heart-full.png'; 
+                  img.src = '/images/components/court/heart-full.png'; 
                 }
               });
             </script> 
@@ -136,7 +149,7 @@
                 <div class="service-list">
                   <div class="service-item">
                     <img
-                      src="../../public/images/wifi-icon.svg"
+                      src="../../images/components/court/wifi-icon.png"
                       alt="Wifi"
                       class="amenity-icon"
                     />
@@ -144,7 +157,7 @@
                   </div>
                   <div class="service-item">
                     <img
-                      src="../../public/images/cafe-icon.svg"
+                      src="../../images/components/court/cafe-icon.png"
                       alt="Cafe"
                       class="amenity-icon"
                     />
@@ -152,7 +165,7 @@
                   </div>
                   <div class="service-item">
                     <img
-                      src="../../public/images/shower-icon.svg"
+                      src="../../images/components/court/shower-icon.png"
                       alt="Shower"
                       class="amenity-icon"
                     />
@@ -160,7 +173,7 @@
                   </div>
                   <div class="service-item">
                     <img
-                      src="../../public/images/car-icon.svg"
+                      src="../../images/components/court/car-icon.png"
                       alt="Parking"
                       class="amenity-icon"
                     />
@@ -168,7 +181,7 @@
                   </div>
                   <div class="service-item">
                     <img
-                      src="../../public/images/whistle-icon.svg"
+                      src="../../images/components/court/whistle-icon.png"
                       alt="Referee"
                       class="amenity-icon"
                     />
@@ -184,9 +197,6 @@
 
     <div class="schedule-container">
       <div class="schedule-header">
-        <!-- Dropdown chọn sân -->
-
-
         <!-- Chú thích trạng thái -->
         <div class="status-legend">
           <div class="legend-item">
