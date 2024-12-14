@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const accountController = require('../controllers/accountController');
+const middleware = require("../middleware")
 
+router.use('/', middleware.authenticate);
 // Define routes
 router.get('/profile', accountController.getProfile);
 router.put('/profile', accountController.updateProfile);

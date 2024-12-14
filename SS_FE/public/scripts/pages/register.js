@@ -28,7 +28,6 @@ const registerUser = (data) => {
 document.addEventListener('DOMContentLoaded', () => {
     // Example usage
     const data = {
-    cust_id: 'CUS20',
     first_name: 'John',
     last_name: 'Doe',
     username: 'johndoe',
