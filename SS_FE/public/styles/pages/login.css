@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Crimson Pro', serif;
+    font-size: 20px;
 }
 
 body {
@@ -58,6 +59,7 @@ p a {
     text-align: left;
     color: #ffffff; /* Màu trắng cho 'Quên mật khẩu?' */
     text-decoration: none;
+    font-size: 16px;
 }
 
 .input-box {
@@ -72,7 +74,7 @@ p a {
     top: 50%;
     left: 0px;
     transform: translateY(-50%);
-    font-size: 1em;
+    font-size: 25px;
     color: #bbb;
     pointer-events: none;
     transition: 0.3s ease;
@@ -146,7 +148,7 @@ input[type="checkbox"]:checked::after {
 }
 
 .login-button {
-    margin-top: 60px;
+    margin-top: 20px;
     width: 100%;
     height: 65px;
     border: none;
@@ -162,9 +164,10 @@ input[type="checkbox"]:checked::after {
 .social-login-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 25px;
     width: 100%;
     align-items: center;
+    margin-top: 60px;
 }
 
 .social-login {
@@ -172,7 +175,8 @@ input[type="checkbox"]:checked::after {
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    width: 90%;
+    width: 100%;
+    height: 65px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -186,8 +190,11 @@ input[type="checkbox"]:checked::after {
 
 .logo-social {
     position: absolute;
-    left: 20px; 
-    width: 24px;
-    height: 24px;
+    left: 15px; 
+    width: 50px;
+}
+
+.social-login span {
+    font-size: 1.1em;
 }
 
