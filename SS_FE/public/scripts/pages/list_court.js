@@ -116,11 +116,11 @@ function formatTime(time) {
 function generateAmenityIcons(services) {
   const servicesList = services.split(', ');
   const iconMapping = {
-    'Wifi': 'court/wifi-icon.svg',
-    'Cafe': 'court/cafe-icon.svg',
-    'Thuê trọng tài': 'court/whistle-icon.svg',
-    'Bãi đỗ ô tô': 'court/car-icon.svg',
-    'Phòng tắm': 'court/shower-icon.svg'
+    'Wifi': 'wifi-icon.svg',
+    'Cafe': 'cafe-icon.svg',
+    'Thuê trọng tài': 'whistle-icon.svg',
+    'Bãi đỗ ô tô': 'car-icon.svg',
+    'Phòng tắm': 'shower-icon.svg'
   };
   
   let icons = '';
