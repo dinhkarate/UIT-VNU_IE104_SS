@@ -131,12 +131,13 @@ function checkCookie(cookieName) {
         return false;
     }
 }
-//Cookie name sended from BE is token
+
+/*//Cookie name sended from BE is token
 if (checkCookie('token')) {
     console.log('Cookie tồn tại! Bạn có thể thực hiện hành động tiếp theo.');
 } else {
     console.warn('Cookie không tồn tại. Có thể cần yêu cầu người dùng đăng nhập.');
-}
+}*/
 
 //If cookie exists then use this function to call API for User information
 function loginUserAPI() {

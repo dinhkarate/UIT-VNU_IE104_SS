@@ -17,11 +17,10 @@ authModel.getUser = () => {
 
 authModel.newUser = (data, callback) => {
     const sql = `
-    INSERT INTO customers (cust_id, first_name, last_name, username, password, phone, email, signup_date)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+    INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
 
     const params = [
-        data.cust_id,
         data.first_name,
         data.last_name,
         data.username,

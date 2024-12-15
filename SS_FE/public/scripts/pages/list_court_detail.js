@@ -46,7 +46,6 @@ bookingButton.addEventListener('click', () => {
     renting_price: 100.0,
     created_date: "2024-11-30", 
     field_id: "BD001", 
-    cust_id: "DUMMY", 
     resrv_status: "confirmed" 
   }
 
