@@ -281,13 +281,13 @@
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
-    padding: 15px 25px;
+    padding: 15px 23px;
     border-radius: 20px;
 }
 
 @media screen and (max-width: 1536px) {
     #header-wrapper nav ul li a {
-        font-size: 18px;
+        font-size: 17px;
     }
 }
 
@@ -295,7 +295,7 @@
     background-color: #ffffff;
     color: #000000;
     text-shadow: none;
-    padding: 15px 25px;
+    padding: 15px 23px;
     border-radius: 20px;
 }
 
@@ -379,14 +379,14 @@
     background-color: #ffffff;
     color: #000000;
     text-shadow: none;
-    padding: 15px 25px;
+    padding: 15px 23px;
     border-radius: 20px;
 }
 
 @media screen and (max-width: 1536px) {
     #header-wrapper .dropdown:hover > a,
     #header-wrapper .dropdown > a:hover {
-        font-size: 18px;
+        font-size: 17px;
     }
 }
 
@@ -422,4 +422,15 @@
 
 #header-wrapper #home-link:hover .home-icon {
     filter: brightness(0);
+}
+
+@media screen and (max-width: 1536px) {
+    .order-status img {
+        width: 30px;
+    }
+
+    .user-profile img {
+        width: 30px;
+\
+    }
 }
