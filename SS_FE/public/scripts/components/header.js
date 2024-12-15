@@ -64,7 +64,7 @@ class LanguageManager {
         this.currentLang = this.currentLang === 'vi' ? 'en' : 'vi';
         
         const newFlag = this.currentLang === 'vi' ? 'VietNamFlag.png' : 'UKFlag.png';
-        this.elements.languageImg.src = `/images/${newFlag}`;
+        this.elements.languageImg.src = `/images/header/${newFlag}`;
         this.elements.languageImg.alt = this.currentLang === 'vi' ? 'Vietnamese' : 'English';
         this.elements.headerWrapper.setAttribute('data-lang', this.currentLang);
         
