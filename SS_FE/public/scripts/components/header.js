@@ -64,7 +64,7 @@ class LanguageManager {
         this.currentLang = this.currentLang === 'vi' ? 'en' : 'vi';
         
         const newFlag = this.currentLang === 'vi' ? 'VietNamFlag.png' : 'UKFlag.png';
-        this.elements.languageImg.src = `/images/${newFlag}`;
+        this.elements.languageImg.src = `/images/header/${newFlag}`;
         this.elements.languageImg.alt = this.currentLang === 'vi' ? 'Vietnamese' : 'English';
         this.elements.headerWrapper.setAttribute('data-lang', this.currentLang);
         
@@ -114,4 +114,50 @@ class LanguageManager {
             console.error('Error loading translations:', error);
         }
     }
+}
+
+
+//Function to check if a cookie exists
+function checkCookie(cookieName) {
+    const cookies = document.cookie;
+
+    const exists = cookies.split('; ').some((cookie) => cookie.startsWith(`${cookieName}=`));
+
+    if (exists) {
+        console.log(`Cookie '${cookieName}' tồn tại.`);
+        return true;
+    } else {
+        console.warn(`Cookie '${cookieName}' không tồn tại.`);
+        return false;
+    }
+}
+//Cookie name sended from BE is token
+if (checkCookie('token')) {
+    console.log('Cookie tồn tại! Bạn có thể thực hiện hành động tiếp theo.');
+} else {
+    console.warn('Cookie không tồn tại. Có thể cần yêu cầu người dùng đăng nhập.');
+}
+
+//If cookie exists then use this function to call API for User information
+function loginUserAPI() {
+    const data = {cust_id: "DUMMY"}
+    fetch('/api/account/profile', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data), 
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); 
+    })
+    .then(result => {
+        console.log('Success:', result); 
+    })
+    .catch(error => {
+        console.error('Error:', error); 
+    });e
 }

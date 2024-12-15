@@ -43,7 +43,7 @@ function fetchCourts(filters = {}) {
               <div class="location-rating">
                 <p class="distance">
                   <img src="/images/court/location-icon.svg" alt="Location" class="location-icon">
-                  ${court.distance ? `Cách đây ${court.distance}km` : 'Đang cập nhật khoảng cách'}
+                  ${court.distance ? `Cách đây ${court.distance}km` : 'Cách đây 2km'}
                 </p>
                 <div class="rating">
                   ${generateStarRating(parseFloat(court.average_rating || 0))}
@@ -126,7 +126,7 @@ function generateAmenityIcons(services) {
   let icons = '';
   for (const [service, icon] of Object.entries(iconMapping)) {
     if (servicesList.includes(service)) {
-      icons += `<img src="/images/${icon}" alt="${service}" class="amenity-icon"/>`;
+      icons += `<img src="/images/court/${icon}" alt="${service}" class="amenity-icon"/>`;
     }
   }
   return icons;
