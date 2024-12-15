@@ -39,7 +39,7 @@ function fetchCourts(filters = {}) {
                 <img src="https://placehold.co/480x345" alt="Field Image" />
               </div>
               <div class="banner">
-                <img src="https://placehold.co/75x100" alt="Banner" />
+                <img src="/images/court/verified-banner.svg" alt="Banner" />
               </div>
             </div>
             <div class="item-content">
@@ -48,7 +48,7 @@ function fetchCourts(filters = {}) {
               </h3>
               <div class="location-rating">
                 <p class="distance">
-                  <img src="/images/location-icon.svg" alt="Location" class="location-icon"/>
+                  <img src="/images/court/location-icon.svg" alt="Location" class="location-icon"/>
                   Cách đây 2km
                 </p>
                 <div class="rating">
@@ -59,13 +59,13 @@ function fetchCourts(filters = {}) {
               <div class="tags">
                 ${court.coop ? `
                   <span class="tag partner">
-                    <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon"/>
+                    <img src="/images/court/trophy-icon.svg" alt="Trophy" class="tag-icon"/>
                     <span>Đối tác SportSpot</span>
                   </span>
                 ` : ''}
                 <span class="tag quality">
                   <img
-                    src="/images/check-icon.svg"
+                    src="/images/court/check-icon.svg"
                     alt="Check"
                     class="tag-icon"
                   />
@@ -136,7 +136,7 @@ function generateAmenityIcons(services) {
   let icons = '';
   for (const [service, icon] of Object.entries(iconMapping)) {
     if (servicesList.includes(service)) {
-      icons += `<img src="/images/${icon}" alt="${service}" class="amenity-icon"/>`;
+      icons += `<img src="/images/court/${icon}" alt="${service}" class="amenity-icon"/>`;
     }
   }
   return icons;
