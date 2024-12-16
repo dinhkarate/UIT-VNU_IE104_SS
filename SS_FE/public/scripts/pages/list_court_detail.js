@@ -18,6 +18,8 @@ function fetchCourtDetails(fieldId) {
         const courtDetails = data.courtDetails.rows[0];
         const centreDetails = data.centreDetails.rows[0];
         //Khá là cực đoạn này đấy =))
+
+        document.querySelector('.breadcrumb .court-name').textContent = courtDetails.field_name;
         
         // Cập nhật thông tin sân
         document.querySelector('.court-title h1').textContent = courtDetails.field_name;
