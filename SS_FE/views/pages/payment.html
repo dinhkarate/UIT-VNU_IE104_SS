@@ -47,7 +47,7 @@
                         <p>Nội dung ck: <span class="bold">ABC</span></p>
                     </div>
                     <div class="right-column qr-code">
-                        <img src="qr-placeholder.png" alt="QR Code">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.png" alt="QR Code">
                     </div>
                 </div>
             </div>
@@ -67,19 +67,22 @@
                 <li><strong>Thực hiện chuyển khoản theo mức giá ở phần thông tin đặt sân.</strong></li>
                 <li><strong>Sau khi chuyển khoản, vui lòng tải hóa đơn thanh toán ở mục bên dưới và kiểm tra tình trạng đặt sân trong phần trạng thái đơn.</strong></li>
             </ol>
-            <p>
-                <strong>SDT: 0987654321Z</strong> <br>
-                <strong>Email: abcdxyz@gmail.com </strong>
-            </p>
             <p><strong>*Nếu sau khoảng thời gian trên mà bạn vẫn chưa được xác nhận lịch, vui lòng liên hệ admin để giải quyết nhé!</strong></p>
+            <p>
+                <strong>SĐT: 0866566043</strong> <br>
+                <strong>Email: phapsubaclieu@gmail.com </strong>
+            </p>
         </div>
         
         <!-- File Upload Placeholder and Complete Button -->
         <div class="actions-row">
             <div class="upload">
-                <p>Click vào đây để tải hóa đơn</p>
                 <div class="bill-placeholder">
-                    <img id="bill-image" src="bill-placeholder.png" alt="Hóa đơn tải lên">
+                    <input type="file" id="bill-upload" accept="image/*" style="display: none;">
+                    <label for="bill-upload" class="upload-label">
+                        <img id="bill-preview" src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload bill">
+                        <span>Click để tải ảnh lên</span>
+                    </label>
                 </div>
             </div>
             <div class="button-container">
@@ -90,12 +93,17 @@
         <!-- Success Popup -->
         <div id="successPopup" class="popup">
             <div class="popup-content">
-                <img src="/images/success-icon.png" alt="Success" class="success-icon">
+                <div class="success-checkmark">
+                    <div class="checkmark">
+                        <div class="checkmark-stem"></div>
+                        <div class="checkmark-kick"></div>
+                    </div>
+                </div>
                 <h2>Đặt sân thành công!</h2>
                 <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi</p>
                 <div class="popup-buttons">
                     <button onclick="window.location.href='/'" class="home-btn">Về trang chủ</button>
-                    <button onclick="window.location.href='/orders'" class="order-btn">Xem đơn hàng</button>
+                    <button onclick="window.location.href='/profile?section=bookings'" class="order-btn">Xem đơn hàng</button>
                 </div>
             </div>
         </div>
@@ -135,6 +143,26 @@
             successPopup.addEventListener('click', (e) => {
                 if (e.target === successPopup) {
                     successPopup.style.display = 'none';
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInput = document.getElementById('bill-upload');
+            const previewImage = document.getElementById('bill-preview');
+            const uploadLabel = document.querySelector('.upload-label span');
+
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                        previewImage.style.width = '100%';
+                        previewImage.style.height = '100%';
+                        uploadLabel.style.display = 'none';
+                    }
+                    reader.readAsDataURL(file);
                 }
             });
         });
