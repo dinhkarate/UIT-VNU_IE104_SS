@@ -44,13 +44,15 @@ function fetchLogin(data) {
     })
     .then(data => {
         localStorage.setItem('token', data.token);
+        alert('Login successful');
     })
     .catch(error => {
-        console.error('Login failed:', result.message);
+        console.error('Login failed:', error.message);
+        alert('Login failed: ' + error.message);
     });
 };
 
-
+/*
 // Call the register function
 document.addEventListener('DOMContentLoaded', () => {
     // Example usage
@@ -59,4 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
     password: 'vietpass', // Nếu sai mật khẩu thì sẽ gửi lại 401 unauthorized
 };
     fetchLogin(data);
-})
+})*/
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Collect the form data
+    const data = Array.from(document.querySelectorAll('#loginForm input')).reduce((acc, input) => ({...acc, [input.id]: input.value}), {});
+    
+    // Send the data to the backend using fetch
+    fetchLogin(data);
+  });

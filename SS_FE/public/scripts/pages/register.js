@@ -1,6 +1,6 @@
 const registerButton = document.querySelector('.register-button');
 
-const registerUser = (data) => {
+function registerUser(data) {
     try {
         const response = fetch('/api/auth/register', {
             method: 'POST',
@@ -38,3 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
 };
     registerUser(data);
 })*/
+
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Collect the form data
+    //const data = Array.from(document.querySelectorAll('#registerForm input')).reduce((acc, input) => ({...acc, [input.id]: input.value}), {});
+    const data = Array.from(document.querySelectorAll('#registerForm input')).reduce(
+        (acc, input) => ({ ...acc, [input.id]: input.type === 'checkbox' ? input.checked : input.value }),
+        {}
+      );
+  
+      // Check if the passwords match
+      if (data.password !== data.confirmpassword) {
+        alert('Mật khẩu và Xác nhận mật khẩu không khớp!');
+        return; // Stop form submission if passwords don't match
+      }
+  
+      // Debugging: Log form data to the console
+      console.log('Collected Form Data:', data);
+    data.signup_date = new Date().toISOString();
+    data.cust_id = 'CUS11';// Dòng này lúc sau làm theo DB đã được cập nhật thì xóa vì cái này sẽ tự tạo tăng dần trong DB(tui để đây là do DB của tui  chưa cập nhật)
+    // Send the data to the backend using fetch
+    registerUser(data);
+  });
