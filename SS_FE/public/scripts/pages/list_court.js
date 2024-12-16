@@ -3,8 +3,6 @@ function fetchCourts(filters = {}) {
   const queryString = new URLSearchParams(filters).toString();
   const apiUrl = `/api/court/courtsList${queryString ? `?${queryString}` : ""}`;
 
-  //console.log("Fetching from URL:", apiUrl);
-
   fetch(apiUrl)
     .then((response) => {
       if (!response.ok) {
@@ -13,8 +11,6 @@ function fetchCourts(filters = {}) {
       return response.json();
     })
     .then((data) => {
-      // console.log("Received data:", data);
-      
       const gridContainer = document.querySelector('.grid-container');
       if (!gridContainer) {
         console.error("Grid container not found!");
@@ -22,62 +18,56 @@ function fetchCourts(filters = {}) {
       }
       gridContainer.innerHTML = '';
       
-      const courts = data.rows;
+      const courts = data.rows.slice(0, 9);
       
       if (!Array.isArray(courts) || courts.length === 0) {
-        // console.log("No courts found");
         gridContainer.innerHTML = '<p>Không tìm thấy sân phù hợp</p>';
         return;
       }
 
       courts.forEach(court => {
-        // console.log("Processing court:", court);
         const courtHtml = `
           <div class="item-container">
             <div class="item-image">
               <div class="field-image">
-                <img src="https://placehold.co/480x345" alt="Field Image" />
+                <img src="${court.image_url || '/images/court/soccer.png'}" alt="${court.field_name}">
               </div>
               <div class="banner">
-                <img src="https://placehold.co/75x100" alt="Banner" />
+                <img src="${court.banner_url || '/images/court/sportspot-banner.svg'}" alt="Banner">
               </div>
             </div>
             <div class="item-content">
               <h3>
-                <a href="/list_court/court_detail">${court.field_name || 'Không có tên'}</a>
+                <a href="/list_court/court_detail?id=${court.field_id}">${court.field_name || 'Không có tên'}</a>
               </h3>
               <div class="location-rating">
                 <p class="distance">
-                  <img src="/images/location-icon.svg" alt="Location" class="location-icon"/>
-                  Cách đây 2km
+                  <img src="/images/court/location-icon.svg" alt="Location" class="location-icon">
+                  ${court.distance ? `Cách đây ${court.distance}km` : 'Cách đây 2km'}
                 </p>
                 <div class="rating">
                   ${generateStarRating(parseFloat(court.average_rating || 0))}
                 </div>
               </div>
-
+              
               <div class="tags">
                 ${court.coop ? `
                   <span class="tag partner">
-                    <img src="/images/trophy-icon.svg" alt="Trophy" class="tag-icon"/>
+                    <img src="/images/court/trophy-icon.svg" alt="Trophy" class="tag-icon">
                     <span>Đối tác SportSpot</span>
                   </span>
                 ` : ''}
                 <span class="tag quality">
-                  <img
-                    src="/images/check-icon.svg"
-                    alt="Check"
-                    class="tag-icon"
-                  />
+                  <img src="/images/court/check-icon.svg" alt="Check" class="tag-icon">
                   <span>Kiểm định chất lượng</span>
                 </span>
               </div>
-
+              
               <h4>Các tiện ích</h4>
               <div class="amenities">
                 ${generateAmenityIcons(court.services || '')}
               </div>
-
+              
               <div class="price">
                 <span class="price-label">Giá sân: </span>
                 <span class="price-value">${formatPrice(court.price_per_hour || 0)}đ/giờ</span>
@@ -136,7 +126,7 @@ function generateAmenityIcons(services) {
   let icons = '';
   for (const [service, icon] of Object.entries(iconMapping)) {
     if (servicesList.includes(service)) {
-      icons += `<img src="/images/${icon}" alt="${service}" class="amenity-icon"/>`;
+      icons += `<img src="/images/court/${icon}" alt="${service}" class="amenity-icon"/>`;
     }
   }
   return icons;

@@ -66,11 +66,60 @@
         </li>
         <li><a id="news-link" href="news">Tin tức</a></li>
         <li><a id="policy-link" href="policy">Chính sách</a></li>
-        <li><a id="owner-link" href="owner" style="pointer-events: none; opacity: 0.5;">Dành cho chủ sân</a></li>
-        <li><a id="tournament-link" href="tournament" style="pointer-events: none; opacity: 0.5;">Giải đấu</a></li>
-        <li class="login"><a id="login-link" href="login">Đăng nhập</a></li>
-        <li class="register">
-          <a id="register-link" href="register">Đăng ký</a>
+        <li>
+          <a
+            id="owner-link"
+            href="owner"
+            style="pointer-events: none; opacity: 0.5"
+            >Dành cho chủ sân</a
+          >
+        </li>
+        <li>
+          <a
+            id="tournament-link"
+            href="tournament"
+            style="pointer-events: none; opacity: 0.5"
+            >Giải đấu</a
+          >
+        </li>
+        <li
+          class="order-status"
+          style="
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <a
+            href="/profile?section=bookings"
+            style="display: flex; align-items: center; gap: 4px"
+          >
+            <img src="/images/header/calendar.png" alt="Order Status" />
+            <span>Trạng thái đơn</span>
+          </a>
+        </li>
+        <li
+          class="user-profile"
+          style="
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: -10px;
+          "
+        >
+          <a
+            href="/profile"
+            style="display: flex; align-items: center; gap: 4px"
+          >
+            <img src="/images/header/avatar.png" alt="User Avatar" />
+            <span class="username">Nguyễn Văn A</span>
+          </a>
         </li>
       </ul>
     </nav>

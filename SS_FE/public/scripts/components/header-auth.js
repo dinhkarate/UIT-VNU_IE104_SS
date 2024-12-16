@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    loadHTML('header-placeholder', '/components/header.html', initializeScrollScript);
+    loadHTML('header-placeholder', '/components/header-auth.html', initializeScrollScript);
     loadHTML('footer-placeholder', '/components/footer.html');
 
     function loadHTML(id, url, callback) {
@@ -117,64 +117,37 @@ class LanguageManager {
 }
 
 
-//Function to validate the jwt token
-document.addEventListener('DOMContentLoaded', () => {
-    loadHeader();
-});
+//Function to check if a cookie exists
+function checkCookie(cookieName) {
+    const cookies = document.cookie;
 
-function loadHeader() {
-    // check jwt validity
-    fetch('/api/auth/checkjwt', {
+    const exists = cookies.split('; ').some((cookie) => cookie.startsWith(`${cookieName}=`));
+
+    if (exists) {
+        console.log(`Cookie '${cookieName}' tồn tại.`);
+        return true;
+    } else {
+        console.warn(`Cookie '${cookieName}' không tồn tại.`);
+        return false;
+    }
+}
+
+/*//Cookie name sended from BE is token
+if (checkCookie('token')) {
+    console.log('Cookie tồn tại! Bạn có thể thực hiện hành động tiếp theo.');
+} else {
+    console.warn('Cookie không tồn tại. Có thể cần yêu cầu người dùng đăng nhập.');
+}*/
+
+//If cookie exists then use this function to call API for User information
+function loginUserAPI() {
+    const data = {cust_id: "DUMMY"}
+    fetch('/api/account/profile', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         },
-    })
-    .then((response) => {
-        if (!response.ok) {
-            // Unauth -> header.html
-            throw new Error('Unauthorized');
-        }
-        return response.json();
-    })
-    .then((data) => {
-        // Auth -> header-auth.html
-        console.log(data);
-        loadHeaderComponent('/components/header-auth.html', data.user.username);
-    })
-    .catch(() => {
-        // Unauth -> header.html
-        loadHeaderComponent('/components/header.html');
-    });
-}
-
-// Function to load header
-function loadHeaderComponent(componentPath, user) {
-    fetch(componentPath)
-        .then((response) => response.text())
-        .then((html) => {
-            const headerContainer = document.getElementById('header-placeholder');
-            if (headerContainer) {
-                headerContainer.innerHTML = html;
-
-                // Case: auth = true 
-                if (user) {
-                    document.querySelector('.username').textContent = user;                   
-                }
-            }
-        })
-        .catch((error) => {
-            console.error('Error loading header component:', error);
-        });
-}
-
-
-/*function checkUserSession() {
-    fetch('/api/auth/checkjwt', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
+        body: JSON.stringify(data), 
     })
     .then(response => {
         if (!response.ok) {
@@ -187,5 +160,5 @@ function loadHeaderComponent(componentPath, user) {
     })
     .catch(error => {
         console.error('Error:', error); 
-    });
-}*/
+    });e
+}

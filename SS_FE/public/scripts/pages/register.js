@@ -23,7 +23,7 @@ const registerUser = (data) => {
     }
 };
 
-
+/*
 // Call the register function
 document.addEventListener('DOMContentLoaded', () => {
     // Example usage
@@ -37,4 +37,4 @@ document.addEventListener('DOMContentLoaded', () => {
     signup_date: new Date().toISOString(),
 };
     registerUser(data);
-})
+})*/

@@ -115,15 +115,19 @@ function updateSuggestions(type) {
                         <img src="${item.image}" alt="Suggestion Image">
                         <div class="suggestion-info">
                             <h3><a href="${item.href}">${item.name}</a></h3>
-                            <p>${item.distance}</p>
-                            <div class="rating">★★★★★<span>Xem đánh giá</span></div>
-                            <div class="amenities">
-                                <i class="fas fa-wifi"></i>
-                                <i class="fas fa-parking"></i>
-                                <i class="fas fa-shower"></i>
-                                <i class="fas fa-utensils"></i>
+                            <div class="location-container" style="display: flex; align-items: center;">
+                                <img src="/images/components/location.png" alt="Location" class="location-icon" style="width: 22px; height: 22px;">
+                                <p style="margin: 0;">Cách đây ${item.distance}</p>
                             </div>
-                            <p class="hours">${item.hours}</p>
+                            <div class="rating" style="display: flex; align-items: center; justify-content: center; gap: 5px;">★★★★★<span style="margin-top: 5px;">Xem đánh giá</span></div>
+                            <div class="amenities" style="display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 10px;">
+                                <img src="/images/components/court/wifi-icon.png" alt="wifi" style="width: auto; height: 20px;">
+                                <img src="/images/components/court/car-icon.png" alt="parking" style="width: auto; height: 20px;">
+                                <img src="/images/components/court/shower-icon.png" alt="shower" style="width: auto; height: 20px;">
+                                <img src="/images/components/court/cafe-icon.png" alt="cafe" style="width: auto; height: 20px;">
+                                <img src="/images/components/court/whistle-icon.png" alt="whistle" style="width: auto; height: 20px;">
+                            </div>
+                            <p class="hours" style="text-align: right;">${item.hours}</p>
                         </div>
                     </div>
             `;

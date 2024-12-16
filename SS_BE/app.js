@@ -138,6 +138,10 @@ app.get('/otp_mail/*', (req, res) => {
   res.redirect('/otp_mail');
 });
 
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/profile.html'));
+});
+
 app.listen(config.PORT, () => {
     console.log(`Server is running on http://localhost:${config.PORT}`);
   });

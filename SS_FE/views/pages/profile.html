@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý tài khoản | SportSpot</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+    <!-- Liên kết file CSS -->
+    <link rel="stylesheet" href="styles/pages/profile.css">
+    <!-- Google Fonts - Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="/scripts/components/header-auth.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div class="breadcrumb">
+        <a href="/">Trang chủ</a>
+        <span>&gt;</span>
+        <a href="/profile">Quản lý tài khoản</a>
+        <span>&gt;</span>
+        <a href="#" class="breadcrumb-title">Thông tin tài khoản</a>
+    </div>
+
+    <div class="main-frame">
+        <!-- Thông báo success ẩn mặc định -->
+        <div class="alert-success" style="display:none;">
+            Cập nhật hồ sơ thành công
+        </div>
+
+        <div class="container">
+            <!-- SIDEBAR (giữ nguyên code cũ) -->
+            <div class="sidebar">
+                <div class="profile">
+                    <div class="avatar">
+                        <img src="images/profile/camera.png" alt="Camera Icon">
+                    </div>
+                    <div class="username">Trần Văn B</div>
+                </div>
+
+                <div class="menu">
+                    <div class="menu-item">
+                        <img src="images/profile/user.png" alt="User Icon" class="icon">
+                        Quản lý tài khoản
+                        <div class="arrow">▶</div>
+                    </div>
+                    <div class="submenu">
+                        <div class="submenu-item" data-title="Thông tin tài khoản">Thông tin tài khoản</div>
+                        <div class="submenu-item" data-title="Lịch sử bình luận">Lịch sử bình luận</div>
+                        <div class="submenu-item" data-title="Đổi mật khẩu">Đổi mật khẩu</div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="images/profile/calendar.png" alt="Calendar Icon" class="icon">
+                        Danh sách lịch đặt
+                        <div class="arrow">▶</div>
+                    </div>
+                    <div class="submenu">
+                        <!-- Lịch đặt sân -->
+                        <div class="submenu-item" data-title="Lịch đặt sân">Lịch đặt sân</div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="images/profile/heart.png" alt="Heart Icon" class="icon">
+                        Sân yêu thích
+                        <div class="arrow">▶</div>
+                    </div>
+                    <div class="submenu">
+                        <!-- Sân của bạn -->
+                        <div class="submenu-item" data-title="Sân của bạn">Sân của bạn</div>
+                    </div>
+                </div>
+
+                <!-- Nút Đăng xuất -->
+                <button class="logout-button">Đăng xuất</button>
+            </div>
+            <!-- END SIDEBAR -->
+
+            <!-- CONTENT BÊN PHẢI -->
+            <div class="content">
+                <!-- (1) THÔNG TIN TÀI KHOẢN (giữ nguyên code cũ) -->
+                <h1 class="title" id="info-title">Thông tin tài khoản</h1>
+                <div class="info-section" id="info-section">
+                    <div class="info-row">
+                        <div class="info-label-col">Họ và tên</div>
+                        <div class="info-value-col editable" data-field="fullname">Trần Văn B</div>
+                    </div>
+                    <div class="separator-line"></div>
+
+                    <div class="info-row">
+                        <div class="info-label-col">Email</div>
+                        <div class="info-value-col non-editable" data-field="email">abcdxyz@gmail.com</div>
+                    </div>
+                    <div class="separator-line"></div>
+
+                    <div class="info-row">
+                        <div class="info-label-col">Ngày sinh</div>
+                        <div class="info-value-col editable" data-field="birthday">06/12/2004</div>
+                    </div>
+                    <div class="separator-line"></div>
+
+                    <div class="info-row">
+                        <div class="info-label-col">Giới tính</div>
+                        <div class="info-value-col editable" data-field="gender">Nam</div>
+                    </div>
+                    <div class="separator-line"></div>
+
+                    <div class="info-row">
+                        <div class="info-label-col">Số điện thoại</div>
+                        <div class="info-value-col editable" data-field="phone">0123456789</div>
+                    </div>
+                    <div class="separator-line"></div>
+
+                    <div class="info-row">
+                        <div class="info-label-col">Ngày đăng ký</div>
+                        <div class="info-value-col non-editable" data-field="date">12/12/2024</div>
+                    </div>
+                    <div class="separator-line"></div>
+
+                    <div class="info-row">
+                        <div class="info-label-col">Mã khách hàng</div>
+                        <div class="info-value-col non-editable" data-field="customerid">abcdxyz12345</div>
+                    </div>
+                    <div class="separator-line"></div>
+
+                    <!-- Avatar góc phải -->
+                    <div class="avatar-change">
+                        <img src="images/profile/camera.png" alt="Camera Icon">
+                        <button class="choose-image-button" style="display:none;">Chọn ảnh</button>
+                        <input type="file" class="file-input" style="display:none;">
+                    </div>
+
+                    <div class="button-container">
+                        <button class="edit-button">Chỉnh sửa</button>
+                        <button class="save-button" style="display:none;">Lưu lại</button>
+                    </div>
+                </div>
+                <!-- END info-section -->
+
+                <!-- (2) LỊCH SỬ BÌNH LUẬN -->
+                <div class="comment-history-section" id="comment-history-section" style="display:none;">
+                    <h1 class="title">Lịch sử bình luận</h1>
+
+                    <div class="comment-container">
+                        <!-- Comment item -->
+                        <div class="comment-item">
+                            <div class="comment-date">19 Tháng 11, 2024</div>
+                            <div class="comment-main">
+                                <div class="comment-left">
+                                    <img src="images/profile/avatar-court.png" alt="Avatar sân thể thao">
+                                </div>
+                                <div class="comment-right">
+                                    <h3 class="court-name">Bạn đã gửi đánh giá đến sân bóng đá Bình Minh</h3>
+                                    <p class="comment-text">Sân đẹp, giá rẻ, dịch vụ tốt, chủ sân vui tính, mọi người nên đến nhé</p>
+                                    <div class="rating">
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comment item 2 -->
+                        <div class="comment-item">
+                            <div class="comment-date">16 Tháng 11, 2024</div>
+                            <div class="comment-main">
+                                <div class="comment-left">
+                                    <img src="images/profile/avatar-court.png" alt="Avatar sân thể thao">
+                                </div>
+                                <div class="comment-right">
+                                    <h3 class="court-name">Sân tennis ABC</h3>
+                                    <p class="comment-text">Sân khá đẹp, giá hơi cao, nhân viên nhiệt tình, bãi đỗ xe thuận tiện</p>
+                                    <div class="rating">
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comment item 3 -->
+                        <div class="comment-item">
+                            <div class="comment-date">22 Tháng 10, 2024</div>
+                            <div class="comment-main">
+                                <div class="comment-left">
+                                    <img src="images/profile/avatar-court.png" alt="Avatar sân thể thao">
+                                </div>
+                                <div class="comment-right">
+                                    <h3 class="court-name">Sân cầu lông Xuân An</h3>
+                                    <p class="comment-text">Mặt sân hơi trơn, ánh sáng tốt, giá rẻ, chủ sân vui vẻ</p>
+                                    <div class="rating">
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comment item 4 -->
+                        <div class="comment-item">
+                            <div class="comment-date">7 Tháng 9, 2024</div>
+                            <div class="comment-main">
+                                <div class="comment-left">
+                                    <img src="images/profile/avatar-court.png" alt="Avatar sân thể thao">
+                                </div>
+                                <div class="comment-right">
+                                    <h3 class="court-name">Sân bóng chuyền Minh Châu</h3>
+                                    <p class="comment-text">Sân sạch sẽ, lưới tốt, có khu vực nghỉ ngơi, giá vừa phải</p>
+                                    <div class="rating">
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                        <span class="star">⭐</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END comment-history-section -->
+
+                <!-- (3) ĐỔI MẬT KHẨU (GIỮ NGUYÊN) -->
+                <div class="change-password-section" id="change-password-section" style="display:none;">
+                    <h1 class="title">Đổi mật khẩu</h1>
+                    <div class="password-form">
+                        <div class="password-row">
+                            <label class="password-label">Mật khẩu cũ</label>
+                            <div class="password-input-container">
+                                <input class="password-input" type="password" placeholder="Nhập mật khẩu cũ">
+                                <span class="eye-icon eye-hide"></span>
+                            </div>
+                        </div>
+                        <div class="password-row">
+                            <label class="password-label">Mật khẩu mới</label>
+                            <div class="password-input-container">
+                                <input class="password-input" type="password" placeholder="Nhập mật khẩu mới">
+                                <span class="eye-icon eye-hide"></span>
+                            </div>
+                        </div>
+                        <div class="password-row">
+                            <label class="password-label">Xác nhận mật khẩu mới</label>
+                            <div class="password-input-container">
+                                <input class="password-input" type="password" placeholder="Xác nhận mật khẩu mới">
+                                <span class="eye-icon eye-hide"></span>
+                            </div>
+                        </div>
+                        <div class="password-submit-container">
+                            <button class="password-submit-button">Xác nhận</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- END change-password-section -->
+
+                <!-- (4) LỊCH ĐẶT SÂN (MỚI) -->
+                <div class="booking-section" id="booking-section" style="display:none;">
+                    <h1 class="title">Lịch đặt sân</h1>
+                    <div class="booking-container">
+                        <h2 class="booking-subtitle">Sắp diễn ra</h2>
+                        <div class="booking-scroll">
+                            <div class="booking-header-row">
+                                <div class="booking-header-field">Tên sân</div>
+                                <div class="booking-header-field">Ngày</div>
+                                <div class="booking-header-field">Khung giờ</div>
+                                <div class="booking-header-field">Giá</div>
+                                <div class="booking-header-field">Trạng thái</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+
+                            <div class="booking-row">
+                                <div class="booking-field name">Sân bóng đá Bình Minh</div>
+                                <div class="booking-field date">20/11/2024</div>
+                                <div class="booking-field time">8:00 ~ 10:00</div>
+                                <div class="booking-field price">200.000đ</div>
+                                <div class="booking-field status">Chờ xác nhận</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+
+                            <div class="booking-row">
+                                <div class="booking-field name">Sân cầu lông Ao An</div>
+                                <div class="booking-field date">21/11/2024</div>
+                                <div class="booking-field time">20:00 ~ 21:00</div>
+                                <div class="booking-field price">100.000đ</div>
+                                <div class="booking-field status">Đã xác nhận</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+
+                            <div class="booking-row">
+                                <div class="booking-field name">Sân tennis Trung Tâm</div>
+                                <div class="booking-field date">23/11/2024</div>
+                                <div class="booking-field time">9:00 ~ 11:00</div>
+                                <div class="booking-field price">300.000đ</div>
+                                <div class="booking-field status">Đã xác nhận</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+
+                            <div class="booking-row">
+                                <div class="booking-field name">Sân bóng chuyền Hải An</div>
+                                <div class="booking-field date">24/11/2024</div>
+                                <div class="booking-field time">19:00 ~ 20:00</div>
+                                <div class="booking-field price">150.000đ</div>
+                                <div class="booking-field status">Chờ xác nhận</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+                        </div>
+
+                        <h2 class="booking-subtitle">Đã kết thúc</h2>
+                        <div class="booking-scroll">
+                            <div class="booking-header-row">
+                                <div class="booking-header-field">Tên sân</div>
+                                <div class="booking-header-field">Ngày</div>
+                                <div class="booking-header-field">Khung giờ</div>
+                                <div class="booking-header-field">Giá</div>
+                                <div class="booking-header-field">Trạng thái</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+
+                            <div class="booking-row">
+                                <div class="booking-field name">Sân bóng đá Bình Minh</div>
+                                <div class="booking-field date">20/11/2024</div>
+                                <div class="booking-field time">8:00 ~ 10:00</div>
+                                <div class="booking-field price">200.000đ</div>
+                                <div class="booking-field status">Đã kết thúc</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+
+                            <div class="booking-row">
+                                <div class="booking-field name">Sân cầu lông Ao An</div>
+                                <div class="booking-field date">21/11/2024</div>
+                                <div class="booking-field time">20:00 ~ 21:00</div>
+                                <div class="booking-field price">100.000đ</div>
+                                <div class="booking-field status">Đã kết thúc</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+
+                            <div class="booking-row">
+                                <div class="booking-field name">Sân tennis Trung Tâm</div>
+                                <div class="booking-field date">23/11/2024</div>
+                                <div class="booking-field time">9:00 ~ 11:00</div>
+                                <div class="booking-field price">300.000đ</div>
+                                <div class="booking-field status">Đã kết thúc</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+
+                            <div class="booking-row">
+                                <div class="booking-field name">Sân bóng chuyền Hải An</div>
+                                <div class="booking-field date">24/11/2024</div>
+                                <div class="booking-field time">19:00 ~ 20:00</div>
+                                <div class="booking-field price">150.000đ</div>
+                                <div class="booking-field status">Đã kết thúc</div>
+                            </div>
+                            <div class="separator-line-booking"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END booking-section -->
+
+                <!-- (5) Sân của bạn (Sân yêu thích) -->
+                <div class="favorite-section" id="favorite-section" style="display:none;">
+                    <h1 class="title">Sân yêu thích của bạn</h1>
+                    <div class="favorite-container">
+                        <!-- 3 thẻ, mỗi hàng chứa tối đa 3 thẻ -->
+                        <div class="favorite-card">
+                            <img class="favorite-img" src="images/components/bongda.png" alt="Sân bóng đá Bình Minh">
+                            <div class="favorite-info">
+                                <div class="favorite-name">Sân bóng đá Bình Minh</div>
+                                <div class="favorite-stars">⭐⭐⭐⭐⭐</div>
+                                <div class="tags">
+                                    <span class="tag partner">
+                                        <img src="/images/court/trophy-icon.svg" alt="Trophy" class="tag-icon">
+                                        <span>Đối tác SportSpot</span>
+                                    </span>
+                                    <span class="tag quality">
+                                        <img src="/images/court/check-icon.svg" alt="Check" class="tag-icon">
+                                        <span>Kiểm định chất lượng</span>
+                                    </span>
+                                </div>
+                                <div class="favorite-utilities">Các tiện ích</div>
+                                <div class="favorite-utilities-icons">
+                                    <img src="/images/court/wifi-icon.svg" alt="Wifi" class="amenity-icon">
+                                    <img src="/images/court/cafe-icon.svg" alt="Cafe" class="amenity-icon">
+                                    <img src="/images/court/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
+                                    <img src="/images/court/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
+                                    <img src="/images/court/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
+                                </div>
+                                <div class="favorite-price">Giá sân: <span class="price-value">100.000đ/giờ</span></div>
+                                <div class="favorite-opening">Mở cửa 6:00 ~ 22:00</div>
+                            </div>
+                        </div>
+
+                        <div class="favorite-card">
+                            <img class="favorite-img" src="images/components/caulong.png" alt="Sân cầu lông Ao An">
+                            <div class="favorite-info">
+                                <div class="favorite-name">Sân cầu lông Ao An</div>
+                                <div class="favorite-stars">⭐⭐⭐⭐</div>
+                                <div class="tags">
+                                    <span class="tag partner">
+                                        <img src="/images/court/trophy-icon.svg" alt="Trophy" class="tag-icon">
+                                        <span>Đối tác SportSpot</span>
+                                    </span>
+                                    <span class="tag quality">
+                                        <img src="/images/court/check-icon.svg" alt="Check" class="tag-icon">
+                                        <span>Kiểm định chất lượng</span>
+                                    </span>
+                                </div>
+                                <div class="favorite-utilities">Các tiện ích</div>
+                                <div class="favorite-utilities-icons">
+                                    <img src="/images/court/wifi-icon.svg" alt="Wifi" class="amenity-icon">
+                                    <img src="/images/court/cafe-icon.svg" alt="Cafe" class="amenity-icon">
+                                    <img src="/images/court/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
+                                    <img src="/images/court/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
+                                    <img src="/images/court/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
+                                </div>
+                                <div class="favorite-price">Giá sân: <span class="price-value">100.000đ/giờ</span></div>
+                                <div class="favorite-opening">Mở cửa 6:00 ~ 22:00</div>
+                            </div>
+                        </div>
+
+                        <div class="favorite-card">
+                            <img class="favorite-img" src="images/components/bongda.png" alt="Sân tennis Trung Tâm">
+                            <div class="favorite-info">
+                                <div class="favorite-name">Sân tennis Trung Tâm</div>
+                                <div class="favorite-stars">⭐⭐⭐⭐⭐</div>
+                                <div class="tags">
+                                    <span class="tag partner">
+                                        <img src="/images/court/trophy-icon.svg" alt="Trophy" class="tag-icon">
+                                        <span>Đối tác SportSpot</span>
+                                    </span>
+                                    <span class="tag quality">
+                                        <img src="/images/court/check-icon.svg" alt="Check" class="tag-icon">
+                                        <span>Kiểm định chất lượng</span>
+                                    </span>
+                                </div>
+                                <div class="favorite-utilities">Các tiện ích</div>
+                                <div class="favorite-utilities-icons">
+                                    <img src="/images/court/wifi-icon.svg" alt="Wifi" class="amenity-icon">
+                                    <img src="/images/court/cafe-icon.svg" alt="Cafe" class="amenity-icon">
+                                    <img src="/images/court/whistle-icon.svg" alt="Trọng tài" class="amenity-icon">
+                                    <img src="/images/court/car-icon.svg" alt="Bãi đỗ xe" class="amenity-icon">
+                                    <img src="/images/court/shower-icon.svg" alt="Phòng tắm" class="amenity-icon">
+                                </div>
+                                <div class="favorite-price">Giá sân: <span class="price-value">200.000đ/giờ</span></div>
+                                <div class="favorite-opening">Mở cửa 7:00 ~ 23:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END favorite-section -->
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="scripts/pages/profile.js"></script>
+
+</body>
+</html>
