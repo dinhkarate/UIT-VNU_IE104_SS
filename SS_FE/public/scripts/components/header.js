@@ -7,28 +7,43 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.ok ? response.text() : Promise.reject(`HTTP error! Status: ${response.status}`))
             .then(data => {
                 document.getElementById(id).innerHTML = data;
-                if (callback) callback();
+                if (callback) setTimeout(callback, 100);
             })
             .catch(error => console.error('Fetch error:', error));
     }
 
     function initializeScrollScript() {
         const header = document.getElementById('header-wrapper');
-        if (!header) return;
+        if (!header) {
+            setTimeout(initializeScrollScript, 100);
+            return;
+        }
 
         let lastScrollY = window.scrollY;
         const scrollThreshold = 100;
 
+        let ticking = false;
+
         window.addEventListener('scroll', () => {
-            window.requestAnimationFrame(() => {
-                const currentScrollY = window.scrollY;
-                if (currentScrollY > scrollThreshold) {
-                    header.classList.toggle('header-hidden', currentScrollY > lastScrollY);
-                } else {
-                    header.classList.remove('header-hidden');
-                }
-                lastScrollY = currentScrollY;
-            });
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const currentScrollY = window.scrollY;
+                    
+                    if (currentScrollY > scrollThreshold) {
+                        if (currentScrollY > lastScrollY) {
+                            header.classList.add('header-hidden');
+                        } else {
+                            header.classList.remove('header-hidden');
+                        }
+                    } else {
+                        header.classList.remove('header-hidden');
+                    }
+                    
+                    lastScrollY = currentScrollY;
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     }
 
