@@ -27,7 +27,7 @@ fetch("/api")
         data.rows.forEach(item => {
             const field = {
                 id: item.field_id,
-                image: "https://placehold.co/255x200",
+                image: "https://foba.vn/wp-content/uploads/2020/09/Hinh-anh-%E2%80%93-2020-San-Bong-Cu-Chi-Sau-01-Nam-Khai-Thac-1.jpg",
                 name: item.field_name,
                 distance: "2km",
                 rating: item.average_rating || "Chưa có đánh giá",
@@ -41,7 +41,7 @@ fetch("/api")
                     return iconMap[service] || "info";
                 }),
                 hours: `${item.open_time.slice(0,5)} - ${item.close_time.slice(0,5)}`,
-                href: `/field/${item.field_id}`
+                href: `/list_court/court_detail?id=${item.field_id}`
             };
             
             convertedData.all.push(field);
@@ -59,7 +59,7 @@ fetch("/api")
             "all": [
                 {
                     id: 1,
-                    image: "https://placehold.co/255x200",
+                    image: "https://foba.vn/wp-content/uploads/2020/09/Hinh-anh-%E2%80%93-2020-San-Bong-Cu-Chi-Sau-01-Nam-Khai-Thac-1.jpg",
                     name: "Sân bóng đá mẫu",
                     distance: "2km",
                     rating: "4.5",
@@ -71,7 +71,7 @@ fetch("/api")
             "Bóng đá": [
                 {
                     id: 1,
-                    image: "https://placehold.co/255x200",
+                    image: "https://foba.vn/wp-content/uploads/2020/09/Hinh-anh-%E2%80%93-2020-San-Bong-Cu-Chi-Sau-01-Nam-Khai-Thac-1.jpg",
                     name: "Sân bóng đá mẫu",
                     distance: "2km",
                     rating: "4.5",
