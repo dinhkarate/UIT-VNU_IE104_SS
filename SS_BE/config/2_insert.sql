@@ -118,37 +118,38 @@ insert into Centre_Service (centre_id, service_id) values ('C05', 'SVC01'),
 
 --admins
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD01', 'Nguyen', 'Van A', 'nguyenvana', 'password1', '0901234567', 'vana@gmail.com', 'C01'); --password1
+('AD01', 'Nguyen', 'Van A', 'nguyenvana', '$2b$10$dHThWoKK67mBwlqT8xV4s.JdNqMxW8WHDmAj6/pDBv9NiQLeOKDmW', '0901234567', 'vana@gmail.com', 'C01'); --password1
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD02', 'Le', 'Thi B', 'lethib', 'adminpass', '0902234567', 'thib@gmail.com', 'C02'); --adminpass
+('AD02', 'Le', 'Thi B', 'lethib', '$2b$10$iwNgZxXtWhcJq2v3R3v/cOAFG1R1tFnq05cThFZ9U8BfsdAgboEvC', '0902234567', 'thib@gmail.com', 'C02'); --adminpass
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD03', 'Tran', 'Van C', 'tranvanc', 'secure123', '0903234567', 'vanc@gmail.com', 'C03'); --secure123
+('AD03', 'Tran', 'Van C', 'tranvanc', '$2b$10$c/giH9CuKQpjWlfoIvrD.uMekJCe9LVStkhvLz1jQ2l9Qf9HHiFQm', '0903234567', 'vanc@gmail.com', 'C03'); --secure123
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD04', 'Pham', 'Thi D', 'phamthid', 'mypassword', '0904234567', 'thid@gmail.com', 'C04'); --mypassword
+('AD04', 'Pham', 'Thi D', 'phamthid', '$2b$10$1P1L6TpHnh0qW3iyDi3AcuAeAlqMGDbO5FaeKN55AfPpAWYVkjqzC', '0904234567', 'thid@gmail.com', 'C04'); --mypassword
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD05', 'Hoang', 'Van E', 'hoangvane', 'admin2024', '0905234567', 'vane@gmail.com', 'C05'); --admin2024
+('AD05', 'Hoang', 'Van E', 'hoangvane', '$2b$10$yAEl.I2IlbkZMgRZxdvLdO.Kr6OUkHg8gy3N1SxihxTp9AlIMKBTO', '0905234567', 'vane@gmail.com', 'C05'); --admin2024
 
 --customers
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Hoang', 'Quyen', 'nguyena', 'password1', '0901234567', 'an@gmail.com', '2024-06-25'); -- password1
+('Hoang', 'Quyen', 'nguyena', '$2b$10$qIY4Thg6RUiJmywLqktsN.CDtvqz8VsjcGSmuh0mOdtk7pfD1wKn2', '0901234567', 'an@gmail.com', '2024-06-25'); --password1
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Le', 'Duc', 'leb', 'adminpass', '0912345678', 'binh@gmail.com', '2024-09-29'); -- adminpass
+('Le', 'Duc', 'leb', '$2b$10$/t.azj8gKsPJgp3Qix2mY.zmYZoBBqAKn7Y1EjahW0cc15aJhFiGC', '0912345678', 'binh@gmail.com', '2024-09-29'); --adminpass
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Tran', 'Phong', 'tranc', 'secure123', '0923456789', 'cuong@gmail.com', '2023-12-06'); -- secure123
+('Tran', 'Phong', 'tranc', '$2b$10$.C5TXM1yIb8paCWbNXSMDea2gntsKbruXTdVWAzt5Yw4LSfoKX8Ti', '0923456789', 'cuong@gmail.com', '2023-12-06'); --secure123
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Nguyen', 'Son', 'phamd', 'mypassword', '0934567890', 'duc@gmail.com', '2023-12-23'); -- mypassword
+('Nguyen', 'Son', 'phamd', '$2b$10$Hb9aU82d1QSRia8fwo6DIeoPlwt/Y/EJqPYXafMIN6AI/oe8ds4Q2', '0934567890', 'duc@gmail.com', '2023-12-23'); --mypassword
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Hoang', 'Cuong', 'hoange', 'admin2024', '0945678901', 'ha@gmail.com', '2024-03-12'); -- admin2024
+('Hoang', 'Cuong', 'hoange', '$2b$10$eIhLerCwzGaQP0cSm.tJFuUoI0grpbq9aF879sNOyQMHhMHtlhXee', '0945678901', 'ha@gmail.com', '2024-03-12'); --admin2024
+
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Hoang', 'Cuong', 'linhf', 'userpass', '0956789012', 'linh@gmail.com', '2024-04-07'); -- userpass
+('Hoang', 'Cuong', 'linhf', '$2b$10$0R3/A0mfMwNxlss999HfY.6sM0DXWqgHpG5wMlEhGzs8lLrpoA3fm', '0956789012', 'linh@gmail.com', '2024-04-07'); --userpass
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Pham', 'Tuyen', 'phongg', 'testing12', '0967890123', 'phong@gmail.com', '2024-09-17'); -- testing12
+('Pham', 'Tuyen', 'phongg', '$2b$10$yrmTIfrJPZirIVhUeNtPSOMaiiAFXp6j3V0cZoxM9sWZmYEVDbCRK', '0967890123', 'phong@gmail.com', '2024-09-17'); --testing12
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Le', 'Ha', 'quyenh', 'secure456', '0978901234', 'quyen@gmail.com', '2023-12-29'); -- secure456
+('Le', 'Ha', 'quyenh', '$2b$10$oLYIuyhUn/1tkQLBVrxSP.ZmEzpa.7N2wBzlEQUc8nRslsVkaom3C', '0978901234', 'quyen@gmail.com', '2023-12-29'); --secure456
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Hoang', 'Phong', 'soni', 'demo789', '0989012345', 'son@gmail.com', '2024-11-12'); -- demo789
+('Hoang', 'Phong', 'soni', '$2b$10$auJltvRsPcZlFFPrtA1b2OkLyuINLkm0qoSLP1WkRrvf2VnuRkOrm', '0989012345', 'son@gmail.com', '2024-11-12'); --demo789
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Nguyen', 'Binh', 'tuyenj', 'vietpass', '0990123456', 'tuyen@gmail.com', '2024-04-12'); -- vietpass
+('Nguyen', 'Binh', 'tuyenj', '$2b$10$GbpBxHeOfX772hLoqZOlk.TbrSuNz/Z77ZvDRvVaLIGP0fUm9LAV.', '0990123456', 'tuyen@gmail.com', '2024-04-12'); --vietpass
 
 --favourite_field
 INSERT INTO favourite_field (cust_id, field_id) VALUES (1, 'BD001');
