@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán | SportSpot</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/pages/payment.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Thông tin đặt sân</h1>
+        </div>
+        
+        <!-- Panels Row -->
+        <div class="panels-row">
+            <!-- Reservation Info -->
+            <div class="box-left">
+                <h3>Thông tin đặt sân</h3>
+                <div class="info-grid">
+                    <div>
+                        <p>Tên người đặt: <span class="bold">Pào</span></p>
+                        <p>Số điện thoại: <span class="bold">0123456789</span></p>
+                        <p>Mã đơn: <span class="bold">#123</span></p>
+                        <p>Ngày đặt sân: <span class="bold">11/11/2024</span></p>
+                        <p>Chi tiết đơn: <span class="bold">Bóng đá 6:00 ~ 8:00</span></p>
+                    </div>
+                    <div class="right-column">
+                        <p>Tổng thanh toán: <span class="bold">130.000đ</span></p>
+                        <p>Giá cọc sân: <span class="bold">50.000đ</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bank Info -->
+            <div class="box-right">
+                <h3>Tài khoản ngân hàng</h3>
+                <div class="info-grid">
+                    <div>
+                        <p>Tên tài khoản: <span class="bold">Nguyen Van A</span></p>
+                        <p>Số tài khoản: <span class="bold">0123456789</span></p>
+                        <p>Ngân hàng: <span class="bold">Vietcombank</span></p>
+                        <p>Nội dung ck: <span class="bold">ABC</span></p>
+                    </div>
+                    <div class="right-column qr-code">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.png" alt="QR Code">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Countdown Timer -->
+        <div class="timer">
+            <h2>Đơn của bạn sẽ được giữ chỗ trong:</h2>
+            <div id="countdown" class="circle">5:00</div>
+        </div>
+        
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>Quy trình chuyển khoản</h3>
+            <ol>
+                <li><strong>Vui lòng kiểm tra lại thông tin sân đặt, ngày giờ và tổng số tiền cần thanh toán.</strong></li>
+                <li><strong>Thực hiện chuyển khoản theo mức giá ở phần thông tin đặt sân.</strong></li>
+                <li><strong>Sau khi chuyển khoản, vui lòng tải hóa đơn thanh toán ở mục bên dưới và kiểm tra tình trạng đặt sân trong phần trạng thái đơn.</strong></li>
+            </ol>
+            <p><strong>*Nếu sau khoảng thời gian trên mà bạn vẫn chưa được xác nhận lịch, vui lòng liên hệ admin để giải quyết nhé!</strong></p>
+            <p>
+                <strong>SĐT: 0866566043</strong> <br>
+                <strong>Email: phapsubaclieu@gmail.com </strong>
+            </p>
+        </div>
+        
+        <!-- File Upload Placeholder and Complete Button -->
+        <div class="actions-row">
+            <div class="upload">
+                <div class="bill-placeholder">
+                    <input type="file" id="bill-upload" accept="image/*" style="display: none;">
+                    <label for="bill-upload" class="upload-label">
+                        <img id="bill-preview" src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload bill">
+                        <span>Click để tải ảnh lên</span>
+                    </label>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="complete-btn">Hoàn tất</button>
+            </div>
+        </div>
+
+        <!-- Success Popup -->
+        <div id="successPopup" class="popup">
+            <div class="popup-content">
+                <div class="success-checkmark">
+                    <div class="checkmark">
+                        <div class="checkmark-stem"></div>
+                        <div class="checkmark-kick"></div>
+                    </div>
+                </div>
+                <h2>Đặt sân thành công!</h2>
+                <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi</p>
+                <div class="popup-buttons">
+                    <button onclick="window.location.href='/'" class="home-btn">Về trang chủ</button>
+                    <button onclick="window.location.href='/profile?section=bookings'" class="order-btn">Xem đơn hàng</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <!-- Countdown Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const countdownElement = document.getElementById('countdown');
+            let time = 300; // 5 minutes in seconds
+
+            function updateCountdown() {
+                const minutes = Math.floor(time / 60);
+                const seconds = time % 60;
+                countdownElement.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+                if (time > 0) {
+                    time--;
+                }
+            }
+
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initialize immediately
+
+            // Add popup functionality
+            const completeBtn = document.querySelector('.complete-btn');
+            const successPopup = document.getElementById('successPopup');
+
+            completeBtn.addEventListener('click', () => {
+                // Thêm logic kiểm tra điều kiện ở đây nếu cần
+                successPopup.style.display = 'block';
+            });
+
+            // Đóng popup khi click ra ngoài
+            successPopup.addEventListener('click', (e) => {
+                if (e.target === successPopup) {
+                    successPopup.style.display = 'none';
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInput = document.getElementById('bill-upload');
+            const previewImage = document.getElementById('bill-preview');
+            const uploadLabel = document.querySelector('.upload-label span');
+
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                        previewImage.style.width = '100%';
+                        previewImage.style.height = '100%';
+                        uploadLabel.style.display = 'none';
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
