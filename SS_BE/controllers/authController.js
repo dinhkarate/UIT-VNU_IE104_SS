@@ -74,6 +74,53 @@ authController.login = async (req, res) => {
   }
 };
 
+//Check user session
+authController.checkUserSession = async (req, res) => {
+  try {
+    // Retrieve the token from the Authorization header or cookies
+    const token = req.cookies.token;
+    console.log(token);
+    if (!token) {
+      return res.status(401).json({ message: "Unauthorized: No token provided" });
+    }
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET_KEY);
+      // console.log("Decoded Token:", decoded);
+    } catch (err) {
+      console.error("JWT Verification Error:", err);
+      return res.status(401).json({ message: "Invalid or malformed token" });
+    }
+
+    const decoded = jwt.verify(token, JWT_SECRET_KEY);
+
+    // Check if the user exists in the database
+    const user = await models.auth.getUser();
+    const userArray = user.rows;
+    const loginUser = await userArray.find(u => u.cust_id === decoded.cust_id);
+    if (!loginUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Respond with user data if the token is valid
+    return res.status(200).json({
+      message: "Session active",
+      user: {
+        username: loginUser.username,
+        first_name: loginUser.first_name,
+        last_name: loginUser.last_name,
+      },
+    });
+  } catch (error) {
+    console.error("Error verifying token:", error);
+
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({ message: "Token expired. Please log in again." });
+    }
+
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 
 
 module.exports = authController;
