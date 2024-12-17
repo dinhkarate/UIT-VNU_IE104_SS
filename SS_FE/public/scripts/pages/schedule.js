@@ -1,4 +1,4 @@
-const { price } = require("./list_court_detail.js");
+
 const selectedSlots = [];
 
 document.addEventListener('DOMContentLoaded', function() {
