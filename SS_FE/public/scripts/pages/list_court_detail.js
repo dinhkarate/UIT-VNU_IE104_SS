@@ -1,4 +1,3 @@
-// Thêm hàm formatDate
 function formatDate(dateString) {
     const date = new Date(dateString);
     const now = new Date();
@@ -27,6 +26,7 @@ function formatDate(dateString) {
 const bookingButton = document.querySelector('.booking-button');
 const favorButton = document.querySelector('.favoriteBtn');
 let price;
+let schedules;
 
 //Hàm lấy thông tin sân
 function fetchCourtDetails(fieldId) {
@@ -41,11 +41,13 @@ function fetchCourtDetails(fieldId) {
       })
       .then((data) => {
         console.log('API Response:', data);
-
         
         const courtDetails = data.courtDetails.rows[0];
         const centreDetails = data.centreDetails.rows[0];
-        const feedbacks = data.feedbacks.rows[0];
+        const feedbacks = data.feedbacks.rows;
+
+        schedules = data.schedules.rows; // Gán giá trị cho biến global
+        console.log(schedules);
         price = courtDetails.price_per_hour*0.5;
         console.log(price);
         
@@ -55,11 +57,13 @@ function fetchCourtDetails(fieldId) {
         
         // Cập nhật thông tin sân
         document.querySelector('.court-title h1').textContent = courtDetails.field_name;
+        
         const addressElement = document.querySelector('.court-title .address');
         addressElement.innerHTML = `
             <img src="../../images/components/court/icons_location.png" alt="Location" class="icon" />
             ${centreDetails.address}
         `;
+        
         document.querySelector('.rating span').textContent = `Đánh giá: ${Number(courtDetails.average_rating).toFixed(1)}/5`;
         document.querySelector('.details p:nth-child(2) span').textContent = `${courtDetails.open_time.slice(0,5)} ~ ${courtDetails.close_time.slice(0,5)}`;
         document.querySelector('.details p:nth-child(3) span').textContent = 
@@ -84,7 +88,7 @@ function fetchCourtDetails(fieldId) {
             return;
         }
 
-        // Xóa các comment mẫu cũ
+        // Xóa các comment mẫu cũ và thêm tiêu đề
         commentsSection.innerHTML = '<h2>Bình luận</h2>';
         
         // Kiểm tra nếu không có feedback
@@ -95,7 +99,6 @@ function fetchCourtDetails(fieldId) {
         
         // Thêm các feedback mới
         feedbacks.forEach(feedback => {
-            // Kiểm tra dữ liệu feedback trước khi sử dụng
             if (!feedback || typeof feedback.star === 'undefined') {
                 console.error('Invalid feedback data:', feedback);
                 return;
@@ -567,6 +570,78 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${date.getDate()}/${date.getMonth() + 1}`;
     }
 
+    function normalizeTimeFormat(timeStr) {
+        // Đảm bảo timeStr là string và loại bỏ khoảng trắng
+        timeStr = String(timeStr).trim();
+        
+        // Tách giờ và phút
+        const [hours, minutes] = timeStr.split(':');
+        
+        // Thêm số 0 phía trước nếu cần
+        const normalizedHours = hours.padStart(2, '0');
+        const normalizedMinutes = minutes || '00';
+        
+        // Trả về định dạng "HH:mm"
+        return `${normalizedHours}:${normalizedMinutes}`;
+    }
+
+    function updateTimeSlots(schedules) {
+        console.log('Schedules data:', schedules);
+
+        const timeSlotRows = document.querySelectorAll('.time-slots-row');
+        timeSlotRows.forEach((row, rowIndex) => {
+            const rowDate = new Date(currentWeekStart);
+            rowDate.setDate(rowDate.getDate() + rowIndex);
+            const formattedDate = formatDate(rowDate);
+            
+            row.querySelectorAll('.time-slot').forEach(slot => {
+                slot.dataset.date = formattedDate;
+                
+                const isBooked = schedules?.some(schedule => {
+                    // Chuyển đổi ngày từ schedule thành DD/MM format
+                    const scheduleDate = new Date(schedule.resrv_date);
+                    const scheduleDateFormatted = `${scheduleDate.getDate()}/${scheduleDate.getMonth() + 1}`;
+                    
+                    // Chuẩn hóa thời gian từ cả schedule và slot
+                    const scheduleStart = normalizeTimeFormat(schedule.time_begin);
+                    const scheduleEnd = normalizeTimeFormat(schedule.time_end);
+                    const slotStart = normalizeTimeFormat(slot.dataset.start);
+                    const slotEnd = normalizeTimeFormat(slot.dataset.end);
+
+                    console.log('Comparing:', {
+                        date: {
+                            schedule: scheduleDateFormatted,
+                            slot: formattedDate
+                        },
+                        time: {
+                            scheduleStart,
+                            slotStart,
+                            scheduleEnd,
+                            slotEnd
+                        }
+                    });
+
+                    return scheduleDateFormatted === formattedDate && 
+                           scheduleStart === slotStart &&
+                           scheduleEnd === slotEnd;
+                });
+
+                if (isBooked) {
+                    console.log('Marking as booked:', {
+                        date: formattedDate,
+                        start: slot.dataset.start,
+                        end: slot.dataset.end
+                    });
+                    slot.classList.remove('available');
+                    slot.classList.add('booked');
+                } else {
+                    slot.classList.remove('booked'); 
+                    slot.classList.add('available');
+                }
+            });
+        });
+    }
+
     function updateDates() {
         const weekEnd = new Date(currentWeekStart);
         weekEnd.setDate(weekEnd.getDate() + 6);
@@ -579,16 +654,28 @@ document.addEventListener('DOMContentLoaded', function() {
             dateSpan.textContent = formatDate(date);
         });
 
-        const timeSlotRows = document.querySelectorAll('.time-slots-row');
-        timeSlotRows.forEach((row, rowIndex) => {
-            const rowDate = new Date(currentWeekStart);
-            rowDate.setDate(rowDate.getDate() + rowIndex);
-            const formattedDate = formatDate(rowDate);
-            
-            row.querySelectorAll('.time-slot').forEach(slot => {
-                slot.dataset.date = formattedDate;
+        // Lấy fieldId từ URL hoặc dùng giá trị mặc định
+        const urlParams = new URLSearchParams(window.location.search);
+        const fieldId = urlParams.get('id') || "BD002";
+
+        // Fetch schedules từ API
+        const apiUrl = `/api/court/courtDetails?fieldId=${fieldId}`;
+        fetch(apiUrl)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                const schedules = data.schedules.rows;
+                updateTimeSlots(schedules);
+            })
+            .catch((error) => {
+                console.error("Error fetching schedules:", error);
+                // Trong trường hợp lỗi, vẫn update UI nhưng không có data schedules
+                updateTimeSlots([]);
             });
-        });
     }
 
     prevDateBtn.addEventListener('click', function() {
