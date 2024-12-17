@@ -45,6 +45,7 @@ function fetchCourtDetails(fieldId) {
         
         const courtDetails = data.courtDetails.rows[0];
         const centreDetails = data.centreDetails.rows[0];
+        const feedbacks = data.feedbacks.rows[0];
         price = courtDetails.price_per_hour*0.5;
         console.log(price);
         
