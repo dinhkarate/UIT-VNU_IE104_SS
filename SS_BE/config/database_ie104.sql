@@ -73,7 +73,7 @@ alter table favourite_field
 add foreign key (field_id) references fields(field_id);
 
 create table feedbacks (
-	feedback_id varchar(5) primary key,
+	feedback_id serial primary key,
 	star int,
 	created_at timestamp,
 	description text,
@@ -173,6 +173,7 @@ create table payment (
 alter table payment
 add foreign key (resrv_id) references reservation(resrv_id);
 
+--Centres
 INSERT INTO centres (centre_id, address, description, coop) VALUES
 ('C01', '123 Nguyễn Văn Linh, Quận 7, TP. HCM', 'Trung tâm thể thao hiện đại với nhiều sân bóng đá', TRUE),
 ('C02', '456 Lê Văn Việt, Quận 9, TP. HCM', 'Trung tâm với các sân thể thao tiêu chuẩn quốc tế', TRUE),
@@ -340,26 +341,26 @@ INSERT INTO favourite_field (cust_id, field_id) VALUES (5, 'TN003');
 INSERT INTO favourite_field (cust_id, field_id) VALUES (5, 'CL002');
 
 --feedbacks
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB01', 2, '2024-03-10 12:30:51', 'Thời gian thuê linh hoạt, sân đẹp.', 'TN004', 1);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB02', 2, '2024-10-31 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 8);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB03', 1, '2024-09-30 12:30:51', 'Trang thiết bị đầy đủ, không có gì để chê.', 'BD002', 8);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB04', 4, '2024-03-14 12:30:51', 'Dịch vụ khá tốt, sẽ quay lại lần sau.', 'BR001', 4);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB05', 3, '2024-02-08 12:30:51', 'Mặt sân hơi trơn, cần cải thiện.', 'TN003', 5);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB06', 4, '2024-01-12 12:30:51', 'Đội ngũ hỗ trợ nhanh chóng và thân thiện.', 'BR001', 4);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB07', 4, '2023-12-23 12:30:51', 'Ánh sáng tốt, phù hợp chơi buổi tối.', 'TN004', 1);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB08', 5, '2024-01-15 12:30:51', 'Giá thuê phù hợp, sân trong tình trạng tốt.', 'BR001', 6);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB09', 3, '2024-08-03 12:30:51', 'Có chỗ để xe rộng rãi, tiện lợi.', 'TN004', 6);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB10', 3, '2024-01-15 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 2);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+( 2, '2024-03-10 12:30:51', 'Thời gian thuê linh hoạt, sân đẹp.', 'TN004', 1);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(2, '2024-10-31 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 8);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(1, '2024-09-30 12:30:51', 'Trang thiết bị đầy đủ, không có gì để chê.', 'BD002', 8);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(4, '2024-03-14 12:30:51', 'Dịch vụ khá tốt, sẽ quay lại lần sau.', 'BR001', 4);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(3, '2024-02-08 12:30:51', 'Mặt sân hơi trơn, cần cải thiện.', 'TN003', 5);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(4, '2024-01-12 12:30:51', 'Đội ngũ hỗ trợ nhanh chóng và thân thiện.', 'BR001', 4);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(4, '2023-12-23 12:30:51', 'Ánh sáng tốt, phù hợp chơi buổi tối.', 'TN004', 1);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(5, '2024-01-15 12:30:51', 'Giá thuê phù hợp, sân trong tình trạng tốt.', 'BR001', 6);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(3, '2024-08-03 12:30:51', 'Có chỗ để xe rộng rãi, tiện lợi.', 'TN004', 6);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(3, '2024-01-15 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 2);
 
 --Tournament
 INSERT INTO tournament (tournament_id, tournament_name, description, fee, link_img, centre_id, tourn_status, organizer, contact) VALUES 
