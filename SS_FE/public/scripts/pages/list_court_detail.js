@@ -205,6 +205,7 @@ favorButton.addEventListener('click', () => {
       });
 });
 
+/*
 // Kiểm tra sân đã được thêm vào danh sách yêu thích hay chưa
 let isFavorite = false;
 document.addEventListener('DOMContentLoaded', () => {
@@ -222,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   .then (async data => {
     const favorArray = data.rows;
-    isFavorite = await userArray.find(u => u.cust_id === decoded.cust_id);
+    isFavorite = await favorArray.find(u => u.cust_id === decoded.cust_id);
   })
 });
 //Xóa sân yêu thích
@@ -263,7 +264,7 @@ favorButton.addEventListener('click', () => {
             console.error('Error:', error); 
         });
 });
-
+*/
 
 
 
