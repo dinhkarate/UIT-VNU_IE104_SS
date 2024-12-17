@@ -178,4 +178,20 @@ courtsController.addFeedbacks = (req, res) => {
   })
 };
 
+courtsController.checkFavorField = (req, res) => {
+  const data = {
+    cust_id: req.body.cust_id,
+    field_id: req.body.field_id
+  }
+  console.log(data);
+  models.court.checkFavorField(data, (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+    console.log("Query Results:", results);
+    res.status(200).json(results);
+  });
+};
+
 module.exports = courtsController;

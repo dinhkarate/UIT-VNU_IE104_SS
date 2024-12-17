@@ -26,6 +26,9 @@ function formatDate(dateString) {
 
 const bookingButton = document.querySelector('.booking-button');
 const favorButton = document.querySelector('.favoriteBtn');
+const urlParams = new URLSearchParams(window.location.search);
+const fieldId = urlParams.get('id') || "BD002";
+console.log('fied_id là:',fieldId);
 let price;
 
 //Hàm lấy thông tin sân
@@ -175,13 +178,17 @@ function showLoginAlert() {
   }, 3000);
 }
 
+/*
+// API thêm sân yêu thích
+let isFavorite;
 
+const urlParams = new URLSearchParams(window.location.search);
+const fieldId = urlParams.get('id') || "BD002";
 //fetch API cho thêm sân yêu thích
 favorButton.addEventListener('click', () => {
   // Dữ liệu gửi về mẫu
   const data = {
-    cust_id: "DUMMY",
-    field_id: "BD001"
+    field_id: fieldId
   }
 
   fetch('/api/court/addFavor', {
@@ -204,16 +211,22 @@ favorButton.addEventListener('click', () => {
           console.error('Error:', error); 
       });
 });
+*/
 
-/*
 // Kiểm tra sân đã được thêm vào danh sách yêu thích hay chưa
-let isFavorite = false;
+const button = document.getElementById('favoriteBtn');
+const img = button.querySelector('img');
+let isFavorite;
+
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('/api/account/favourites', {
-    method: 'GET',
+  const data = {field_id: fieldId};
+  console.log('data là:',data);
+  fetch('/api/court/checkFavorites', {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
+    body: JSON.stringify(data), 
   })
   .then(response => {
     if (!response.ok) {
@@ -221,24 +234,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   return response.json();     
   })
-  .then (async data => {
-    const favorArray = data.rows;
-    isFavorite = await favorArray.find(u => u.cust_id === decoded.cust_id);
+  .then (data => {
+    console.log('Kiểm tra kết quả trả về', data);  // Kiểm tra kết quả trả về
+    if(data.rowCount == 0){
+      isFavorite = false;
+      img.src = '/images/components/court/heart.png';
+    } else {
+      isFavorite = true;
+      img.src = '/images/components/court/heart-full.png'
+    }
   })
 });
-//Xóa sân yêu thích
-favorButton.addEventListener('click', () => {
-    // Dữ liệu gửi về mẫu
-    const data = {
-      cust_id: "DUMMY",
-      field_id: "BD001"
-    }
+
+button.addEventListener('click', () => {
+  if (img.src.includes('heart-full.png')) {
+    img.src = '/images/components/court/heart.png'; 
+  } else {
+    img.src = '/images/components/court/heart-full.png'; 
+  }
 });
+
 // Xử lý sân yêu thích
 favorButton.addEventListener('click', () => {
     const data = {
-        cust_id: "DUMMY",
-        field_id: "BD001"
+        field_id: fieldId,
     };
 
     const endpoint = isFavorite ? '/api/court/delFavor' : '/api/court/addFavor';
@@ -258,13 +277,12 @@ favorButton.addEventListener('click', () => {
         })
         .then(result => {
             console.log('Success:', result);
-            isFavorite = !isFavorite; // Toggle trạng thái
+            isFavorite =!isFavorite;
         })
         .catch(error => {
             console.error('Error:', error); 
         });
 });
-*/
 
 
 
@@ -348,7 +366,7 @@ function setupAuthUserComment(username) {
         description: commentText,
         star: Math.min(Math.max(Math.round(currentRating), 1), 5)
       };
-      
+
       console.log('Request data before sending:', {
         field_id: requestData.field_id,
         description: requestData.description,

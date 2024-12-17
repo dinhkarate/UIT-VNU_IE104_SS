@@ -312,5 +312,20 @@ courtModel.addFeedbacks = (data, callback) => {
   });
 }
 
+courtModel.checkFavorField = (data, callback) => {
+  const sql = `
+  SELECT * FROM favourite_field ff WHERE ff.field_id = $1 AND ff.cust_id = $2`
+
+  const params = [
+    data.field_id,
+    data.cust_id
+  ];
+
+  db.query(sql, params, (err, results) => {
+    console.log('checkFavorField Results:', results);
+    callback(err, results);
+  });
+};
+
 module.exports = courtModel;
 
