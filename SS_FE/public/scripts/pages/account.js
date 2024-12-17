@@ -10,40 +10,59 @@ document.addEventListener("DOMContentLoaded", () => {
   const favoriteSection = document.querySelector("#favorite-section");
   const submenuItems = document.querySelectorAll(".submenu-item");
 
-  // Event listener for submenu items
+  // Add new function to handle section display
+  function showSection(sectionName) {
+    // Hide all sections first
+    infoSection.style.display = "none";
+    commentSection.style.display = "none";
+    passwordSection.style.display = "none";
+    bookingSection.style.display = "none";
+    favoriteSection.style.display = "none";
+
+    // Show corresponding section and load data
+    switch (sectionName) {
+      case "bookings":
+        bookingSection.style.display = "block";
+        fetchReservations();
+        break;
+      case "comments":
+        commentSection.style.display = "block";
+        fetchFeedbackHistory();
+        break;
+      case "password":
+        passwordSection.style.display = "block";
+        break;
+      case "favorites":
+        favoriteSection.style.display = "block";
+        fetchFavouriteFields();
+        break;
+      default:
+        infoSection.style.display = "block";
+        fetchProfile();
+        break;
+    }
+  }
+
+  // Check URL parameters when page loads
+  const urlParams = new URLSearchParams(window.location.search);
+  const section = urlParams.get('section');
+  showSection(section);
+
+  // Modify existing submenu click handler
   submenuItems.forEach((item) => {
     item.addEventListener("click", (event) => {
       const title = event.target.dataset.title;
       
-      // Hide all sections first
-      infoSection.style.display = "none";
-      commentSection.style.display = "none";
-      passwordSection.style.display = "none";
-      bookingSection.style.display = "none";
-      favoriteSection.style.display = "none";
+      // Map Vietnamese titles to section names
+      const sectionMap = {
+        "Thông tin tài khoản": "info",
+        "Lịch sử bình luận": "comments",
+        "Đổi mật khẩu": "password",
+        "Lịch đặt sân": "bookings",
+        "Sân của bạn": "favorites"
+      };
 
-      // Show corresponding section and load data
-      switch (title) {
-        case "Thông tin tài khoản":
-          infoSection.style.display = "block";
-          fetchProfile();
-          break;
-        case "Lịch sử bình luận":
-          commentSection.style.display = "block";
-          fetchFeedbackHistory();
-          break;
-        case "Đổi mật khẩu":
-          passwordSection.style.display = "block";
-          break;
-        case "Lịch đặt sân":
-          bookingSection.style.display = "block";
-          fetchReservations();
-          break;
-        case "Sân của bạn":
-          favoriteSection.style.display = "block";
-          fetchFavouriteFields();
-          break;
-      }
+      showSection(sectionMap[title]);
     });
   });
 
