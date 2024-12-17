@@ -37,15 +37,14 @@ function fetchLogin(data) {
     })
 
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json(); 
+        if (response.ok) {
+            window.location.href = '/';
+            alert('Login successful');
+        } else {
+            throw new Error("ERROR: Failed to login");
+        } 
     })
-    .then(data => {
-        localStorage.setItem('token', data.token);
-        alert('Login successful');
-    })
+
     .catch(error => {
         console.error('Login failed:', error.message);
         alert('Login failed: ' + error.message);

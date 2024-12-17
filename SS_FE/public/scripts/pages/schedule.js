@@ -1,3 +1,4 @@
+const { price } = require("./list_court_detail.js");
 const selectedSlots = [];
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -199,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
             time_begin: slot.startTime,
             time_end: slot.endTime,
             resrv_date: formatDateForAPI(slot.date), // Thêm hàm format date
-            renting_price: 100.0, // Giá có thể lấy từ thông tin sân
+            renting_price: price, // Giá có thể lấy từ thông tin sân
             created_date: new Date().toISOString().split('T')[0],
             field_id: fieldId,
             cust_id: "DUMMY", // Có thể lấy từ session user

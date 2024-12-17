@@ -1,5 +1,6 @@
 const bookingButton = document.querySelector('.booking-button');
 const favorButton = document.querySelector('.favorite');
+let price;
 
 //Hàm lấy thông tin sân
 function fetchCourtDetails(fieldId) {
@@ -14,9 +15,13 @@ function fetchCourtDetails(fieldId) {
       })
       .then((data) => {
         console.log('API Response:', data);
+
         
         const courtDetails = data.courtDetails.rows[0];
         const centreDetails = data.centreDetails.rows[0];
+        price = courtDetails.price_per_hour*0.5;
+        console.log(price);
+        
         //Khá là cực đoạn này đấy =))
 
         document.querySelector('.breadcrumb .court-name').textContent = courtDetails.field_name;
@@ -50,6 +55,8 @@ function fetchCourtDetails(fieldId) {
         console.error("Error fetching court details:", error);
       });
 }
+
+module.exports = {price};
 
 // API đặt sân
 bookingButton.addEventListener('click', async () => {
