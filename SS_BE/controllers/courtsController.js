@@ -159,10 +159,12 @@ courtsController.delFavorCourt = (req, res) => {
 }
 
 courtsController.addFeedbacks = (req, res) => {
+  console.log(req.body);
   const data = {
     star: req.body.star,
-    descriptions: req.body.descriptions,
+    description: req.body.description,
     field_id: req.body.field_id,
+    created_at: new Date().toISOString().split('T')[0] + ' ' + new Date().toTimeString().split(' ')[0],
     cust_id: req.body.cust_id
   }
 

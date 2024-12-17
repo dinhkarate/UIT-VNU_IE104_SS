@@ -294,17 +294,17 @@ courtModel.delFavorCourt = (data, callback) => {
   });
 };
 
-courtModel.addFeedbacks = (req, res) => {
+courtModel.addFeedbacks = (data, callback) => {
   const sql = 
   `INSERT INTO Feedbacks (star, created_at, description, field_id, cust_id)
   VALUES ($1, $2, $3, $4, $5);`;
   
   const params = [
-    req.body.star,
-    req.body.created_at,
-    req.body.description,
-    req.body.field_id,
-    req.body.cust_id]
+    data.star,
+    data.created_at,
+    data.description,
+    data.field_id,
+    data.cust_id]
   
   db.query(sql, params, (err, results) => {
     console.log('Results', results);

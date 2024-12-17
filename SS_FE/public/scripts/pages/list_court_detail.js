@@ -351,6 +351,7 @@ function setupAuthUserComment(username) {
         description: commentText,
         star: Math.min(Math.max(Math.round(currentRating), 1), 5)
       };
+      
       console.log('Request data before sending:', {
         field_id: requestData.field_id,
         description: requestData.description,
