@@ -49,7 +49,6 @@ function fetchCourtDetails(fieldId) {
         console.log(price);
         
         //Khá là cực đoạn này đấy =))
-        console.log("Feedbacks data:", feedbacks);
 
         document.querySelector('.breadcrumb .court-name').textContent = courtDetails.field_name;
         
@@ -220,9 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   return response.json();     
   })
-  .then (data => {
+  .then (async data => {
     const favorArray = data.rows;
-    //const loginUser = await userArray.find(u => u.cust_id === decoded.cust_id);
+    isFavorite = await userArray.find(u => u.cust_id === decoded.cust_id);
   })
 });
 //Xóa sân yêu thích
