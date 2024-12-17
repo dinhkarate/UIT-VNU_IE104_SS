@@ -1,6 +1,7 @@
-const db = require('../config/db'); // Import kết nối tới database
+const db = require("../config/db"); // Import kết nối tới database
+const bcrypt = require("bcrypt"); // Thêm bcrypt để mã hóa mật khẩu (Dòng mới)
 
-function accountController() {};
+function accountController() {}
 
 
 // 1. Xem thông tin cá nhân
@@ -40,14 +41,14 @@ accountController.updateProfile = (req, res) => {
     });
 };
 
-// 3. Thay đổi mật khẩu
+// 3. Thay đổi mật khẩu (Đã thêm mã hóa bcrypt)
 accountController.changePassword = (req, res) => {
     const { oldPassword, newPassword } = req.body;
     const cust_id = req.body.cust_id;
     const checkPasswordSql = `
         SELECT password FROM customers WHERE cust_id = $1
     `;
-    const updatePasswordSql = `
+  const updatePasswordSql = `
         UPDATE customers SET password = $1 WHERE cust_id = $2
     `;
     db.query(checkPasswordSql, [cust_id], (err, results) => {
