@@ -12,8 +12,8 @@ function authController () {};
 
 // Register
 authController.register = async (req, res) => {
-    const { cust_id, first_name, last_name, username, password, phone, email, signup_date } = req.body;
-    const data = { cust_id, first_name, last_name, username, password, phone, email, signup_date };
+    const {first_name, last_name, username, password, phone, email, signup_date } = req.body;
+    const data = {first_name, last_name, username, password, phone, email, signup_date };
 
     const user = await models.auth.getUser();
     const userArray = user.rows;
