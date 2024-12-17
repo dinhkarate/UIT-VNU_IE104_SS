@@ -38,6 +38,7 @@ function fetchLogin(data) {
 
     .then(response => {
         if (response.ok) {
+            localStorage.setItem('token', data.token);
             window.location.href = '/';
             alert('Login successful');
         } else {

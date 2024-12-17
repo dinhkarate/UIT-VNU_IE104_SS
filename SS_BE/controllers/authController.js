@@ -67,7 +67,7 @@ authController.login = async (req, res) => {
     // Send JWT token and user info
     const token = jwt.sign({cust_id: loginUser.cust_id}, JWT_SECRET_KEY, {expiresIn: JWT_EXPIRES_IN});
     res.cookie('token', token, { httpOnly: true, secure: false, maxAge: 3600000 });
-    res.json({ message: "Login successfully"});
+    res.json({ message: "Login successfully", token: token });
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ message: "Internal server error" });
