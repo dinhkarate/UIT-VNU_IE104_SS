@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script defer src="/scripts/components/header-auth.js"></script>
+    <script defer src="/scripts/components/header.js"></script>
+    <script defer src="/scripts/pages/account.js"></script>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -144,9 +145,9 @@
                     <div class="comment-container">
                         <!-- Comment item -->
                         <div class="comment-item">
-                            <div class="comment-date">19 Tháng 11, 2024</div>
                             <div class="comment-main">
                                 <div class="comment-left">
+                                    <div class="comment-date">19 Tháng 11, 2024</div>
                                     <img src="images/profile/avatar-court.png" alt="Avatar sân thể thao">
                                 </div>
                                 <div class="comment-right">
@@ -165,9 +166,9 @@
 
                         <!-- Comment item 2 -->
                         <div class="comment-item">
-                            <div class="comment-date">16 Tháng 11, 2024</div>
                             <div class="comment-main">
                                 <div class="comment-left">
+                                    <div class="comment-date">16 Tháng 11, 2024</div>
                                     <img src="images/profile/avatar-court.png" alt="Avatar sân thể thao">
                                 </div>
                                 <div class="comment-right">
@@ -186,9 +187,9 @@
 
                         <!-- Comment item 3 -->
                         <div class="comment-item">
-                            <div class="comment-date">22 Tháng 10, 2024</div>
                             <div class="comment-main">
                                 <div class="comment-left">
+                                    <div class="comment-date">22 Tháng 10, 2024</div>
                                     <img src="images/profile/avatar-court.png" alt="Avatar sân thể thao">
                                 </div>
                                 <div class="comment-right">
@@ -207,9 +208,9 @@
 
                         <!-- Comment item 4 -->
                         <div class="comment-item">
-                            <div class="comment-date">7 Tháng 9, 2024</div>
                             <div class="comment-main">
                                 <div class="comment-left">
+                                    <div class="comment-date">7 Tháng 9, 2024</div>
                                     <img src="images/profile/avatar-court.png" alt="Avatar sân thể thao">
                                 </div>
                                 <div class="comment-right">
@@ -264,103 +265,6 @@
                 <!-- (4) LỊCH ĐẶT SÂN (MỚI) -->
                 <div class="booking-section" id="booking-section" style="display:none;">
                     <h1 class="title">Lịch đặt sân</h1>
-                    <div class="booking-container">
-                        <h2 class="booking-subtitle">Sắp diễn ra</h2>
-                        <div class="booking-scroll">
-                            <div class="booking-header-row">
-                                <div class="booking-header-field">Tên sân</div>
-                                <div class="booking-header-field">Ngày</div>
-                                <div class="booking-header-field">Khung giờ</div>
-                                <div class="booking-header-field">Giá</div>
-                                <div class="booking-header-field">Trạng thái</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-
-                            <div class="booking-row">
-                                <div class="booking-field name">Sân bóng đá Bình Minh</div>
-                                <div class="booking-field date">20/11/2024</div>
-                                <div class="booking-field time">8:00 ~ 10:00</div>
-                                <div class="booking-field price">200.000đ</div>
-                                <div class="booking-field status">Chờ xác nhận</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-
-                            <div class="booking-row">
-                                <div class="booking-field name">Sân cầu lông Ao An</div>
-                                <div class="booking-field date">21/11/2024</div>
-                                <div class="booking-field time">20:00 ~ 21:00</div>
-                                <div class="booking-field price">100.000đ</div>
-                                <div class="booking-field status">Đã xác nhận</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-
-                            <div class="booking-row">
-                                <div class="booking-field name">Sân tennis Trung Tâm</div>
-                                <div class="booking-field date">23/11/2024</div>
-                                <div class="booking-field time">9:00 ~ 11:00</div>
-                                <div class="booking-field price">300.000đ</div>
-                                <div class="booking-field status">Đã xác nhận</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-
-                            <div class="booking-row">
-                                <div class="booking-field name">Sân bóng chuyền Hải An</div>
-                                <div class="booking-field date">24/11/2024</div>
-                                <div class="booking-field time">19:00 ~ 20:00</div>
-                                <div class="booking-field price">150.000đ</div>
-                                <div class="booking-field status">Chờ xác nhận</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-                        </div>
-
-                        <h2 class="booking-subtitle">Đã kết thúc</h2>
-                        <div class="booking-scroll">
-                            <div class="booking-header-row">
-                                <div class="booking-header-field">Tên sân</div>
-                                <div class="booking-header-field">Ngày</div>
-                                <div class="booking-header-field">Khung giờ</div>
-                                <div class="booking-header-field">Giá</div>
-                                <div class="booking-header-field">Trạng thái</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-
-                            <div class="booking-row">
-                                <div class="booking-field name">Sân bóng đá Bình Minh</div>
-                                <div class="booking-field date">20/11/2024</div>
-                                <div class="booking-field time">8:00 ~ 10:00</div>
-                                <div class="booking-field price">200.000đ</div>
-                                <div class="booking-field status">Đã kết thúc</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-
-                            <div class="booking-row">
-                                <div class="booking-field name">Sân cầu lông Ao An</div>
-                                <div class="booking-field date">21/11/2024</div>
-                                <div class="booking-field time">20:00 ~ 21:00</div>
-                                <div class="booking-field price">100.000đ</div>
-                                <div class="booking-field status">Đã kết thúc</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-
-                            <div class="booking-row">
-                                <div class="booking-field name">Sân tennis Trung Tâm</div>
-                                <div class="booking-field date">23/11/2024</div>
-                                <div class="booking-field time">9:00 ~ 11:00</div>
-                                <div class="booking-field price">300.000đ</div>
-                                <div class="booking-field status">Đã kết thúc</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-
-                            <div class="booking-row">
-                                <div class="booking-field name">Sân bóng chuyền Hải An</div>
-                                <div class="booking-field date">24/11/2024</div>
-                                <div class="booking-field time">19:00 ~ 20:00</div>
-                                <div class="booking-field price">150.000đ</div>
-                                <div class="booking-field status">Đã kết thúc</div>
-                            </div>
-                            <div class="separator-line-booking"></div>
-                        </div>
-                    </div>
                 </div>
                 <!-- END booking-section -->
 

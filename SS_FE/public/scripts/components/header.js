@@ -148,16 +148,19 @@ function loadHeader() {
     .then((response) => {
         if (!response.ok) {
             // Unauth -> header.html
+            // False
             throw new Error('Unauthorized');
         }
         return response.json();
     })
     .then((data) => {
         // Auth -> header-auth.html
+        // True
         console.log(data);
         loadHeaderComponent('/components/header-auth.html', data.user.username);
     })
     .catch(() => {
+        // Error
         // Unauth -> header.html
         loadHeaderComponent('/components/header.html');
     });
