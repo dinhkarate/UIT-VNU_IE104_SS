@@ -80,7 +80,7 @@ authController.checkUserSession = async (req, res) => {
     // Retrieve the token from the Authorization header or cookies
     const token = req.cookies.token;
     console.log('Token trong checkUserSession:',token);
-    if (!token) {vvvvvvvvvvvv
+    if (!token) {
       return res.status(401).json({ message: "Unauthorized: No token provided" });
     }
     try {

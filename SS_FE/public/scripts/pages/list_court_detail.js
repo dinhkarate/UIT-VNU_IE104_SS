@@ -1,3 +1,29 @@
+// Thêm hàm formatDate
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (diffDays === 0) {
+        // Nếu là today
+        return 'Hôm nay';
+    } else if (diffDays === 1) {
+        // Nếu là yesterday
+        return 'Hôm qua';
+    } else if (diffDays < 7) {
+        // Nếu trong tuần này
+        return `${diffDays} ngày trước`;
+    } else {
+        // Format date dạng dd/mm/yyyy
+        return date.toLocaleDateString('vi-VN', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    }
+}
+
 const bookingButton = document.querySelector('.booking-button');
 const favorButton = document.querySelector('.favorite');
 
@@ -17,7 +43,9 @@ function fetchCourtDetails(fieldId) {
         
         const courtDetails = data.courtDetails.rows[0];
         const centreDetails = data.centreDetails.rows[0];
+        const feedbacks = data.feedbacks.rows;
         //Khá là cực đoạn này đấy =))
+        console.log("Feedbacks data:", feedbacks);
 
         document.querySelector('.breadcrumb .court-name').textContent = courtDetails.field_name;
         
@@ -30,7 +58,6 @@ function fetchCourtDetails(fieldId) {
         `;
         document.querySelector('.rating span').textContent = `Đánh giá: ${Number(courtDetails.average_rating).toFixed(1)}/5`;
         document.querySelector('.details p:nth-child(2) span').textContent = `${courtDetails.open_time.slice(0,5)} ~ ${courtDetails.close_time.slice(0,5)}`;
-        // document.querySelector('.details p:nth-child(3) span').textContent = `${courtDetails.number_of_sub_fields} sân`;
         document.querySelector('.details p:nth-child(3) span').textContent = 
           `${courtDetails.price_per_hour ? parseInt(courtDetails.price_per_hour).toLocaleString('vi-VN') : '0'}đ/giờ`;
         
@@ -45,6 +72,55 @@ function fetchCourtDetails(fieldId) {
             </div>
           `)
           .join(''); */
+
+        // Cập nhật phần feedback
+        const commentsSection = document.querySelector('.comments-section');
+        if (!commentsSection) {
+            console.error("Comments section not found!");
+            return;
+        }
+
+        // Xóa các comment mẫu cũ
+        commentsSection.innerHTML = '<h2>Bình luận</h2>';
+        
+        // Kiểm tra nếu không có feedback
+        if (!feedbacks || feedbacks.length === 0) {
+            commentsSection.innerHTML += '<p>Chưa có bình luận nào.</p>';
+            return;
+        }
+        
+        // Thêm các feedback mới
+        feedbacks.forEach(feedback => {
+            // Kiểm tra dữ liệu feedback trước khi sử dụng
+            if (!feedback || typeof feedback.star === 'undefined') {
+                console.error('Invalid feedback data:', feedback);
+                return;
+            }
+
+            const commentHTML = `
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-author">
+                            <img src="https://antimatter.vn/wp-content/uploads/2022/11/anh-avatar-trang-fb-mac-dinh.jpg" alt="User" />
+                            <span>${feedback.username || 'Anonymous'}</span>
+                        </div>
+                        <div class="stars">${'★'.repeat(feedback.star)}${'☆'.repeat(5-feedback.star)}</div>
+                    </div>
+                    <p>${feedback.description || ''}</p>
+                    <span class="time">${formatDate(feedback.created_at)}</span>
+                </div>
+            `;
+            commentsSection.innerHTML += commentHTML;
+        });
+
+        // Thêm nút "Tải thêm" nếu có nhiều feedback
+        if (feedbacks.length >= 5) {
+            commentsSection.innerHTML += `
+                <div class="load-more">
+                    <button>Tải thêm</button>
+                </div>
+            `;
+        }
       })
       .catch((error) => {
         console.error("Error fetching court details:", error);
@@ -186,12 +262,104 @@ function setupAuthUserComment(username) {
   submitButton.disabled = false;
   
   // Thêm event listener cho submit button
-  submitButton.addEventListener('click', function() {
-    // Xử lý logic gửi comment
+  submitButton.addEventListener('click', async function() {
     const commentText = document.querySelector('textarea').value;
-    const rating = currentRating;
-    // Gửi API comment ở đây
-    console.log('Submitting comment:', {text: commentText, rating: rating});
+    
+    // Validate input
+    if (!commentText.trim() || !currentRating) {
+      alert('Vui lòng nhập đầy đủ đánh giá và bình luận!');
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!');
+        window.location.href = '/login';
+        return;
+      }
+
+      // Get field ID from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const fieldId = urlParams.get('id') || "BD002";
+
+      // Log request data for debugging
+      const requestData = {
+        field_id: fieldId,
+        description: commentText,
+        star: Math.min(Math.max(Math.round(currentRating), 1), 5)
+      };
+      console.log('Request data before sending:', {
+        field_id: requestData.field_id,
+        description: requestData.description,
+        star: requestData.star
+      });
+
+      const response = await fetch('/api/court/addFeedbacks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(requestData)
+      });
+
+      // Log response for debugging
+      console.log('Response status:', response.status);
+      
+      if (!response.ok) {
+        // Thêm logging cho response error
+        const errorText = await response.text();
+        console.error('Server error response:', errorText);
+        
+        if (response.status === 401) {
+          alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!');
+          window.location.href = '/login';
+          return;
+        }
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Response data:', data);
+
+      // Add new comment to the UI
+      const commentsSection = document.querySelector('.comments-section');
+      const newComment = `
+        <div class="comment">
+          <div class="comment-header">
+            <div class="comment-author">
+              <img src="https://antimatter.vn/wp-content/uploads/2022/11/anh-avatar-trang-fb-mac-dinh.jpg" alt="User" />
+              <span>${username}</span>
+            </div>
+            <div class="stars">${'★'.repeat(Math.round(currentRating))}${'☆'.repeat(5-Math.round(currentRating))}</div>
+          </div>
+          <p>${commentText}</p>
+          <span class="time">Hôm nay</span>
+        </div>
+      `;
+      
+      // Insert new comment after the h2 title
+      const h2Element = commentsSection.querySelector('h2');
+      h2Element.insertAdjacentHTML('afterend', newComment);
+
+      // Clear the textarea and reset rating
+      document.querySelector('textarea').value = '';
+      resetRating();
+      
+      // Refresh court details to update ratings
+      fetchCourtDetails(fieldId);
+      
+      alert('Bình luận đã được gửi thành công!');
+    } catch (error) {
+      console.error('Error submitting comment:', error);
+      if (error.message.includes('JSON')) {
+        alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!');
+        window.location.href = '/login';
+      } else {
+        alert('Có lỗi xảy ra khi gửi bình luận. Vui lòng thử lại sau!');
+      }
+    }
   });
 }
 
@@ -214,9 +382,88 @@ function setupUnauthUserComment() {
   });
 }
 
+// Thêm biến global để theo dõi rating
+let currentRating = 0;
+let isClicked = false;
 
+// Thêm hàm khởi tạo rating stars
+function initializeRatingStars() {
+  const ratingContainer = document.getElementById('ratingStars');
+  if (!ratingContainer) return;
+  
+  const stars = ratingContainer.getElementsByClassName('star');
+
+  function calculateRating(e, element) {
+    const rect = element.getBoundingClientRect();
+    const width = rect.width;
+    const x = e.clientX - rect.left;
+    return x < width/2 ? 0.5 : 1;
+  }
+
+  function updateStars(rating, isHover = false) {
+    Array.from(stars).forEach((star) => {
+      const starValue = parseInt(star.dataset.rating);
+      star.classList.remove('active', 'hover', 'half');
+      
+      if (rating >= starValue) {
+        star.classList.add(isHover ? 'hover' : 'active');
+      } else if (rating + 0.5 === starValue) {
+        star.classList.add(isHover ? 'hover' : 'active', 'half');
+      }
+    });
+  }
+
+  ratingContainer.addEventListener('mousemove', function(e) {
+    if (isClicked) return;
+    
+    const target = e.target;
+    if (target.classList.contains('star')) {
+      const baseRating = parseInt(target.dataset.rating);
+      const partialRating = calculateRating(e, target);
+      const rating = baseRating - 1 + partialRating;
+      updateStars(rating, true);
+    }
+  });
+
+  ratingContainer.addEventListener('mouseleave', function() {
+    if (!isClicked) {
+      updateStars(currentRating);
+    }
+  });
+
+  ratingContainer.addEventListener('click', function(e) {
+    const target = e.target;
+    if (target.classList.contains('star')) {
+      const baseRating = parseInt(target.dataset.rating);
+      const partialRating = calculateRating(e, target);
+      currentRating = baseRating - 1 + partialRating;
+      isClicked = true;
+      updateStars(currentRating);
+      console.log('Rating:', currentRating);
+    }
+  });
+}
+
+// Cập nhật hàm resetRating
+function resetRating() {
+  currentRating = 0;
+  isClicked = false;
+  const ratingContainer = document.getElementById('ratingStars');
+  if (ratingContainer) {
+    const stars = ratingContainer.getElementsByClassName('star');
+    Array.from(stars).forEach(star => {
+      star.classList.remove('active', 'hover', 'half');
+    });
+  }
+}
+
+// Cập nhật event listener DOMContentLoaded
 document.addEventListener('DOMContentLoaded', async () => {
   console.log("Document loaded, fetching courts...");
+  
+  // Khởi tạo rating stars
+  initializeRatingStars();
+  
   const urlParams = new URLSearchParams(window.location.search);
   const fieldId = urlParams.get('id');
   
