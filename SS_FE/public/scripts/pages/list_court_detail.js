@@ -23,8 +23,8 @@ function fetchCourtDetails(fieldId) {
         document.querySelector('.court-title .address').textContent = courtDetails.address;
         document.querySelector('.rating span').textContent = `Đánh giá: ${courtDetails.average_rating}/5`;
         document.querySelector('.details p:nth-child(2) span').textContent = `${courtDetails.open_time.slice(0,5)} ~ ${courtDetails.close_time.slice(0,5)}`;
-        document.querySelector('.details p:nth-child(3) span').textContent = `${courtDetails.number_of_sub_fields} sân`;
-        document.querySelector('.details p:nth-child(4) span').textContent = `${parseInt(courtDetails.price_per_hour).toLocaleString('vi-VN')}đ/giờ`;
+        //document.querySelector('.details p:nth-child(3) span').textContent = `${courtDetails.number_of_sub_fields} sân`;
+        document.querySelector('.details p:nth-child(3) span').textContent = `${parseInt(courtDetails.price_per_hour).toLocaleString('vi-VN')}đ/giờ`;
         
         /* // Cập nhật dịch vụ tiện ích
         const servicesList = courtDetails.services.split(', ');
@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchCourtDetails("BD002");
 }})
 
+
+/*
 // API đặt sân
 bookingButton.addEventListener('click', () => {
   // Dữ liệu gửi về mẫu
@@ -90,7 +92,7 @@ bookingButton.addEventListener('click', () => {
       .catch(error => {
           console.error('Error:', error); 
       });
-});
+});*/
 
 //fetch API cho thêm sân yêu thích
 favorButton.addEventListener('click', () => {

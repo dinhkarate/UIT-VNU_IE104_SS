@@ -9,5 +9,6 @@ router.get('/courtDetails', courts.getCourtWithFeedback);
 router.post('/addResrv', middleware.authenticate, courts.insertResrv);
 router.post('/addFavor', middleware.authenticate, courts.addFavorCourt);
 router.post('/delFavor', middleware.authenticate, courts.delFavorCourt);
+router.post('/addFeedbacks', middleware.authenticate, courts.addFeedbacks);
 
 module.exports = router;

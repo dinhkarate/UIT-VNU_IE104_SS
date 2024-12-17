@@ -73,7 +73,7 @@ alter table favourite_field
 add foreign key (field_id) references fields(field_id);
 
 create table feedbacks (
-	feedback_id varchar(5) primary key,
+	feedback_id serial primary key,
 	star int,
 	created_at timestamp,
 	description text,

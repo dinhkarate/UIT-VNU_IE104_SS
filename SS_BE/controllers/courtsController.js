@@ -100,7 +100,6 @@ courtsController.getCourtWithFeedback = (req, res) => {
 
 courtsController.insertResrv = (req, res) => {
   const data = {
-    resrv_id: req.body.resrv_id,
     time_begin: req.body.time_begin,
     time_end: req.body.time_end,
     resrv_date: req.body.resrv_date,
@@ -158,5 +157,23 @@ courtsController.delFavorCourt = (req, res) => {
     res.status(200).json({ message: 'Xóa sân yêu thích thành công!' });
   });
 }
+
+courtsController.addFeedbacks = (req, res) => {
+  const data = {
+    star: req.body.star,
+    descriptions: req.body.descriptions,
+    field_id: req.body.field_id,
+    cust_id: req.body.cust_id
+  }
+
+  models.court.addFeedbacks(data, (err) => {
+    if (err) {
+      console.error('Error inserting feedback:', err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+    console.log('Add feedback successfully!');
+    res.status(200).json({ message: 'Add feedback successfully!' });
+  })
+};
 
 module.exports = courtsController;

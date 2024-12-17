@@ -310,3 +310,10 @@ fileInput.addEventListener('change', (e) => {
         console.log("User đã chọn file:", e.target.files[0]);
     }
 });
+
+// Logout
+const logoutButton = document.querySelector('.logout-button');
+
+logoutButton.addEventListener('click', () => {
+    
+});

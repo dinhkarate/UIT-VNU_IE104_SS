@@ -220,12 +220,11 @@ courtModel.getFeedbacksById({id:{field_id: ['BD002'],}}, (err, results) => {
 
 courtModel.insertReservation = (data, callback) => {
   const sql = `
-    INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;
+    INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;
   `;
 
   const params = [
-    data.resrv_id,
     data.time_begin,
     data.time_end,
     data.resrv_date,
@@ -294,6 +293,24 @@ courtModel.delFavorCourt = (data, callback) => {
     callback(err, results);
   });
 };
+
+courtModel.addFeedbacks = (req, res) => {
+  const sql = 
+  `INSERT INTO Feedbacks (star, created_at, description, field_id, cust_id)
+  VALUES ($1, $2, $3, $4, $5);`;
+  
+  const params = [
+    req.body.star,
+    req.body.created_at,
+    req.body.description,
+    req.body.field_id,
+    req.body.cust_id]
+  
+  db.query(sql, params, (err, results) => {
+    console.log('Results', results);
+    callback(err, results);
+  });
+}
 
 module.exports = courtModel;
 

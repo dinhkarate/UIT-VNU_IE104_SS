@@ -115,7 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.querySelector('.booking-button').addEventListener('click', () => {
+    // Gom data để gửi về API đặt sân
+/*    document.querySelector('.booking-button').addEventListener('click', () => {
         console.log('Booking button clicked');
         console.log('Number of selected slots:', selectedSlots.length);
         
@@ -145,9 +146,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 startTime: slot.startTime,
                 endTime: slot.endTime
             });
-        });
+        }); 
 
-        /*Tạm thời comment phần gửi API
+        //Tạm thời comment phần gửi API
         fetch('/api/court/bookSlots', {
             method: 'POST',
             headers: {
@@ -169,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
             alert('Có lỗi xảy ra khi đặt sân. Vui lòng thử lại!');
         });
-        */
-    });
+        
+    });*/
 
     prevButton.addEventListener('click', scrollToPrevGroup);
     nextButton.addEventListener('click', scrollToNextGroup);
@@ -195,7 +196,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Format dữ liệu theo cấu trúc API mong đợi
         const bookingRequests = selectedSlots.map(slot => ({
-            resrv_id: `RSV${Date.now()}`, // Tạo ID unique
             time_begin: slot.startTime,
             time_end: slot.endTime,
             resrv_date: formatDateForAPI(slot.date), // Thêm hàm format date

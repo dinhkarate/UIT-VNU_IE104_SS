@@ -43,7 +43,6 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     event.preventDefault(); // Prevent the default form submission
 
     // Collect the form data
-    //const data = Array.from(document.querySelectorAll('#registerForm input')).reduce((acc, input) => ({...acc, [input.id]: input.value}), {});
     const data = Array.from(document.querySelectorAll('#registerForm input')).reduce(
         (acc, input) => ({ ...acc, [input.id]: input.type === 'checkbox' ? input.checked : input.value }),
         {}
