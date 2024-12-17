@@ -68,7 +68,6 @@ accountController.changePassword = (req, res) => {
             res.status(200).json({ message: 'Password changed successfully!' });
         });
     });
-  });
 };
 
 // 4. Xem lịch đặt sân
