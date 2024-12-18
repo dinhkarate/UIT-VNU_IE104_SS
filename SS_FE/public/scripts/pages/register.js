@@ -1,27 +1,30 @@
 const registerButton = document.querySelector('.register-button');
 
 function registerUser(data) {
-    try {
-        const response = fetch('/api/auth/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data), 
-        });
-
-        const result = response.json();
-
+    fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data), 
+    })
+    .then(response => {
         if (response.ok) {
-            console.log('Registration successful:', result.message);
-            // Redirect or handle successful registration here
+            return response.json(); 
         } else {
-            console.error('Registration failed:', result.message);
+            throw new Error("ERROR: Failed to register");
         }
-    } catch (error) {
-        console.error('Error during registration:', error);
-    }
-};
+    })
+    .then(result => {
+        console.log('Registration successful:', result.message);
+        alert('Register successful');
+        window.location.href = '/login';
+    })
+    .catch(error => {
+        console.error('Error during registration:', error.message);
+        alert('Registration failed: ' + error.message);
+    });
+}
 
 /*
 // Call the register function

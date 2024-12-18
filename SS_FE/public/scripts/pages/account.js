@@ -99,9 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
           new Date(booking.resrv_date) < new Date());
 
         // Render upcoming bookings
-        renderBookings(upcomingBookings, "Sắp diễn ra");
+        //renderBookings(upcomingBookings, "Sắp diễn ra");
         // Render past bookings
-        renderBookings(pastBookings, "Đã kết thúc");
+        renderBookings(pastBookings, "Danh sách sân đã được đặt");
       })
       .catch((err) => {
         console.error("Error fetching reservations:", err);

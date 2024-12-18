@@ -890,7 +890,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ))
         .then(results => {
             console.log('All bookings successful:', results);
-            alert('Đặt sân thành công!');
+            //alert('Đặt sân thành công!');
             // Có thể refresh trang hoặc cập nhật UI
             location.reload();
         })
