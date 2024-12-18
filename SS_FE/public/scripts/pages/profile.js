@@ -315,5 +315,20 @@ fileInput.addEventListener('change', (e) => {
 const logoutButton = document.querySelector('.logout-button');
 
 logoutButton.addEventListener('click', () => {
-    
+    fetch('/api/auth/logout', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            window.location.href = '/';
+        } else {
+            throw new Error("ERROR: Failed to logout");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
 });

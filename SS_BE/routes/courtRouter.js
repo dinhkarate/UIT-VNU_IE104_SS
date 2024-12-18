@@ -10,5 +10,6 @@ router.post('/addResrv', middleware.authenticate, courts.insertResrv);
 router.post('/addFavor', middleware.authenticate, courts.addFavorCourt);
 router.post('/delFavor', middleware.authenticate, courts.delFavorCourt);
 router.post('/addFeedbacks', middleware.authenticate, courts.addFeedbacks);
+router.post('/checkFavorites', middleware.authenticate, courts.checkFavorField);
 
 module.exports = router;

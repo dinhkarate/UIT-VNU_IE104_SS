@@ -159,10 +159,12 @@ courtsController.delFavorCourt = (req, res) => {
 }
 
 courtsController.addFeedbacks = (req, res) => {
+  console.log(req.body);
   const data = {
     star: req.body.star,
-    descriptions: req.body.descriptions,
+    description: req.body.description,
     field_id: req.body.field_id,
+    created_at: new Date().toISOString().split('T')[0] + ' ' + new Date().toTimeString().split(' ')[0],
     cust_id: req.body.cust_id
   }
 
@@ -174,6 +176,22 @@ courtsController.addFeedbacks = (req, res) => {
     console.log('Add feedback successfully!');
     res.status(200).json({ message: 'Add feedback successfully!' });
   })
+};
+
+courtsController.checkFavorField = (req, res) => {
+  const data = {
+    cust_id: req.body.cust_id,
+    field_id: req.body.field_id
+  }
+  console.log(data);
+  models.court.checkFavorField(data, (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+    console.log("Query Results:", results);
+    res.status(200).json(results);
+  });
 };
 
 module.exports = courtsController;

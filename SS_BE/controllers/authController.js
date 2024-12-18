@@ -59,15 +59,15 @@ authController.login = async (req, res) => {
     }
 
     // Check if password matches
-    // const isPasswordValid = await bcrypt.compare(password, loginUser.password);
-    if (password !== loginUser.password) {
+    const isPasswordValid = await bcrypt.compare(password, loginUser.password);
+    if (!isPasswordValid) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
     // Send JWT token and user info
     const token = jwt.sign({cust_id: loginUser.cust_id}, JWT_SECRET_KEY, {expiresIn: JWT_EXPIRES_IN});
     res.cookie('token', token, { httpOnly: true, secure: false, maxAge: 3600000 });
-    res.json({ message: "Login successfully"});
+    res.json({ message: "Login successfully", token: token });
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ message: "Internal server error" });
@@ -79,8 +79,7 @@ authController.checkUserSession = async (req, res) => {
   try {
     // Retrieve the token from the Authorization header or cookies
     const token = req.cookies.token;
-    console.log('Token trong checkUserSession:',token);
-    if (!token) {vvvvvvvvvvvv
+    if (!token) {
       return res.status(401).json({ message: "Unauthorized: No token provided" });
     }
     try {
