@@ -93,9 +93,4 @@ Các thành viên trong nhóm bao gồm:
         └───components
 ```
 
-### HEADING 3
-## FONT 
 
-**đậm**
-
-*nghiêng*
