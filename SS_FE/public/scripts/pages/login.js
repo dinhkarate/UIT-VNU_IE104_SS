@@ -37,20 +37,22 @@ function fetchLogin(data) {
     })
 
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json(); 
+        if (response.ok) {
+            localStorage.setItem('token', data.token);
+            window.location.href = '/';
+            alert('Login successful');
+        } else {
+            throw new Error("ERROR: Failed to login");
+        } 
     })
-    .then(data => {
-        localStorage.setItem('token', data.token);
-    })
+
     .catch(error => {
-        console.error('Login failed:', result.message);
+        console.error('Login failed:', error.message);
+        alert('Login failed: ' + error.message);
     });
 };
 
-
+/*
 // Call the register function
 document.addEventListener('DOMContentLoaded', () => {
     // Example usage
@@ -59,4 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
     password: 'vietpass', // Nếu sai mật khẩu thì sẽ gửi lại 401 unauthorized
 };
     fetchLogin(data);
-})
+})*/
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Collect the form data
+    const data = Array.from(document.querySelectorAll('#loginForm input')).reduce((acc, input) => ({...acc, [input.id]: input.value}), {});
+    
+    // Send the data to the backend using fetch
+    fetchLogin(data);
+  });

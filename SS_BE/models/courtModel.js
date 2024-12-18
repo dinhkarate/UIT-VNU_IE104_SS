@@ -220,12 +220,11 @@ courtModel.getFeedbacksById({id:{field_id: ['BD002'],}}, (err, results) => {
 
 courtModel.insertReservation = (data, callback) => {
   const sql = `
-    INSERT INTO reservation (resrv_id, time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;
+    INSERT INTO reservation (time_begin, time_end, resrv_date, renting_price, created_date, field_id, cust_id, resrv_status)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;
   `;
 
   const params = [
-    data.resrv_id,
     data.time_begin,
     data.time_end,
     data.resrv_date,
@@ -291,6 +290,39 @@ courtModel.delFavorCourt = (data, callback) => {
 
   db.query(sql, params, (err, results) => {
     console.log('delFavorCourt Results:', results);
+    callback(err, results);
+  });
+};
+
+courtModel.addFeedbacks = (data, callback) => {
+  const sql = 
+  `INSERT INTO Feedbacks (star, created_at, description, field_id, cust_id)
+  VALUES ($1, $2, $3, $4, $5);`;
+  
+  const params = [
+    data.star,
+    data.created_at,
+    data.description,
+    data.field_id,
+    data.cust_id]
+  
+  db.query(sql, params, (err, results) => {
+    console.log('Results', results);
+    callback(err, results);
+  });
+}
+
+courtModel.checkFavorField = (data, callback) => {
+  const sql = `
+  SELECT * FROM favourite_field ff WHERE ff.field_id = $1 AND ff.cust_id = $2`
+
+  const params = [
+    data.field_id,
+    data.cust_id
+  ];
+
+  db.query(sql, params, (err, results) => {
+    console.log('checkFavorField Results:', results);
     callback(err, results);
   });
 };

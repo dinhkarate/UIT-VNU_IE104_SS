@@ -100,7 +100,6 @@ courtsController.getCourtWithFeedback = (req, res) => {
 
 courtsController.insertResrv = (req, res) => {
   const data = {
-    resrv_id: req.body.resrv_id,
     time_begin: req.body.time_begin,
     time_end: req.body.time_end,
     resrv_date: req.body.resrv_date,
@@ -158,5 +157,41 @@ courtsController.delFavorCourt = (req, res) => {
     res.status(200).json({ message: 'Xóa sân yêu thích thành công!' });
   });
 }
+
+courtsController.addFeedbacks = (req, res) => {
+  console.log(req.body);
+  const data = {
+    star: req.body.star,
+    description: req.body.description,
+    field_id: req.body.field_id,
+    created_at: new Date().toISOString().split('T')[0] + ' ' + new Date().toTimeString().split(' ')[0],
+    cust_id: req.body.cust_id
+  }
+
+  models.court.addFeedbacks(data, (err) => {
+    if (err) {
+      console.error('Error inserting feedback:', err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+    console.log('Add feedback successfully!');
+    res.status(200).json({ message: 'Add feedback successfully!' });
+  })
+};
+
+courtsController.checkFavorField = (req, res) => {
+  const data = {
+    cust_id: req.body.cust_id,
+    field_id: req.body.field_id
+  }
+  console.log(data);
+  models.court.checkFavorField(data, (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+    console.log("Query Results:", results);
+    res.status(200).json(results);
+  });
+};
 
 module.exports = courtsController;

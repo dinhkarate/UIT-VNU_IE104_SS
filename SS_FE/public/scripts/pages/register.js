@@ -1,27 +1,30 @@
 const registerButton = document.querySelector('.register-button');
 
-const registerUser = (data) => {
-    try {
-        const response = fetch('/api/auth/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data), 
-        });
-
-        const result = response.json();
-
+function registerUser(data) {
+    fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data), 
+    })
+    .then(response => {
         if (response.ok) {
-            console.log('Registration successful:', result.message);
-            // Redirect or handle successful registration here
+            return response.json(); 
         } else {
-            console.error('Registration failed:', result.message);
+            throw new Error("ERROR: Failed to register");
         }
-    } catch (error) {
-        console.error('Error during registration:', error);
-    }
-};
+    })
+    .then(result => {
+        console.log('Registration successful:', result.message);
+        alert('Register successful');
+        window.location.href = '/login';
+    })
+    .catch(error => {
+        console.error('Error during registration:', error.message);
+        alert('Registration failed: ' + error.message);
+    });
+}
 
 /*
 // Call the register function
@@ -38,3 +41,26 @@ document.addEventListener('DOMContentLoaded', () => {
 };
     registerUser(data);
 })*/
+
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Collect the form data
+    const data = Array.from(document.querySelectorAll('#registerForm input')).reduce(
+        (acc, input) => ({ ...acc, [input.id]: input.type === 'checkbox' ? input.checked : input.value }),
+        {}
+      );
+  
+      // Check if the passwords match
+      if (data.password !== data.confirmpassword) {
+        alert('Mật khẩu và Xác nhận mật khẩu không khớp!');
+        return; // Stop form submission if passwords don't match
+      }
+  
+      // Debugging: Log form data to the console
+      console.log('Collected Form Data:', data);
+    data.signup_date = new Date().toISOString();
+    data.cust_id = 'CUS11';// Dòng này lúc sau làm theo DB đã được cập nhật thì xóa vì cái này sẽ tự tạo tăng dần trong DB(tui để đây là do DB của tui  chưa cập nhật)
+    // Send the data to the backend using fetch
+    registerUser(data);
+  });

@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <script defer src="/scripts/pages/schedule.js"></script>
+    <!--<script defer src="/scripts/pages/schedule.js"></script>-->
     <script defer src="/scripts/components/header.js"></script>
     <script defer src="/scripts/pages/list_court_detail.js"></script>
     <style>
@@ -40,8 +40,8 @@
   <body>
     <div id="header-placeholder"></div>
     <div class="breadcrumb">
-      <a href="#">Trang chủ</a> > <span>Danh sách sân</span> >
-      <span>Sân bóng đá Bình Minh</span>
+      <a href="/">Trang chủ</a> > <a href="/list_court">Danh sách sân</a> > 
+      <span class="court-name">Sân bóng đá Bình Minh</span>
     </div>
 
     <div class="main-container">
@@ -59,7 +59,7 @@
           </p>
         </div>
         <div class="court-banner">
-          <img src="/images/components/court/sportspot-banner.svg" alt="Banner" />
+          <img src="/images/court/sportspot-banner.svg" alt="Banner" />
         </div>
       </div>
 
@@ -72,29 +72,29 @@
               <div class="images-left">
                 <img
                   class="img-1"
-                  src="https://placehold.co/465x240"
+                  src="https://thamcaulong.vn/upload_images/images/2022/04/14/3(2).jpg"
                   alt="Ảnh sân chính"
                 />
                 <img
                   class="img-3"
-                  src="https://placehold.co/215x190"
+                  src="https://foba.vn/wp-content/uploads/2020/09/kich-thuoc-san-bong.jpg"
                   alt="Ảnh sân 3"
                 />
                 <img
                   class="img-4"
-                  src="https://placehold.co/215x190"
+                  src="https://sonsanepoxy.vn/wp-content/uploads/2023/08/kich-thuoc-san-tennis-6.jpg"
                   alt="Ảnh sân 4"
                 />
               </div>
               <div class="images-right">
                 <img
                   class="img-2"
-                  src="https://placehold.co/340x215"
+                  src="https://cdnmedia.webthethao.vn/uploads/img/files/images/fullsize/2020/thang%204/bong-chuyen/13/phong-trao8.jpg"
                   alt="Ảnh sân 2"
                 />
                 <img
                   class="img-5"
-                  src="https://placehold.co/340x215"
+                  src="https://png.pngtree.com/thumb_back/fh260/background/20220424/pngtree-volleyball-net-summer-equipment-photo-image_27823660.jpg"
                   alt="Ảnh sân 5"
                 />
               </div>
@@ -106,35 +106,23 @@
           <!-- Phần actions -->
           <div class="court-actions">
             <div class="rating">
-              <span>Đánh giá: 5/5</span>
+              <span>Đánh giá: 1.0/5</span>
               <img
                 src="../../images/components/court/rating-star.png"
                 alt="Rating"
                 class="icon"
               />
             </div>
-          </div>
-          <div class="favorite">
-            <button id="favoriteBtn">
-              Thêm sân yêu thích
-              <img
-                src="/images/components/court/heart-full.png"
-                alt="Favorite"
-                class="icon"
-              />
-            </button>
-            <script>
-              const button = document.getElementById('favoriteBtn');
-              const img = button.querySelector('img');        
-          
-              button.addEventListener('click', () => {
-                if (img.src.includes('heart-full.png')) {
-                  img.src = '/images/components/court/heart.png'; 
-                } else {
-                  img.src = '/images/components/court/heart-full.png'; 
-                }
-              });
-            </script> 
+            <div class="favorite">
+              <button class = "favoriteBtn" id="favoriteBtn">
+                Thêm sân yêu thích
+                <img
+                  src="/images/components/court/heart-full.png"
+                  alt="Favorite"
+                  class="icon"
+                />
+              </button>
+            </div>
           </div>
 
           <!-- Phần thông tin -->
@@ -1118,13 +1106,49 @@
         <div class="comment">
           <div class="comment-header">
             <div class="comment-author">
-              <img src="https://placehold.co/40x40" alt="User" />
-              <span>Jane Doe</span>
+              <img src="https://antimatter.vn/wp-content/uploads/2022/11/anh-avatar-trang-fb-mac-dinh.jpg" alt="User" />
+              <span>Minh Tuấn</span>
             </div>
-            <div class="stars">★★★★★</div>
+            <div class="stars">★★★★☆</div>
           </div>
-          <p>Sân đẹp, chủ sân dễ tính, giá mềm, phù hp với chất lượng.</p>
-          <span class="time">5 phút trước</span>
+          <p>Sân rộng rãi, thoáng mát. Chỉ có điều giá hơi cao vào giờ cao điểm.</p>
+          <span class="time">2 giờ trước</span>
+        </div>
+        
+        <div class="comment">
+          <div class="comment-header">
+            <div class="comment-author">
+              <img src="https://antimatter.vn/wp-content/uploads/2022/11/anh-avatar-trang-fb-mac-dinh.jpg" alt="User" />
+              <span>Thanh Hà</span>
+            </div>
+            <div class="stars">★★★★☆</div>
+          </div>
+          <p>Nhân viên phục vụ nhiệt tình, sân bóng được bảo quản tốt. Sẽ quay lại lần sau.</p>
+          <span class="time">1 ngày trước</span>
+        </div>
+        
+        <div class="comment">
+          <div class="comment-header">
+            <div class="comment-author">
+              <img src="https://antimatter.vn/wp-content/uploads/2022/11/anh-avatar-trang-fb-mac-dinh.jpg" alt="User" />
+              <span>Đức Anh</span>
+            </div>
+            <div class="stars">★★★★☆</div>
+          </div>
+          <p>Vị trí thuận tiện, dễ tìm. Phòng thay đồ sạch sẽ. Chỉ thiếu chỗ để xe hơi.</p>
+          <span class="time">3 ngày trước</span>
+        </div>
+        
+        <div class="comment">
+          <div class="comment-header">
+            <div class="comment-author">
+              <img src="https://antimatter.vn/wp-content/uploads/2022/11/anh-avatar-trang-fb-mac-dinh.jpg" alt="User" />
+              <span>Hoàng Nam</span>
+            </div>
+            <div class="stars">★★★★☆</div>
+          </div>
+          <p>Mặt cỏ khá tốt, hệ thống chiếu sáng ổn. Wifi hơi yếu nhưng không ảnh hưởng nhiều.</p>
+          <span class="time">1 tuần trước</span>
         </div>
         <div class="load-more">
           <button>Tải thêm</button>
@@ -1134,17 +1158,92 @@
       <!-- Write a Comment Section -->
       <div class="write-comment">
         <h2>Đánh giá của bạn</h2>
-        <div class="your-stars">★★★★★</div>
+        <div class="your-stars" id="ratingStars">
+          <span class="star" data-rating="1">★</span>
+          <span class="star" data-rating="2">★</span>
+          <span class="star" data-rating="3">★</span>
+          <span class="star" data-rating="4">★</span>
+          <span class="star" data-rating="5">★</span>
+        </div>
         <p class="write-label">Viết bình luận</p>
         <p class="user-label">
-          Vui lòng <a href="/login">đăng nhập</a> để đăng bình luận
+          <div class="comment-author auth-user" style="display: none;">
+            <img src="https://antimatter.vn/wp-content/uploads/2022/11/anh-avatar-trang-fb-mac-dinh.jpg" alt="User" />
+            <span class="username"></span>
+          </div>
+          <div class="unauth-message" style="display: none;">
+            Vui lòng <a href="/login">đăng nhập</a> để đăng bình luận
+          </div>
         </p>
         <textarea placeholder="Nhập bình luận tại đây"></textarea>
         <div class="button-container">
-          <button class="submit-button">Gửi bình luận</button>
+          <button class="submit-button" disabled>Gửi bình luận</button>
         </div>
       </div>
     </div>
     <div id="footer-placeholder"></div>
   </body>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const ratingContainer = document.getElementById('ratingStars');
+      const stars = ratingContainer.getElementsByClassName('star');
+      let currentRating = 0;
+      let isClicked = false;
+
+      function calculateRating(e, element) {
+        const rect = element.getBoundingClientRect();
+        const width = rect.width;
+        const x = e.clientX - rect.left;
+        // Nếu vị trí click nằm ở nửa đầu của ngôi sao
+        return x < width/2 ? 0.5 : 1;
+      }
+
+      function updateStars(rating, isHover = false) {
+        Array.from(stars).forEach((star, index) => {
+          const starValue = parseInt(star.dataset.rating);
+          star.classList.remove('active', 'hover', 'half');
+          
+          if (rating >= starValue) {
+            star.classList.add(isHover ? 'hover' : 'active');
+          } else if (rating + 0.5 === starValue) {
+            star.classList.add(isHover ? 'hover' : 'active', 'half');
+          }
+        });
+      }
+
+      ratingContainer.addEventListener('mousemove', function(e) {
+        if (isClicked) return;
+        
+        const target = e.target;
+        if (target.classList.contains('star')) {
+          const baseRating = parseInt(target.dataset.rating);
+          const partialRating = calculateRating(e, target);
+          const rating = baseRating - 1 + partialRating;
+          updateStars(rating, true);
+        }
+      });
+
+      ratingContainer.addEventListener('mouseleave', function() {
+        if (!isClicked) {
+          updateStars(currentRating);
+        }
+      });
+
+      ratingContainer.addEventListener('click', function(e) {
+        const target = e.target;
+        if (target.classList.contains('star')) {
+          const baseRating = parseInt(target.dataset.rating);
+          const partialRating = calculateRating(e, target);
+          currentRating = baseRating - 1 + partialRating;
+          isClicked = true;
+          updateStars(currentRating);
+          
+          // Ở đây bạn có thể thêm code để gửi rating tới server
+          console.log('Rating:', currentRating);
+        }
+      });
+    });
+
+  </script>
 </html>

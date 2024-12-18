@@ -1,18 +1,18 @@
-const db = require('../config/db'); // Import kết nối tới database
+const db = require("../config/db"); // Import kết nối tới database
+const bcrypt = require("bcrypt"); // Thêm bcrypt để mã hóa mật khẩu (Dòng mới)
 
-function accountController() {};
+function accountController() {}
 
-// Mặc định người gửi request là cust_id = 1
-const defaultCustId = 1; // TODO: Thay đổi cust_id khi có logic đăng nhập
 
 // 1. Xem thông tin cá nhân
 accountController.getProfile = (req, res) => {
+    const cust_id = req.body.cust_id;
     const sql = `
         SELECT cust_id, first_name, last_name, username, phone, email, signup_date
         FROM customers
         WHERE cust_id = $1
     `;
-    const params = [defaultCustId];
+    const params = [cust_id];
     db.query(sql, params, (err, results) => {
         if (err) {
             console.error('Error fetching profile:', err);
@@ -25,12 +25,13 @@ accountController.getProfile = (req, res) => {
 // 2. Cập nhật thông tin cá nhân
 accountController.updateProfile = (req, res) => {
     const { first_name, last_name, phone, email } = req.body;
+    const cust_id = req.body.cust_id;
     const sql = `
         UPDATE customers
         SET first_name = $1, last_name = $2, phone = $3, email = $4
         WHERE cust_id = $5
     `;
-    const params = [first_name, last_name, phone, email, defaultCustId];
+    const params = [first_name, last_name, phone, email, cust_id];
     db.query(sql, params, (err) => {
         if (err) {
             console.error('Error updating profile:', err);
@@ -40,16 +41,17 @@ accountController.updateProfile = (req, res) => {
     });
 };
 
-// 3. Thay đổi mật khẩu
+// 3. Thay đổi mật khẩu (Đã thêm mã hóa bcrypt)
 accountController.changePassword = (req, res) => {
     const { oldPassword, newPassword } = req.body;
+    const cust_id = req.body.cust_id;
     const checkPasswordSql = `
         SELECT password FROM customers WHERE cust_id = $1
     `;
-    const updatePasswordSql = `
+  const updatePasswordSql = `
         UPDATE customers SET password = $1 WHERE cust_id = $2
     `;
-    db.query(checkPasswordSql, [defaultCustId], (err, results) => {
+    db.query(checkPasswordSql, [cust_id], (err, results) => {
         if (err) {
             console.error('Error verifying password:', err);
             return res.status(500).json({ message: 'Internal Server Error' });
@@ -58,7 +60,7 @@ accountController.changePassword = (req, res) => {
         if (currentPassword !== oldPassword) {
             return res.status(400).json({ message: 'Old password is incorrect' });
         }
-        db.query(updatePasswordSql, [newPassword, defaultCustId], (err) => {
+        db.query(updatePasswordSql, [newPassword, cust_id], (err) => {
             if (err) {
                 console.error('Error changing password:', err);
                 return res.status(500).json({ message: 'Internal Server Error' });
@@ -70,6 +72,7 @@ accountController.changePassword = (req, res) => {
 
 // 4. Xem lịch đặt sân
 accountController.getReservations = (req, res) => {
+    const cust_id = req.body.cust_id;
     const sql = `
         SELECT f.field_name, r.resrv_date, r.time_begin, r.time_end, r.renting_price, r.resrv_status
         FROM reservation r
@@ -77,7 +80,7 @@ accountController.getReservations = (req, res) => {
         WHERE r.cust_id = $1
         ORDER BY r.resrv_date DESC, r.time_begin
     `;
-    const params = [defaultCustId];
+    const params = [cust_id];
     db.query(sql, params, (err, results) => {
         if (err) {
             console.error('Error fetching reservations:', err);
@@ -89,13 +92,14 @@ accountController.getReservations = (req, res) => {
 
 // 5. Xem lịch sử bình luận
 accountController.getFeedbackHistory = (req, res) => {
+    const cust_id = req.body.cust_id;
     const sql = `
         SELECT fb.star, fb.created_at, fb.description
         FROM feedbacks fb
         WHERE fb.cust_id = $1
         ORDER BY fb.created_at DESC
     `;
-    const params = [defaultCustId];
+    const params = [cust_id];
     db.query(sql, params, (err, results) => {
         if (err) {
             console.error('Error fetching feedback history:', err);
@@ -107,6 +111,7 @@ accountController.getFeedbackHistory = (req, res) => {
 
 // 6. Xem sân yêu thích
 accountController.getFavouriteFields = (req, res) => {
+    const cust_id = req.body.cust_id;
     const sql = `
         SELECT f.field_name, f.sport_type, f.price_per_hour, f.centre_id, f.field_type, f.open_time, f.close_time, f.link_img
         FROM favourite_field ff
@@ -114,7 +119,7 @@ accountController.getFavouriteFields = (req, res) => {
         WHERE ff.cust_id = $1
         ORDER BY f.field_name
     `;
-    const params = [defaultCustId];
+    const params = [cust_id];
     db.query(sql, params, (err, results) => {
         if (err) {
             console.error('Error fetching favourite fields:', err);

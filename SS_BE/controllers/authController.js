@@ -12,8 +12,8 @@ function authController () {};
 
 // Register
 authController.register = async (req, res) => {
-    const { cust_id, first_name, last_name, username, password, phone, email, signup_date } = req.body;
-    const data = { cust_id, first_name, last_name, username, password, phone, email, signup_date };
+    const {first_name, last_name, username, password, phone, email, signup_date } = req.body;
+    const data = {first_name, last_name, username, password, phone, email, signup_date };
 
     const user = await models.auth.getUser();
     const userArray = user.rows;
@@ -67,7 +67,7 @@ authController.login = async (req, res) => {
     // Send JWT token and user info
     const token = jwt.sign({cust_id: loginUser.cust_id}, JWT_SECRET_KEY, {expiresIn: JWT_EXPIRES_IN});
     res.cookie('token', token, { httpOnly: true, secure: false, maxAge: 3600000 });
-    res.json({ message: "Login successfully", token: token});
+    res.json({ message: "Login successfully", token: token });
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ message: "Internal server error" });
@@ -79,7 +79,6 @@ authController.checkUserSession = async (req, res) => {
   try {
     // Retrieve the token from the Authorization header or cookies
     const token = req.cookies.token;
-    console.log(token);
     if (!token) {
       return res.status(401).json({ message: "Unauthorized: No token provided" });
     }
@@ -107,7 +106,7 @@ authController.checkUserSession = async (req, res) => {
       user: {
         username: loginUser.username,
         first_name: loginUser.first_name,
-        last_name: loginUser.last_name,
+        last_name: loginUser.last_name, 
       },
     });
   } catch (error) {
@@ -119,6 +118,11 @@ authController.checkUserSession = async (req, res) => {
 
     return res.status(500).json({ message: "Internal server error" });
   }
+};
+
+authController.logout = (req, res) => {
+  res.cookie('token', '', {maxAge : 1});
+  res.redirect('/');
 };
 
 

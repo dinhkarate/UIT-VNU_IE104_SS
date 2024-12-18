@@ -367,56 +367,58 @@ body {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 16px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
 }
 
-/* Avatar */
-.comment-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+.comment-main {
+    display: flex;
+    gap: 20px;
+}
+
+/* Style cho phần bên trái */
+.comment-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.comment-date {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.comment-left img {
+    width: 72px;
+    border-radius: 8px;
     object-fit: cover;
 }
 
-/* Content bên phải */
-.comment-content {
+/* Style cho phần bên phải */
+.comment-right {
     flex: 1;
 }
 
-/* Ngày */
-.comment-date {
-    font-size: 14px;
-    color: #666666;
-    margin-bottom: 8px;
-}
-
-/* Tiêu đề */
-.comment-title {
+.court-name {
     font-size: 16px;
     font-weight: 500;
-    color: #000000;
     margin: 0 0 8px 0;
 }
 
-/* Nội dung */
 .comment-text {
     font-size: 14px;
-    color: #000000;
+    color: rgba(0, 0, 0, 0.87);
     margin: 0 0 8px 0;
     line-height: 1.4;
 }
 
-/* Stars */
-.comment-stars {
+.rating {
     display: flex;
-    gap: 2px;
+    gap: 4px;
 }
 
 .star {
     color: #FBBC05;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* ================== ĐỔI MẬT KHẨU ================== */
@@ -605,6 +607,17 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+
+.favorite-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .favorite-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+  }
 
 .favorite-img {
     width: 100%;

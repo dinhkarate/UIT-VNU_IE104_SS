@@ -132,9 +132,52 @@ function generateAmenityIcons(services) {
   return icons;
 }
 
+function applyFilterFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const filterParam = urlParams.get('filter');
+  
+  if (filterParam) {
+    const filterMapping = {
+      'bong-da': 'Bóng đá',
+      'bong-ro': 'Bóng rổ',
+      'cau-long': 'Cầu lông',
+      'bong-chuyen': 'Bóng chuyền',
+      'tennis': 'Tennis',
+      'pickleball': 'Pickleball'
+    };
+
+    const sportName = filterMapping[filterParam];
+    if (sportName) {
+      // Tìm và check checkbox tương ứng
+      const checkbox = document.querySelector(`input[name="sport"][value="${sportName}"]`);
+      if (checkbox) {
+        checkbox.checked = true;
+        
+        // Tạo object filters và gọi fetchCourts ngay lập tức
+        const filters = {
+          sport: [sportName]
+        };
+        fetchCourts(filters);
+
+        // Scroll đến phần filter
+        const filterSection = document.querySelector('.filter-section');
+        if (filterSection) {
+          filterSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  }
+}
+
+// Đảm bảo rằng code chạy sau khi DOM đã load hoàn toàn
 document.addEventListener('DOMContentLoaded', () => {
-  // console.log("Document loaded, fetching courts...");
-  fetchCourts();
+  // Gọi applyFilterFromUrl trước
+  applyFilterFromUrl();
+  
+  // Chỉ gọi fetchCourts nếu không có filter trong URL
+  if (!window.location.search.includes('filter=')) {
+    fetchCourts();
+  }
 
   const applyButton = document.querySelector('.apply-button');
   if (applyButton) {
@@ -157,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
         amenities: selectedAmenities,
       };
 
-      // console.log("Applying filters:", filters);
       fetchCourts(filters);
     });
   }

@@ -73,7 +73,7 @@ alter table favourite_field
 add foreign key (field_id) references fields(field_id);
 
 create table feedbacks (
-	feedback_id varchar(5) primary key,
+	feedback_id serial primary key,
 	star int,
 	created_at timestamp,
 	description text,
@@ -173,6 +173,7 @@ create table payment (
 alter table payment
 add foreign key (resrv_id) references reservation(resrv_id);
 
+--Centres
 INSERT INTO centres (centre_id, address, description, coop) VALUES
 ('C01', '123 Nguyễn Văn Linh, Quận 7, TP. HCM', 'Trung tâm thể thao hiện đại với nhiều sân bóng đá', TRUE),
 ('C02', '456 Lê Văn Việt, Quận 9, TP. HCM', 'Trung tâm với các sân thể thao tiêu chuẩn quốc tế', TRUE),
@@ -293,37 +294,38 @@ insert into Centre_Service (centre_id, service_id) values ('C05', 'SVC01'),
 
 --admins
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD01', 'Nguyen', 'Van A', 'nguyenvana', 'password1', '0901234567', 'vana@gmail.com', 'C01'); --password1
+('AD01', 'Nguyen', 'Van A', 'nguyenvana', '$2b$10$dHThWoKK67mBwlqT8xV4s.JdNqMxW8WHDmAj6/pDBv9NiQLeOKDmW', '0901234567', 'vana@gmail.com', 'C01'); --password1
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD02', 'Le', 'Thi B', 'lethib', 'adminpass', '0902234567', 'thib@gmail.com', 'C02'); --adminpass
+('AD02', 'Le', 'Thi B', 'lethib', '$2b$10$iwNgZxXtWhcJq2v3R3v/cOAFG1R1tFnq05cThFZ9U8BfsdAgboEvC', '0902234567', 'thib@gmail.com', 'C02'); --adminpass
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD03', 'Tran', 'Van C', 'tranvanc', 'secure123', '0903234567', 'vanc@gmail.com', 'C03'); --secure123
+('AD03', 'Tran', 'Van C', 'tranvanc', '$2b$10$c/giH9CuKQpjWlfoIvrD.uMekJCe9LVStkhvLz1jQ2l9Qf9HHiFQm', '0903234567', 'vanc@gmail.com', 'C03'); --secure123
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD04', 'Pham', 'Thi D', 'phamthid', 'mypassword', '0904234567', 'thid@gmail.com', 'C04'); --mypassword
+('AD04', 'Pham', 'Thi D', 'phamthid', '$2b$10$1P1L6TpHnh0qW3iyDi3AcuAeAlqMGDbO5FaeKN55AfPpAWYVkjqzC', '0904234567', 'thid@gmail.com', 'C04'); --mypassword
 INSERT INTO admins (admin_id, first_name, last_name, username, password, phone, email, centre_id) VALUES
-('AD05', 'Hoang', 'Van E', 'hoangvane', 'admin2024', '0905234567', 'vane@gmail.com', 'C05'); --admin2024
+('AD05', 'Hoang', 'Van E', 'hoangvane', '$2b$10$yAEl.I2IlbkZMgRZxdvLdO.Kr6OUkHg8gy3N1SxihxTp9AlIMKBTO', '0905234567', 'vane@gmail.com', 'C05'); --admin2024
 
 --customers
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Hoang', 'Quyen', 'nguyena', 'password1', '0901234567', 'an@gmail.com', '2024-06-25'); -- password1
+('Hoang', 'Quyen', 'nguyena', '$2b$10$qIY4Thg6RUiJmywLqktsN.CDtvqz8VsjcGSmuh0mOdtk7pfD1wKn2', '0901234567', 'an@gmail.com', '2024-06-25'); --password1
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Le', 'Duc', 'leb', 'adminpass', '0912345678', 'binh@gmail.com', '2024-09-29'); -- adminpass
+('Le', 'Duc', 'leb', '$2b$10$/t.azj8gKsPJgp3Qix2mY.zmYZoBBqAKn7Y1EjahW0cc15aJhFiGC', '0912345678', 'binh@gmail.com', '2024-09-29'); --adminpass
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Tran', 'Phong', 'tranc', 'secure123', '0923456789', 'cuong@gmail.com', '2023-12-06'); -- secure123
+('Tran', 'Phong', 'tranc', '$2b$10$.C5TXM1yIb8paCWbNXSMDea2gntsKbruXTdVWAzt5Yw4LSfoKX8Ti', '0923456789', 'cuong@gmail.com', '2023-12-06'); --secure123
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Nguyen', 'Son', 'phamd', 'mypassword', '0934567890', 'duc@gmail.com', '2023-12-23'); -- mypassword
+('Nguyen', 'Son', 'phamd', '$2b$10$Hb9aU82d1QSRia8fwo6DIeoPlwt/Y/EJqPYXafMIN6AI/oe8ds4Q2', '0934567890', 'duc@gmail.com', '2023-12-23'); --mypassword
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Hoang', 'Cuong', 'hoange', 'admin2024', '0945678901', 'ha@gmail.com', '2024-03-12'); -- admin2024
+('Hoang', 'Cuong', 'hoange', '$2b$10$eIhLerCwzGaQP0cSm.tJFuUoI0grpbq9aF879sNOyQMHhMHtlhXee', '0945678901', 'ha@gmail.com', '2024-03-12'); --admin2024
+
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Hoang', 'Cuong', 'linhf', 'userpass', '0956789012', 'linh@gmail.com', '2024-04-07'); -- userpass
+('Hoang', 'Cuong', 'linhf', '$2b$10$0R3/A0mfMwNxlss999HfY.6sM0DXWqgHpG5wMlEhGzs8lLrpoA3fm', '0956789012', 'linh@gmail.com', '2024-04-07'); --userpass
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Pham', 'Tuyen', 'phongg', 'testing12', '0967890123', 'phong@gmail.com', '2024-09-17'); -- testing12
+('Pham', 'Tuyen', 'phongg', '$2b$10$yrmTIfrJPZirIVhUeNtPSOMaiiAFXp6j3V0cZoxM9sWZmYEVDbCRK', '0967890123', 'phong@gmail.com', '2024-09-17'); --testing12
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Le', 'Ha', 'quyenh', 'secure456', '0978901234', 'quyen@gmail.com', '2023-12-29'); -- secure456
+('Le', 'Ha', 'quyenh', '$2b$10$oLYIuyhUn/1tkQLBVrxSP.ZmEzpa.7N2wBzlEQUc8nRslsVkaom3C', '0978901234', 'quyen@gmail.com', '2023-12-29'); --secure456
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Hoang', 'Phong', 'soni', 'demo789', '0989012345', 'son@gmail.com', '2024-11-12'); -- demo789
+('Hoang', 'Phong', 'soni', '$2b$10$auJltvRsPcZlFFPrtA1b2OkLyuINLkm0qoSLP1WkRrvf2VnuRkOrm', '0989012345', 'son@gmail.com', '2024-11-12'); --demo789
 INSERT INTO customers (first_name, last_name, username, password, phone, email, signup_date) VALUES
-('Nguyen', 'Binh', 'tuyenj', 'vietpass', '0990123456', 'tuyen@gmail.com', '2024-04-12'); -- vietpass
+('Nguyen', 'Binh', 'tuyenj', '$2b$10$GbpBxHeOfX772hLoqZOlk.TbrSuNz/Z77ZvDRvVaLIGP0fUm9LAV.', '0990123456', 'tuyen@gmail.com', '2024-04-12'); --vietpass
 
 --favourite_field
 INSERT INTO favourite_field (cust_id, field_id) VALUES (1, 'BD001');
@@ -339,26 +341,26 @@ INSERT INTO favourite_field (cust_id, field_id) VALUES (5, 'TN003');
 INSERT INTO favourite_field (cust_id, field_id) VALUES (5, 'CL002');
 
 --feedbacks
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB01', 2, '2024-03-10 12:30:51', 'Thời gian thuê linh hoạt, sân đẹp.', 'TN004', 1);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB02', 2, '2024-10-31 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 8);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB03', 1, '2024-09-30 12:30:51', 'Trang thiết bị đầy đủ, không có gì để chê.', 'BD002', 8);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB04', 4, '2024-03-14 12:30:51', 'Dịch vụ khá tốt, sẽ quay lại lần sau.', 'BR001', 4);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB05', 3, '2024-02-08 12:30:51', 'Mặt sân hơi trơn, cần cải thiện.', 'TN003', 5);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB06', 4, '2024-01-12 12:30:51', 'Đội ngũ hỗ trợ nhanh chóng và thân thiện.', 'BR001', 4);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB07', 4, '2023-12-23 12:30:51', 'Ánh sáng tốt, phù hợp chơi buổi tối.', 'TN004', 1);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB08', 5, '2024-01-15 12:30:51', 'Giá thuê phù hợp, sân trong tình trạng tốt.', 'BR001', 6);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB09', 3, '2024-08-03 12:30:51', 'Có chỗ để xe rộng rãi, tiện lợi.', 'TN004', 6);
-INSERT INTO feedbacks (feedback_id, star, created_at, description, field_id, cust_id) VALUES
-('FB10', 3, '2024-01-15 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 2);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+( 2, '2024-03-10 12:30:51', 'Thời gian thuê linh hoạt, sân đẹp.', 'TN004', 1);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(2, '2024-10-31 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 8);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(1, '2024-09-30 12:30:51', 'Trang thiết bị đầy đủ, không có gì để chê.', 'BD002', 8);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(4, '2024-03-14 12:30:51', 'Dịch vụ khá tốt, sẽ quay lại lần sau.', 'BR001', 4);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(3, '2024-02-08 12:30:51', 'Mặt sân hơi trơn, cần cải thiện.', 'TN003', 5);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(4, '2024-01-12 12:30:51', 'Đội ngũ hỗ trợ nhanh chóng và thân thiện.', 'BR001', 4);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(4, '2023-12-23 12:30:51', 'Ánh sáng tốt, phù hợp chơi buổi tối.', 'TN004', 1);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(5, '2024-01-15 12:30:51', 'Giá thuê phù hợp, sân trong tình trạng tốt.', 'BR001', 6);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(3, '2024-08-03 12:30:51', 'Có chỗ để xe rộng rãi, tiện lợi.', 'TN004', 6);
+INSERT INTO feedbacks (star, created_at, description, field_id, cust_id) VALUES
+(3, '2024-01-15 12:30:51', 'Sân không đúng như quảng cáo, khá thất vọng.', 'BC001', 2);
 
 --Tournament
 INSERT INTO tournament (tournament_id, tournament_name, description, fee, link_img, centre_id, tourn_status, organizer, contact) VALUES 
