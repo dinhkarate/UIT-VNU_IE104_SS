@@ -1,0 +1,515 @@
+/* =====================================
+   1. RESET & BASE
+===================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #E6F1FA;
+    align-items: center; 
+}
+
+.breadcrumb {
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 24px 0;
+    margin-left: 132px;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover,
+.breadcrumb span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    max-height: 1000px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.image-container img {
+    width: 100%;
+    height: 1000px;
+    object-fit: cover;
+}
+
+.image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.54);
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+.description-container {
+    z-index: 1;
+}
+
+.title-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tieu-de {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sport {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 70px;
+    color: #ffffff;
+    text-shadow: 
+        -3.5px -3.5px 0 #000000,  
+         3.5px -3.5px 0 #000000,  
+        -3.5px  3.5px 0 #000000,  
+         3.5px  3.5px 0 #000000;
+    line-height: 1.6;
+}
+
+.league {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 70px;
+    color: #4BE1CA;
+    text-shadow: 
+        -3.5px -3.5px 0 #000000,  
+         3.5px -3.5px 0 #000000,  
+        -3.5px  3.5px 0 #000000,  
+         3.5px  3.5px 0 #000000;
+}
+
+.mota {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 
+        -1px -1px 0 #000000,  
+         1px -1px 0 #000000,  
+        -1px  1px 0 #000000,  
+         1px  1px 0 #000000;
+}
+
+
+@media screen and (max-width: 1536px) {
+    /* Search Section */
+    .image-container img {
+        height: 800px;
+    }
+    .search-bar {
+        width: 500px;
+        height: 30px;
+        margin-right: 30px;
+    }
+    .search-bar button {
+        width: 60px;
+        height: 30px;
+        border-width: 10px;
+    }
+    .search-bar button img {
+        width: 18px;
+    }
+    .search-bar button:hover {
+        background-color: #008fbf;
+    }
+}
+
+/* =====================================
+   2. CONTAINER 1 (Hero)
+===================================== */
+.hero-container {
+    position: relative;
+    width: 100%;
+    max-width: 1536px;
+    min-height: 500px; 
+    background: url('Rectangle 464.png') no-repeat center center; 
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-title {
+    font-size: 70px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 80px;
+    -webkit-text-stroke: 2px #000000; 
+}
+
+.field-highlight {
+    color: #4BE1CA;
+}
+
+.hero-subtitle {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    max-width: 800px;
+    -webkit-text-stroke: 1px #000000;
+}
+
+
+
+/* =====================================
+   4. CONTAINER 3 (Solution)
+===================================== */
+.solution-container {
+    width: 100%;
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 40px 80px; 
+    box-sizing: border-box;
+    color: #000000;
+}
+
+.solution-title {
+    font-size: 50px;  /* Theo yêu cầu cũ */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+.solution-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.solution-description {
+    font-size: 40px; /* Theo yêu cầu cũ */
+    font-weight: 400;
+    line-height: 1.3;
+    max-width: 800px;
+    margin-right: 30px; 
+}
+
+.solution-image {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin-left: 40px; 
+}
+
+
+/* =====================================
+   3. CONTAINER 2 (Challenges)
+===================================== */
+.challenges-container {
+    width: 100%;
+    max-width: 1536px;
+    padding: 40px 80px;
+    box-sizing: border-box;
+    color: #000000;
+    margin: 0 auto;
+}
+
+.challenges-title {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #000000; 
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 480px);
+    grid-auto-rows: 380px;
+    grid-column-gap: 15px;
+    grid-row-gap: 20px;
+    justify-content: center; 
+}
+
+.challenge-item {
+    background-color: rgba(217, 217, 217, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.challenge-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.challenge-heading {
+    font-size: 25px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.challenge-description {
+    font-size: 20px;
+    font-weight: 300;
+    color: #000000;
+    line-height: 1.5;
+}
+
+
+/* =====================================
+   5. 4 CONTAINER MỚI (SO LE TRÁI/PHẢI)
+===================================== */
+.feature-container {
+    width: 100%;
+    max-width: 1436px;
+    margin: 0 auto;
+    padding: 40px 80px; 
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* container-left: (tiêu đề + hình) bên trái, nội dung bên phải */
+.container-left {
+    flex-direction: row;
+}
+
+/* container-right: (tiêu đề + hình) bên phải, nội dung bên trái */
+.container-right {
+    flex-direction: row-reverse;
+}
+
+/* Cột trái / phải */
+.feature-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.feature-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Tiêu đề (45px, bold) + khoảng cách 100px giữa tiêu đề & hình */
+.feature-title {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.feature-title-left {
+    text-align: left;
+    margin-left: 10%; /* hoặc một giá trị phù hợp với layout của bạn */
+}
+
+.feature-title-right {
+    text-align: right;
+    margin-right: 6%; /* hoặc một giá trị phù hợp với layout của bạn */
+}
+
+/* Ảnh minh họa 720 x 350 */
+.feature-image {
+    width: 720px;
+    height: 350px;
+}
+
+/* Nội dung (không bullet, dùng <br>) */
+.feature-text {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 600px; 
+    word-wrap: break-word;
+}
+
+/* =====================================
+   6. REASON CONTAINER
+===================================== */
+.reason-container {
+    width: 100%;
+    max-width: 1436px;
+    margin: 60px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.reason-title {
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000000;
+}
+
+.reason-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reason-image {
+    max-width: 109%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Điều chỉnh responsive cho các container */
+@media screen and (max-width: 1536px) {
+    .feature-container,
+    .reason-container {
+        padding: 40px 20px;
+    }
+
+    .feature-image {
+        width: 100%;
+        max-width: 720px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .feature-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .feature-text {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .feature-title-left,
+    .feature-title-right {
+        text-align: center;
+        margin: 0;
+        padding: 0 20px;
+    }
+}
+
+
+
+
+
+.faq-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.faq-header {
+    background-color: #e8f0fe;
+    padding: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+.faq-item {
+    border-bottom: 1px solid #ddd;
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+.faq-question {
+    background-color: #f9f9f9;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-image {
+    width: 300px;
+    height: auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.contact-info div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info div img {
+    width: 160px;
+    height: auto;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}

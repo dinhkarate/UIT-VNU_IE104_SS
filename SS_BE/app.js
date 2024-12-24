@@ -146,6 +146,10 @@ app.get('/payment', (req, res) => {
   res.sendFile(path.join(__dirname, '../SS_FE/views/pages/payment.html'));
 });
 
+app.get('/tournament/tournament_detail', (req, res) => {
+  res.sendFile(path.join(__dirname, '../SS_FE/views/pages/tournament_detail.html'));
+});
+
 app.listen(config.PORT, () => {
     console.log(`Server is running on http://localhost:${config.PORT}`);
   });
